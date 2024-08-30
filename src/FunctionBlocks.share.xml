@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../Organization/knxprod-support/knx_project_14/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer" xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
+	<op:config name="%IW_NumChannelsDefault%" value="%N%" />
+	<ManufacturerData>
+		<Manufacturer>
+			<ApplicationPrograms>
+				<ApplicationProgram>
+					<Static>
+						<ParameterTypes>
+							<ParameterType Id="%AID%_PT-FCBNumChannels" Name="FCBNumChannels">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="%N%" />
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-FCBChannelType" Name="FCBChannelType" >
+								<TypeRestriction Base="Value" SizeInBit="8" >
+									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
+									<Enumeration Text="UND" Value="1" Id="%ENID%" />
+									<Enumeration Text="ODER" Value="2" Id="%ENID%" />
+									<Enumeration Text="Prioritätsschalter" Value="3" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBBinaryKoDeativatable" Name="FCBBinaryKoDeativatable" >
+								<TypeRestriction Base="Value" SizeInBit="2" >
+									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
+									<Enumeration Text="Normal" Value="1" Id="%ENID%" />
+									<Enumeration Text="Invertiert" Value="2" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBOutputType1Byte" Name="FCBOutputType1Byte" >
+								<TypeRestriction Base="Value" SizeInBit="2" >
+									<Enumeration Text="Prozent (0-100%)" Value="0" Id="%ENID%" />
+									<Enumeration Text="1 Byte (Ohne Vorzeichen)" Value="1" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+						
+							<ParameterType Id="%AID%_PT-FCBValuePercentage" Name="FCBValuePercentage">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
+							</ParameterType>
+							
+							<ParameterType Id="%AID%_PT-FCBValue1Byte" Name="FCBValue1Byte">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="255" />
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBInputValueBehavior" Name="FCBFCBInputValueBehavior">
+								<TypeRestriction Base="Value" SizeInBit="4" >
+									<Enumeration Text="AUS" Value="0" Id="%ENID%" />
+									<Enumeration Text="EIN" Value="1" Id="%ENID%" />
+									<Enumeration Text="vom Bus lesen, dann AUS" Value="2" Id="%ENID%" />
+									<Enumeration Text="vom Bus lesen, dann EIN" Value="3" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBOutputBehavior" Name="FCBOutputBehavior">
+								<TypeRestriction Base="Value" SizeInBit="1" >
+									<Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
+									<Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+						</ParameterTypes>
+						<Parameters>
+							<!-- Base Settings -->
+							<Union SizeInBit="8">
+								<Memory CodeSegment="%MID%" Offset="0" BitOffset="0" />
+								<!-- Number of channels -->
+								<Parameter Id="%AID%_UP-%TT%00000" Name="VisibleChannels" ParameterType="%AID%_PT-FCBNumChannels" Offset="0" BitOffset="0" Text="Verfügbare Kanäle" Value="%IW_NumChannelsDefault%" SuffixText=" von %N%" />
+							</Union>							
+						</Parameters>
+						<ParameterRefs>
+							<!-- Number of channels -->
+							<ParameterRef Id="%AID%_UP-%TT%00000_R-%TT%0000001" RefId="%AID%_UP-%TT%00000"  />
+							
+						</ParameterRefs>
+						<ComObjectTable>
+						</ComObjectTable>
+						<ComObjectRefs>
+						</ComObjectRefs>
+					</Static>
+					<Dynamic>
+						<Channel Name="MainChannel%TT%" Text="Funktionsblöcke" Number="%TT%" Id="%AID%_CH-%TT%" Icon="texture-box">
+							<ParameterBlock Id="%AID%_PB-nnn" Name="FunctionBlockSettings" Text="Allgemein" Icon="cog-outline" HelpContext="FCB-Allgemein">
+
+								<ParameterSeparator Id="%AID%_PS-nnn" Text="Funktionsblöcke" UIHint="Headline" />
+								<ParameterSeparator Id="%AID%_PS-nnn" Text="Version: %ModuleVersion%"  />
+
+								<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+								<!-- FCB Client Kanalauswahl -->
+								<ParameterSeparator Id="%AID%_PS-nnn" Text="Kanalauswahl" UIHint="Headline" />
+								<!-- Kanalanzahl -->
+								<ParameterRefRef RefId="%AID%_UP-%TT%00000_R-%TT%0000001" HelpContext="%DOC%" />
+								
+								<op:include href="FunctionBlocks.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Settings']/*" type="template" prefix="FCB" IsInner="true" />
+
+
+							</ParameterBlock>
+							<op:include href="FunctionBlocks.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='Channel']/*" type="template" prefix="FCB" IsInner="true" />
+
+							<!-- More Page -->
+							<choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
+								<when test="&lt;%N%">
+									<ParameterBlock Id="%AID%_PB-nnn" Name="FCBAdditionalChannels" Text="(mehr)" Icon="dots-horizontal">										<!-- HelpContext="Empty" -->
+										<ParameterSeparator Id="%AID%_PS-nnn" Text="Kanalauswahl" UIHint="Headline" />
+										<ParameterRefRef RefId="%AID%_UP-%TT%00000_R-%TT%0000001" HelpContext="%DOC%" />
+										<!-- HelpContext="BASE-Verfuegbare-Kanaele" IndentLevel="1" /-->
+									</ParameterBlock>
+								</when>
+							</choose>
+						</Channel>
+					</Dynamic>
+				</ApplicationProgram>
+			</ApplicationPrograms>
+			<Baggages>
+				<Baggage TargetPath="" Name="Help_de.zip" Id="%FILE-HELP-de%">
+					<FileInfo TimeInfo="%DATETIME%" />
+				</Baggage>
+				<Baggage TargetPath="" Name="Icons.zip" Id="%FILE-ICONS%">
+					<FileInfo TimeInfo="%DATETIME%" />
+				</Baggage>
+			</Baggages>
+		</Manufacturer>
+	</ManufacturerData>
+</KNX>

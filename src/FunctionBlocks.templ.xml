@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="../../Organization/knxprod-support/knx_project_14/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer"
+  xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
+  <ManufacturerData>
+    <Manufacturer>
+      <ApplicationPrograms>
+        <ApplicationProgram>
+          <Static>
+            <Parameters>
+              <!-- Kanal Name -->
+              <Parameter Id="%AID%_P-%TT%%CC%000" Name="Channel%C%Name" ParameterType="%AID%_PT-Text40Byte" Text="Bezeichnung" Value="" />
+
+              <Union SizeInBit="16">
+                <Memory CodeSegment="%MID%" Offset="0" BitOffset="0" />
+                <!-- Channel Type -->
+                <Parameter Id="%AID%_UP-%TT%%CC%001" Name="CH%C%ChannelType" ParameterType="%AID%_PT-FCBChannelType" Offset="0" BitOffset="0" Text="Funktionsblock %C%" Value="0" />
+                <!-- Channel Disabled -->
+                <Parameter Id="%AID%_UP-%TT%%CC%002" Name="CH%C%ChannelDisabled" ParameterType="%AID%_PT-CheckBox" Offset="1" BitOffset="0" Text="Kanal deaktivieren (zu Testzwecken)" Value="0" />
+
+                <!-- 7 Bits free-->
+              </Union>
+
+              <!-- AND / OR -->
+              <Union SizeInBit="64">
+                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
+
+                <!-- Binary KO 0 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%150" Name="CH%C%LogicKo0D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="0" Text="Eingang 1" Value="1" />
+                <!-- Binary KO 1 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%151" Name="CH%C%LogicKo1D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="2" Text="Eingang 2" Value="1" />
+                <!-- Binary KO 2 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%152" Name="CH%C%LogicKo2D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="4" Text="Eingang 3" Value="0" />
+                <!-- Binary KO 3 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%153" Name="CH%C%LogicKo3D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="6" Text="Eingang 4" Value="0" />
+                <!-- Binary KO 4 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%154" Name="CH%C%LogicKo4D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="0" Text="Eingang 5" Value="0" />
+                <!-- Binary KO 5 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%155" Name="CH%C%LogicKo5D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="2" Text="Eingang 6" Value="0" />
+                <!-- Binary KO 6 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%156" Name="CH%C%LogicKo6D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="4" Text="Eingang 7" Value="0" />
+                <!-- Binary KO 7 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%157" Name="CH%C%LogicKo7D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="6" Text="Eingang 8" Value="0" />
+                <!-- Binary KO 8 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%158" Name="CH%C%LogicKo8D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="2" BitOffset="0" Text="Eingang 9" Value="0" />
+                <!-- Binary KO 9 Not Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%159" Name="CH%C%LogicKo9D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="2" BitOffset="2" Text="Eingang 10" Value="0" />
+
+                <!-- Output Inverted -->
+                <Parameter Id="%AID%_UP-%TT%%CC%160" Name="CH%C%LogicOutInv" ParameterType="%AID%_PT-OnOffYesNo" Offset="2" BitOffset="3" Text="Invertiert" Value="0" />
+
+                <!-- 4 Bits free -->
+
+                <!-- Input Ko 0 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%161" Name="CH%C%LogicBehavKo0" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="3" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 1 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%162" Name="CH%C%LogicBehavKo1" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="3" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 2 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%163" Name="CH%C%LogicBehavKo2" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="4" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 3 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%164" Name="CH%C%LogicBehavKo3" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="4" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 4 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%165" Name="CH%C%LogicBehavKo4" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="5" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 5 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%166" Name="CH%C%LogicBehavKo5" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="5" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 6 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%167" Name="CH%C%LogicBehavKo6" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="6" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 7 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%168" Name="CH%C%LogicBehavKo7" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="6" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 8 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%169" Name="CH%C%LogicBehavKo8" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="7" BitOffset="0" Text="Initialisierung" Value="0" />
+
+                <!-- Output Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%170" Name="CH%C%LogicBehavOut" ParameterType="%AID%_PT-FCBOutputBehavior" Offset="7" BitOffset="4" Text="Sendeverhalten" Value="1" />
+
+                <!-- Next Id: %AID%_UP-%TT%%CC%171 -->
+              </Union>
+
+              <!-- Priority Switch -->
+              <Union SizeInBit="144">
+                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
+                <!-- Binary KO 0 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%102" Name="CH%C%PrioKo0D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="0" Text="Eingang 1" Value="1" />
+                <!-- Binary KO 1 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%103" Name="CH%C%PrioKo1D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="2" Text="Eingang 2" Value="1" />
+                <!-- Binary KO 2 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%104" Name="CH%C%PrioKo2D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="4" Text="Eingang 3" Value="0" />
+                <!-- Binary KO 3 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%105" Name="CH%C%PrioKo3D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="6" Text="Eingang 4" Value="0" />
+                <!-- Binary KO 4 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%106" Name="CH%C%PrioKo4D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="0" Text="Eingang 5" Value="0" />
+                <!-- Binary KO 5 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%107" Name="CH%C%PrioKo5D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="2" Text="Eingang 6" Value="0" />
+                <!-- Binary KO 6 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%108" Name="CH%C%PrioKo6D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="4" Text="Eingang 7" Value="0" />
+                <!-- Binary KO 7 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%109" Name="CH%C%PrioKo7D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="1" BitOffset="6" Text="Eingang 8" Value="0" />
+                <!-- Binary KO 8 Deactivatable-->
+                <Parameter Id="%AID%_UP-%TT%%CC%110" Name="CH%C%PrioKo8D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="2" BitOffset="0" Text="Eingang 9" Value="0" />
+
+                <!-- Output value Type -->
+                <Parameter Id="%AID%_UP-%TT%%CC%111" Name="CH%C%PrioOutputType" ParameterType="%AID%_PT-FCBOutputType1Byte" Offset="2" BitOffset="2" Text="Type" Value="1" />
+                <!-- 4 bits free -->
+
+
+                <!-- Output Value Ko 0-->
+                <Parameter Id="%AID%_UP-%TT%%CC%112" Name="CH%C%PrioOutPKo0" ParameterType="%AID%_PT-FCBValuePercentage" Offset="3" BitOffset="0" Text="Ausgangswert" Value="10" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%113" Name="CH%C%PrioOutByteKo0" ParameterType="%AID%_PT-FCBValue1Byte" Offset="3" BitOffset="0" Text="Ausgangswert" Value="1" />
+
+                <!-- Output Value Ko 1-->
+                <Parameter Id="%AID%_UP-%TT%%CC%114" Name="CH%C%PrioOutPKo1" ParameterType="%AID%_PT-FCBValuePercentage" Offset="4" BitOffset="0" Text="Ausgangswert" Value="20" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%115" Name="CH%C%PrioOutByteKo1" ParameterType="%AID%_PT-FCBValue1Byte" Offset="4" BitOffset="0" Text="Ausgangswert" Value="2" />
+
+                <!-- Output Value Ko 2-->
+                <Parameter Id="%AID%_UP-%TT%%CC%116" Name="CH%C%PrioOutPKo2" ParameterType="%AID%_PT-FCBValuePercentage" Offset="5" BitOffset="0" Text="Ausgangswert" Value="30" SuffixText='%'/>
+                <Parameter Id="%AID%_UP-%TT%%CC%117" Name="CH%C%PrioOutByteKo2" ParameterType="%AID%_PT-FCBValue1Byte" Offset="5" BitOffset="0" Text="Ausgangswert" Value="3" />
+
+                <!-- Output Value Ko 3-->
+                <Parameter Id="%AID%_UP-%TT%%CC%118" Name="CH%C%PrioOutPKo3" ParameterType="%AID%_PT-FCBValuePercentage" Offset="6" BitOffset="0" Text="Ausgangswert" Value="40" SuffixText='%'/>
+                <Parameter Id="%AID%_UP-%TT%%CC%119" Name="CH%C%PrioOutByteKo3" ParameterType="%AID%_PT-FCBValue1Byte" Offset="6" BitOffset="0" Text="Ausgangswert" Value="4" />
+
+                <!-- Output Value Ko 4-->
+                <Parameter Id="%AID%_UP-%TT%%CC%120" Name="CH%C%PrioOutPKo4" ParameterType="%AID%_PT-FCBValuePercentage" Offset="7" BitOffset="0" Text="Ausgangswert" Value="50" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%121" Name="CH%C%PrioOutByteKo4" ParameterType="%AID%_PT-FCBValue1Byte" Offset="7" BitOffset="0" Text="Ausgangswert" Value="5" />
+
+                <!-- Output Value Ko 5-->
+                <Parameter Id="%AID%_UP-%TT%%CC%122" Name="CH%C%PrioOutPKo5" ParameterType="%AID%_PT-FCBValuePercentage" Offset="8" BitOffset="0" Text="Ausgangswert" Value="60" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%123" Name="CH%C%PrioOutByteKo5" ParameterType="%AID%_PT-FCBValue1Byte" Offset="8" BitOffset="0" Text="Ausgangswert" Value="6" />
+
+                <!-- Output Value Ko 6-->
+                <Parameter Id="%AID%_UP-%TT%%CC%124" Name="CH%C%PrioOutPKo6" ParameterType="%AID%_PT-FCBValuePercentage" Offset="9" BitOffset="0" Text="Ausgangswert" Value="70" SuffixText='%'/>
+                <Parameter Id="%AID%_UP-%TT%%CC%125" Name="CH%C%PrioOutByteKo6" ParameterType="%AID%_PT-FCBValue1Byte" Offset="9" BitOffset="0" Text="Ausgangswert" Value="7" />
+
+                <!-- Output Value Ko 7-->
+                <Parameter Id="%AID%_UP-%TT%%CC%126" Name="CH%C%PrioOutPKo7" ParameterType="%AID%_PT-FCBValuePercentage" Offset="10" BitOffset="0" Text="Ausgangswert" Value="80" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%127" Name="CH%C%PrioOutByteKo7" ParameterType="%AID%_PT-FCBValue1Byte" Offset="10" BitOffset="0" Text="Ausgangswert" Value="8" />
+
+                <!-- Output Value Ko 8-->
+                <Parameter Id="%AID%_UP-%TT%%CC%128" Name="CH%C%PrioOutPKo8" ParameterType="%AID%_PT-FCBValuePercentage" Offset="11" BitOffset="0" Text="Ausgangswert" Value="90" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%129" Name="CH%C%PrioOutByteKo8" ParameterType="%AID%_PT-FCBValue1Byte" Offset="11" BitOffset="0" Text="Ausgangswert" Value="9" />
+
+                <!-- Output Value Ko 9-->
+                <Parameter Id="%AID%_UP-%TT%%CC%130" Name="CH%C%PrioOutPDefault" ParameterType="%AID%_PT-FCBValuePercentage" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="0" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%131" Name="CH%C%PrioOutByteDefault" ParameterType="%AID%_PT-FCBValue1Byte" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="0" />
+
+                <!-- Input Ko 0 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%132" Name="CH%C%PrioBehavKo0" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="13" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 1 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%133" Name="CH%C%PrioBehavKo1" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="13" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 2 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%134" Name="CH%C%PrioBehavKo2" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="14" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 3 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%135" Name="CH%C%PrioBehavKo3" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="14" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 4 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%136" Name="CH%C%PrioBehavKo4" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="15" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 5 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%137" Name="CH%C%PrioBehavKo5" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="15" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 6 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%138" Name="CH%C%PrioBehavKo6" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="16" BitOffset="0" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 7 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%139" Name="CH%C%PrioBehavKo7" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="16" BitOffset="4" Text="Initialisierung" Value="0" />
+                <!-- Input Ko 8 Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%140" Name="CH%C%PrioBehavKo8" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="17" BitOffset="0" Text="Initialisierung" Value="0" />
+
+                <!-- Output Behavior -->
+                <Parameter Id="%AID%_UP-%TT%%CC%141" Name="CH%C%PrioBehavOut" ParameterType="%AID%_PT-FCBOutputBehavior" Offset="17" BitOffset="4" Text="Sendeverhalten" Value="1" />
+                <!-- 3 Bits free -->
+
+              </Union>
+
+            </Parameters>
+            <ParameterRefs>
+              <!-- Kanal Name -->
+              <ParameterRef Id="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" RefId="%AID%_P-%TT%%CC%000" />
+              <!-- Channel Type -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_UP-%TT%%CC%001"/>
+              <!-- Channel Disabled -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" RefId="%AID%_UP-%TT%%CC%002" />
+
+
+              <!-- Priority Switch -->
+              <!-- Binary KO 0 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%102_R-%TT%%CC%10201" RefId="%AID%_UP-%TT%%CC%102" />
+              <!-- Binary KO 1 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%103_R-%TT%%CC%10301" RefId="%AID%_UP-%TT%%CC%103" />
+              <!-- Binary KO 2 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%104_R-%TT%%CC%10401" RefId="%AID%_UP-%TT%%CC%104" />
+              <!-- Binary KO 3 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%105_R-%TT%%CC%10501" RefId="%AID%_UP-%TT%%CC%105" />
+              <!-- Binary KO 4 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%106_R-%TT%%CC%10601" RefId="%AID%_UP-%TT%%CC%106" />
+              <!-- Binary KO 5 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%107_R-%TT%%CC%10701" RefId="%AID%_UP-%TT%%CC%107" />
+              <!-- Binary KO 6 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%108_R-%TT%%CC%10801" RefId="%AID%_UP-%TT%%CC%108" />
+              <!-- Binary KO 7 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%109_R-%TT%%CC%10901" RefId="%AID%_UP-%TT%%CC%109" />
+              <!-- Binary KO 8 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%110_R-%TT%%CC%11001" RefId="%AID%_UP-%TT%%CC%110" />
+              <!-- Output value Type -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101" RefId="%AID%_UP-%TT%%CC%111" />
+              <!-- Output Value Ko 0-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%112_R-%TT%%CC%11201" RefId="%AID%_UP-%TT%%CC%112" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%113_R-%TT%%CC%11301" RefId="%AID%_UP-%TT%%CC%113" />
+              <!-- Output Value Ko 1-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%114_R-%TT%%CC%11401" RefId="%AID%_UP-%TT%%CC%114" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%115_R-%TT%%CC%11501" RefId="%AID%_UP-%TT%%CC%115" />
+              <!-- Output Value Ko 2-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%116_R-%TT%%CC%11601" RefId="%AID%_UP-%TT%%CC%116" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%117_R-%TT%%CC%11701" RefId="%AID%_UP-%TT%%CC%117" />
+              <!-- Output Value Ko 3-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%118_R-%TT%%CC%11801" RefId="%AID%_UP-%TT%%CC%118" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%119_R-%TT%%CC%11901" RefId="%AID%_UP-%TT%%CC%119" />
+              <!-- Output Value Ko 4-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%120_R-%TT%%CC%12001" RefId="%AID%_UP-%TT%%CC%120" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%121_R-%TT%%CC%12101" RefId="%AID%_UP-%TT%%CC%121" />
+              <!-- Output Value Ko 5-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%122_R-%TT%%CC%12201" RefId="%AID%_UP-%TT%%CC%122" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%123_R-%TT%%CC%12301" RefId="%AID%_UP-%TT%%CC%123" />
+              <!-- Output Value Ko 6-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%124_R-%TT%%CC%12401" RefId="%AID%_UP-%TT%%CC%124" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%125_R-%TT%%CC%12501" RefId="%AID%_UP-%TT%%CC%125" />
+              <!-- Output Value Ko 7-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%126_R-%TT%%CC%12601" RefId="%AID%_UP-%TT%%CC%126" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%127_R-%TT%%CC%12701" RefId="%AID%_UP-%TT%%CC%127" />
+              <!-- Output Value Ko 8-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%128_R-%TT%%CC%12801" RefId="%AID%_UP-%TT%%CC%128" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%129_R-%TT%%CC%12901" RefId="%AID%_UP-%TT%%CC%129" />
+              <!-- Output Value Default-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%130_R-%TT%%CC%13001" RefId="%AID%_UP-%TT%%CC%130" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%131_R-%TT%%CC%13101" RefId="%AID%_UP-%TT%%CC%131" />
+
+              <!-- Input Ko 0 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%132_R-%TT%%CC%13201" RefId="%AID%_UP-%TT%%CC%132" />
+              <!-- Input Ko 1 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%133_R-%TT%%CC%13301" RefId="%AID%_UP-%TT%%CC%133" />
+              <!-- Input Ko 2 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%134_R-%TT%%CC%13401" RefId="%AID%_UP-%TT%%CC%134" />
+              <!-- Input Ko 3 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%135_R-%TT%%CC%13501" RefId="%AID%_UP-%TT%%CC%135" />
+              <!-- Input Ko 4 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%136_R-%TT%%CC%13601" RefId="%AID%_UP-%TT%%CC%136" />
+              <!-- Input Ko 5 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%137_R-%TT%%CC%13701" RefId="%AID%_UP-%TT%%CC%137" />
+              <!-- Input Ko 6 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%138_R-%TT%%CC%13801" RefId="%AID%_UP-%TT%%CC%138" />
+              <!-- Input Ko 7 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%139_R-%TT%%CC%13901" RefId="%AID%_UP-%TT%%CC%139" />
+              <!-- Input Ko 8 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%140_R-%TT%%CC%14001" RefId="%AID%_UP-%TT%%CC%140" />
+
+              <!-- Output Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%141_R-%TT%%CC%14101" RefId="%AID%_UP-%TT%%CC%141" />
+
+
+
+              <!-- AND / OR -->
+
+              <!-- Binary KO 0 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" RefId="%AID%_UP-%TT%%CC%150" />
+              <!-- Binary KO 1 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" RefId="%AID%_UP-%TT%%CC%151" />
+              <!-- Binary KO 2 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" RefId="%AID%_UP-%TT%%CC%152" />
+              <!-- Binary KO 3 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" RefId="%AID%_UP-%TT%%CC%153" />
+              <!-- Binary KO 4 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" RefId="%AID%_UP-%TT%%CC%154" />
+              <!-- Binary KO 5 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" RefId="%AID%_UP-%TT%%CC%155" />
+              <!-- Binary KO 6 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" RefId="%AID%_UP-%TT%%CC%156" />
+              <!-- Binary KO 7 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" RefId="%AID%_UP-%TT%%CC%157" />
+              <!-- Binary KO 8 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" RefId="%AID%_UP-%TT%%CC%158" />
+              <!-- Binary KO 9 Deactivatable-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%159_R-%TT%%CC%15901" RefId="%AID%_UP-%TT%%CC%159" />
+              <!-- Output Inverted -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" RefId="%AID%_UP-%TT%%CC%160" />
+              <!-- Input Ko 0 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" RefId="%AID%_UP-%TT%%CC%161" />
+              <!-- Input Ko 1 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" RefId="%AID%_UP-%TT%%CC%162" />
+              <!-- Input Ko 2 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" RefId="%AID%_UP-%TT%%CC%163" />
+              <!-- Input Ko 3 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" RefId="%AID%_UP-%TT%%CC%164" />
+              <!-- Input Ko 4 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" RefId="%AID%_UP-%TT%%CC%165" />
+              <!-- Input Ko 5 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" RefId="%AID%_UP-%TT%%CC%166" />
+              <!-- Input Ko 6 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" RefId="%AID%_UP-%TT%%CC%167" />
+              <!-- Input Ko 7 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" RefId="%AID%_UP-%TT%%CC%168" />
+              <!-- Input Ko 8 Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" RefId="%AID%_UP-%TT%%CC%169" />
+              <!-- Output Behavior-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" RefId="%AID%_UP-%TT%%CC%170" />
+
+            </ParameterRefs>
+            <ComObjectTable>
+              <!-- KO 0 -->
+              <ComObject Id="%AID%_O-%TT%%CC%000" Number="%K00%" Name="CH%C%KO0" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 1 -->
+              <ComObject Id="%AID%_O-%TT%%CC%001" Number="%K01%" Name="CH%C%KO1" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 2 -->
+              <ComObject Id="%AID%_O-%TT%%CC%002" Number="%K02%" Name="CH%C%KO2" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 3 -->
+              <ComObject Id="%AID%_O-%TT%%CC%003" Number="%K03%" Name="CH%C%KO3" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 4 -->
+              <ComObject Id="%AID%_O-%TT%%CC%004" Number="%K04%" Name="CH%C%KO4" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 5 -->
+              <ComObject Id="%AID%_O-%TT%%CC%005" Number="%K05%" Name="CH%C%KO5" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 6 -->
+              <ComObject Id="%AID%_O-%TT%%CC%006" Number="%K06%" Name="CH%C%KO6" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 7 -->
+              <ComObject Id="%AID%_O-%TT%%CC%007" Number="%K07%" Name="CH%C%KO7" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 8 -->
+              <ComObject Id="%AID%_O-%TT%%CC%008" Number="%K08%" Name="CH%C%KO8" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <!-- KO 9 -->
+              <ComObject Id="%AID%_O-%TT%%CC%009" Number="%K09%" Name="CH%C%KO9" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+            </ComObjectTable>
+            <ComObjectRefs>
+
+              <!-- Priority Switch -->
+              <!-- Priority 1-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 1" FunctionText="{{0:-}} Priorität 1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 2-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 2" FunctionText="{{0:-}} Priorität 2" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 3-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 3" FunctionText="{{0:-}} Priorität 3" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 4-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 4" FunctionText="{{0:-}} Priorität 4" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 5-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 5" FunctionText="{{0:-}} Priorität 5" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 6-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 6" FunctionText="{{0:-}} Priorität 6" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 7-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 7" FunctionText="{{0:-}} Priorität 7" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 8-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 8" FunctionText="{{0:-}} Priorität 8" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Priority 9-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 9" FunctionText="{{0:-}} Priorität 9" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Output -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte" DatapointType="DPST-5-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang %" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00911" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte" DatapointType="DPST-5-10" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang Wert" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+
+
+              <!-- AND/OR -->
+              <!-- Input 1-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 1" FunctionText="{{0:-}} Eingang 1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 2-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 2" FunctionText="{{0:-}} Eingang 2" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 3-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 3" FunctionText="{{0:-}} Eingang 3" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 4-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 4" FunctionText="{{0:-}} Eingang 4" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 5-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 5" FunctionText="{{0:-}} Eingang 5" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 6-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 6" FunctionText="{{0:-}} Eingang 6" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 7-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 7" FunctionText="{{0:-}} Eingang 7" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 8-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 8" FunctionText="{{0:-}} Eingang 8" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Input 9-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 9" FunctionText="{{0:-}} Eingang 9" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <!-- Output -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+
+            </ComObjectRefs>
+          </Static>
+          <Dynamic>
+            <ChannelIndependentBlock>
+              <ParameterBlock Id="%AID%_PB-nnn" Name="Settings">
+                <!-- Anzahl der Kanäle -->
+                <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
+                  <when test="&gt;=%C%">
+                    <!-- Kanal Typ -->
+                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
+                  </when>
+                </choose>
+              </ParameterBlock>
+
+              <ParameterBlock Id="%AID%_PB-nnn" Name="Channel">
+
+                <!-- Anzahl der Kanäle -->
+                <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
+                  <when test="&gt;=%C%">
+                    <!-- Kanal Typ -->
+
+                    <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
+                      <when test="0">
+
+                        <!-- ************ Deaktiviert ************ -->
+                        <!-- <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="help-box-outline" HelpContext="Empty"> -->
+
+                        <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Auswahl" UIHint="Headline" /> -->
+                        <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" /> -->
+
+                        <!-- Kanal Name -->
+                        <!-- <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="Empty" /> -->
+                        <!-- Kanal Type -->
+                        <!-- <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="Empty" /> -->
+
+                        <!-- </ParameterBlock> -->
+                      </when>
+                      <when test="1">
+
+                        <!-- ************ UND ************ -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% UND: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="UND" UIHint="Headline" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Kanal Name -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <!-- Channel Disabled-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
+
+                          <!-- Binary KO 0 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001">
+                            <when test="&gt;0">
+                              <!-- Input 1-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" />
+                              <!-- Input Ko 0 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
+
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 1 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101">
+                            <when test="&gt;0">
+                              <!-- Input 2-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" />
+                              <!-- Input Ko 1 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 2 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201">
+                            <when test="&gt;0">
+                              <!-- Input 3-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" />
+                              <!-- Input Ko 2 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 3 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301">
+                            <when test="&gt;0">
+                              <!-- Input 4-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" />
+                              <!-- Input Ko 3 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 4 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401">
+                            <when test="&gt;0">
+                              <!-- Input 5-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" />
+                              <!-- Input Ko 4 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 5 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501">
+                            <when test="&gt;0">
+                              <!-- Input 6-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" />
+                              <!-- Input Ko 5 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 6 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601">
+                            <when test="&gt;0">
+                              <!-- Input 7-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" />
+                              <!-- Input Ko 6 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 7 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701">
+                            <when test="&gt;0">
+                              <!-- Input 8-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" />
+                              <!-- Input Ko 7 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 8 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801">
+                            <when test="&gt;0">
+                              <!-- Input 9-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" />
+                              <!-- Input Ko 8 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
+
+                          <!-- Output Inverted -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
+                          <!-- Output Behavior-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
+
+
+                          <!-- Output -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" />
+
+                        </ParameterBlock>
+                      </when>
+                      <when test="2">
+
+                        <!-- ************ ODER ************ -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% ODER: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="ODER" UIHint="Headline" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Kanal Name -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <!-- Channel Disabled-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
+
+                          <!-- Binary KO 0 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001">
+                            <when test="&gt;0">
+                              <!-- Input 1-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" />
+                              <!-- Input Ko 0 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
+
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 1 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101">
+                            <when test="&gt;0">
+                              <!-- Input 2-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" />
+                              <!-- Input Ko 1 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 2 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201">
+                            <when test="&gt;0">
+                              <!-- Input 3-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" />
+                              <!-- Input Ko 2 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 3 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301">
+                            <when test="&gt;0">
+                              <!-- Input 4-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" />
+                              <!-- Input Ko 3 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 4 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401">
+                            <when test="&gt;0">
+                              <!-- Input 5-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" />
+                              <!-- Input Ko 4 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 5 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501">
+                            <when test="&gt;0">
+                              <!-- Input 6-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" />
+                              <!-- Input Ko 5 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 6 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601">
+                            <when test="&gt;0">
+                              <!-- Input 7-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" />
+                              <!-- Input Ko 6 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 7 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701">
+                            <when test="&gt;0">
+                              <!-- Input 8-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" />
+                              <!-- Input Ko 7 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 8 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801">
+                            <when test="&gt;0">
+                              <!-- Input 9-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" />
+                              <!-- Input Ko 8 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
+
+                          <!-- Output Inverted -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
+                          <!-- Output Behavior-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
+
+
+                          <!-- Output -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" />
+
+                        </ParameterBlock>
+                      </when>
+                      <when test="3">
+
+                        <!-- ************ Priority Schalter ************ -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Prioritätsschalter: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Prioritätsschalter" UIHint="Headline" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Kanal Name -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <!-- Channel Disabled-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
+
+                          <!-- Output value Type -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101" HelpContext="FCB-PrioOutputType" />
+                          <!-- Output Behavior-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%141_R-%TT%%CC%14101" HelpContext="%DOC%"/>
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Der Eingang mit der höchste Priorität gibt den Ausgangswert vor" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang 1 hat die niedrigste Priorität, Eingang 9 die höchste." />
+
+
+                          <!-- Output Type -->
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                            <when test="0">
+                              <!-- Output 8 Prozent -->
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%130_R-%TT%%CC%13001" HelpContext="%DOC%" />
+                            </when>
+                            <when test="1">
+                              <!-- Output 8 1 Byte ohne Vorzeichen -->
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%131_R-%TT%%CC%13101" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 0 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%102_R-%TT%%CC%10201" HelpContext="FCB-PrioEingang"/>
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%102_R-%TT%%CC%10201">
+                            <when test="&gt;0">
+                              <!-- Priority 1-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
+                              <!-- Input Ko 0 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%132_R-%TT%%CC%13201" HelpContext="%DOC%"/>
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 0 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%112_R-%TT%%CC%11201" HelpContext="%DOC%"/>
+                                </when>
+                                <when test="1">
+                                  <!-- Output 0 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%113_R-%TT%%CC%11301" HelpContext="%DOC%"/>
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 1 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%103_R-%TT%%CC%10301" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%103_R-%TT%%CC%10301">
+                            <when test="&gt;0">
+                              <!-- Priority 2-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" />
+                              <!-- Input Ko 1 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%133_R-%TT%%CC%13301" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 1 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%114_R-%TT%%CC%11401" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 1 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%115_R-%TT%%CC%11501" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 2 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%104_R-%TT%%CC%10401" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%104_R-%TT%%CC%10401">
+                            <when test="&gt;0">
+                              <!-- Priority 3-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" />
+                              <!-- Input Ko 2 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%134_R-%TT%%CC%13401" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 2 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%116_R-%TT%%CC%11601" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 2 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%117_R-%TT%%CC%11701" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 3 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%105_R-%TT%%CC%10501" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%105_R-%TT%%CC%10501">
+                            <when test="&gt;0">
+                              <!-- Priority 4-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" />
+                              <!-- Input Ko 3 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%135_R-%TT%%CC%13501" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 3 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%118_R-%TT%%CC%11801" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 3 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%119_R-%TT%%CC%11901" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 4 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%106_R-%TT%%CC%10601" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%106_R-%TT%%CC%10601">
+                            <when test="&gt;0">
+                              <!-- Priority 5-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" />
+                              <!-- Input Ko 4 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%136_R-%TT%%CC%13601" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 4 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%120_R-%TT%%CC%12001" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 4 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%121_R-%TT%%CC%12101" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 5 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%107_R-%TT%%CC%10701" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%107_R-%TT%%CC%10701">
+                            <when test="&gt;0">
+                              <!-- Priority 6-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" />
+                              <!-- Input Ko 5 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%137_R-%TT%%CC%13701" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 5 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%122_R-%TT%%CC%12201" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 5 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%123_R-%TT%%CC%12301" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 6 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%108_R-%TT%%CC%10801" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%108_R-%TT%%CC%10801">
+                            <when test="&gt;0">
+                              <!-- Priority 7-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" />
+                              <!-- Input Ko 6 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%138_R-%TT%%CC%13801" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 6 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%124_R-%TT%%CC%12401" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 6 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%125_R-%TT%%CC%12501" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 7 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%109_R-%TT%%CC%10901" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%109_R-%TT%%CC%10901">
+                            <when test="&gt;0">
+                              <!-- Priority 8-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" />
+                              <!-- Input Ko 7 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%139_R-%TT%%CC%13901" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 7 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%126_R-%TT%%CC%12601" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 7 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%127_R-%TT%%CC%12701" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Binary KO 8 Deactivatable-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%110_R-%TT%%CC%11001" HelpContext="FCB-PrioEingang" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%110_R-%TT%%CC%11001">
+                            <when test="&gt;0">
+                              <!-- Priority 9-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" />
+                              <!-- Input Ko 8 Behavior-->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%140_R-%TT%%CC%14001" HelpContext="%DOC%" />
+                              <!-- Output Type -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                                <when test="0">
+                                  <!-- Output 8 Prozent -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%128_R-%TT%%CC%12801" HelpContext="%DOC%" />
+                                </when>
+                                <when test="1">
+                                  <!-- Output 8 1 Byte ohne Vorzeichen -->
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%129_R-%TT%%CC%12901" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Output -->
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
+                            <when test="0">
+                              <!-- Output Prozent -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" />
+                            </when>
+                            <when test="1">
+                              <!-- Output Value -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00911" />
+                            </when>
+                          </choose>
+
+                        </ParameterBlock>
+                      </when>
+                    </choose>
+                  </when>
+                </choose>
+              </ParameterBlock>
+            </ChannelIndependentBlock>
+          </Dynamic>
+        </ApplicationProgram>
+      </ApplicationPrograms>
+    </Manufacturer>
+  </ManufacturerData>
+</KNX>
