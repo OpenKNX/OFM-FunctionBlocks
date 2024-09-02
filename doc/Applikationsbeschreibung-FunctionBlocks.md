@@ -28,7 +28,12 @@ Dieser kann als Prozentwert oder Zahl zwischen 0-255 festgelegt werden.
 
 ### Beispielsanwendung
 
-Der [Busch-Jaeger 6108/07 Tasterankopplung](https://www.busch-jaeger.at/online-katalog/detail/2CKA006133A0222) hat eine LED verbaut. Die Farbe der LED kann aber über ein Kommunikationsobjekt nicht verändert werden.
+<!-- DOC Skip="1" -->
+Der [Busch-Jaeger 6108/07 Tasterankopplung](https://www.busch-jaeger.at/online-katalog/detail/2CKA006133A0222) hat eine mehrfärbige LED verbaut. 
+<!-- DOCCONTENT
+Der Busch-Jaeger 6108/07 Tasterankopplung hat eine mehrfärbige LED verbaut. 
+DOCCONTENT -->
+Die Farbe der LED kann aber über ein Kommunikationsobjekt nicht verändert werden.
 Jedoch bietet der Taste die Möglichkeit verschiedene Prozentwerte mit verschieden Farben darzustellen.
 So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb, Beschattung aktiv, Windsperre auf Prozentwerte umgesetzt werden, die der Taster in verschiedene Farbwerte umsetzt.
 
@@ -41,7 +46,7 @@ Die Anwendung stellt je Kanal einen Funktionsblock bereit.
 Auf dieser Seite kann gewählt werden, welcher Kanal für welche Funktionsblocktype verwendet wird.
 
 <!-- DOC -->
-#### Verfügbare Kanäle
+### Verfügbare Kanäle
 Maximale Anzahl der benötigten Funktionsblöcke. 
 Die Einstellung dient lediglich dazu, die Seite der Basiseinstellungen kompakt auf das wirklich benötigte zu verkleinern.
 
@@ -165,7 +170,7 @@ Legt den Wert für den Ausgang fest, wenn alle Eingänge AUS sind.
 ### Eingang 1-9
 
 Legt fest ob der Eingang verwendet wird und ob der Eingangswert normal oder invertiert verwendet wird.
-Die Eingangsnummer 1-9 entspricht gleichzeitig der Priorität wobei 1 die niedrigste und 9 die höchste darstellt.
+Die Eingangsnummer 1-9 entspricht gleichzeitig der Priorität, wobei 1 die höchste und 9 die niedrigste darstellt.
 
 <!-- DOCEND-->
 

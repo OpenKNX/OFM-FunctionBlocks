@@ -208,7 +208,10 @@ void PrioritySwitchFunctionBlock::handleKo(GroupObject& ko)
             if (inputKo == 2)
                 inputValue = !inputValue;
             if (inputValue)
+            {
                 prio = i;
+                break;
+            }
         }
         setOutputForPrio(prio);
     }
