@@ -413,7 +413,6 @@
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% UND: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="UND" UIHint="Headline" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Kanal Name -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
@@ -543,7 +542,6 @@
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% ODER: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="ODER" UIHint="Headline" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Kanal Name -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
@@ -673,7 +671,6 @@
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Prioritätsschalter: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Prioritätsschalter" UIHint="Headline" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Kanal Name -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
