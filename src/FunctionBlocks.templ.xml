@@ -320,7 +320,7 @@
               <!-- KO 8 -->
               <ComObject Id="%AID%_O-%TT%%CC%008" Number="%K08%" Name="CH%C%KO8" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
               <!-- KO 9 -->
-              <ComObject Id="%AID%_O-%TT%%CC%009" Number="%K09%" Name="CH%C%KO9" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%%CC%009" Number="%K09%" Name="CH%C%KO9" ObjectSize="1 Byte" DatapointType="DPST-5-10" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
             </ComObjectTable>
             <ComObjectRefs>
 
