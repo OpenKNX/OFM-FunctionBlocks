@@ -17,6 +17,7 @@
 									<Enumeration Text="UND" Value="1" Id="%ENID%" />
 									<Enumeration Text="ODER" Value="2" Id="%ENID%" />
 									<Enumeration Text="Prioritätsschalter" Value="3" Id="%ENID%" />
+									<Enumeration Text="Anzahl" Value="4" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 

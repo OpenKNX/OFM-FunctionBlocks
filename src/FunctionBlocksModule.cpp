@@ -52,7 +52,8 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
     // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
     // <Enumeration Text="UND" Value="1" Id="%ENID%" />
     // <Enumeration Text="ODER" Value="2" Id="%ENID%" />
-    // <Enumeration Text="Prioritätsschalter" Value="3" Id="%ENID%" />   
+    // <Enumeration Text="Prioritätsschalter" Value="3" Id="%ENID%" />
+    // <Enumeration Text="Anzahl" Value="4" Id="%ENID%" />
     switch (ParamFCB_CHChannelType)
     {
         case 0:
@@ -62,6 +63,8 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
             return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicAND);
         case 2:
             return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicOR);
+        case 4:
+            return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicCOUNT);
         case 3:
             return new PrioritySwitchFunctionBlock(_channelIndex);
         default:

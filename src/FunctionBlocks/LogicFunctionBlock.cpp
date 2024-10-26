@@ -2,7 +2,7 @@
 #include "knxprod.h"
 
 LogicFunctionBlock::LogicFunctionBlock(uint8_t channelIndex, LogicFunctionBlockType type)
-    : FunctionBlock(channelIndex, type == LogicFunctionBlockType::LogicOR ? "OR" : "AND"),
+    : FunctionBlock(channelIndex, type == LogicFunctionBlockType::LogicOR ? "OR" : (type == LogicFunctionBlockType::LogicAND ? "AND" : "COUNT")),
       _type(type)
 {
 }
@@ -131,6 +131,7 @@ void LogicFunctionBlock::handleKo(GroupObject& ko)
     {
         // Recalc the output
         bool result = (_type == LogicFunctionBlockType::LogicAND ? true : false);
+        uint8_t count = 0;
         for (uint8_t i = 0; i < 9; i++)
         {
             // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
@@ -166,15 +167,35 @@ void LogicFunctionBlock::handleKo(GroupObject& ko)
                     break;
                 }
             }
+            else
+            {
+                if (inputValue)
+                {
+                    count++; 
+                }
+            }
         }
-        if (ParamFCB_CHLogicOutInv)
-            result = !result;
-     
-        // <Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
-        // <Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
-        if (ParamFCB_CHLogicBehavOut)
-            KoFCB_CHKO9.valueCompare(result, DPT_Switch);
+
+        if (_type == LogicFunctionBlockType::LogicCOUNT)
+        {
+            // <Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
+            // <Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
+            if (ParamFCB_CHLogicBehavOut)
+                KoFCB_CHKO9.valueCompare(count, DPT_Value_1_Ucount);
+            else
+                KoFCB_CHKO9.value(count, DPT_Value_1_Ucount);
+        }
         else
-            KoFCB_CHKO9.value(result, DPT_Switch);
+        {
+            if (ParamFCB_CHLogicOutInv)
+                result = !result;
+        
+            // <Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
+            // <Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
+            if (ParamFCB_CHLogicBehavOut)
+                KoFCB_CHKO9.valueCompare(result, DPT_Switch);
+            else
+                KoFCB_CHKO9.value(result, DPT_Switch);
+        }
     }
 }
