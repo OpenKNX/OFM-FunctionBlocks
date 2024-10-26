@@ -149,6 +149,7 @@ void LogicFunctionBlock::handleKo(GroupObject& ko)
             auto inputValue = (bool)ko.value(DPT_Switch);
             if (inputKo == 2)
                 inputValue = !inputValue;
+            
             if (_type == LogicFunctionBlockType::LogicAND)
             {
                 if (!inputValue)
@@ -157,7 +158,7 @@ void LogicFunctionBlock::handleKo(GroupObject& ko)
                     break;
                 }
             }
-            else
+            else if (_type == LogicFunctionBlockType::LogicOR)
             {
                 if (inputValue)
                 {
