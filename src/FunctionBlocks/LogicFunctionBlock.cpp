@@ -146,7 +146,7 @@ void LogicFunctionBlock::handleKo(GroupObject& ko)
             }
             auto& ko = getKo(i);
 
-            auto inputValue = (bool)ko.value(DPT_Switch);
+            bool inputValue = ko.value(DPT_Switch);
             if (inputKo == 2)
                 inputValue = !inputValue;
             
