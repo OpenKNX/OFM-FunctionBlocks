@@ -171,7 +171,7 @@ void LogicFunctionBlock::handleKo(GroupObject& ko)
      
         // <Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
         // <Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
-        if (ParamFCB_CHLogicBehavOut && KoFCB_CHKO9.initialized())
+        if (ParamFCB_CHLogicBehavOut)
             KoFCB_CHKO9.valueCompare(result, DPT_Switch);
         else
             KoFCB_CHKO9.value(result, DPT_Switch);
