@@ -10,6 +10,7 @@
             <Parameters>
               <!-- Kanal Name -->
               <Parameter Id="%AID%_P-%TT%%CC%000" Name="Channel%C%Name" ParameterType="%AID%_PT-Text40Byte" Text="Bezeichnung" Value="" />
+              <Parameter Id="%AID%_P-%TT%%CC%003" Name="CH%C%Comment"   ParameterType="%AID%_PT-Text512Byte" Text="Kommentar"  Value="" />
 
               <Union SizeInBit="16">
                 <Memory CodeSegment="%MID%" Offset="0" BitOffset="0" />
@@ -172,6 +173,8 @@
             <ParameterRefs>
               <!-- Kanal Name -->
               <ParameterRef Id="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" RefId="%AID%_P-%TT%%CC%000" />
+              <!-- Comment -->
+              <ParameterRef Id="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" RefId="%AID%_P-%TT%%CC%003" />
               <!-- Channel Type -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_UP-%TT%%CC%001"/>
               <!-- Channel Disabled -->
@@ -420,6 +423,13 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
+                          <!-- TODO HelpContext="...-Kommentar" -->
+                          <Button Id="%AID%_B-%TT%%CC%001" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
 
                           <!-- Binary KO 0 Deactivatable-->
@@ -547,6 +557,13 @@
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
+                          <!-- TODO HelpContext="...-Kommentar" -->
+                          <Button Id="%AID%_B-%TT%%CC%002" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
@@ -677,6 +694,12 @@
                           <!-- Channel Disabled-->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" />
+                          <!-- TODO HelpContext="...-Kommentar" -->
+                          <Button Id="%AID%_B-%TT%%CC%003" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
