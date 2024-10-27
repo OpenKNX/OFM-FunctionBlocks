@@ -55,21 +55,19 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
     // <Enumeration Text="Prioritätsschalter" Value="3" Id="%ENID%" />   
     switch (ParamFCB_CHChannelType)
     {
-    case 0:
-        logDebugP("Channel %d is deactivated", _channelIndex);
-        return nullptr;
-    case 1:
-        return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicAND);
-        break;
-    case 2:
-        return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicOR);
-        break;
-    case 3:
-        return new PrioritySwitchFunctionBlock(_channelIndex);
-        break;
+        case 0:
+            logDebugP("Channel %d is deactivated", _channelIndex);
+            return nullptr;
+        case 1:
+            return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicAND);
+        case 2:
+            return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicOR);
+        case 3:
+            return new PrioritySwitchFunctionBlock(_channelIndex);
+        default:
+            logErrorP("Unknown channel type %d", ParamFCB_CHChannelType);
+            return nullptr;
     }
-    logErrorP("Unknown channel type %d", ParamFCB_CHChannelType);
-    return nullptr;
 }
 
 void FunctionBlocksModule::loop()
