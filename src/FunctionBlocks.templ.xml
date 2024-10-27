@@ -323,55 +323,55 @@
               <!-- KO 8 -->
               <ComObject Id="%AID%_O-%TT%%CC%008" Number="%K08%" Name="CH%C%KO8" ObjectSize="1 Bit" DatapointType="DPST-1-17" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
               <!-- KO 9 -->
-              <ComObject Id="%AID%_O-%TT%%CC%009" Number="%K09%" Name="CH%C%KO9" ObjectSize="1 Byte" DatapointType="DPST-5-10" Text="" FunctionText="" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" />
+              <ComObject Id="%AID%_O-%TT%%CC%009" Number="%K09%" Name="CH%C%KO9" ObjectSize="1 Byte" DatapointType="DPST-5-10" Text="" FunctionText="" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
             </ComObjectTable>
             <ComObjectRefs>
 
               <!-- Priority Switch -->
               <!-- Priority 1-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 1" FunctionText="{{0:-}} Priorität 1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 1" FunctionText="{{0:-}} Priorität 1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 2-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 2" FunctionText="{{0:-}} Priorität 2" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 2" FunctionText="{{0:-}} Priorität 2" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 3-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 3" FunctionText="{{0:-}} Priorität 3" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 3" FunctionText="{{0:-}} Priorität 3" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 4-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 4" FunctionText="{{0:-}} Priorität 4" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 4" FunctionText="{{0:-}} Priorität 4" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 5-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 5" FunctionText="{{0:-}} Priorität 5" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 5" FunctionText="{{0:-}} Priorität 5" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 6-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 6" FunctionText="{{0:-}} Priorität 6" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 6" FunctionText="{{0:-}} Priorität 6" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 7-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 7" FunctionText="{{0:-}} Priorität 7" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 7" FunctionText="{{0:-}} Priorität 7" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 8-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 8" FunctionText="{{0:-}} Priorität 8" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 8" FunctionText="{{0:-}} Priorität 8" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Priority 9-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Priorität 9" FunctionText="{{0:-}} Priorität 9" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Priorität 9" FunctionText="{{0:-}} Priorität 9" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Output -->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte" DatapointType="DPST-5-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang %" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00911" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte" DatapointType="DPST-5-10" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang Wert" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte" DatapointType="DPST-5-1" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang %" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00911" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte" DatapointType="DPST-5-10" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang Wert" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
 
               <!-- AND/OR -->
               <!-- Input 1-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 1" FunctionText="{{0:-}} Eingang 1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 1" FunctionText="{{0:-}} Eingang 1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 2-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 2" FunctionText="{{0:-}} Eingang 2" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 2" FunctionText="{{0:-}} Eingang 2" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 3-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 3" FunctionText="{{0:-}} Eingang 3" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 3" FunctionText="{{0:-}} Eingang 3" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 4-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 4" FunctionText="{{0:-}} Eingang 4" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 4" FunctionText="{{0:-}} Eingang 4" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 5-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 5" FunctionText="{{0:-}} Eingang 5" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 5" FunctionText="{{0:-}} Eingang 5" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 6-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 6" FunctionText="{{0:-}} Eingang 6" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 6" FunctionText="{{0:-}} Eingang 6" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 7-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 7" FunctionText="{{0:-}} Eingang 7" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 7" FunctionText="{{0:-}} Eingang 7" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 8-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 8" FunctionText="{{0:-}} Eingang 8" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 8" FunctionText="{{0:-}} Eingang 8" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Input 9-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Disabled" WriteFlag="Enabled" CommunicationFlag="Enabled" TransmitFlag="Disabled" UpdateFlag="Enabled" ReadOnInitFlag="Disabled" Text="%C%: Eingang 9" FunctionText="{{0:-}} Eingang 9" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Eingang 9" FunctionText="{{0:-}} Eingang 9" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
               <!-- Output -->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit" DatapointType="DPST-1-1" ReadFlag="Enabled" WriteFlag="Disabled" CommunicationFlag="Enabled" TransmitFlag="Enabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit" DatapointType="DPST-1-1" Text="%C%: Ausgang" FunctionText="{{0:-}} Ausgang" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" />
 
             </ComObjectRefs>
           </Static>
