@@ -395,9 +395,7 @@
                     <!-- Kanal Typ -->
 
                     <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
-                      <when test="0">
-
-                        <!-- ************ Deaktiviert ************ -->
+                      <when test="0"><!-- ************ Deaktiviert ************ -->
                         <!-- <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="help-box-outline" HelpContext="Empty"> -->
 
                         <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Auswahl" UIHint="Headline" /> -->
@@ -410,9 +408,7 @@
 
                         <!-- </ParameterBlock> -->
                       </when>
-                      <when test="1">
-
-                        <!-- ************ UND ************ -->
+                      <when test="1"><!-- ************ UND ************ -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% UND: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="UND" UIHint="Headline" />
@@ -546,9 +542,7 @@
 
                         </ParameterBlock>
                       </when>
-                      <when test="2">
-
-                        <!-- ************ ODER ************ -->
+                      <when test="2"><!-- ************ ODER ************ -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% ODER: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="ODER" UIHint="Headline" />
@@ -682,9 +676,7 @@
 
                         </ParameterBlock>
                       </when>
-                      <when test="3">
-
-                        <!-- ************ Priority Schalter ************ -->
+                      <when test="3"><!-- ************ Priority Schalter ************ -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Prioritätsschalter: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Prioritätsschalter" UIHint="Headline" />
