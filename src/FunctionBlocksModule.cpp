@@ -2,6 +2,7 @@
 #include "knxprod.h"
 #include "FunctionBlocks/LogicFunctionBlock.h"
 #include "FunctionBlocks/PrioritySwitchFunctionBlock.h"
+#include "FunctionBlocks/SimpleAggregationBlock.h"
 
 FunctionBlocksModule::FunctionBlocksModule()
 {
@@ -67,6 +68,8 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
             return new LogicFunctionBlock(_channelIndex, LogicFunctionBlockType::LogicCOUNT);
         case 3:
             return new PrioritySwitchFunctionBlock(_channelIndex);
+        case 5:
+            return new SimpleAggregationBlock(_channelIndex, static_cast<SimpleAggregationBlockType>(ParamFCB_CHAggType));
         default:
             logErrorP("Unknown channel type %d", ParamFCB_CHChannelType);
             return nullptr;
