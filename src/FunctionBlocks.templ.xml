@@ -257,7 +257,7 @@
 
 
 
-              <!-- AND / OR -->
+              <!-- AND / OR / COUNT -->
 
               <!-- Binary KO 0 Deactivatable-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" RefId="%AID%_UP-%TT%%CC%150" />
