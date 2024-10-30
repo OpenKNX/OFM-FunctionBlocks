@@ -409,7 +409,7 @@
                         <!-- </ParameterBlock> -->
                       </when>
                       <when test="1"><!-- ************ UND ************ -->
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% UND: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_And" Text="%C% UND: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="UND" UIHint="Headline" />
 
@@ -543,7 +543,7 @@
                         </ParameterBlock>
                       </when>
                       <when test="2"><!-- ************ ODER ************ -->
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% ODER: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Or" Text="%C% ODER: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="ODER" UIHint="Headline" />
 
@@ -677,7 +677,7 @@
                         </ParameterBlock>
                       </when>
                       <when test="3"><!-- ************ Priority Schalter ************ -->
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Prioritätsschalter: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Prio" Text="%C% Prioritätsschalter: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Prioritätsschalter" UIHint="Headline" />
 
