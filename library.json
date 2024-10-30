@@ -1,9 +1,6 @@
 {
     "name": "OFM-FunctionBlocks",
     "version": "0.1.0",
-    "dependencies": {
-        "bblanchon/ArduinoJson": "^7.0.4"
-    },
     "description": "Function Blocks",
     "homepage": "https://openknx.de",
     "authors": {
