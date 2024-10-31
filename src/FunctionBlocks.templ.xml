@@ -173,7 +173,7 @@
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
 
                 <!-- Subtype -->
-                <Parameter Id="%AID%_UP-%TT%%CC%171" Name="CH%C%AggType" ParameterType="%AID%_PT-FCBSimpleStatAggTyp" Offset="0" BitOffset="0" Text="Aggregationsfunktion" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%171" Name="CH%C%AggType" ParameterType="%AID%_PT-FCBSimpleStatAggTyp" Offset="0" BitOffset="0" Text="Funktion" Value="1" />
 
                 <!-- KO 0 Deactivatable-->
                 <Parameter Id="%AID%_UP-%TT%%CC%172" Name="CH%C%AggKo0D" ParameterType="%AID%_PT-FCBNumericInputKoUsage" Offset="1" BitOffset="0" Text="Eingang 1" Value="1" />
@@ -1284,7 +1284,6 @@
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Funktion" UIHint="Headline" />
                           <!-- Aggregation Function -->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101" />
 
@@ -1470,16 +1469,7 @@
                               <Assign TargetParamRefRef="%AID%_UP-%TT%%CC%183_R-%TT%%CC%18301" SourceParamRefRef="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601" />
                             </when>
                           </choose>
-
-
-                          <!-- Output Round -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" />
-                          <!-- Output Overflow -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%185_R-%TT%%CC%18501" />
-                          <!-- Output Behavior-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%181_R-%TT%%CC%18101" />
-
-                          <!-- Output -->
+                          <!-- Output KO -->
                           <choose ParamRefId="%AID%_UP-%TT%%CC%183_R-%TT%%CC%18301">
                             <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" /></when>
                             <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00951" /></when>
@@ -1491,6 +1481,34 @@
                             <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00913" /></when>
                             <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00914" /></when>
                           </choose>
+
+                          <!-- Output Round -->
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%183_R-%TT%%CC%18301">
+                            <when test="90 140"><!-- not relevant for float output --></when>
+                            <when default="true">
+                              <!-- for non float output types only-->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
+                                <when test="90 140">
+                                  <!-- needed for float inputs -->
+                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" />
+                                </when>
+                                <when default="true">
+                                  <!-- int output and int inputs -->
+                                  <choose ParamRefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101">
+                                    <when test="1"><!-- avg of int inputs is non int -->
+                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" />
+                                    </when>
+                                  </choose>
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+
+                          <!-- Output Overflow -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%185_R-%TT%%CC%18501" IndentLevel="1" />
+                          <!-- Output Behavior-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%181_R-%TT%%CC%18101" />
+
 
                         </ParameterBlock>
                       </when>

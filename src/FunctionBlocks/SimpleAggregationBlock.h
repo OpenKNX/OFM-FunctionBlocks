@@ -24,6 +24,9 @@ class SimpleAggregationBlock : public FunctionBlock
     /*
     uint8_t getParamInputBehavior(uint8_t input);
     */
+
+    void _limitToOutputDptRange(KNXValue& result);
+
   public:
     SimpleAggregationBlock(uint8_t channelIndex, SimpleAggregationBlockType type);
 

@@ -82,10 +82,11 @@
 
 							<ParameterType Id="%AID%_PT-FCBOutputOverflow" Name="FCBOutputOverflow" >
 								<TypeRestriction Base="Value" SizeInBit="2" >
-									<Enumeration Id="%ENID%" Value="0"   Text="nicht behandeln"              />
-									<Enumeration Id="%ENID%" Value="1"   Text="überlauf"                     />
-									<Enumeration Id="%ENID%" Value="2"   Text="Bereichsrand"                 />
-									<Enumeration Id="%ENID%" Value="3"   Text="ausgabe unterdrücken"         />
+									<Enumeration Id="%ENID%" Value="0"   Text="KO nicht aktualisieren / nicht senden"   />
+									<Enumeration Id="%ENID%" Value="1"   Text="Auf Bereichsrand setzen"                 />
+									<!--
+									<Enumeration Id="%ENID%" Value="2"   Text="überlauf"                         />
+									-->
 								</TypeRestriction>
 							</ParameterType>
 

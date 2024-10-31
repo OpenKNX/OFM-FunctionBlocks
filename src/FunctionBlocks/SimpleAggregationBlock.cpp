@@ -14,6 +14,12 @@
                                                                                                        : "STD"
                                                       */
 
+#define FCB_LIMIT(t, x, min, max)  \
+    if (((t)(x)) < ((t)(min)))                \
+        x = ((t)(min));                \
+    else if (((t)(x)) > ((t)(max)))           \
+        x = ((t)(max));
+
 SimpleAggregationBlock::SimpleAggregationBlock(uint8_t channelIndex, SimpleAggregationBlockType type)
     : FunctionBlock(channelIndex, TYPE2Str(type)),
       _type(type)
@@ -226,6 +232,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
             default:
                 break;
         }
+        const bool intOutput = (dptOutput.mainGroup != 9) && (dptOutput.mainGroup != 14);
 
         // Recalc the output
         double min = std::numeric_limits<double>::max();
@@ -282,7 +289,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
             return;
         }
 
-        double result = 0.0;
+        KNXValue result = 0.0;
         switch (_type)
         {
             case SimpleAggregationBlockType::AggrSUM:
@@ -311,6 +318,20 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
         }
         logDebugP("  result %f (of type %d)", result, _type);
 
+        if (ParamFCB_CHAggOutputRounding)
+        {
+            result = (int64_t)round((double)result);
+        }
+        else if (intOutput)
+        {
+            result = (int64_t)result;
+        }
+
+        if (ParamFCB_CHAggOutputOverflow == 1)
+        {
+            _limitToOutputDptRange(result);
+        }
+
         // <Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
         // <Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
         if (ParamFCB_CHAggBehavOut)
@@ -321,5 +342,43 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
         {
             KoFCB_CHKO9.value(result, dptOutput);
         }
+    }
+}
+
+void SimpleAggregationBlock::_limitToOutputDptRange(KNXValue& result)
+{
+    switch (ParamFCB_CHAggOutputDptEff)
+    {
+        case 50: 
+            FCB_LIMIT(int64_t, result, 0, 255)
+            break;
+        case 51:
+            FCB_LIMIT(int64_t, result, 0, 100)
+            break;
+        case 61:
+            FCB_LIMIT(int64_t, result, -128, 128)
+            break;
+        case 70:
+            FCB_LIMIT(int64_t, result, 0, 65535)
+            break;
+        case 80:
+            FCB_LIMIT(int64_t, result, -32768, 32767)
+            break;
+        case 90:
+            // limit as defined in dptconvert
+            FCB_LIMIT(double, result, -671088.64, 670433.28)
+            break;
+        case 120:
+            FCB_LIMIT(int64_t, result, 0 ,4294967295)
+            break;
+        case 130:
+            FCB_LIMIT(int64_t, result, -2147483648, 2147483647)
+            break;
+        case 140:
+            // limit as defined in dptconvert
+            FCB_LIMIT(double, result, (-8388608.0 * pow(2, 255)), (8388607.0 * pow(2, 255)))
+            break;
+        default:
+            break;
     }
 }
