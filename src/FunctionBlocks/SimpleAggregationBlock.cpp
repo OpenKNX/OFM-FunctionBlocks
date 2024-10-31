@@ -22,6 +22,7 @@ SimpleAggregationBlock::SimpleAggregationBlock(uint8_t channelIndex, SimpleAggre
 
 uint8_t SimpleAggregationBlock::getParamInput(uint8_t input)
 {
+    logDebugP("getParamInput(%d)", input);
     switch (input)
     {
         case 0:
@@ -148,6 +149,8 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
     auto index = FCB_KoCalcIndex(ko.asap());
     if (index >= FCB_KoCHKO0 && index <= FCB_KoCHKO8)
     {
+        logDebugP("handleKo: %d; %d; %d", index, ParamFCB_CHAggInputDpt, ParamFCB_CHAggOutputDptEff);
+
 		// <Enumeration Text="5.*           8-Bit vorzeichenlos"              Value="50"   Id="%ENID%" />
 		// <Enumeration Text="5.001       Prozent (0..100%)"                  Value="51"   Id="%ENID%" />
 		// <Enumeration Text="6.*           8-Bit vorzeichenbehaftet"         Value="61"   Id="%ENID%" />
@@ -234,6 +237,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
             // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
             // <Enumeration Text="Aktiv" Value="1" Id="%ENID%" />
             auto inputKo = getParamInput(i);
+            logDebugP("  input(%d) inputKo: %d", i, inputKo);
             if (inputKo == 0)
             {
                 continue;
@@ -242,6 +246,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
             if (!hasValue(i))
             {
                 // TODO handling of incomplete input values; current implementation requires all
+                logDebugP("  input(%d) NOT has value", i);
                 return;
             }
 
@@ -271,6 +276,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
             count++;
         }
 
+        logDebugP("  count %d", count);
         if (count == 0)
         {
             return;
@@ -303,6 +309,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
             default:
                 break;
         }
+        logDebugP("  result %f (of type %d)", result, _type);
 
         // <Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
         // <Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
