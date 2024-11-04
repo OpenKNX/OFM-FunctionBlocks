@@ -115,6 +115,31 @@ Mit dieser Einstellung kann ein Kanal deaktiviert werden, ohne das die Konfigura
 Ein deaktivierter Kanal sendet keine Telegramme auf dem KNX-Bus. 
 
 
+<!-- DOC -->
+#### Kommentar
+
+Hier kann eine ausführlichere - auch mehrzeilige - Dokumention des Blocks erfolgen.
+Es wird empfohlen zentrale Annahmen die der Konfiguration des Blocks zugrunde liegen hier festzuhalten.
+Die Dokumentation hat keinen Einfluss auf das Geräteverhalten.
+
+Eine mehrzeilige Eingabe ist aufgrund von Beschränkungen der ETS nicht direkt möglich, 
+kann jedoch durch Eingabe mit `\n` und Drücken des Buttons erzeugt werden.
+Anschließend kann der Text mehrzeilig bearbeitet werden.
+
+<!-- DOCEND -->
+*Beispiel:*
+>
+> Der Text
+> ```
+> Ein Text\nmit mehreren\nZeilen!
+> ```
+> wird umgewandelt in
+> ```
+> Ein Text
+> mit mehreren
+> Zeilen!
+> ```
+
 ## UND/ODER/Anzahl Kanaleinstellungen
 
 <!-- DOC HelpContext="LogicEingang" -->
