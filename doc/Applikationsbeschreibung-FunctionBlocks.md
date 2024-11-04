@@ -5,6 +5,26 @@
 
 Die Anwendung stellt je Kanal einen Funktionsblock bereit.
 Folgende Funktionsblöcke stehen zur Auswahl:
+  * [UND](#und)
+  * [ODER](#oder)
+  * [Prioritätsschalter](#prioritätsschalter)
+    * [Beispielanwendungen](#beispielsanwendung)
+
+
+
+### ETS Konfiguration
+
+* **[Allgemein](#allgemein)**
+  * [Kanalauswahl](#kanalauswahl)
+* (n=1 bis 99) *Abhängig vomTyp*:
+  * [Kanal-Typ-unabhängige Einstellungen](#kanaleinstellungen)
+  * {[**UND**](#undoder-kanaleinstellungen), [**ODER**](#undoder-kanaleinstellungen)}
+  * [**Prioritätsschalter**](#prioritätsschalter-2)
+
+
+
+# Blocktypen
+
 
 <!-- DOC -->
 ## UND
@@ -38,7 +58,7 @@ Jedoch bietet der Taste die Möglichkeit verschiedene Prozentwerte mit verschied
 So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb, Beschattung aktiv, Windsperre auf Prozentwerte umgesetzt werden, die der Taster in verschiedene Farbwerte umsetzt.
 
 
-# Konfiguration
+# ETS Konfiguration
 
 <!-- DOC -->
 ## Allgemein
@@ -76,8 +96,8 @@ Jeder Kanal bietet folgende Einstellungen:
 <!-- DOC -->
 ### Bezeichnung
 
-Die Bezeichnung wird innerhalb der ETS für die Bennenung des Kanals und für die Bennenung der Funktionsblock Ein- und Ausgänge verwendet.
-Die Bezeichnung hat keinen Einfluss auf die Funktion des Funktionsblocks und kann jederzeit auch nachträglich angepasst werden.
+Die Bezeichnung wird innerhalb der ETS für die Benennung des Kanals und für die Benennung der Funktionsblock Ein- und Ausgänge verwendet.
+Die Bezeichnung hat keinen Einfluss auf das Verhalten des Funktionsblocks und kann jederzeit auch nachträglich angepasst werden.
 
 <!-- DOC -->
 ### Kanal deaktivieren (zu Testzwecken)
@@ -91,7 +111,7 @@ Ein deaktivierter Kanal sendet keine Telegramme auf dem KNX-Bus.
 <!-- DOC HelpContext="LogicEingang" -->
 ### Eingang 1-9
 
-Legt fest ob der Eingang verwendet wird und ob der Eingangswert normal oder invertiert verwendet wird.
+Legt fest, ob der Eingang verwendet wird, und falls ja, ob der Eingangswert **normal** oder **invertiert** verwendet wird.
 
 <!-- DOC -->
 ### Initialisierung
@@ -169,7 +189,7 @@ Legt den Wert für den Ausgang fest, wenn alle Eingänge AUS sind.
 <!-- DOC HelpContext="PrioEingang" -->
 ### Eingang 1-9
 
-Legt fest ob der Eingang verwendet wird und ob der Eingangswert normal oder invertiert verwendet wird.
+Legt fest, ob der Eingang verwendet wird und ob der Eingangswert normal oder invertiert verwendet wird.
 Die Eingangsnummer 1-9 entspricht gleichzeitig der Priorität, wobei 1 die höchste und 9 die niedrigste darstellt.
 
 <!-- DOCEND-->
