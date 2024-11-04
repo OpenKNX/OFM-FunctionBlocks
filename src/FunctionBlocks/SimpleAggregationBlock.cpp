@@ -231,28 +231,9 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
             }
 
             const double inputValue = getKo(i).value(dptInput);
-
-            switch (_type)
-            {
-                case SimpleAggregationBlockType::AggrMIN:
-                case SimpleAggregationBlockType::AggrMAX:
-                case SimpleAggregationBlockType::AggrWidth:
-                    min = MIN(min, inputValue);
-                    max = MAX(max, inputValue);
-                    break;
-                /*
-                case SimpleAggregationBlockType::AggrMedian:
-                case SimpleAggregationBlockType::AggrQ25:
-                case SimpleAggregationBlockType::AggrQ75:
-                case SimpleAggregationBlockType::AggrSTD:
-                */
-                case SimpleAggregationBlockType::AggrSUM:
-                case SimpleAggregationBlockType::AggrAVG:
-                default:
-                    sum += inputValue;
-                    break;
-            }
-
+            min = MIN(min, inputValue);
+            max = MAX(max, inputValue);
+            sum += inputValue;
             count++;
         }
 
