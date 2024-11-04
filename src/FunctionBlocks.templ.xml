@@ -874,7 +874,7 @@
                       </when>
                       <when test="4"><!-- ************ ANZAHL ************ -->
                         <!-- TODO HelpContext="FCB-ANZAHL" -->
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Anzahl: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="tally-mark-5" ShowInComObjectTree="true" >
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Anzahl: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="tally-mark-5" ShowInComObjectTree="true" HelpContext="FCB-Anzahl">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Anzahl" UIHint="Headline" />
 

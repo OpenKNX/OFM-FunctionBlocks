@@ -9,6 +9,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [ODER](#oder)
   * [Prioritätsschalter](#prioritätsschalter)
     * [Beispielanwendungen](#beispielsanwendung)
+  * [Anzahl](#anzahl)
 
 
 
@@ -20,6 +21,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Kanal-Typ-unabhängige Einstellungen](#kanaleinstellungen)
   * {[**UND**](#undoder-kanaleinstellungen), [**ODER**](#undoder-kanaleinstellungen)}
   * [**Prioritätsschalter**](#prioritätsschalter-2)
+  * [**Anzahl**](#anzahl)
 
 
 
@@ -57,6 +59,13 @@ Die Farbe der LED kann aber über ein Kommunikationsobjekt nicht verändert werd
 Jedoch bietet der Taste die Möglichkeit verschiedene Prozentwerte mit verschieden Farben darzustellen.
 So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb, Beschattung aktiv, Windsperre auf Prozentwerte umgesetzt werden, die der Taster in verschiedene Farbwerte umsetzt.
 
+
+<!-- DOC -->
+## Anzahl
+
+Ein Anzahl-Funktionsblock verfügt über bis zu 9 Eingänge. 
+Der Ausgang gibt aus, wie viele der (verwendeten) Eingänge den Wert EIN angenommen haben.
+Die Eingänge können vor Zählung invertiert werden.
 
 # ETS Konfiguration
 
@@ -106,7 +115,7 @@ Mit dieser Einstellung kann ein Kanal deaktiviert werden, ohne das die Konfigura
 Ein deaktivierter Kanal sendet keine Telegramme auf dem KNX-Bus. 
 
 
-## UND/ODER Kanaleinstellungen
+## UND/ODER/Anzahl Kanaleinstellungen
 
 <!-- DOC HelpContext="LogicEingang" -->
 ### Eingang 1-9
@@ -135,6 +144,9 @@ Das bedeutet das bei einer Vorbelegung von "AUS" und einer eingestellten Inverti
 
 <!-- DOC -->
 ### Invertiert
+
+<!-- DOC Skip="2" -->
+> *Nur* bei Block-Typen UND/ODER verfügbar
 
 Legt fest, ob der Ausgangswert normal oder invertiert auf den Bus gesendet wird.
 
