@@ -1266,7 +1266,7 @@
                       </when>
                       <when test="5"><!-- ************ Simple Statistic Aggregation ************ -->
                         <!-- TODO HelpContext="FCB-StatisticAggregation" -->
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Aggr" Text="%C% Aggregation: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="set-merge" ShowInComObjectTree="true">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Aggr" Text="%C% Aggregation: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="set-merge" ShowInComObjectTree="true" HelpContext="FCB-Statistische-Aggregation" >
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Einfache Statistische Aggregation" UIHint="Headline" />
 
@@ -1285,15 +1285,15 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Aggregation Function -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101" HelpContext="FCB-AggrFunction" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
                           <!-- Input Value Type -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201" HelpContext="FCB-DptEingang" />
 
 
                           <!-- KO 0 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1311,7 +1311,7 @@
                           </choose>
 
                           <!-- KO 1 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1329,7 +1329,7 @@
                           </choose>
 
                           <!-- KO 2 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1347,7 +1347,7 @@
                           </choose>
 
                           <!-- KO 3 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1365,7 +1365,7 @@
                           </choose>
 
                           <!-- KO 4 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1383,7 +1383,7 @@
                           </choose>
 
                           <!-- KO 5 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1401,7 +1401,7 @@
                           </choose>
 
                           <!-- KO 6 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1419,7 +1419,7 @@
                           </choose>
 
                           <!-- KO 7 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1437,7 +1437,7 @@
                           </choose>
 
                           <!-- KO 8 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
@@ -1457,7 +1457,7 @@
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
                           <!-- Output Value Type -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601" />
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601" HelpContext="FCB-DptAusgang" />
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%183_R-%TT%%CC%18301" /><!-- invisible: effective output type -->
                           <choose ParamRefId="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601">
                             <when test="255">
@@ -1490,13 +1490,13 @@
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when test="90 140">
                                   <!-- needed for float inputs -->
-                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" />
+                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" HelpContext="FCB-Rundungsmodus" />
                                 </when>
                                 <when default="true">
                                   <!-- int output and int inputs -->
                                   <choose ParamRefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101">
                                     <when test="1"><!-- avg of int inputs is non int -->
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" />
+                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" HelpContext="FCB-Rundungsmodus" />
                                     </when>
                                   </choose>
                                 </when>
@@ -1505,9 +1505,9 @@
                           </choose>
 
                           <!-- Output Overflow -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%185_R-%TT%%CC%18501" IndentLevel="1" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%185_R-%TT%%CC%18501" IndentLevel="1" HelpContext="FCB-OutOfRange" />
                           <!-- Output Behavior-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%181_R-%TT%%CC%18101" />
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%181_R-%TT%%CC%18101" HelpContext="FCB-Sendeverhalten" />
 
 
                         </ParameterBlock>

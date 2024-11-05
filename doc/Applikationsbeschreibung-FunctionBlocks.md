@@ -10,6 +10,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Prioritätsschalter](#prioritätsschalter)
     * [Beispielanwendungen](#beispielsanwendung)
   * [Anzahl](#anzahl)
+  * [Statistische Aggregation](#statistische-aggregation)
 
 
 
@@ -22,6 +23,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * {[**UND**](#undoder-kanaleinstellungen), [**ODER**](#undoder-kanaleinstellungen)}
   * [**Prioritätsschalter**](#prioritätsschalter-2)
   * [**Anzahl**](#anzahl)
+  * [**Aggregation**](#statistische-aggregation)
 
 
 
@@ -66,6 +68,13 @@ So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb,
 Ein Anzahl-Funktionsblock verfügt über bis zu 9 Eingänge. 
 Der Ausgang gibt aus, wie viele der (verwendeten) Eingänge den Wert EIN angenommen haben.
 Die Eingänge können vor Zählung invertiert werden.
+
+<!-- DOC -->
+## Statistische Aggregation
+
+Ein Aggregations-Funktionsblock verfügt über bis zu 9 numerische Eingänge, gängiger DPTs. 
+Der Ausgangswert wird basierend auf der gewählten Funktion (Summe, Mittelwert, Minimum, Maximum, Spannbreite) berechnet und kann in verschiedenen numerischen DPTs ausgegeben werden.
+Es kann beeinflusst werden, wie mit Werten umgegangen wird die vom Ausgatyp nicht dargestellt werden können.
 
 # ETS Konfiguration
 
@@ -239,4 +248,65 @@ Das bedeutet das bei einer Vorbelegung von "AUS" und einer eingestellten Inverti
 ### Ausgangswert
 
 Legt den Wert fest, der auf den Bus gesendet wird, wenn dieser Eingang der Eingang mit der höchsten Nummer ist der auf EIN gesetzt ist.
+<!-- DOCEND-->
+
+
+## Aggregation
+
+<!-- DOC HelpContext="AggrFunction" -->
+### Funktion
+
+Legt fest, wie der Ausgangswert aus den Werten der aktiven Eingänge berechnet wird:
+
+- **Summe** 
+  Addiert die Eingangswerte. 
+  Das Ergebnis kann außerhalb des Eingangs-Wertebereichs liegen!
+- **Mittelwert** 
+  Summe dividiert durch die Anzahl der aktiven Eingänge. 
+  Das Ergebnis ist i.d.R. nicht ganzzahlig, wird jedoch innerhalb des Eingangs-Wertebereichs liegen.
+- **Minimum** 
+  Verwendet den kleinsten Eingangswert.
+- **Maximum** 
+  Verwendet den größten Eingangswert.
+- **Spannbreite (Maximum - Minimum)**
+  Liefert ein einfaches Maß dafür, wie weit sich die Eingangs-Werte voneinander unterscheiden.
+  Das Ergebnis kann außerhalb des Eingangs-Wertebereichs liegen, wenn vorzeichenbehaftet ist!
+
+<!-- DOC HelpContext="DptEingang" -->
+### Wertetyp / DPT (Eingänge)
+
+Definiert den DPT der Eingänge. Zur Auswahl stehen gängige numerische DPTs mit 1Byte, 2Bytes und 4Bytes.
+
+<!-- DOC HelpContext="AggrEingang" -->
+### Eingang 1-9
+
+Legt fest, ob der Eingang verwendet wird.
+
+<!-- DOC HelpContext="DptAusgang" -->
+### Wertetyp / DPT (Ausgang)
+
+Definiert den DPT des Ausgangs. Zur Auswahl stehen gängige numerische DPTs mit 1Byte, 2Bytes und 4Bytes.
+
+In der Standardeinstellung **Identisch mit Eingängen** wird der DPT der Eingänge übernommen.
+
+<!-- DOC -->
+### Rundungsmodus
+
+> *Nur* einstellbar, wenn ein Ganzzahl-Wertetyp für den Ausgang gewählt wurde und das berechnete Ergebnis nicht zwingend ganzzahlig ist.
+
+- **Nachkommastellen verwerfen**  
+  Kein besondere Behandlung.
+- **Runden (ab 0,5 aufrufen)**  
+  Anwendung der üblichen Rundungsregeln.
+
+<!-- DOC HelpContext="OutOfRange"-->
+### Bei Überschreiten des Wertebereichs
+
+> *Nur* relevant, wenn der berechnete Ausgangswert durch den gewählten Ausgangs-DPT nicht mehr in jedem Fall abbildbar ist.
+
+- **KO nicht aktualisieren / nicht senden**  
+  Ignoriert den Wert.
+- **Auf Bereichsrand setzen**  
+  Ein zu kleiner Wert wird durch den Minimalwert des DPT ersetzt, ein zu großer Wert durch den Maximalwert.
+
   
