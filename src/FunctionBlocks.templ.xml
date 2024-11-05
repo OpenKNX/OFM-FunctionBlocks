@@ -196,19 +196,16 @@
 
                 <!-- Output Behavior -->
                 <Parameter Id="%AID%_UP-%TT%%CC%181" Name="CH%C%AggBehavOut"   ParameterType="%AID%_PT-FCBOutputBehavior"   Offset="3"  BitOffset="2" Text="Sendeverhalten"    Value="1" />
-                <!-- 4 bits free -->
+                <!-- Output Rounding -->
+                <Parameter Id="%AID%_UP-%TT%%CC%184" Name="CH%C%AggOutputRounding"  ParameterType="%AID%_PT-FCBOutputRounding" Offset="3"  BitOffset="4" Text="Rundungsmodus"  Value="0" />
+                <!-- Output Overflow -->
+                <Parameter Id="%AID%_UP-%TT%%CC%185" Name="CH%C%AggOutputOverflow"  ParameterType="%AID%_PT-FCBOutputOverflow" Offset="3"  BitOffset="5" Text="Bei Überschreiten des Wertebereichs"  Value="0" />
+                <!-- 1 bits free -->
 
                 <!-- Inputs Value Type -->
                 <Parameter Id="%AID%_UP-%TT%%CC%182" Name="CH%C%AggInputDpt"        ParameterType="%AID%_PT-FCBNumericDpt"     Offset="4"  BitOffset="0" Text="Wertetype / DPT"   Value="90" />
                 <!-- Output Value Type (Effective) -->
                 <Parameter Id="%AID%_UP-%TT%%CC%183" Name="CH%C%AggOutputDptEff"    ParameterType="%AID%_PT-FCBNumericDpt"     Offset="5"  BitOffset="0" Text="DPT Ausgang"       Value="90"  Access="None" />
-                
-                <!-- Output Rounding -->
-                <Parameter Id="%AID%_UP-%TT%%CC%184" Name="CH%C%AggOutputRounding"  ParameterType="%AID%_PT-FCBOutputRounding" Offset="6"  BitOffset="0" Text="Rundungsmodus"  Value="0" />
-                <!-- 1 bits free -->
-                <!-- Output Overflow -->
-                <Parameter Id="%AID%_UP-%TT%%CC%185" Name="CH%C%AggOutputOverflow"  ParameterType="%AID%_PT-FCBOutputOverflow" Offset="6"  BitOffset="2" Text="Bei Überschreiten des Wertebereichs"  Value="0" />
-                <!-- 4 bits free -->
 
               </Union>
               <!-- Output Value Type -->
