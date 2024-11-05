@@ -139,8 +139,8 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBSimpleStatAggTyp" Name="FCBSimpleStatAggTyp" >
-								<TypeRestriction Base="Value" SizeInBit="8" >
+							<ParameterType Id="%AID%_PT-FCBSimpleStatAggType" Name="FCBSimpleStatAggType" >
+								<TypeRestriction Base="Value" SizeInBit="7" >
 									<Enumeration Id="%ENID%" Value="0"  Text="Summe"                              />
 									<Enumeration Id="%ENID%" Value="1"  Text="Mittelwert"                         />
 									<Enumeration Id="%ENID%" Value="2"  Text="Minimum"                            />
@@ -153,6 +153,17 @@
 									<Enumeration Id="%ENID%" Value="8"  Text="STD"                                />
 									-->
 								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBSimpleStatAggWeighted" Name="FCBSimpleStatAggWeighted" >
+								<TypeRestriction Base="Value" SizeInBit="1" >
+									<Enumeration Id="%ENID%" Value="0"  Text="Ungewichtet (alle 1)"               />
+									<Enumeration Id="%ENID%" Value="1"  Text="Individuelle Gewichte"              />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBInputWeight" Name="FCBInputWeight" >
+								<TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-100" maxInclusive="100" />
 							</ParameterType>
 
 						</ParameterTypes>

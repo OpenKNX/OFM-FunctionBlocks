@@ -278,6 +278,17 @@ Legt fest, wie der Ausgangswert aus den Werten der aktiven Eingänge berechnet w
   Liefert ein einfaches Maß dafür, wie weit sich die Eingangs-Werte voneinander unterscheiden.
   Das Ergebnis kann außerhalb des Eingangs-Wertebereichs liegen, wenn vorzeichenbehaftet ist!
 
+<!-- DOC -->
+### Gewichtung der Eingänge
+
+<!-- DOC Skip="2" -->
+> Nur für *Summe* und *Mittelwert*
+
+**Individuelle Gewichte** erlaubt eine Berechnung bei der die Eingänge unterschiedlich stark in der Ergebnis einfließen. 
+Dazu kann je aktivem Eingang ein individuelles Gewicht (Standardwert 1) angegeben werden.
+Mindestens ein Gewicht muss von 0 abweichen, sonst wird kein Ergebnis ausgegeben!
+
+
 <!-- DOC HelpContext="DptEingang" -->
 ### Wertetyp / DPT (Eingänge)
 
@@ -287,6 +298,17 @@ Definiert den DPT der Eingänge. Zur Auswahl stehen gängige numerische DPTs mit
 ### Eingang 1-9
 
 Legt fest, ob der Eingang verwendet wird.
+
+<!-- DOC HelpContext="AggrEingangGewicht" -->
+### Gewicht Eingang 1-9
+
+Definiert wie stark dieser Eingang in das Ergebnis einfließt.
+
+Bei 0 hat dieser Eingang keinen Einfluss auf das Resultat der Berechnung, 
+wird aber verhindern dass ein Ergebnis entsteht so lange der Eingang noch keinen Wert hat, 
+oder kann abhängig vom Sendeverhalten ein Senden auf de Bus auslösen.
+
+Ein negativer Wert ändert das Vorzeichen des Eingangswertes. Bei der Gewichtssumme fließt der Betrag ein.
 
 <!-- DOC HelpContext="DptAusgang" -->
 ### Wertetyp / DPT (Ausgang)

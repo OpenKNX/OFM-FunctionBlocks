@@ -55,35 +55,38 @@ uint8_t SimpleAggregationBlock::getParamInput(uint8_t input)
     }
 }
 
-/*
-uint8_t SimpleAggregationBlock::getParamInputBehavior(uint8_t input)
+int8_t SimpleAggregationBlock::getParamInputWeight(uint8_t input)
 {
+    if (ParamFCB_CHAggWeight == 0)
+    {
+        // no individual weight
+        return 1;
+    }
     switch (input)
     {
         case 0:
-            return ParamFCB_CHLogicBehavKo0;
+            return ParamFCB_CHAggKo0W;
         case 1:
-            return ParamFCB_CHLogicBehavKo1;
+            return ParamFCB_CHAggKo1W;
         case 2:
-            return ParamFCB_CHLogicBehavKo2;
+            return ParamFCB_CHAggKo2W;
         case 3:
-            return ParamFCB_CHLogicBehavKo3;
+            return ParamFCB_CHAggKo3W;
         case 4:
-            return ParamFCB_CHLogicBehavKo4;
+            return ParamFCB_CHAggKo4W;
         case 5:
-            return ParamFCB_CHLogicBehavKo5;
+            return ParamFCB_CHAggKo5W;
         case 6:
-            return ParamFCB_CHLogicBehavKo6;
+            return ParamFCB_CHAggKo6W;
         case 7:
-            return ParamFCB_CHLogicBehavKo7;
+            return ParamFCB_CHAggKo7W;
         case 8:
-            return ParamFCB_CHLogicBehavKo8;
+            return ParamFCB_CHAggKo8W;
         default:
             openknx.hardware.fatalError(FATAL_SYSTEM, "Invalid input");
             return 0;
     }
 }
-*/
 
 void SimpleAggregationBlock::readInputKos()
 {
@@ -211,6 +214,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
         double min = std::numeric_limits<double>::max();
         double max = std::numeric_limits<double>::min();
         double sum = 0.0;
+        int16_t absWeightSum = 0.0;
         uint8_t count = 0;
         for (uint8_t i = 0; i < 9; i++)
         {
@@ -230,10 +234,12 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
                 return;
             }
 
+            const int8_t inputWeight = getParamInputWeight(i);
             const double inputValue = getKo(i).value(dptInput);
             min = MIN(min, inputValue);
             max = MAX(max, inputValue);
-            sum += inputValue;
+            sum += inputValue * inputWeight;
+            absWeightSum += abs(inputWeight);
             count++;
         }
 
@@ -250,7 +256,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
                 result = sum;
                 break;
             case SimpleAggregationBlockType::AggrAVG:
-                result = sum / count;
+                result = sum / absWeightSum;
                 break;
             case SimpleAggregationBlockType::AggrMIN:
                 result = min;

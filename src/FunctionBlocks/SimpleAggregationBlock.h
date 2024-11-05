@@ -21,9 +21,7 @@ class SimpleAggregationBlock : public FunctionBlock
   private:
     const SimpleAggregationBlockType _type;
     uint8_t getParamInput(uint8_t input);
-    /*
-    uint8_t getParamInputBehavior(uint8_t input);
-    */
+    int8_t getParamInputWeight(uint8_t input);
 
     Dpt _dptType(uint8_t typeParamValue);
     void _limitToOutputDptRange(KNXValue& result);

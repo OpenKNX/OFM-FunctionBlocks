@@ -169,11 +169,13 @@
               </Union>
 
               <!-- Simple Statistic Aggregation -->
-              <Union SizeInBit="64">
+              <Union SizeInBit="120">
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
 
+                <!-- Weighed -->
+                <Parameter Id="%AID%_UP-%TT%%CC%187" Name="CH%C%AggWeight" ParameterType="%AID%_PT-FCBSimpleStatAggWeighted" Offset="0" BitOffset="0" Text="Gewichtung der Eingänge" Value="0" />
                 <!-- Subtype -->
-                <Parameter Id="%AID%_UP-%TT%%CC%171" Name="CH%C%AggType" ParameterType="%AID%_PT-FCBSimpleStatAggTyp" Offset="0" BitOffset="0" Text="Funktion" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%171" Name="CH%C%AggType" ParameterType="%AID%_PT-FCBSimpleStatAggType" Offset="0" BitOffset="1" Text="Funktion" Value="1" />
 
                 <!-- KO 0 Deactivatable-->
                 <Parameter Id="%AID%_UP-%TT%%CC%172" Name="CH%C%AggKo0D" ParameterType="%AID%_PT-FCBNumericInputKoUsage" Offset="1" BitOffset="0" Text="Eingang 1" Value="1" />
@@ -207,11 +209,21 @@
                 <!-- Output Value Type (Effective) -->
                 <Parameter Id="%AID%_UP-%TT%%CC%183" Name="CH%C%AggOutputDptEff"    ParameterType="%AID%_PT-FCBNumericDpt"     Offset="5"  BitOffset="0" Text="DPT Ausgang"       Value="90"  Access="None" />
 
+                <!-- KO 0 Weight --><Parameter Id="%AID%_UP-%TT%%CC%188" Name="CH%C%AggKo0W" ParameterType="%AID%_PT-FCBInputWeight" Offset="6"  BitOffset="0" Text="Gewicht Eingang 1" Value="1" />
+                <!-- KO 1 Weight --><Parameter Id="%AID%_UP-%TT%%CC%189" Name="CH%C%AggKo1W" ParameterType="%AID%_PT-FCBInputWeight" Offset="7"  BitOffset="0" Text="Gewicht Eingang 2" Value="1" />
+                <!-- KO 2 Weight --><Parameter Id="%AID%_UP-%TT%%CC%190" Name="CH%C%AggKo2W" ParameterType="%AID%_PT-FCBInputWeight" Offset="8"  BitOffset="0" Text="Gewicht Eingang 3" Value="1" />
+                <!-- KO 3 Weight --><Parameter Id="%AID%_UP-%TT%%CC%191" Name="CH%C%AggKo3W" ParameterType="%AID%_PT-FCBInputWeight" Offset="9"  BitOffset="0" Text="Gewicht Eingang 4" Value="1" />
+                <!-- KO 4 Weight --><Parameter Id="%AID%_UP-%TT%%CC%192" Name="CH%C%AggKo4W" ParameterType="%AID%_PT-FCBInputWeight" Offset="10" BitOffset="0" Text="Gewicht Eingang 5" Value="1" />
+                <!-- KO 5 Weight --><Parameter Id="%AID%_UP-%TT%%CC%193" Name="CH%C%AggKo5W" ParameterType="%AID%_PT-FCBInputWeight" Offset="11" BitOffset="0" Text="Gewicht Eingang 6" Value="1" />
+                <!-- KO 6 Weight --><Parameter Id="%AID%_UP-%TT%%CC%194" Name="CH%C%AggKo6W" ParameterType="%AID%_PT-FCBInputWeight" Offset="12" BitOffset="0" Text="Gewicht Eingang 7" Value="1" />
+                <!-- KO 7 Weight --><Parameter Id="%AID%_UP-%TT%%CC%195" Name="CH%C%AggKo7W" ParameterType="%AID%_PT-FCBInputWeight" Offset="13" BitOffset="0" Text="Gewicht Eingang 8" Value="1" />
+                <!-- KO 8 Weight --><Parameter Id="%AID%_UP-%TT%%CC%196" Name="CH%C%AggKo8W" ParameterType="%AID%_PT-FCBInputWeight" Offset="14" BitOffset="0" Text="Gewicht Eingang 9" Value="1" />
+
               </Union>
               <!-- Output Value Type -->
               <Parameter Id="%AID%_P-%TT%%CC%186"  Name="CH%C%AggOutputDpt"  ParameterType="%AID%_PT-FCBNumericOutputDpt"  Text="Wertetype / DPT"  Value="255" />
 
-              <!-- Next Id: %AID%_UP-%TT%%CC%187 -->
+              <!-- Next Id: %AID%_UP-%TT%%CC%197 -->
 
             </Parameters>
             <ParameterRefs>
@@ -389,6 +401,18 @@
 
               <!-- Output Value Type (ETS Input) -->
               <ParameterRef Id="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601" RefId="%AID%_P-%TT%%CC%186" />
+              <!-- Input Weight -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701" RefId="%AID%_UP-%TT%%CC%187" />
+
+              <!-- KO 0 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%188_R-%TT%%CC%18801" RefId="%AID%_UP-%TT%%CC%188"/>
+              <!-- KO 1 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%189_R-%TT%%CC%18901" RefId="%AID%_UP-%TT%%CC%189"/>
+              <!-- KO 2 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%190_R-%TT%%CC%19001" RefId="%AID%_UP-%TT%%CC%190"/>
+              <!-- KO 3 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%191_R-%TT%%CC%19101" RefId="%AID%_UP-%TT%%CC%191"/>
+              <!-- KO 4 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%192_R-%TT%%CC%19201" RefId="%AID%_UP-%TT%%CC%192"/>
+              <!-- KO 5 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%193_R-%TT%%CC%19301" RefId="%AID%_UP-%TT%%CC%193"/>
+              <!-- KO 6 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%194_R-%TT%%CC%19401" RefId="%AID%_UP-%TT%%CC%194"/>
+              <!-- KO 7 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%195_R-%TT%%CC%19501" RefId="%AID%_UP-%TT%%CC%195"/>
+              <!-- KO 8 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%196_R-%TT%%CC%19601" RefId="%AID%_UP-%TT%%CC%196"/>
 
             </ParameterRefs>
             <ComObjectTable>
@@ -1274,6 +1298,12 @@
 
                           <!-- Aggregation Function -->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101" HelpContext="FCB-AggrFunction" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101">
+                            <when test="0 1"><!-- SUM + AVG -->
+                              <!-- Weight -->
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701" IndentLevel="1" HelpContext="FCB-Gewichtung-der-Eingaenge" />
+                            </when>
+                          </choose>                          
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
                           <!-- Input Value Type -->
@@ -1284,6 +1314,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%188_R-%TT%%CC%18801" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00051" /></when>
@@ -1302,6 +1335,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%189_R-%TT%%CC%18901" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00151" /></when>
@@ -1320,6 +1356,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%190_R-%TT%%CC%19001" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00205" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00251" /></when>
@@ -1338,6 +1377,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%191_R-%TT%%CC%19101" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00305" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00351" /></when>
@@ -1356,6 +1398,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%192_R-%TT%%CC%19201" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00405" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00451" /></when>
@@ -1374,6 +1419,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%193_R-%TT%%CC%19301" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00505" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00551" /></when>
@@ -1392,6 +1440,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%194_R-%TT%%CC%19401" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00651" /></when>
@@ -1410,6 +1461,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%195_R-%TT%%CC%19501" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00751" /></when>
@@ -1428,6 +1482,9 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" >
                             <when test="&gt;0">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%196_R-%TT%%CC%19601" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                              </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00851" /></when>
@@ -1485,6 +1542,14 @@
                                   <choose ParamRefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101">
                                     <when test="1"><!-- avg of int inputs is non int -->
                                       <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" HelpContext="FCB-Rundungsmodus" />
+                                    </when>
+                                    <when test="0">
+                                      <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
+                                        <when test="1">
+                                          <!-- weighted sum of int inputs is non int -->
+                                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" HelpContext="FCB-Rundungsmodus" />
+                                        </when>
+                                      </choose>                                      
                                     </when>
                                   </choose>
                                 </when>
