@@ -140,6 +140,22 @@ Anschließend kann der Text mehrzeilig bearbeitet werden.
 > Zeilen!
 > ```
 
+
+<!-- DOC -->
+### Sendeverhalten
+
+Zur Auswahl stehen:
+
+- **Bei jedem Eingangstelegram**  
+  Wenn einer der Eingänge ein Telegramm empfängt, wird der Ausgangswert auf den Bus gesendet. 
+  Diese Einstellung kann zu hintereinderfolgenden gleichen Ausgangswerten am Bus führen.
+
+- **Nur bei Änderung des Ausgangswertes**  
+  Der Ausgang wird nur dann auf den Bus gesendet, wenn sich durch die berechnete Logikfunktion der Wert ändert.
+
+
+Unabhängig von der Einstellung wird der Ausgangswert auch nach der Initialisierungsphase inklusive eventueller Wartezeit für Leseanforderungs-Antworten einmalig auf den Bus gesendet.
+
 ## UND/ODER/Anzahl Kanaleinstellungen
 
 <!-- DOC HelpContext="LogicEingang" -->
@@ -175,21 +191,6 @@ Das bedeutet das bei einer Vorbelegung von "AUS" und einer eingestellten Inverti
 
 Legt fest, ob der Ausgangswert normal oder invertiert auf den Bus gesendet wird.
 
-<!-- DOC -->
-### Sendeverhalten
-
-Zur Auswahl stehen:
-
-- **Bei jedem Eingangstelegram**  
-  Wenn einer der Eingänge ein Telegramm empfängt, wird der Ausgangswert auf den Bus gesendet. 
-  Diese Einstellung kann zu hintereinderfolgenden gleichen Ausgangswerten am Bus führen.
-
-- **Nur bei Änderung des Ausgangswertes**  
-  Der Ausgang wird nur dann auf den Bus gesendet, wenn sich durch die berechnete Logikfunktion der Wert ändert.
-
-
-Unabhängig von der Einstellung wird der Ausgangswert auch nach der Initialisierungsphase inklusive eventueller Wartezeit für Leseanforderungs-Antworten einmalig auf den Bus gesendet.
-
 ## Prioritätsschalter
 
 <!-- DOC HelpContext="PrioOutputType" -->
@@ -201,22 +202,6 @@ Legt fest, welchen Werttype für den Ausgang verwendet wird
   Ausgang ist Prozent (5.001)
 - **1 Byte (Ohne Vorzeichen)** 
   Ausgang ist byte (5.* 8 bit vorzeichenlos)
-
-<!-- DOCEND -->
-
-### Sendeverhalten
-
-Zur Auswahl stehen:
-
-- **Bei jedem Eingangstelegram**  
-  Wenn einer der Eingänge ein Telegramm empfängt, wird der Ausgangswert auf den Bus gesendet. 
-  Diese Einstellung kann zu hintereinderfolgenden gleichen Ausgangswerten am Bus führen.
-
-- **Nur bei Änderung des Ausgangswertes**  
-  Der Ausgang wird nur dann auf den Bus gesendet, wenn sich durch die berechnete Logikfunktion der Wert ändert.
-
-
-Unabhängig von der Einstellung wird der Ausgangswert auch nach der Initialisierungsphase inklusive eventueller Wartezeit für Leseanforderungs-Antworten einmalig auf den Bus gesendet.
 
 <!-- DOC -->
 ### Ausgangswert wenn alle Eingänge AUS
