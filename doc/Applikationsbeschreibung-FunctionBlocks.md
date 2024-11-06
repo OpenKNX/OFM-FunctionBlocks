@@ -20,10 +20,9 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Kanalauswahl](#kanalauswahl)
 * (n=1 bis 99) *Abhängig vomTyp*:
   * [Kanal-Typ-unabhängige Einstellungen](#kanaleinstellungen)
-  * {[**UND**](#undoder-kanaleinstellungen), [**ODER**](#undoder-kanaleinstellungen)}
+  * {[**UND**, **ODER**, **Anzahl**](#undoderanzahl-kanaleinstellungen)}
   * [**Prioritätsschalter**](#prioritätsschalter-2)
-  * [**Anzahl**](#anzahl)
-  * [**Aggregation**](#statistische-aggregation)
+  * [**Aggregation**](#aggregation)
 
 
 
