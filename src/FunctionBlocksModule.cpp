@@ -50,11 +50,12 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
         logDebugP("Channel %d is disabled", _channelIndex);
         return nullptr;
     }
-    // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-    // <Enumeration Text="UND" Value="1" Id="%ENID%" />
-    // <Enumeration Text="ODER" Value="2" Id="%ENID%" />
-    // <Enumeration Text="Prioritätsschalter" Value="3" Id="%ENID%" />
-    // <Enumeration Text="Anzahl" Value="4" Id="%ENID%" />
+    // <Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"                    />
+    // <Enumeration Id="%ENID%" Value="1"  Text="UND"                            />
+    // <Enumeration Id="%ENID%" Value="2"  Text="ODER"                           />
+    // <Enumeration Id="%ENID%" Value="3"  Text="Prioritätsschalter"             />
+    // <Enumeration Id="%ENID%" Value="4"  Text="Anzahl"                         />
+    // <Enumeration Id="%ENID%" Value="5"  Text="Statistische Aggregation"       />
     switch (ParamFCB_CHChannelType)
     {
         case 0:
