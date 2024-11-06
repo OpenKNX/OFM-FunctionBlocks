@@ -27,9 +27,7 @@
 								<TypeRestriction Base="Value" SizeInBit="8" >
 									<!-- align for visibility in ETS -->
 									<!--
-									<Enumeration Text="inaktiv"                                         Value="0"   Id="%ENID%" />
 									<Enumeration Text="1.*           1-Bit (0/1)"                      Value="10"   Id="%ENID%" />
-									<Enumeration Text="2.*           1-Bit gesteuert (Zwangsführung)"  Value="20"   Id="%ENID%" />
 									-->
 									<Enumeration Text="5.*           8-Bit vorzeichenlos"              Value="50"   Id="%ENID%" />
 									<Enumeration Text="5.001       Prozent (0..100%)"                  Value="51"   Id="%ENID%" />
@@ -40,11 +38,6 @@
 									<Enumeration Text="12.*         4-Byte vorzeichenlos"             Value="120"   Id="%ENID%" />
 									<Enumeration Text="13.*         4-Byte vorzeichenbehaftet"        Value="130"   Id="%ENID%" />
 									<Enumeration Text="14.*         4-Byte Gleitkommawert"            Value="140"   Id="%ENID%" />
-									<!--
-									<Enumeration Text="16.001     Zeichen (ISO 8859-1)"               Value="161"   Id="%ENID%" />
-									<Enumeration Text="17.001     Szenen Nummer"                      Value="171"   Id="%ENID%" />
-									<Enumeration Text="232.600   RGB Wert 3x(0..255)"                 Value="232"   Id="%ENID%" />
-									-->
 								</TypeRestriction>
 							</ParameterType>
 
@@ -54,7 +47,6 @@
 									<!-- align for visibility in ETS -->
 									<!--
 									<Enumeration Text="1.*           1-Bit (0/1)"                      Value="10"   Id="%ENID%" />
-									<Enumeration Text="2.*           1-Bit gesteuert (Zwangsführung)"  Value="20"   Id="%ENID%" />
 									-->
 									<Enumeration Text="5.*           8-Bit vorzeichenlos"              Value="50"   Id="%ENID%" />
 									<Enumeration Text="5.001       Prozent (0..100%)"                  Value="51"   Id="%ENID%" />
@@ -65,11 +57,6 @@
 									<Enumeration Text="12.*         4-Byte vorzeichenlos"             Value="120"   Id="%ENID%" />
 									<Enumeration Text="13.*         4-Byte vorzeichenbehaftet"        Value="130"   Id="%ENID%" />
 									<Enumeration Text="14.*         4-Byte Gleitkommawert"            Value="140"   Id="%ENID%" />
-									<!--
-									<Enumeration Text="16.001     Zeichen (ISO 8859-1)"               Value="161"   Id="%ENID%" />
-									<Enumeration Text="17.001     Szenen Nummer"                      Value="171"   Id="%ENID%" />
-									<Enumeration Text="232.600   RGB Wert 3x(0..255)"                 Value="232"   Id="%ENID%" />
-									-->
 								</TypeRestriction>
 							</ParameterType>
 
