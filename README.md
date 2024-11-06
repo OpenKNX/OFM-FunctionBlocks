@@ -10,6 +10,14 @@ Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 - AND mit 9 Eingängen
 - OR mit 9 Eingängen
 - Prioritätsschalter
+- Anzahl
+- Aggregation
+  - Summe
+  - Mittelwert
+  - Minimum
+  - Maximum
+  - Spannbreite (Maximum - Minimum)
+
 
 ## Planned Features
 - Multiplexer
