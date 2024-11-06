@@ -5,7 +5,7 @@
     type == SimpleAggregationBlockType::AggrSUM ? "SUM" : type == SimpleAggregationBlockType::AggrAVG  ? "AVG"    \
                                                       : type == SimpleAggregationBlockType::AggrMIN    ? "MIN"    \
                                                       : type == SimpleAggregationBlockType::AggrMAX    ? "MAX"    \
-                                                      : "Width"
+                                                      : "Range"
                                                       /*
                                                       : type == SimpleAggregationBlockType::AggrWidth  ? "Width"  \
                                                       : type == SimpleAggregationBlockType::AggrMedian ? "Median" \
