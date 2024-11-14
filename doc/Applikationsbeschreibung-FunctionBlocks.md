@@ -197,12 +197,9 @@ Zur Auswahl stehen:
 **Wichtig**: Die Vorbelegung erfolgt vor einer möglichen eingestellten Invertierung des Eingangswertes.
 Das bedeutet das bei einer Vorbelegung von "AUS" und einer eingestellten Invertierung der Wert als EIN von der Logik interpretiert wird.
 
-<!-- DOC -->
-### Invertiert
+### Invertiert (nur UND/ODER)
 
-<!-- DOC Skip="2" -->
-> *Nur* bei Block-Typen UND/ODER verfügbar
-
+<!-- DOC HelpContext="Invertiert" -->
 Legt fest, ob der Ausgangswert normal oder invertiert auf den Bus gesendet wird.
 
 ## Prioritätsschalter
