@@ -17,7 +17,7 @@ Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
   - Minimum
   - Maximum
   - Spannbreite (Maximum - Minimum)
-- Countdown
+- Count Down Zeitgeber
 
 
 ## Planned Features
