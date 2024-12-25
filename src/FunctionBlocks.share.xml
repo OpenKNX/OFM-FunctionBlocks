@@ -163,7 +163,7 @@
 							</ParameterType>
 
 							<ParameterType Id="%AID%_PT-FCBCountDownStartValue" Name="FCBCountDownStartValue">
-								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="255" />
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="255" />
 							</ParameterType>
 
 						</ParameterTypes>

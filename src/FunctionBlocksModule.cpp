@@ -3,6 +3,7 @@
 #include "FunctionBlocks/LogicFunctionBlock.h"
 #include "FunctionBlocks/PrioritySwitchFunctionBlock.h"
 #include "FunctionBlocks/SimpleAggregationBlock.h"
+#include "FunctionBlocks/CountDownBlock.h"
 
 FunctionBlocksModule::FunctionBlocksModule()
 {
@@ -56,6 +57,7 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
     // <Enumeration Id="%ENID%" Value="3"  Text="Prioritätsschalter"             />
     // <Enumeration Id="%ENID%" Value="4"  Text="Anzahl"                         />
     // <Enumeration Id="%ENID%" Value="5"  Text="Statistische Aggregation"       />
+    // <Enumeration Id="%ENID%" Value="6"  Text="Count Down Zeitgeber"           />
     switch (ParamFCB_CHChannelType)
     {
         case 0:
@@ -71,6 +73,8 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
             return new PrioritySwitchFunctionBlock(_channelIndex);
         case 5:
             return new SimpleAggregationBlock(_channelIndex, static_cast<SimpleAggregationBlockType>(ParamFCB_CHAggType));
+        case 6:
+            return new CountDownBlock(_channelIndex);
         default:
             logErrorP("Unknown channel type %d", ParamFCB_CHChannelType);
             return nullptr;
