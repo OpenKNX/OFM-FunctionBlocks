@@ -75,6 +75,18 @@ Ein Aggregations-Funktionsblock verfügt über bis zu 9 numerische Eingänge, g�
 Der Ausgangswert wird basierend auf der gewählten Funktion (Summe, Mittelwert, Minimum, Maximum, Spannbreite) berechnet und kann in verschiedenen numerischen DPTs ausgegeben werden.
 Es kann beeinflusst werden, wie mit Werten umgegangen wird die vom Ausgatyp nicht dargestellt werden können.
 
+<!-- DOC -->
+## Count Down
+
+Der Funktionsblock zählt von eine vorgebenen Zahl in herunter.
+Es kann zwischen Sekunden, Minuten, Stunden als Einheit gewählt werden.
+Der Count Down kann auch pausiert werden.
+Es gibt Ausgänge für
+ - Verbleibende Zeit
+ - Textdartstellung der verbleibenden Zeit mit Einheit
+ - Aktiv laufende Zeit
+ - Pause aktiv
+
 # ETS Konfiguration
 
 <!-- DOC -->
@@ -111,6 +123,11 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
 - **Statistische Aggregation**
   Ein Aggregations-Funktionsblock hat bis zu 9 Eingänge mit numerischem Typ.
   Es kann zwischen fünf Funktionen (Summe, Mittelwert, Minimum, Maximum, Spannbreite) zur Berechnung des Ausgangswertes gewählt werden.
+
+- **Count Down**
+  Zählt von eine vorgebenen Zahl in herunter.
+  Es kann zwischen Sekunden, Minuten, Stunden als Einheit gewählt werden.
+
 
 ## Kanaleinstellungen
 
@@ -333,4 +350,21 @@ In der Standardeinstellung **Identisch mit Eingängen** wird der DPT der Eingän
 - **Auf Bereichsrand setzen**  
   Ein zu kleiner Wert wird durch den Minimalwert des DPT ersetzt, ein zu großer Wert durch den Maximalwert.
 
-  
+
+<!-- DOC -->
+## Count Down
+
+<!-- DOC -->
+### Einheit
+
+Legt fest, welche Einheit für den Count Down Wert verwendet werden soll
+
+- Sekunden
+- Minuten
+- Stunden
+
+<!-- DOC -->
+### Start Wert
+
+Legt den Wert fest für den Start des Count Down. 
+

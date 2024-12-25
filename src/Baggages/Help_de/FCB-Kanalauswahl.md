@@ -22,3 +22,8 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Ein Aggregations-Funktionsblock hat bis zu 9 Eingänge mit numerischem Typ.
   Es kann zwischen fünf Funktionen (Summe, Mittelwert, Minimum, Maximum, Spannbreite) zur Berechnung des Ausgangswertes gewählt werden.
 
+- **Count Down**
+  Zählt von eine vorgebenen Zahl in herunter.
+  Es kann zwischen Sekunden, Minuten, Stunden als Einheit gewählt werden.
+
+

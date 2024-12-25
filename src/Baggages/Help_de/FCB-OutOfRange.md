@@ -7,3 +7,4 @@
 - **Auf Bereichsrand setzen**  
   Ein zu kleiner Wert wird durch den Minimalwert des DPT ersetzt, ein zu großer Wert durch den Maximalwert.
 
+

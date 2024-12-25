@@ -223,7 +223,18 @@
               <!-- Output Value Type -->
               <Parameter Id="%AID%_P-%TT%%CC%186"  Name="CH%C%AggOutputDpt"  ParameterType="%AID%_PT-FCBNumericOutputDpt"  Text="Wertetype / DPT"  Value="255" />
 
-              <!-- Next Id: %AID%_UP-%TT%%CC%197 -->
+      
+              <!-- Count Down -->
+              <Union SizeInBit="144">
+                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
+                <!-- Count Down Unit-->
+                <Parameter Id="%AID%_UP-%TT%%CC%197" Name="CH%C%CountDownUnit" ParameterType="%AID%_PT-FCBCountDownUnit" Offset="0" BitOffset="0" Text="Einheit" Value="1" />
+                <!-- 4 bits free -->
+                <!-- Count Down Start Value-->
+                <Parameter Id="%AID%_UP-%TT%%CC%198" Name="CH%C%FCBCountDownStartValue" ParameterType="%AID%_PT-FCBCountDownStartValue" Offset="1" BitOffset="0" Text="Start Wert" Value="5" />    
+              </Union>
+
+              <!-- Next Id: %AID%_UP-%TT%%CC%199 -->
 
             </Parameters>
             <ParameterRefs>
@@ -414,6 +425,14 @@
               <!-- KO 7 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%195_R-%TT%%CC%19501" RefId="%AID%_UP-%TT%%CC%195"/>
               <!-- KO 8 Weight --><ParameterRef Id="%AID%_UP-%TT%%CC%196_R-%TT%%CC%19601" RefId="%AID%_UP-%TT%%CC%196"/>
 
+              <!-- Count Down -->
+
+              <!-- Count Down Unit-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701" RefId="%AID%_UP-%TT%%CC%197" />
+
+              <!-- Count Down Start Value-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%198_R-%TT%%CC%19801" RefId="%AID%_UP-%TT%%CC%198" />
+
             </ParameterRefs>
             <ComObjectTable>
               <!-- KO 0 --><ComObject Id="%AID%_O-%TT%%CC%000" Number="%K00%" Name="CH%C%KO0" ObjectSize="4 Bytes" Text="" FunctionText="" CommunicationFlag="Enabled" ReadFlag="Disabled" WriteFlag="Disabled" TransmitFlag="Disabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
@@ -473,114 +492,135 @@
               <!-- Input 9-->
               <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"    DatapointType="DPST-1-1"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   WriteFlag="Enabled" UpdateFlag="Enabled"  />
               <!-- Output -->
+             
               <!--   AND/OR -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
+             
               <!--   COUNT -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00903" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang Anzahl" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
 
               <!-- AGGREGATION -->
               <!-- DPST-1-1 -->
               <!-- Input 1-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00051" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00006" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00007" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00009" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00012" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00013" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00014" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00004" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00014" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00024" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00034" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00044" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00054" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00064" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00074" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00084" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 1"    FunctionText="{{0:-}} Eingang 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 2-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00151" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00106" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00107" RefId="%AID%_O-%TT%%CC%001" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" RefId="%AID%_O-%TT%%CC%001" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00109" RefId="%AID%_O-%TT%%CC%001" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00112" RefId="%AID%_O-%TT%%CC%001" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00113" RefId="%AID%_O-%TT%%CC%001" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00114" RefId="%AID%_O-%TT%%CC%001" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00104" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00114" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00124" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00134" RefId="%AID%_O-%TT%%CC%001" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00144" RefId="%AID%_O-%TT%%CC%001" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00154" RefId="%AID%_O-%TT%%CC%001" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00164" RefId="%AID%_O-%TT%%CC%001" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00174" RefId="%AID%_O-%TT%%CC%001" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00184" RefId="%AID%_O-%TT%%CC%001" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 2"    FunctionText="{{0:-}} Eingang 2"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 3-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00251" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00205" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00206" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00207" RefId="%AID%_O-%TT%%CC%002" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00208" RefId="%AID%_O-%TT%%CC%002" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00209" RefId="%AID%_O-%TT%%CC%002" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00212" RefId="%AID%_O-%TT%%CC%002" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00213" RefId="%AID%_O-%TT%%CC%002" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00214" RefId="%AID%_O-%TT%%CC%002" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00204" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00214" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00224" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00234" RefId="%AID%_O-%TT%%CC%002" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00244" RefId="%AID%_O-%TT%%CC%002" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00254" RefId="%AID%_O-%TT%%CC%002" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00264" RefId="%AID%_O-%TT%%CC%002" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00274" RefId="%AID%_O-%TT%%CC%002" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00284" RefId="%AID%_O-%TT%%CC%002" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 3"    FunctionText="{{0:-}} Eingang 3"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 4-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00351" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00305" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00306" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00307" RefId="%AID%_O-%TT%%CC%003" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00308" RefId="%AID%_O-%TT%%CC%003" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00309" RefId="%AID%_O-%TT%%CC%003" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00312" RefId="%AID%_O-%TT%%CC%003" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00313" RefId="%AID%_O-%TT%%CC%003" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00314" RefId="%AID%_O-%TT%%CC%003" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00304" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00314" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00324" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00334" RefId="%AID%_O-%TT%%CC%003" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00344" RefId="%AID%_O-%TT%%CC%003" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00354" RefId="%AID%_O-%TT%%CC%003" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00364" RefId="%AID%_O-%TT%%CC%003" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00374" RefId="%AID%_O-%TT%%CC%003" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00384" RefId="%AID%_O-%TT%%CC%003" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 4"    FunctionText="{{0:-}} Eingang 4"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 5-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00451" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00405" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00406" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00407" RefId="%AID%_O-%TT%%CC%004" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00408" RefId="%AID%_O-%TT%%CC%004" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00409" RefId="%AID%_O-%TT%%CC%004" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00412" RefId="%AID%_O-%TT%%CC%004" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00413" RefId="%AID%_O-%TT%%CC%004" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00414" RefId="%AID%_O-%TT%%CC%004" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00404" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00414" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00424" RefId="%AID%_O-%TT%%CC%004" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00434" RefId="%AID%_O-%TT%%CC%004" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00444" RefId="%AID%_O-%TT%%CC%004" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00454" RefId="%AID%_O-%TT%%CC%004" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00464" RefId="%AID%_O-%TT%%CC%004" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00474" RefId="%AID%_O-%TT%%CC%004" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00484" RefId="%AID%_O-%TT%%CC%004" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 5"    FunctionText="{{0:-}} Eingang 5"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 6-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00551" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00505" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00507" RefId="%AID%_O-%TT%%CC%005" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00508" RefId="%AID%_O-%TT%%CC%005" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00509" RefId="%AID%_O-%TT%%CC%005" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00512" RefId="%AID%_O-%TT%%CC%005" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00513" RefId="%AID%_O-%TT%%CC%005" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00514" RefId="%AID%_O-%TT%%CC%005" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00504" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00514" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00524" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00534" RefId="%AID%_O-%TT%%CC%005" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00544" RefId="%AID%_O-%TT%%CC%005" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00554" RefId="%AID%_O-%TT%%CC%005" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00564" RefId="%AID%_O-%TT%%CC%005" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00574" RefId="%AID%_O-%TT%%CC%005" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00584" RefId="%AID%_O-%TT%%CC%005" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 6"    FunctionText="{{0:-}} Eingang 6"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 7-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00651" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00607" RefId="%AID%_O-%TT%%CC%006" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00608" RefId="%AID%_O-%TT%%CC%006" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00609" RefId="%AID%_O-%TT%%CC%006" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00612" RefId="%AID%_O-%TT%%CC%006" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00613" RefId="%AID%_O-%TT%%CC%006" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00614" RefId="%AID%_O-%TT%%CC%006" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00604" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00614" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00624" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00634" RefId="%AID%_O-%TT%%CC%006" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00644" RefId="%AID%_O-%TT%%CC%006" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00654" RefId="%AID%_O-%TT%%CC%006" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00664" RefId="%AID%_O-%TT%%CC%006" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00674" RefId="%AID%_O-%TT%%CC%006" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00684" RefId="%AID%_O-%TT%%CC%006" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 7"    FunctionText="{{0:-}} Eingang 7"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 8-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00751" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00707" RefId="%AID%_O-%TT%%CC%007" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00708" RefId="%AID%_O-%TT%%CC%007" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00709" RefId="%AID%_O-%TT%%CC%007" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00712" RefId="%AID%_O-%TT%%CC%007" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00713" RefId="%AID%_O-%TT%%CC%007" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00714" RefId="%AID%_O-%TT%%CC%007" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00704" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00714" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00724" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00734" RefId="%AID%_O-%TT%%CC%007" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00744" RefId="%AID%_O-%TT%%CC%007" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00754" RefId="%AID%_O-%TT%%CC%007" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00764" RefId="%AID%_O-%TT%%CC%007" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00774" RefId="%AID%_O-%TT%%CC%007" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00784" RefId="%AID%_O-%TT%%CC%007" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 8"    FunctionText="{{0:-}} Eingang 8"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Input 9-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00851" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00807" RefId="%AID%_O-%TT%%CC%008" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00808" RefId="%AID%_O-%TT%%CC%008" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00809" RefId="%AID%_O-%TT%%CC%008" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00812" RefId="%AID%_O-%TT%%CC%008" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00813" RefId="%AID%_O-%TT%%CC%008" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00814" RefId="%AID%_O-%TT%%CC%008" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00804" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00814" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00824" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00834" RefId="%AID%_O-%TT%%CC%008" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00844" RefId="%AID%_O-%TT%%CC%008" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00854" RefId="%AID%_O-%TT%%CC%008" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00864" RefId="%AID%_O-%TT%%CC%008" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00874" RefId="%AID%_O-%TT%%CC%008" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00884" RefId="%AID%_O-%TT%%CC%008" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang 9"    FunctionText="{{0:-}} Eingang 9"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <!-- Output -->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00951" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00906" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00907" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00908" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00909" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00912" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00913" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00914" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00904" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00914" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00924" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00934" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00944" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00954" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00964" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00974" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00984" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
 
+
+              <!-- Count Down -->
+              <!-- Stop/Restart-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="%C%: Stopp/Neustart"    FunctionText="{{0:-}} Stop/Neustart"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <!-- Pause/Continue-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="%C%: Pause/Fortsetzten" FunctionText="{{0:-}} Pause/Fortsetzten"  TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <!-- Start mit Zeit -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00285" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Start mit Zeit"    FunctionText="{{0:-}} Start mit Zeit"     TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+       
+              <!-- Text -->  
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" RefId="%AID%_O-%TT%%CC%006" ObjectSize="14 Bytes" DatapointType="DPST-16-1"    Text="%C%: Text"              FunctionText="{{0:-}} Text"               TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Pause Active-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit"    DatapointType="DPST-1-11"    Text="%C%: Pause Status"      FunctionText="{{0:-}} Pause Status"       TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Verbleibend-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Verbleibend"       FunctionText="{{0:-}} Verbleibend"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Läuft-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-11"    Text="%C%: Läuft"             FunctionText="{{0:-}} Läuft"              TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+
+         
             </ComObjectRefs>
           </Static>
           <Dynamic>
@@ -595,6 +635,17 @@
                 </choose>
               </ParameterBlock>
 
+              <ParameterBlock Id="%AID%_PB-nnn" Name="More">
+                <!-- Anzahl der Kanäle -->
+                <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
+                  <when test="=%C-1%">
+                    <!-- Kanal Typ -->
+                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
+
+                  </when>
+                </choose>
+              </ParameterBlock>
+
               <ParameterBlock Id="%AID%_PB-nnn" Name="Channel">
 
                 <!-- Anzahl der Kanäle -->
@@ -604,17 +655,12 @@
 
                     <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
                       <when test="0"><!-- ************ Deaktiviert ************ -->
-                        <!-- <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="help-box-outline" HelpContext="Empty"> -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert" Icon="help-box-outline" HelpContext="Empty">
+                          
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Deaktiviert" UIHint="Headline" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Dieser Kanal ist deaktiviert. Durch Auswahl eines Types auf der Seite 'Allgemein' wird der Kanal aktiviert." UIHint="Information" />
 
-                        <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Auswahl" UIHint="Headline" /> -->
-                        <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" /> -->
-
-                        <!-- Kanal Name -->
-                        <!-- <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="Empty" /> -->
-                        <!-- Kanal Type -->
-                        <!-- <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="Empty" /> -->
-
-                        <!-- </ParameterBlock> -->
+                        </ParameterBlock>
                       </when>
                       <when test="1"><!-- ************ UND ************ -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_And" Text="%C% UND: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
@@ -630,7 +676,6 @@
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
-                          <!-- TODO HelpContext="...-Kommentar" -->
                           <Button Id="%AID%_B-%TT%%CC%001" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -764,7 +809,6 @@
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
-                          <!-- TODO HelpContext="...-Kommentar" -->
                           <Button Id="%AID%_B-%TT%%CC%002" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -885,7 +929,6 @@
                         </ParameterBlock>
                       </when>
                       <when test="4"><!-- ************ ANZAHL ************ -->
-                        <!-- TODO HelpContext="FCB-ANZAHL" -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Anzahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="tally-mark-5" ShowInComObjectTree="true" HelpContext="FCB-Anzahl">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Anzahl" UIHint="Headline" />
@@ -899,7 +942,6 @@
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
-                          <!-- TODO HelpContext="...-Kommentar" -->
                           <Button Id="%AID%_B-%TT%%CC%004" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -1035,7 +1077,6 @@
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
-                          <!-- TODO HelpContext="...-Kommentar" -->
                           <Button Id="%AID%_B-%TT%%CC%003" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -1291,7 +1332,6 @@
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
-                          <!-- TODO HelpContext="...-Kommentar" -->
                           <Button Id="%AID%_B-%TT%%CC%005" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -1318,15 +1358,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%188_R-%TT%%CC%18801" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00051" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00006" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00007" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00009" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00012" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00013" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00014" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00004" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00014" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00024" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00034" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00044" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00054" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00064" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00074" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00084" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1339,15 +1379,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%189_R-%TT%%CC%18901" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00151" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00106" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00107" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00109" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00112" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00113" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00114" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00104" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00114" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00124" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00134" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00144" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00154" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00164" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00174" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00184" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1360,15 +1400,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%190_R-%TT%%CC%19001" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00205" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00251" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00206" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00207" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00208" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00209" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00212" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00213" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00214" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00204" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00214" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00224" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00234" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00244" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00254" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00264" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00274" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00284" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1381,15 +1421,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%191_R-%TT%%CC%19101" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00305" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00351" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00306" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00307" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00308" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00309" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00312" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00313" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00314" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00304" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00314" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00324" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00334" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00344" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00354" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00364" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00374" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00384" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1402,15 +1442,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%192_R-%TT%%CC%19201" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00405" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00451" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00406" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00407" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00408" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00409" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00412" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00413" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00414" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00404" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00414" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00424" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00434" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00444" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00454" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00464" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00474" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00484" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1423,15 +1463,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%193_R-%TT%%CC%19301" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00505" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00551" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00507" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00508" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00509" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00512" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00513" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00514" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00504" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00514" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00524" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00534" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00544" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00554" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00564" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00574" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00584" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1444,15 +1484,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%194_R-%TT%%CC%19401" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00651" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00607" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00608" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00609" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00612" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00613" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00614" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00604" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00614" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00624" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00634" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00644" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00654" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00664" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00674" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00684" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1465,15 +1505,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%195_R-%TT%%CC%19501" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00751" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00707" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00708" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00709" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00712" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00713" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00714" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00704" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00714" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00724" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00734" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00744" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00754" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00764" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00774" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00784" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1486,15 +1526,15 @@
                                 <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%196_R-%TT%%CC%19601" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00851" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00807" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00808" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00809" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00812" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00813" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00814" /></when>
+                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00804" /></when>
+                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00814" /></when>
+                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00824" /></when>
+                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00834" /></when>
+                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00844" /></when>
+                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00854" /></when>
+                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00864" /></when>
+                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00874" /></when>
+                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00884" /></when>
                               </choose>
                             </when>
                           </choose>
@@ -1516,15 +1556,15 @@
                           </choose>
                           <!-- Output KO -->
                           <choose ParamRefId="%AID%_UP-%TT%%CC%183_R-%TT%%CC%18301">
-                            <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" /></when>
-                            <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00951" /></when>
-                            <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00906" /></when>
-                            <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00907" /></when>
-                            <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00908" /></when>
-                            <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00909" /></when>
-                            <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00912" /></when>
-                            <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00913" /></when>
-                            <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00914" /></when>
+                            <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00904" /></when>
+                            <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00914" /></when>
+                            <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00924" /></when>
+                            <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00934" /></when>
+                            <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00944" /></when>
+                            <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00954" /></when>
+                            <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00964" /></when>
+                            <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00974" /></when>
+                            <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00984" /></when>
                           </choose>
 
                           <!-- Output Round -->
@@ -1562,6 +1602,51 @@
                           <!-- Output Behavior-->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%181_R-%TT%%CC%18101" HelpContext="FCB-Sendeverhalten" />
 
+
+                        </ParameterBlock>
+                      </when>
+
+
+                      <when test="6"><!-- ************ Count Down ************ -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Count Down: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="timer-sand" ShowInComObjectTree="true" HelpContext="FCB-Count-Down">
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Count Down" UIHint="Headline" />
+
+                          <!-- Kanal Name -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <!-- Channel Disabled-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <Button Id="%AID%_B-%TT%%CC%006" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
+
+                          <!-- Count Down Unit-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701" HelpContext="%DOC%" />
+
+                          <!-- Count Down Start Value -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%198_R-%TT%%CC%19801" HelpContext="%DOC%" />
+
+                          <!-- Stop/Restart-->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" />
+                          <!-- Pause/Continue-->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" />
+                          <!-- Start mit Zeit -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00285" />
+                  
+                          <!-- Text -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" />
+                          <!-- Pause Active-->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" />
+                          <!-- Verbleibend-->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" />
+                          <!-- Läuft-->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" />
 
                         </ParameterBlock>
                       </when>
