@@ -225,16 +225,39 @@
 
       
               <!-- Count Down -->
-              <Union SizeInBit="144">
+              <Union SizeInBit="560">
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
-                <!-- Count Down Unit-->
-                <Parameter Id="%AID%_UP-%TT%%CC%197" Name="CH%C%CountDownUnit" ParameterType="%AID%_PT-FCBCountDownUnit" Offset="0" BitOffset="0" Text="Einheit" Value="1" />
+                <!-- Count Down Time Start Ko-->
+                <Parameter Id="%AID%_UP-%TT%%CC%197" Name="CH%C%FCBCountDownTimeStartKo" ParameterType="%AID%_PT-FCBCountDownTimeStartKo" Offset="0" BitOffset="0" Text="Start mit Zeit" Value="1" />
                 <!-- 4 bits free -->
                 <!-- Count Down Start Value-->
-                <Parameter Id="%AID%_UP-%TT%%CC%198" Name="CH%C%FCBCountDownStartValue" ParameterType="%AID%_PT-FCBCountDownStartValue" Offset="1" BitOffset="0" Text="Start Wert" Value="5" />    
+                <Parameter Id="%AID%_UP-%TT%%CC%198" Name="CH%C%FCBCountDownStartValue" ParameterType="%AID%_PT-FCBCountDownStartValue" Offset="1" BitOffset="0" Text="Ablauf Zeit" Value="60" />    
+                <!-- ^^^  32 bit value ^^^  -->
+                <!-- Count Down Zeitoffset -->
+                <Parameter Id="%AID%_UP-%TT%%CC%199" Name="CH%C%FCBCountDownTimeOffset" ParameterType="%AID%_PT-FCBCountDownTimeOffset" Offset="5" BitOffset="0" Text="Zeitoffset" Value="1" />    
+                <!-- Count Down Trigger -->
+                <Parameter Id="%AID%_UP-%TT%%CC%200" Name="CH%C%FCBCountDownTrigger" ParameterType="%AID%_PT-FCBCountDownTrigger" Offset="5" BitOffset="4" Text="Trigger" Value="1" />
+                <!-- Text Template -->
+                <Parameter Id="%AID%_UP-%TT%%CC%201" Name="CH%C%FCBCountDownTemplate" ParameterType="%AID%_PT-FCBCountDownTextTemplate" Offset="6" BitOffset="0" Text="Standard" Value="H2:M2 %" />      
+                <!-- ^^^ 14 + 1 byte for 0 terminator = 15 bytes ^^^-->
+                <!-- Text Template kleiner 1 Stunde -->
+                <Parameter Id="%AID%_UP-%TT%%CC%202" Name="CH%C%FCBCountDownTemplate1h" ParameterType="%AID%_PT-FCBCountDownTextTemplate" Offset="21" BitOffset="0" Text="kleiner eine Stunde" Value="M2 Minuten %" />      
+                <!-- ^^^ 14 + 1 byte for 0 terminator = 15 bytes ^^^-->
+                <!-- Text Template kleiner 1 Minute -->
+                <Parameter Id="%AID%_UP-%TT%%CC%203" Name="CH%C%FCBCountDownTemplate1m" ParameterType="%AID%_PT-FCBCountDownTextTemplate" Offset="36" BitOffset="0" Text="kleiner eine Minute" Value="S2 Sekunden %" />      
+                <!-- ^^^ 14 + 1 byte for 0 terminator = 15 bytes ^^^-->
+                <!-- Text Template Ende -->
+                <Parameter Id="%AID%_UP-%TT%%CC%204" Name="CH%C%FCBCountDownTemplateEnd" ParameterType="%AID%_PT-FCBCountDownTextTemplate" Offset="51" BitOffset="0" Text="Ende" Value="Ende" />      
+                <!-- ^^^ 14 + 1 byte for 0 terminator = 15 bytes ^^^-->
+                <!-- Text Template Pause -->
+                <Parameter Id="%AID%_UP-%TT%%CC%205" Name="CH%C%FCBCountDownTextPause" ParameterType="%AID%_PT-FCBCountDownTextTemplatePauseRun" Offset="66" BitOffset="0" Text="Pause" Value="=" />      
+                <!-- ^^^ 1 + 1 byte for 0 terminator = 2 bytes ^^^-->
+                <!-- Text Template Läuft -->
+                <Parameter Id="%AID%_UP-%TT%%CC%206" Name="CH%C%FCBCountDownTextRun" ParameterType="%AID%_PT-FCBCountDownTextTemplatePauseRun" Offset="68" BitOffset="0" Text="Läuft" Value="v" />      
+                <!-- ^^^ 1 + 1 byte for 0 terminator = 2 bytes ^^^-->
               </Union>
 
-              <!-- Next Id: %AID%_UP-%TT%%CC%199 -->
+              <!-- Next Id: %AID%_UP-%TT%%CC%207 -->
 
             </Parameters>
             <ParameterRefs>
@@ -429,10 +452,25 @@
 
               <!-- Count Down Unit-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701" RefId="%AID%_UP-%TT%%CC%197" />
-
               <!-- Count Down Start Value-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%198_R-%TT%%CC%19801" RefId="%AID%_UP-%TT%%CC%198" />
-
+              <!-- Count Down Zeitoffset -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%199_R-%TT%%CC%19901" RefId="%AID%_UP-%TT%%CC%199" />
+              <!-- Count Down Trigger -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%200_R-%TT%%CC%20001" RefId="%AID%_UP-%TT%%CC%200" />
+              <!-- Text Template -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%201_R-%TT%%CC%20101" RefId="%AID%_UP-%TT%%CC%201" />
+              <!-- Text Template kleiner 1 Stunde -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%202_R-%TT%%CC%20201" RefId="%AID%_UP-%TT%%CC%202" />
+              <!-- Text Template kleiner 1 Minute -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%203_R-%TT%%CC%20301" RefId="%AID%_UP-%TT%%CC%203" />
+              <!-- Text Template Ende -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%204_R-%TT%%CC%20401" RefId="%AID%_UP-%TT%%CC%204" />
+              <!-- Text Template Pause -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%205_R-%TT%%CC%20501" RefId="%AID%_UP-%TT%%CC%205" />
+              <!-- Text Template Läuft -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%206_R-%TT%%CC%20601" RefId="%AID%_UP-%TT%%CC%206" />
+             
             </ParameterRefs>
             <ComObjectTable>
               <!-- KO 0 --><ComObject Id="%AID%_O-%TT%%CC%000" Number="%K00%" Name="CH%C%KO0" ObjectSize="4 Bytes" Text="" FunctionText="" CommunicationFlag="Enabled" ReadFlag="Disabled" WriteFlag="Disabled" TransmitFlag="Disabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
@@ -605,20 +643,26 @@
 
               <!-- Count Down -->
               <!-- Stop/Restart-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="%C%: Stopp/Neustart"    FunctionText="{{0:-}} Stop/Neustart"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <!-- Pause/Continue-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="%C%: Pause/Fortsetzten" FunctionText="{{0:-}} Pause/Fortsetzten"  TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-              <!-- Start mit Zeit -->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00285" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Start mit Zeit"    FunctionText="{{0:-}} Start mit Zeit"     TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="%C%: Stopp/Neustart"             FunctionText="{{0:-}} Stop/Neustart"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <!-- Pause/Continue-->         
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="%C%: Pause/Fortsetzten"          FunctionText="{{0:-}} Pause/Fortsetzten"  TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <!-- Start mit Zeit -->         
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00205" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Start mit Zeit"             FunctionText="{{0:-}} Start mit Zeit"     TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <!-- Subrathier / Addiere Zeit -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00305" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit"    DatapointType="DPST-1-8"     Text="%C%: Subtrahiert / Addiert Zeit" FunctionText="{{0:-}} Subtrahiert / Addiert Zeit"     TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
        
               <!-- Text -->  
-              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" RefId="%AID%_O-%TT%%CC%006" ObjectSize="14 Bytes" DatapointType="DPST-16-1"    Text="%C%: Text"              FunctionText="{{0:-}} Text"               TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00505" RefId="%AID%_O-%TT%%CC%005" ObjectSize="14 Bytes" DatapointType="DPST-16-1"    Text="%C%: Text"                       FunctionText="{{0:-}} Text"               TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <!-- Pause Active-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit"    DatapointType="DPST-1-11"    Text="%C%: Pause Status"      FunctionText="{{0:-}} Pause Status"       TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit"    DatapointType="DPST-1-11"    Text="%C%: Pause Status"               FunctionText="{{0:-}} Pause Status"       TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <!-- Verbleibend-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Verbleibend"       FunctionText="{{0:-}} Verbleibend"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Verbleibend"                FunctionText="{{0:-}} Verbleibend"        TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <!-- Läuft-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-11"    Text="%C%: Läuft"             FunctionText="{{0:-}} Läuft"              TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"    DatapointType="DPST-1-11"    Text="%C%: Läuft"                      FunctionText="{{0:-}} Läuft"              TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Trigger-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-17"    Text="%C%: Ende"                       FunctionText="{{0:-}} Ende (Nur EIN)"     TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Ende-->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00915" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-1"    Text="%C%: Ende"                        FunctionText="{{0:-}} Ende"                TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
 
          
             </ComObjectRefs>
@@ -1318,7 +1362,6 @@
                         </ParameterBlock>
                       </when>
                       <when test="5"><!-- ************ Simple Statistic Aggregation ************ -->
-                        <!-- TODO HelpContext="FCB-StatisticAggregation" -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Aggr" Text="%C% Aggregation: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="set-merge" ShowInComObjectTree="true" HelpContext="FCB-Statistische-Aggregation" >
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Einfache Statistische Aggregation" UIHint="Headline" />
@@ -1626,28 +1669,89 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
 
-                          <!-- Count Down Unit-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701" HelpContext="%DOC%" />
 
                           <!-- Count Down Start Value -->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%198_R-%TT%%CC%19801" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Gruppenobjekte" UIHint="Headline" />
 
                           <!-- Stop/Restart-->
                           <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" />
                           <!-- Pause/Continue-->
                           <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" />
-                          <!-- Start mit Zeit -->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00285" />
+                         
+
+
+                          <!-- Count Down Time Start KO -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701" HelpContext="FCB-Gruppenobjekt-Start-mit-Zeit" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701">
+                            <when test="&gt;=1">
+                              <!-- Start mit Zeit -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00205" />
+                            </when>
+                          </choose>                     
+
+                          <!-- Count Down Zeitoffset -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%199_R-%TT%%CC%19901" HelpContext="FCB-Gruppenobjekt-Zeitoffset" />
+                           <choose ParamRefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701">
+                            <when test="&gt;=1">
+                              <!-- Subtrahiert / Addiert Zeit -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00305" />
+                            </when>
+                          </choose>
+
+                          
                   
                           <!-- Text -->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" />
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00505" />
                           <!-- Pause Active-->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" />
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00605" />
                           <!-- Verbleibend-->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" />
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00705" />
                           <!-- Läuft-->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" />
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" />
+                          
+                          <!-- Count Down Trigger -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%200_R-%TT%%CC%20001" HelpContext="FCB-Gruppenobjekt-Trigger" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701">
+                            <when test="1">
+                              <!-- Trigger-->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00905" />
+                            </when>
+                            <when test="&gt;=2">
+                              <!-- Ende -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00915" />
+                            </when>
+                          </choose>
 
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Textbausteine" UIHint="Headline" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Die folgende Textbausteine werden für das Gruppenobjekt 'Text' für die Ausgabe verwendet." />
+                          
+                          <!-- Text Template Pause -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%205_R-%TT%%CC%20501" HelpContext="FCB-TemplatePause" />
+                          <!-- Text Template Läuft -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%206_R-%TT%%CC%20601" HelpContext="FCB-TemplateLaeuft" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="folgende Platzhalter können für die weiteren Bausteine verwendet werden:" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text=" H2...Stunden (2 oder mehrstellig)" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text=" H1...Stunden (1 oder mehrstellig)" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text=" M2...Minuten (2 oder mehrstellig)" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text=" M1...Minuten (1 oder mehrstellig)" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text=" S2...Sekunden (2 oder mehrstellig)" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text=" S1...Sekunden (1 oder mehrstellig)" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text=" %....Läuft / Pause Textbautstein" />
+                      
+                          <!-- Text Template -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%201_R-%TT%%CC%20101" HelpContext="FCB-Template" />
+                          <!-- Text Template kleiner 1 Stunde -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%202_R-%TT%%CC%20201" HelpContext="FCB-Template1h" />
+                          <!-- Text Template kleiner 1 Minute -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%203_R-%TT%%CC%20301" HelpContext="FCB-Template1m" />
+                          <!-- Text Template Ende -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%204_R-%TT%%CC%20401" HelpContext="FCB-TemplateEnde" />
+                        
                         </ParameterBlock>
                       </when>
                     </choose>

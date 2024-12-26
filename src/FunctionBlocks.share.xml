@@ -154,17 +154,61 @@
 								<TypeNumber SizeInBit="8" Type="signedInt" minInclusive="-100" maxInclusive="100" />
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBCountDownUnit" Name="FCBCountDownUnit" >
+							<!-- Count Down -->
+							<ParameterType Id="%AID%_PT-FCBCountDownTimeStartKo" Name="FCBCountDownTimeStartKo" >
 								<TypeRestriction Base="Value" SizeInBit="4" >
-									<Enumeration Id="%ENID%" Value="0"  Text="Sekunden"                           />
-									<Enumeration Id="%ENID%" Value="1"  Text="Minuten"                            />
-									<Enumeration Id="%ENID%" Value="2"  Text="Stunden"                            />
+									<Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"  />
+									<Enumeration Id="%ENID%" Value="1"  Text="Sekunden"  />
+									<Enumeration Id="%ENID%" Value="2"  Text="Minuten"   />
+									<Enumeration Id="%ENID%" Value="3"  Text="Stunden"   />
 								</TypeRestriction>
 							</ParameterType>
 
 							<ParameterType Id="%AID%_PT-FCBCountDownStartValue" Name="FCBCountDownStartValue">
-								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="255" />
+								<TypeTime SizeInBit="32" Unit="Seconds" minInclusive="1" maxInclusive="89999" UIHint="Time_hhmmss" />
 							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBCountDownTimeOffset" Name="FCBCountDownTimeOffset">
+								<TypeRestriction Base="Value" SizeInBit="4" >
+									<Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"  />
+									<Enumeration Id="%ENID%" Value="1"  Text="1 Sekunde"    />
+									<Enumeration Id="%ENID%" Value="2"  Text="5 Sekunden"   />
+									<Enumeration Id="%ENID%" Value="3"  Text="10 Sekunden"  />
+									<Enumeration Id="%ENID%" Value="4"  Text="15 Sekunden"  />
+									<Enumeration Id="%ENID%" Value="5"  Text="30 Sekunden"  />
+									<Enumeration Id="%ENID%" Value="6"  Text="1 Minute"     />
+									<Enumeration Id="%ENID%" Value="7"  Text="5 Minuten"    />
+									<Enumeration Id="%ENID%" Value="8"  Text="10 Minuten"   />
+									<Enumeration Id="%ENID%" Value="9"  Text="15 Minuten"   />
+									<Enumeration Id="%ENID%" Value="10" Text="30 Minuten"   />
+									<Enumeration Id="%ENID%" Value="11" Text="1 Stunde"     />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBCountDownTrigger" Name="FCBCountDownTrigger">
+								<TypeRestriction Base="Value" SizeInBit="4" >
+									<Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"         />
+									<Enumeration Id="%ENID%" Value="1"  Text="Nur EIN"             />
+									<Enumeration Id="%ENID%" Value="2"  Text="Ein für 1 Sekunde"  />
+									<Enumeration Id="%ENID%" Value="3"  Text="Ein für 2 Sekunden"  />
+									<Enumeration Id="%ENID%" Value="4"  Text="Ein für 5 Sekunden"  />
+									<Enumeration Id="%ENID%" Value="5"  Text="Ein für 10 Sekunden" />
+									<Enumeration Id="%ENID%" Value="6"  Text="Ein für 20 Sekunden" />
+									<Enumeration Id="%ENID%" Value="7"  Text="Ein für 30 Sekunden" />
+									<Enumeration Id="%ENID%" Value="8"  Text="Ein für 1 Minute"   />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBCountDownTextTemplate" Name="FCBCountDownTextTemplate">
+								<TypeText SizeInBit="112" />
+								<!-- 14 characters -->
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBCountDownTextTemplatePauseRun" Name="FCBCountDownTextTemplatePauseRun">
+								<TypeText SizeInBit="8" />
+								<!-- 1 characters -->
+							</ParameterType>
+
 
 						</ParameterTypes>
 						<Parameters>

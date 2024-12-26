@@ -351,8 +351,8 @@ In der Standardeinstellung **Identisch mit Eingängen** wird der DPT der Eingän
   Ein zu kleiner Wert wird durch den Minimalwert des DPT ersetzt, ein zu großer Wert durch den Maximalwert.
 
 
-<!-- DOC -->
-## Count Down
+<!-- DOCEND-->
+## Count Down Zeitgeber
 
 <!-- DOC -->
 ### Einheit
@@ -364,7 +364,127 @@ Legt fest, welche Einheit für den Count Down Wert verwendet werden soll
 - Stunden
 
 <!-- DOC -->
-### Start Wert
+### Ablauf Zeit
 
-Legt den Wert fest für den Start des Count Down. 
+Legt die Zeit für den Count Down Ablauf fest die bei einem Start Befehl verwendet wird.
+Hinweis: Die Zeit wird bei Verwendung des Gruppenobjekts 'Start mit Zeit' nicht verwendet.
 
+<!-- DOC -->
+### Gruppenobjekt 'Start mit Zeit'
+
+Es wird ein Gruppenobjekt eingeblendet das über einen Zahlenwert den Start des Count Down mit Zeitvorgabe ermöglicht.
+
+Mögliche Einstellungen:
+- Deaktiviert
+- Sekunden
+- Minuten
+- Stunden
+							
+Beispiel:
+
+Wenn 'Minuten' eingestellt wird und ein Telegram mit dem Zahlenwert 5 empfangen wird, startet der Count Down mit einer Zeitvorgabe von 5 Minuten
+
+<!-- DOC -->
+### Gruppenobjekt Zeitoffset
+
+Mithilfe des Guppenobjekts Zeitoffset wird die Lauf-Zeit um dem eingestellten Betrag erhöht bzw. erniedrigt.
+
+Mögliche Einstellungen:
+- Deaktiviert
+- 1 Sekunde
+- 5 Sekunden
+- 10 Sekunden
+- 15 Sekunden
+- 30 Sekunden
+- 1 Minute 
+- 5 Minuten  
+- 10 Minuten 
+- 15 Minuten 
+- 30 Minuten 
+- 1 Stunde
+
+Hinweis: Ist der Count-Down nicht gestartet, wird bei Empfang eines Auf-Befehl (0) der Count-Down mit der entsprechenden Zeit gestartet. 
+Die unter 'Ablauf Zeit' konfigurierte Zeit wird dabei nicht verwendet.
+
+Beispiel:
+
+Ist '5 Sekunden' ausgewählt und es wird ein Auf-Befehl (0) empfangen, wird die aktuelle Ablaufzeit um 5 Sekunden verlängert. Bei Emfpang eine Ab-Befehl (1) wird die aktuelle Ablaufzeit um 5 Sekunden verkürzt. 
+
+<!-- DOC -->
+### Gruppenobjekt Trigger
+
+Das Gruppenobjekt Trigger kann verwendet werden um ein Signal am Ende der Laufzeit des Count-Down Zeitgebers zu erzeugen.
+
+Mögliche Einstellungen:
+- Deaktiviert        
+- Nur EIN            
+- Ein für 1 Sekunde
+- Ein für 2 Sekunden 
+- Ein für 5 Sekunden 
+- Ein für 10 Sekunden
+- Ein für 20 Sekunden
+- Ein für 30 Sekunden
+- Ein für 1 Minute 
+
+**Nur EIN** sendet am Ende der Laufzeit ein Trigger (1) Telegram. Die anderen Einstellungen senden am Ende ein EIN (1) Telegram und nach Ablauf der Zeit ein AUS (2) Telegram.
+
+Hinweis: Wird der Zeitgeber erneut gestartet bevor die eingestellte Zeit erreicht wurde, wird sofort ein AUS (0) Telegram gesendet.
+
+<!-- DOCEND-->
+<!-- DOC HelpContext="TemplatePause" -->
+### Textbausteine
+
+Textbausteine werden verwendet um die Textausgabe im Gruppenobjekt 'Text' zu formatieren.
+In den Textbausteine können Platzhalter verwendet werden um Informationen zur verbleibenden Zeit oder den Laufend/Pausierten Zustand zu visualisieren.
+
+Platzhalter:
+- **H2**...Stunden (2 oder mehrstellig)"
+- **H1**...Stunden (1 oder mehrstellig)"
+- **M2**...Minuten (2 oder mehrstellig)"
+- **M1**...Minuten (1 oder mehrstellig)"
+- **S2**...Sekunden (2 oder mehrstellig)
+- **S1**...Sekunden (1 oder mehrstellig)
+- **%**....Läuft / Pause Textbautstein" 
+
+<!-- DOC HelpContext="TemplatePause" -->
+#### Pause
+
+Das Konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
+Das Pauszeichen wird im Platzhalter '%' eingesetzt.
+
+<!-- DOC HelpContext="TemplateLaeuft" -->
+#### Läuft
+
+Das Konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
+Das Pauszeichen wird im Platzhalter '%' eingesetzt.
+
+<!-- DOC HelpContext="Template" -->
+#### Standard
+
+Standard Text Formatierung.
+
+Hinweis: durch Verwendung des Sekundenplatzhalters wird der KNX Bus start belastet, da jede Sekunde der aktualisierte Text übertragen wird.
+
+Beispiel: "H2:M2 %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 3 Stunden und 15 Minuten "03:15 v" aus.
+
+<!-- DOC HelpContext="Template1h" -->
+#### Kleiner 1 Stunde
+
+Die Testformartierung wird verwendet um den Text für eine Restlaufzeit kleiner 1 Stunde auszugeben.
+
+Hinweis: durch Verwendung des Sekundenplatzhalters wird der KNX Bus start belastet, da jede Sekunde der aktualisierte Text übertragen wird.
+
+Beispiel: "M2 Minuten %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Minuten "06 Minuten v" aus.
+
+<!-- DOC HelpContext="Template1m" -->
+#### Kleiner 1 Minute
+
+Die Testformartierung wird verwendet um den Text für eine Restlaufzeit kleiner 1 Minute auszugeben.
+
+Beispiel: "S2 Sekunden %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Sekunden "06 Sekunden v" aus.
+
+<!-- DOC HelpContext="TemplateEnde" -->
+#### Ende
+
+Text der nach Ablauf der Zeit angezeigt wird. 
+Eventuell verwendete Platzhalter für Stunden, Minuten und Sekunden werden mit 0 bzw. 00 ausgegeben.
