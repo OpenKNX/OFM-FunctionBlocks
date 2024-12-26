@@ -4,7 +4,7 @@
 class CountDownBlock : public FunctionBlock
 {
   private:
-    unsigned long _countValue = 1000;
+    uint64_t _remainingSeconds = 0ul;
     unsigned long _lastValueUpdate = 0;
     bool _pause = false;
   public:
@@ -16,6 +16,7 @@ class CountDownBlock : public FunctionBlock
     void pause(bool pause);
     void stop();
     void loop() override;
-    void updateText(uint64_t value);
+    void updateRemainingKo();
+    void updateTextKo(bool forceSend, bool end = false);
 
 };
