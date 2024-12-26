@@ -21,9 +21,9 @@ Folgende Funktionsblöcke stehen zur Auswahl:
 * (n=1 bis 99) *Abhängig vomTyp*:
   * [Kanal-Typ-unabhängige Einstellungen](#kanaleinstellungen)
   * {[**UND**, **ODER**, **Anzahl**](#undoderanzahl-kanaleinstellungen)}
-  * [**Prioritätsschalter**](#prioritätsschalter-2)
+  * [**Prioritätsschalter**](#prioritätsschalter-1)
   * [**Aggregation**](#aggregation)
-  * [**Count-Down Zeitgeber**](#count-down-zeitgeber-2)
+  * [**Count-Down Zeitgeber**](#count-down-zeitgeber-1)
 
 
 # Blocktypen
