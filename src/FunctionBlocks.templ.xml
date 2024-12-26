@@ -1651,9 +1651,9 @@
 
 
                       <when test="6"><!-- ************ Count Down ************ -->
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Count Down Zeitgeber: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="timer-sand" ShowInComObjectTree="true" HelpContext="FCB-Count-Down">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Count-Down Zeitgeber: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="timer-sand" ShowInComObjectTree="true" HelpContext="FCB-Count-Down">
 
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Count Down Zeitgeber" UIHint="Headline" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Count-Down Zeitgeber" UIHint="Headline" />
 
                           <!-- Kanal Name -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />

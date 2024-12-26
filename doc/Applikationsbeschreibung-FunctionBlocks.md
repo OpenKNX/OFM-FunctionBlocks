@@ -11,7 +11,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
     * [Beispielanwendungen](#beispielsanwendung)
   * [Anzahl](#anzahl)
   * [Statistische Aggregation](#statistische-aggregation)
-
+  * [Count-Down Zeitgeber](#count-down-zeitgeber)
 
 
 ### ETS Konfiguration
@@ -23,7 +23,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * {[**UND**, **ODER**, **Anzahl**](#undoderanzahl-kanaleinstellungen)}
   * [**Prioritätsschalter**](#prioritätsschalter-2)
   * [**Aggregation**](#aggregation)
-
+  * [**Count-Down Zeitgeber**](#count-down-zeitgeber-2)
 
 
 # Blocktypen
@@ -76,11 +76,11 @@ Der Ausgangswert wird basierend auf der gewählten Funktion (Summe, Mittelwert, 
 Es kann beeinflusst werden, wie mit Werten umgegangen wird die vom Ausgatyp nicht dargestellt werden können.
 
 <!-- DOC -->
-## Count Down
+## Count-Down Zeitgeber
 
-Der Funktionsblock zählt von eine vorgebenen Zahl in herunter.
-Es kann zwischen Sekunden, Minuten, Stunden als Einheit gewählt werden.
-Der Count Down kann auch pausiert werden.
+Der Funktionsblock zählt von eine vorgebenen Zeit herunter.
+Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
+Der Count Down kann pausiert werden.
 Es gibt Ausgänge für
  - Verbleibende Zeit
  - Textdartstellung der verbleibenden Zeit mit Einheit
@@ -124,9 +124,9 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Ein Aggregations-Funktionsblock hat bis zu 9 Eingänge mit numerischem Typ.
   Es kann zwischen fünf Funktionen (Summe, Mittelwert, Minimum, Maximum, Spannbreite) zur Berechnung des Ausgangswertes gewählt werden.
 
-- **Count Down**
-  Zählt von eine vorgebenen Zahl in herunter.
-  Es kann zwischen Sekunden, Minuten, Stunden als Einheit gewählt werden.
+- **Count-Down Zeitgeber**
+  Zählt von eine vorgebenen Zeit in herunter.
+  Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
 
 ## Kanaleinstellungen
@@ -352,7 +352,7 @@ In der Standardeinstellung **Identisch mit Eingängen** wird der DPT der Eingän
 
 
 <!-- DOCEND-->
-## Count Down Zeitgeber
+## Count-Down Zeitgeber
 
 <!-- DOC -->
 ### Einheit
