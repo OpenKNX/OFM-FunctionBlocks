@@ -1,13 +1,12 @@
 #include "FunctionBlocksModule.h"
-#include "knxprod.h"
+#include "FunctionBlocks/CountDownBlock.h"
 #include "FunctionBlocks/LogicFunctionBlock.h"
 #include "FunctionBlocks/PrioritySwitchFunctionBlock.h"
 #include "FunctionBlocks/SimpleAggregationBlock.h"
-#include "FunctionBlocks/CountDownBlock.h"
+#include "knxprod.h"
 
 FunctionBlocksModule::FunctionBlocksModule()
 {
-
 }
 
 const std::string FunctionBlocksModule::name()
@@ -35,11 +34,42 @@ void FunctionBlocksModule::setup(bool configured)
 
 void FunctionBlocksModule::showHelp()
 {
-
 }
 
 bool FunctionBlocksModule::processCommand(const std::string cmd, bool diagnoseKo)
 {
+    if (cmd.rfind("fb", 0) == 0)
+    {
+        auto channelString = cmd.substr(2);
+        if (channelString.length() > 0)
+        {
+            auto pos = channelString.find_first_of(' ');
+            std::string channelNumberString;
+            std::string channelCmd;
+            if (pos > 0 && pos != std::string::npos)
+            {
+                channelNumberString = channelString.substr(0, pos);
+                channelCmd = channelString.substr(pos + 1);
+            }
+            else
+            {
+                channelNumberString = channelString;
+                channelCmd = "";
+            }
+            auto channel = atoi(channelNumberString.c_str());
+            if (channel < 1 || channel > getNumberOfChannels())
+            {
+                logInfoP("Channel %d not found", channel);
+                return true;
+            }
+            FunctionBlock* functionBlock = (FunctionBlock*)getChannel(channel - 1);
+            if (functionBlock != nullptr)
+            {
+                if (functionBlock->processCommand(channelCmd, diagnoseKo))
+                    return true;
+            }
+        }
+    }
     return false;
 }
 
@@ -88,7 +118,7 @@ void FunctionBlocksModule::loop()
         _startTime = 0;
         for (uint8_t i = 0; i < getNumberOfChannels(); i++)
         {
-            FunctionBlock* functionBlock = (FunctionBlock*) getChannel(i);
+            FunctionBlock* functionBlock = (FunctionBlock*)getChannel(i);
             if (functionBlock != nullptr)
             {
                 functionBlock->initMissingInputValues();

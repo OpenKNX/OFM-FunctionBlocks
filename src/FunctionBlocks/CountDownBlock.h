@@ -6,6 +6,9 @@ class CountDownBlock : public FunctionBlock
   private:
     uint64_t _remainingSeconds = 0ul;
     unsigned long _lastValueUpdate = 0;
+    unsigned long _waitForTriggerEnd = 0;
+    int32_t _triggerEnd = 0;
+    uint64_t _targetSeconds = 0;
     bool _pause = false;
   public:
     CountDownBlock(uint8_t channelIndex);
@@ -16,7 +19,11 @@ class CountDownBlock : public FunctionBlock
     void pause(bool pause);
     void stop();
     void loop() override;
+    void finished();
     void updateRemainingKo();
     void updateTextKo(bool forceSend, bool end = false);
+#ifdef OPENKNX_FCB_DEBUG
+    bool processCommand(const std::string cmd, bool diagnoseKo) override;
+#endif
 
 };

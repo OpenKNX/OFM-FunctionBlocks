@@ -354,6 +354,9 @@ In der Standardeinstellung **Identisch mit Eingängen** wird der DPT der Eingän
 <!-- DOC HelpContext="Count-Down"-->
 ## Count-Down Zeitgeber
 
+Der Funktionsblock zählt von eine vorgebenen Zeit herunter.
+Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
+Der Count Down kann pausiert werden.
 
 <!-- DOC -->
 ### Ablauf Zeit
@@ -382,9 +385,13 @@ Der Fortsetzten erfolgt über ein AUS (0) Telegram.
 Es wird ein Gruppenobjekt eingeblendet das über einen Zahlenwert den Start des Count Down mit Zeitvorgabe ermöglicht.
 
 Mögliche Einstellungen:
+
 - Deaktiviert
+
 - Einheit Sekunden
+
 - Einheit Minuten
+
 - Einheit Stunden
 							
 Beispiel:
@@ -399,17 +406,29 @@ Mithilfe des Guppenobjekts Zeitoffset wird die Lauf-Zeit um dem eingestellten Be
 Über ein Aus (2) Telegram wird die Laufzeit erhöht.
 
 Mögliche Einstellungen:
+
 - Deaktiviert
+
 - 1 Sekunde
+
 - 5 Sekunden
+
 - 10 Sekunden
+
 - 15 Sekunden
+
 - 30 Sekunden
+
 - 1 Minute 
-- 5 Minuten  
+
+- 5 Minuten 
+
 - 10 Minuten 
+
 - 15 Minuten 
+
 - 30 Minuten 
+
 - 1 Stunde
 
 Hinweis: Ist der Count-Down nicht gestartet, wird bei Empfang eines Auf-Befehl (0) der Count-Down mit der entsprechenden Zeit gestartet. 
@@ -429,22 +448,38 @@ Das Gruppenobjekt stellt die Zeit als Text zur bereit.
 Über die Konfiguration kann festgelegt werden, ob die verbleibende Zeit (Abwärts laufend) oder die vergangene Zeit (Aufwärts laufend) dargestellt wird.
 
 Mögliche Einstellungen:
+
 - Deaktiviert
+
 - Verbleibend (Zählt abwärts)
+
 - Vergangen (Zählt aufwärts)
 
 Über Textbausteine kann konfiguriert werden, wie der Text dargestellt wird.
 In den Textbausteine können Platzhalter verwendet werden um Informationen zur verbleibenden Zeit oder den Laufend/Pausierten Zustand zu visualisieren.
 
 Platzhalter:
-- **H2**...Stunden (2 oder mehrstellig)"
-- **H1**...Stunden (1 oder mehrstellig)"
-- **M2**...Minuten (2 oder mehrstellig)"
-- **M1**...Minuten (1 oder mehrstellig)"
+
+- **H2**...Stunden (2 oder mehrstellig)
+  Wird kein Platzhalter für Minuten verwendet, werden die Stunden aufgerundet, sonst abgerundet.
+
+- **H1**...Stunden (1 oder mehrstellig)
+  Wird kein Platzhalter für Minuten verwendet, werden die Stunden aufgerundet, sonst abgerundet.
+
+- **M2**...Minuten (2 oder mehrstellig)
+  Wird kein Platzhalter für Sekunden verwendet, werden die Minuten aufgerundet, sonst abgerundet.
+
+- **M1**...Minuten (1 oder mehrstellig)
+  Wird kein Platzhalter für Sekunden verwendet, werden die Minuten aufgerundet, sonst abgerundet.
+
 - **S2**...Sekunden (2 oder mehrstellig)
+
 - **S1**...Sekunden (1 oder mehrstellig)
+
 - **SX**...10 Sekunden (2 oder mehrstellig)
-- **%**....Läuft / Pause Textbautstein" 
+  Die Sekunden werden auf die nächsten vollen 10 Sekunden aufgerundet.
+
+- **$**....Läuft / Pause Textbautstein" 
 
 Es wrid empfohlen den Platzhalter **S1** und **S2** nur in Sonderfällen zu verwenden, da in dem Fall der Text alle Sekunden über den KNX-Bus geschickt wird und zu einer hohen Buslast führt. Besser ist stattdessen den Platzhalter *SX* zu verwenden da der nur alle 10 Sekunden eine aktualisiert durchführt.
 
@@ -452,13 +487,13 @@ Es wrid empfohlen den Platzhalter **S1** und **S2** nur in Sonderfällen zu verw
 #### Pause
 
 Das Konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
-Das Pauszeichen wird im Platzhalter '%' eingesetzt.
+Das Pauszeichen wird im Platzhalter **$** eingesetzt.
 
 <!-- DOC HelpContext="TemplateLaeuft" -->
 #### Läuft
 
 Das Konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
-Das Pauszeichen wird im Platzhalter '%' eingesetzt.
+Das Pauszeichen wird im Platzhalter **$** eingesetzt.
 
 <!-- DOC HelpContext="Template" -->
 #### Standard
@@ -467,7 +502,10 @@ Standard Text Formatierung.
 
 Hinweis: durch Verwendung des Sekundenplatzhalters wird der KNX Bus start belastet, da jede Sekunde der aktualisierte Text übertragen wird.
 
-Beispiel: "H2:M2 %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 3 Stunden und 15 Minuten "03:15 *" aus.
+Beispiele: 
+
+"H2:M2 $" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 3 Stunden und 15 Minuten "03:15 *" aus.
+"M2 Minuten $" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 3 Stunden und 15 Minuten "195 Minuten *" aus.
 
 <!-- DOC HelpContext="Template1h" -->
 #### Kleiner 1 Stunde
@@ -476,14 +514,18 @@ Die Testformartierung wird verwendet um den Text für eine Restlaufzeit kleiner 
 
 Hinweis: durch Verwendung des Sekundenplatzhalters wird der KNX Bus start belastet, da jede Sekunde der aktualisierte Text übertragen wird.
 
-Beispiel: "M2 Minuten %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Minuten "06 Minuten *" aus.
+Beispiele: 
+
+"M1 Minuten $" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Minuten 30 Sekunden "7 Minuten *" aus. Da kein Sekunden Platzhalter verwendet wurde, werden die Minuten aufgerundet.
+
+"M1:SX $" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Minuten 31 Sekunden "6:40 *" aus. Da ein Sekunden Platzhalter verwendet wurde, werden die Minute abgerundet. Der Platzhalter **SX** rundet immer auf die nächsten vollen 10 Sekunden auf.
 
 <!-- DOC HelpContext="Template1m" -->
 #### Kleiner 1 Minute
 
 Die Testformartierung wird verwendet um den Text für eine Restlaufzeit kleiner 1 Minute auszugeben.
 
-Beispiel: "SX Sekunden %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Sekunden (bei SC wird aufgerundet) "10 Sekunden *" aus.
+Beispiel: "SX Sekunden $" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Sekunden (bei **SX** wird aufgerundet) "10 Sekunden *" aus.
 
 <!-- DOC HelpContext="TemplateEnde" -->
 #### Ende
@@ -500,12 +542,19 @@ Achtung: Der maximalwert des Zählers ist mit 255 begrenzt.
 Die Einheit muss so gewählt werden, dass sie mit der maximalen Laufzeit abbildbar ist.
 
 Mögliche Einstellungen:
+
 - Deaktiviert
+
 - Verbleibend Sekunden (Zählt abwärts)
+
 - Verbleibend Minuten (Zählt abwärts) 
-- Verbleibend Stunden (Zählt abwärts) 
-- Vergangen Sekunden (Zählt aufwärts) 
+
+- Verbleibend Stunden (Zählt abwärts)
+
+- Vergangen Sekunden (Zählt aufwärts)
+
 - Vergangen Minuten (Zählt aufwärts)
+
 - Vergangen Stunden (Zählt aufwärts)
 
 <!-- DOC HelpContext="GroupObjectTrigger" -->
@@ -514,14 +563,23 @@ Mögliche Einstellungen:
 Das Gruppenobjekt Trigger kann verwendet werden um ein Signal am Ende der Laufzeit des Count-Down Zeitgebers zu erzeugen.
 
 Mögliche Einstellungen:
-- Deaktiviert        
-- Nur EIN            
+
+- Deaktiviert       
+
+- Nur EIN     
+
 - Ein für 1 Sekunde
-- Ein für 2 Sekunden 
+
+- Ein für 2 Sekunden
+
 - Ein für 5 Sekunden 
+
 - Ein für 10 Sekunden
+
 - Ein für 20 Sekunden
+
 - Ein für 30 Sekunden
+
 - Ein für 1 Minute 
 
 **Nur EIN** sendet am Ende der Laufzeit ein Trigger (1) Telegram. Die anderen Einstellungen senden am Ende ein EIN (1) Telegram und nach Ablauf der Zeit ein AUS (2) Telegram.
