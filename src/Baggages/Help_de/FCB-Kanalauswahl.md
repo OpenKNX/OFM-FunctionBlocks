@@ -2,17 +2,28 @@
 
 Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
 
-#### UND
+- **UND**
+  Ein UND-Funktionsblock verfügt über bis zu 9 Eingänge. 
+  Der Ausgang gibt EIN aus, wenn alle Eingänge EIN sind.
 
-Ein UND-Funktionsblock verfügt über bis zu 9 Eingänge. 
-Der Ausgang gibt EIN aus, wenn alle Eingänge EIN sind.
+- **ODER**
+  Ein ODER-Funktionsblock verfügt über bis zu 9 Eingänge. 
+  Der Ausgang gibt EIN aus, wenn mindestens ein Eingang EIN ist.
 
-#### ODER
+- **Prioritätsschalter**
+  Ein Prioritätsschalter hat bis zu 9 Eingänge vom Typ EIN/AUS.
+  Der Eingang mit der höchsten Priorität der EIN ist, bestimmt den Ausgangswert.
 
-Ein ODER-Funktionsblock verfügt über bis zu 9 Eingänge. Der Ausgang gibt EIN aus, wenn mindestens ein Eingang EIN ist.
+- **Anzahl**
+  Ein Anzahl-Funktionsblock hat bis zu 9 Eingänge vom Typ EIN/AUS.
+  Der Ausgang gibt die Anzahl der Eingänge mit dem Wert EIN aus.
 
-#### Prioritätsschalter
+- **Statistische Aggregation**
+  Ein Aggregations-Funktionsblock hat bis zu 9 Eingänge mit numerischem Typ.
+  Es kann zwischen fünf Funktionen (Summe, Mittelwert, Minimum, Maximum, Spannbreite) zur Berechnung des Ausgangswertes gewählt werden.
 
-Ein Prioritätsschalter hat bis zu 9 Eingänge vom Typ EIN/AUS.
-Der Eingang mit der höchsten Priorität der EIN ist, bestimmt den Ausgangswert.
+- **Count-Down Zeitgeber**
+  Zählt von eine vorgebenen Zeit in herunter.
+  Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
+
 

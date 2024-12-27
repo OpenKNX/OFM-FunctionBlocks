@@ -5,6 +5,7 @@ enum class LogicFunctionBlockType
 {
     LogicAND,
     LogicOR,
+    LogicCOUNT,
 };
 
 class LogicFunctionBlock : public FunctionBlock

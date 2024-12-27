@@ -10,12 +10,22 @@ Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 - AND mit 9 Eingängen
 - OR mit 9 Eingängen
 - Prioritätsschalter
+- Anzahl
+- Aggregation
+  - Summe
+  - Mittelwert
+  - Minimum
+  - Maximum
+  - Spannbreite (Maximum - Minimum)
+- Count Down Zeitgeber
+
 
 ## Planned Features
 - Multiplexer
-- Countdown
 - Counter
-- Watchdog
+- Messwertüberwachung
+  - Watchdog
+  - Grenzen
 - Blinker
 
 ## Applikationsbeschreibung

@@ -17,5 +17,5 @@ class FunctionBlock : public OpenKNX::Channel
     virtual void initMissingInputValues() = 0;
     void processInputKo(GroupObject &ko);
     virtual void handleKo(GroupObject &ko) = 0;
-
+    virtual bool processCommand(const std::string cmd, bool diagnoseKo);
 };
