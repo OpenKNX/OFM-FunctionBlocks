@@ -1,4 +1,4 @@
-﻿### Gruppenobjekt Trigger
+﻿### Auslöser / Ende
 
 Das Gruppenobjekt Trigger kann verwendet werden um ein Signal am Ende der Laufzeit des Count-Down Zeitgebers zu erzeugen.
 

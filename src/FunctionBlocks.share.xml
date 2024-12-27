@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-model href="../../Organization/knxprod-support/knx_project_14/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer" xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
-	<op:config name="%IW_NumChannelsDefault%" value="%N%" />
+	<op:config name="%FCB_NumChannelsDefault%" value="0" />
 	<ManufacturerData>
 		<Manufacturer>
 			<ApplicationPrograms>
@@ -158,9 +158,9 @@
 							<ParameterType Id="%AID%_PT-FCBCountDownTimeStartKo" Name="FCBCountDownTimeStartKo" >
 								<TypeRestriction Base="Value" SizeInBit="4" >
 									<Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"  />
-									<Enumeration Id="%ENID%" Value="1"  Text="Sekunden"  />
-									<Enumeration Id="%ENID%" Value="2"  Text="Minuten"   />
-									<Enumeration Id="%ENID%" Value="3"  Text="Stunden"   />
+									<Enumeration Id="%ENID%" Value="1"  Text="Einheit Sekunden"  />
+									<Enumeration Id="%ENID%" Value="2"  Text="Einheit Minuten"   />
+									<Enumeration Id="%ENID%" Value="3"  Text="Einheit Stunden"   />
 								</TypeRestriction>
 							</ParameterType>
 
@@ -199,6 +199,27 @@
 								</TypeRestriction>
 							</ParameterType>
 
+							<ParameterType Id="%AID%_PT-FCBGrouptObjectText" Name="FCBGrouptObjectText">
+								<TypeRestriction Base="Value" SizeInBit="2" UIHint="DropDown" >
+									<Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"  />
+									<Enumeration Id="%ENID%" Value="1"  Text="Verbleibend (Zählt abwärts)" />
+									<Enumeration Id="%ENID%" Value="2"  Text="Vergangen (Zählt aufwärts)" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBGrouptObjectCounter" Name="FCBGrouptObjectCounter">
+								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown" >
+									<Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"  />
+									<Enumeration Id="%ENID%" Value="1"  Text="Verbleibend Sekunden (Zählt abwärts)" />
+									<Enumeration Id="%ENID%" Value="2"  Text="Verbleibend Minuten (Zählt abwärts)" />
+									<Enumeration Id="%ENID%" Value="3"  Text="Verbleibend Stunden (Zählt abwärts)" />
+									<Enumeration Id="%ENID%" Value="4"  Text="Vergangen Sekunden (Zählt aufwärts)" />
+									<Enumeration Id="%ENID%" Value="5"  Text="Vergangen Minuten (Zählt aufwärts)" />
+									<Enumeration Id="%ENID%" Value="6"  Text="Vergangen Stunden (Zählt aufwärts)" />
+								</TypeRestriction>
+							</ParameterType>
+
+
 							<ParameterType Id="%AID%_PT-FCBCountDownTextTemplate" Name="FCBCountDownTextTemplate">
 								<TypeText SizeInBit="112" />
 								<!-- 14 characters -->
@@ -216,7 +237,7 @@
 							<Union SizeInBit="8">
 								<Memory CodeSegment="%MID%" Offset="0" BitOffset="0" />
 								<!-- Number of channels -->
-								<Parameter Id="%AID%_UP-%TT%00000" Name="VisibleChannels" ParameterType="%AID%_PT-FCBNumChannels" Offset="0" BitOffset="0" Text="Verfügbare Kanäle" Value="%IW_NumChannelsDefault%" SuffixText=" von %N%" />
+								<Parameter Id="%AID%_UP-%TT%00000" Name="VisibleChannels" ParameterType="%AID%_PT-FCBNumChannels" Offset="0" BitOffset="0" Text="Verfügbare Kanäle" Value="%FCB_NumChannelsDefault%" SuffixText=" von %N%" />
 							</Union>							
 						</Parameters>
 						<ParameterRefs>

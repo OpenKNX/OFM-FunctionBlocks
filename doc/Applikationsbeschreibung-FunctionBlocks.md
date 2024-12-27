@@ -351,17 +351,9 @@ In der Standardeinstellung **Identisch mit Eingängen** wird der DPT der Eingän
   Ein zu kleiner Wert wird durch den Minimalwert des DPT ersetzt, ein zu großer Wert durch den Maximalwert.
 
 
-<!-- DOCEND-->
+<!-- DOC HelpContext="Count-Down"-->
 ## Count-Down Zeitgeber
 
-<!-- DOC -->
-### Einheit
-
-Legt fest, welche Einheit für den Count Down Wert verwendet werden soll
-
-- Sekunden
-- Minuten
-- Stunden
 
 <!-- DOC -->
 ### Ablauf Zeit
@@ -369,25 +361,42 @@ Legt fest, welche Einheit für den Count Down Wert verwendet werden soll
 Legt die Zeit für den Count Down Ablauf fest die bei einem Start Befehl verwendet wird.
 Hinweis: Die Zeit wird bei Verwendung des Gruppenobjekts 'Start mit Zeit' nicht verwendet.
 
+<!-- DOCEND-->
+### Eingänge
+
+#### Start / Stop
+
+Über diesen Eingang kann der Count-Down gestartet bzw. gestoppt werden.
+Der Start erfolgt über ein EIN (1) Telegram.
+Der Stopp erfolgt über ein AUS (0) Telegram.
+
+#### Pause / Fortsetzten
+
+Über diesen Eingang kann der Count-Down pausiert bzw. fortgesetzt werden.
+Der Pause erfolgt über ein EIN (1) Telegram.
+Der Fortsetzten erfolgt über ein AUS (0) Telegram.
+
 <!-- DOC -->
-### Gruppenobjekt 'Start mit Zeit'
+#### Start mit Zeit
 
 Es wird ein Gruppenobjekt eingeblendet das über einen Zahlenwert den Start des Count Down mit Zeitvorgabe ermöglicht.
 
 Mögliche Einstellungen:
 - Deaktiviert
-- Sekunden
-- Minuten
-- Stunden
+- Einheit Sekunden
+- Einheit Minuten
+- Einheit Stunden
 							
 Beispiel:
 
 Wenn 'Minuten' eingestellt wird und ein Telegram mit dem Zahlenwert 5 empfangen wird, startet der Count Down mit einer Zeitvorgabe von 5 Minuten
 
 <!-- DOC -->
-### Gruppenobjekt Zeitoffset
+#### Laufzeit Verringern / Erhöhen
 
 Mithilfe des Guppenobjekts Zeitoffset wird die Lauf-Zeit um dem eingestellten Betrag erhöht bzw. erniedrigt.
+Über ein EIN (1) Telegram wird die Laufzeit verringert.
+Über ein Aus (2) Telegram wird die Laufzeit erhöht.
 
 Mögliche Einstellungen:
 - Deaktiviert
@@ -410,31 +419,21 @@ Beispiel:
 
 Ist '5 Sekunden' ausgewählt und es wird ein Auf-Befehl (0) empfangen, wird die aktuelle Ablaufzeit um 5 Sekunden verlängert. Bei Emfpang eine Ab-Befehl (1) wird die aktuelle Ablaufzeit um 5 Sekunden verkürzt. 
 
-<!-- DOC -->
-### Gruppenobjekt Trigger
+<!-- DOCEND-->
+### Ausgänge
 
-Das Gruppenobjekt Trigger kann verwendet werden um ein Signal am Ende der Laufzeit des Count-Down Zeitgebers zu erzeugen.
+<!-- DOC HelpContext="GroupObjectText"-->
+#### Text
+
+Das Gruppenobjekt stellt die Zeit als Text zur bereit.
+Über die Konfiguration kann festgelegt werden, ob die verbleibende Zeit (Abwärts laufend) oder die vergangene Zeit (Aufwärts laufend) dargestellt wird.
 
 Mögliche Einstellungen:
-- Deaktiviert        
-- Nur EIN            
-- Ein für 1 Sekunde
-- Ein für 2 Sekunden 
-- Ein für 5 Sekunden 
-- Ein für 10 Sekunden
-- Ein für 20 Sekunden
-- Ein für 30 Sekunden
-- Ein für 1 Minute 
+- Deaktiviert
+- Verbleibend (Zählt abwärts)
+- Vergangen (Zählt aufwärts)
 
-**Nur EIN** sendet am Ende der Laufzeit ein Trigger (1) Telegram. Die anderen Einstellungen senden am Ende ein EIN (1) Telegram und nach Ablauf der Zeit ein AUS (2) Telegram.
-
-Hinweis: Wird der Zeitgeber erneut gestartet bevor die eingestellte Zeit erreicht wurde, wird sofort ein AUS (0) Telegram gesendet.
-
-<!-- DOCEND-->
-<!-- DOC HelpContext="TemplatePause" -->
-### Textbausteine
-
-Textbausteine werden verwendet um die Textausgabe im Gruppenobjekt 'Text' zu formatieren.
+Über Textbausteine kann konfiguriert werden, wie der Text dargestellt wird.
 In den Textbausteine können Platzhalter verwendet werden um Informationen zur verbleibenden Zeit oder den Laufend/Pausierten Zustand zu visualisieren.
 
 Platzhalter:
@@ -444,7 +443,10 @@ Platzhalter:
 - **M1**...Minuten (1 oder mehrstellig)"
 - **S2**...Sekunden (2 oder mehrstellig)
 - **S1**...Sekunden (1 oder mehrstellig)
+- **SX**...10 Sekunden (2 oder mehrstellig)
 - **%**....Läuft / Pause Textbautstein" 
+
+Es wrid empfohlen den Platzhalter **S1** und **S2** nur in Sonderfällen zu verwenden, da in dem Fall der Text alle Sekunden über den KNX-Bus geschickt wird und zu einer hohen Buslast führt. Besser ist stattdessen den Platzhalter *SX* zu verwenden da der nur alle 10 Sekunden eine aktualisiert durchführt.
 
 <!-- DOC HelpContext="TemplatePause" -->
 #### Pause
@@ -465,7 +467,7 @@ Standard Text Formatierung.
 
 Hinweis: durch Verwendung des Sekundenplatzhalters wird der KNX Bus start belastet, da jede Sekunde der aktualisierte Text übertragen wird.
 
-Beispiel: "H2:M2 %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 3 Stunden und 15 Minuten "03:15 v" aus.
+Beispiel: "H2:M2 %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 3 Stunden und 15 Minuten "03:15 *" aus.
 
 <!-- DOC HelpContext="Template1h" -->
 #### Kleiner 1 Stunde
@@ -474,17 +476,56 @@ Die Testformartierung wird verwendet um den Text für eine Restlaufzeit kleiner 
 
 Hinweis: durch Verwendung des Sekundenplatzhalters wird der KNX Bus start belastet, da jede Sekunde der aktualisierte Text übertragen wird.
 
-Beispiel: "M2 Minuten %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Minuten "06 Minuten v" aus.
+Beispiel: "M2 Minuten %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Minuten "06 Minuten *" aus.
 
 <!-- DOC HelpContext="Template1m" -->
 #### Kleiner 1 Minute
 
 Die Testformartierung wird verwendet um den Text für eine Restlaufzeit kleiner 1 Minute auszugeben.
 
-Beispiel: "S2 Sekunden %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Sekunden "06 Sekunden v" aus.
+Beispiel: "SX Sekunden %" gibt bei laufenden Zeitgeber mit einer Restlaufzeit von 6 Sekunden (bei SC wird aufgerundet) "10 Sekunden *" aus.
 
 <!-- DOC HelpContext="TemplateEnde" -->
 #### Ende
 
 Text der nach Ablauf der Zeit angezeigt wird. 
 Eventuell verwendete Platzhalter für Stunden, Minuten und Sekunden werden mit 0 bzw. 00 ausgegeben.
+
+
+<!-- DOC HelpContext="GroupObjectCounter" -->
+#### Zähler Verbleibend / Vergangen
+
+Das Gruppenobjekt stellt einen Zähler bereit. 
+Achtung: Der maximalwert des Zählers ist mit 255 begrenzt. 
+Die Einheit muss so gewählt werden, dass sie mit der maximalen Laufzeit abbildbar ist.
+
+Mögliche Einstellungen:
+- Deaktiviert
+- Verbleibend Sekunden (Zählt abwärts)
+- Verbleibend Minuten (Zählt abwärts) 
+- Verbleibend Stunden (Zählt abwärts) 
+- Vergangen Sekunden (Zählt aufwärts) 
+- Vergangen Minuten (Zählt aufwärts)
+- Vergangen Stunden (Zählt aufwärts)
+
+<!-- DOC HelpContext="GroupObjectTrigger" -->
+### Auslöser / Ende
+
+Das Gruppenobjekt Trigger kann verwendet werden um ein Signal am Ende der Laufzeit des Count-Down Zeitgebers zu erzeugen.
+
+Mögliche Einstellungen:
+- Deaktiviert        
+- Nur EIN            
+- Ein für 1 Sekunde
+- Ein für 2 Sekunden 
+- Ein für 5 Sekunden 
+- Ein für 10 Sekunden
+- Ein für 20 Sekunden
+- Ein für 30 Sekunden
+- Ein für 1 Minute 
+
+**Nur EIN** sendet am Ende der Laufzeit ein Trigger (1) Telegram. Die anderen Einstellungen senden am Ende ein EIN (1) Telegram und nach Ablauf der Zeit ein AUS (2) Telegram.
+
+Hinweis: Wird der Zeitgeber erneut gestartet bevor die eingestellte Zeit erreicht wurde, wird sofort ein AUS (0) Telegram gesendet.
+
+<!-- DOCEND-->
