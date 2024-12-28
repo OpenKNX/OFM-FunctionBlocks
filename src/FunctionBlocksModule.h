@@ -8,6 +8,7 @@ class FunctionBlocksModule : public FCBChannelOwnerModule
   public:
     FunctionBlocksModule();
     const std::string name() override;
+    void showInformations() override;
     const std::string version() override;
     void setup(bool configured) override;
     OpenKNX::Channel* createChannel(uint8_t _channelIndex /* this parameter is used in macros, do not rename */) override;

@@ -14,6 +14,15 @@ const std::string FunctionBlocksModule::name()
     return "FunctionBlocks";
 }
 
+void FunctionBlocksModule::showInformations()
+{
+#ifdef MODULE_FunctionBlocks_Version
+    openknx.logger.logWithPrefixAndValues(logPrefix(), "Function Blocks %s", MODULE_FunctionBlocks_Version);
+#else
+    openknx.logger.logWithPrefix(logPrefix(), "Function Blocks");
+#endif  
+}
+
 const std::string FunctionBlocksModule::version()
 {
 #ifdef MODULE_FunctionBlocks_Version
