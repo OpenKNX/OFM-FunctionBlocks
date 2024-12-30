@@ -12,6 +12,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Anzahl](#anzahl)
   * [Statistische Aggregation](#statistische-aggregation)
   * [Count-Down Zeitgeber](#count-down-zeitgeber)
+  * [Wertüberwachung](#wertüberwachtung)
 
 
 ### ETS Konfiguration
@@ -24,6 +25,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [**Prioritätsschalter**](#prioritätsschalter-1)
   * [**Aggregation**](#aggregation)
   * [**Count-Down Zeitgeber**](#count-down-zeitgeber-1)
+  * [**Wertüberwachung**](#wertüberwachung-1)
 
 
 # Blocktypen
@@ -86,6 +88,13 @@ Es gibt Ausgänge für
  - Textdartstellung der verbleibenden Zeit mit Einheit
  - Aktiv laufende Zeit
  - Pause aktiv
+
+<!-- DOC -->
+## Wertüberwachung
+
+Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
+Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
+Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
 
 # ETS Konfiguration
 
@@ -586,4 +595,94 @@ Mögliche Einstellungen:
 
 Hinweis: Wird der Zeitgeber erneut gestartet bevor die eingestellte Zeit erreicht wurde, wird sofort ein AUS (0) Telegram gesendet.
 
-<!-- DOCEND-->
+<!-- DOC HelpContext="Monitoring" -->
+## Wertüberwachtung
+
+Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
+Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
+Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
+
+Anwendungsbeispiel:
+Ein Temperatursensor hat einen Defekt und liefert keine oder nur 0 Werte. 
+In diesem Fall kann ein Ersatzwert auf den Bus gesendet werden, damit die Heizungsteuerung in einen Notbetrieb weiter arbeitet.
+
+<!-- DOC -->
+### Werttype
+
+Die Type des zu überwachenden Wertes.
+
+Zur Auswahl stehen:
+
+- 1.*           1-Bit (0/1)              
+- 5.*           8-Bit vorzeichenlos     
+- 5.001       Prozent (0..100%)          
+- 6.*           8-Bit vorzeichenbehaftet
+- 7.*           2-Byte vorzeichenlos     
+- 8.*           2-Byte vorzeichenbehaftet
+- 9.*           2-Byte Gleitkommawert    
+- 12.*         4-Byte vorzeichenlos      
+- 13.*         4-Byte vorzeichenbehaftet 
+- 14.*         4-Byte Gleitkommawert     
+
+<!-- DOC -->
+### Zeitueberwachung (Watchdog)
+
+Die Überwachung erkennt das ausbleiben von entsprechnenden Werten.
+
+Es kann festgelegt werden, was im Fehlerfall auf den Bus gesendet werden soll.
+
+Folgenden Optionen stehen zur Auswahl:
+
+- **Aus** Es erfolgt keine zeitliche Überwachung der Messwerte
+- **Nur Alarm auslösen** Es wird nur der Alarm ausgelöst, es wird kein Ersatzwert gesendet
+- **Leseanforderung, dann Alarm** Nach Ablauf der einstellten Zeit, wird eine Leseanforderung auf den Bus geschickt und der Alarm ausgelöst
+- **Leseanforderung, dann Ersatzwert und Alarm** Es wird eine Leseanforderung auf den Bus gsendet und der Alarm ausgelöst, bei weiteren Ausbleiben wird ein
+- **Ersatzwert und Alarm** Es wird eine Ersatzwert geschickt und der Alarm ausgelöst
+
+<!-- DOC -->
+### Ersatzwert
+
+Wert der bei fehlenden Wert auf den Bus gesendet werden soll. 
+Der Wert wird auf den Ausgang gesendet und nicht auf den Eingang. 
+
+Soll der Ersatzwert auf die Gruppenadresse des Eingangs verwendet werden, muss "Ersatzwerte auf Eingang senden" gewählt werden, ansonsten werden die Ersatzwerte als neuer Eingangswert erkannt und der Alarm rückgesetzt.
+
+<!-- DOC -->
+### Minimalwert Überwachung
+
+Option was bei unterschreiten des minimalen Wertes passieren soll.
+
+Folgende Optionen stehen zur Auswahl:
+
+- **Überwachung deaktiviert** 
+- **Nichts senden**
+- **letzten gültiger Wert senden**
+- **Grenzwert senden** 
+
+<!-- DOC -->
+### Minimaler Wert
+
+Miniamaler Grenzwert für die Überwachung.
+
+<!-- DOC -->
+### Maximalwert Überwachung
+
+Option was bei überschreiten des maximalen Wertes passieren soll.
+
+Folgende Optionen stehen zur Auswahl:
+
+- **Überwachung deaktiviert** 
+- **Nichts senden**
+- **letzten gültiger Wert senden**
+- **Grenzwert senden** 
+
+<!-- DOC -->
+###  Maximaler Wert
+
+Miniamaler Grenzwert für die Überwachung.
+
+<!-- DOC -->
+### Ersatzwertbehandlung
+
+Gibt an, ob die Ersatzwerte auf den Eingang ausgegeben werden sollen, oder ob ein getrenntes Ausgangsobjekt zur Verfügung steht.
+

@@ -262,7 +262,60 @@
                 <!-- 2 Bits free -->
               </Union>
 
-              <!-- Next Id: %AID%_UP-%TT%%CC%209 -->
+              <!-- Wertüberwachung -->
+              <Union SizeInBit="121">
+                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
+                <!-- Messwert Type-->
+                <Parameter Id="%AID%_UP-%TT%%CC%209" Name="CH%C%MonitoringValueType" ParameterType="%AID%_PT-FCBNumericAndBitDpt" Offset="0" BitOffset="0" Text="Werttype" Value="90" />
+                <!-- Watdchdog -->
+                <Parameter Id="%AID%_UP-%TT%%CC%210" Name="CH%C%MonitoringWD" ParameterType="%AID%_PT-FCBMonitoringWD" Offset="0" BitOffset="4" Text="Zeitüberwachung (Watchdog)" Value="3" />
+                <!-- Watchdog Replacement -->				 
+                <Parameter Id="%AID%_UP-%TT%%CC%211" Name="CH%C%MonitoringWDDpt1"    ParameterType="%AID%_PT-ValueDpt1" Offset="1" BitOffset="0" Text="Ersatzwert" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%212" Name="CH%C%MonitoringWDDpt5"    ParameterType="%AID%_PT-ValueDpt5" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%213" Name="CH%C%MonitoringWDDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="1" BitOffset="0" Text="Ersatzwert" Value="50" />
+                <Parameter Id="%AID%_UP-%TT%%CC%214" Name="CH%C%MonitoringWDDpt6"    ParameterType="%AID%_PT-ValueDpt6" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%215" Name="CH%C%MonitoringWDDpt7"    ParameterType="%AID%_PT-ValueDpt7" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%216" Name="CH%C%MonitoringWDDpt8"    ParameterType="%AID%_PT-ValueDpt8" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%217" Name="CH%C%MonitoringWDDpt9"    ParameterType="%AID%_PT-ValueDpt9" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%218" Name="CH%C%MonitoringWDDpt12"   ParameterType="%AID%_PT-ValueDpt12" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%219" Name="CH%C%MonitoringWDDpt13"   ParameterType="%AID%_PT-ValueDpt13" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%220" Name="CH%C%MonitoringWDDpt14"   ParameterType="%AID%_PT-ValueDpt14" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <!-- ^^^  Max size 4 Bytes ^^^ -->
+                <!-- Minimum Value Monitoring -->
+                <Parameter Id="%AID%_UP-%TT%%CC%221" Name="CH%C%MonitoringMin" ParameterType="%AID%_PT-FCBMonitoringRangeReplacement" Offset="5" BitOffset="4" Text="Minimalwert Überwachung" Value="0" />
+     		        <!-- Minimum Value -->				 
+                <Parameter Id="%AID%_UP-%TT%%CC%222" Name="CH%C%MonitoringMinDpt1"    ParameterType="%AID%_PT-ValueDpt1" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%223" Name="CH%C%MonitoringMinDpt5"    ParameterType="%AID%_PT-ValueDpt5" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%224" Name="CH%C%MonitoringMinDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%225" Name="CH%C%MonitoringMinDpt6"    ParameterType="%AID%_PT-ValueDpt6" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-128" />
+                <Parameter Id="%AID%_UP-%TT%%CC%226" Name="CH%C%MonitoringMinDpt7"    ParameterType="%AID%_PT-ValueDpt7" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%227" Name="CH%C%MonitoringMinDpt8"    ParameterType="%AID%_PT-ValueDpt8" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-32768" />
+                <Parameter Id="%AID%_UP-%TT%%CC%228" Name="CH%C%MonitoringMinDpt9"    ParameterType="%AID%_PT-ValueDpt9" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-671088" />
+                <Parameter Id="%AID%_UP-%TT%%CC%229" Name="CH%C%MonitoringMinDpt12"   ParameterType="%AID%_PT-ValueDpt12" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%230" Name="CH%C%MonitoringMinDpt13"   ParameterType="%AID%_PT-ValueDpt13" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-2147483648" />
+                <Parameter Id="%AID%_UP-%TT%%CC%231" Name="CH%C%MonitoringMinDpt14"   ParameterType="%AID%_PT-ValueDpt14" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-1000000000000" />
+                <!-- ^^^  Max size 4 Bytes ^^^ -->
+              
+                <!-- Maximum Value Monitoring -->
+                <Parameter Id="%AID%_UP-%TT%%CC%232" Name="CH%C%MonitoringMax" ParameterType="%AID%_PT-FCBMonitoringRangeReplacement" Offset="10" BitOffset="4" Text="Maximalwert Überwachung" Value="0" />
+     		        <!-- Maximum Value -->				 
+                <Parameter Id="%AID%_UP-%TT%%CC%233" Name="CH%C%MonitoringMaxDpt1"    ParameterType="%AID%_PT-ValueDpt1" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%234" Name="CH%C%MonitoringMaxDpt5"    ParameterType="%AID%_PT-ValueDpt5" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="255" />
+                <Parameter Id="%AID%_UP-%TT%%CC%235" Name="CH%C%MonitoringMaxDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="100" />
+                <Parameter Id="%AID%_UP-%TT%%CC%236" Name="CH%C%MonitoringMaxDpt6"    ParameterType="%AID%_PT-ValueDpt6" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="127" />
+                <Parameter Id="%AID%_UP-%TT%%CC%237" Name="CH%C%MonitoringMaxDpt7"    ParameterType="%AID%_PT-ValueDpt7" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="65535" />
+                <Parameter Id="%AID%_UP-%TT%%CC%238" Name="CH%C%MonitoringMaxDpt8"    ParameterType="%AID%_PT-ValueDpt8" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="32767" />
+                <Parameter Id="%AID%_UP-%TT%%CC%239" Name="CH%C%MonitoringMaxDpt9"    ParameterType="%AID%_PT-ValueDpt9" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="670760" />
+                <Parameter Id="%AID%_UP-%TT%%CC%240" Name="CH%C%MonitoringMaxDpt12"   ParameterType="%AID%_PT-ValueDpt12" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="4294967295" />
+                <Parameter Id="%AID%_UP-%TT%%CC%241" Name="CH%C%MonitoringMaxDpt13"   ParameterType="%AID%_PT-ValueDpt13" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="2147483647" />
+                <Parameter Id="%AID%_UP-%TT%%CC%242" Name="CH%C%MonitoringMaxDpt14"   ParameterType="%AID%_PT-ValueDpt14" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="1000000000000" />
+                <!-- ^^^  Max size 4 Bytes ^^^ -->
+                <!-- Ausgang -->
+                <Parameter Id="%AID%_UP-%TT%%CC%243" Name="CH%C%MonitoringOutput" ParameterType="%AID%_PT-FCBMonitoringOutput" Offset="15" BitOffset="0" Text="Ersatzwertbehandlung" Value="0" />
+     		        <!-- 4 bits free -->
+              </Union>
+           
+              <!-- Next Id: %AID%_UP-%TT%%CC%244 -->
 
             </Parameters>
             <ParameterRefs>
@@ -478,8 +531,55 @@
               <!-- Group Object Counter -->  
               <ParameterRef Id="%AID%_UP-%TT%%CC%207_R-%TT%%CC%20701" RefId="%AID%_UP-%TT%%CC%207" />
               <!-- Group Object Text -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%208_R-%TT%%CC%20801" RefId="%AID%_UP-%TT%%CC%208" />         
-             
+              <ParameterRef Id="%AID%_UP-%TT%%CC%208_R-%TT%%CC%20801" RefId="%AID%_UP-%TT%%CC%208" />       
+
+
+              <!-- Wertüberwachung -->
+              <!-- Messwert Type-->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901" RefId="%AID%_UP-%TT%%CC%209" />
+              <!-- Watdchdog -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001" RefId="%AID%_UP-%TT%%CC%210" />
+              <!-- Watchdog Replacement -->				 
+              <ParameterRef Id="%AID%_UP-%TT%%CC%211_R-%TT%%CC%21101" RefId="%AID%_UP-%TT%%CC%211" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%212_R-%TT%%CC%21201" RefId="%AID%_UP-%TT%%CC%212" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%213_R-%TT%%CC%21301" RefId="%AID%_UP-%TT%%CC%213" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%214_R-%TT%%CC%21401" RefId="%AID%_UP-%TT%%CC%214" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%215_R-%TT%%CC%21501" RefId="%AID%_UP-%TT%%CC%215" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%216_R-%TT%%CC%21601" RefId="%AID%_UP-%TT%%CC%216" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%217_R-%TT%%CC%21701" RefId="%AID%_UP-%TT%%CC%217" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%218_R-%TT%%CC%21801" RefId="%AID%_UP-%TT%%CC%218" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%219_R-%TT%%CC%21901" RefId="%AID%_UP-%TT%%CC%219" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%220_R-%TT%%CC%22001" RefId="%AID%_UP-%TT%%CC%220" />
+
+              <!--  Min Value Monitoring -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101" RefId="%AID%_UP-%TT%%CC%221" />
+              <!-- Minimum Value -->	
+              <ParameterRef Id="%AID%_UP-%TT%%CC%222_R-%TT%%CC%22201" RefId="%AID%_UP-%TT%%CC%222" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%223_R-%TT%%CC%22301" RefId="%AID%_UP-%TT%%CC%223" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%224_R-%TT%%CC%22401" RefId="%AID%_UP-%TT%%CC%224" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%225_R-%TT%%CC%22501" RefId="%AID%_UP-%TT%%CC%225" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%226_R-%TT%%CC%22601" RefId="%AID%_UP-%TT%%CC%226" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%227_R-%TT%%CC%22701" RefId="%AID%_UP-%TT%%CC%227" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%228_R-%TT%%CC%22801" RefId="%AID%_UP-%TT%%CC%228" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%229_R-%TT%%CC%22901" RefId="%AID%_UP-%TT%%CC%229" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%230_R-%TT%%CC%23001" RefId="%AID%_UP-%TT%%CC%230" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%231_R-%TT%%CC%23101" RefId="%AID%_UP-%TT%%CC%231" />
+              <!-- Max Value Monitoring -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201" RefId="%AID%_UP-%TT%%CC%232" />
+              <!-- Maximum Value -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%233_R-%TT%%CC%23301" RefId="%AID%_UP-%TT%%CC%233" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%234_R-%TT%%CC%23401" RefId="%AID%_UP-%TT%%CC%234" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%235_R-%TT%%CC%23501" RefId="%AID%_UP-%TT%%CC%235" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%236_R-%TT%%CC%23601" RefId="%AID%_UP-%TT%%CC%236" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%237_R-%TT%%CC%23701" RefId="%AID%_UP-%TT%%CC%237" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%238_R-%TT%%CC%23801" RefId="%AID%_UP-%TT%%CC%238" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%239_R-%TT%%CC%23901" RefId="%AID%_UP-%TT%%CC%239" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%240_R-%TT%%CC%24001" RefId="%AID%_UP-%TT%%CC%240" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%241_R-%TT%%CC%24101" RefId="%AID%_UP-%TT%%CC%241" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%242_R-%TT%%CC%24201" RefId="%AID%_UP-%TT%%CC%242" />
+              <!-- Ausgang -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301" RefId="%AID%_UP-%TT%%CC%243" />
+     		   
             </ParameterRefs>
             <ComObjectTable>
               <!-- KO 0 --><ComObject Id="%AID%_O-%TT%%CC%000" Number="%K00%" Name="CH%C%KO0" ObjectSize="4 Bytes" Text="" FunctionText="" CommunicationFlag="Enabled" ReadFlag="Disabled" WriteFlag="Disabled" TransmitFlag="Disabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
@@ -682,6 +782,40 @@
               <!-- Ende-->
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00915" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-1"    Text="%C%: Ende"                       FunctionText="{{0:-}} Ende"                TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
 
+              <!-- Wertüberwachung -->
+              <!-- Eingang -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00006" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-1"     Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00016" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00026" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00036" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00046" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00056" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00066" RefId="%AID%_O-%TT%%CC%000" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00076" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00086" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00096" RefId="%AID%_O-%TT%%CC%000" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Eingang"    FunctionText="{{0:-}} Eingang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" TransmitFlag="Enabled" />    
+              <!-- Zeit letzer gültige Wert -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%004_R-%TT%%CC%00406" RefId="%AID%_O-%TT%%CC%004" ObjectSize="8 Bytes"  DatapointType="DPST-19-1"    Text="%C%: Zeit letzer gültige Wert"    FunctionText="{{0:-}} Zeit letzer gültige Wert"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Zeitüberschreitungsalarm -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" RefId="%AID%_O-%TT%%CC%005" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Zeitüberschreitung"    FunctionText="{{0:-}} Zeitüberschreitung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Mininum Wert Alarm -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Wertunterschreitung"    FunctionText="{{0:-}} Wertunterschreitung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Maximum Wert Alarm -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Wertüberschreitung"    FunctionText="{{0:-}} Wertüberschreitung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Summenalarm -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Summenalarm"    FunctionText="{{0:-}} Summenalarm"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Ausgang -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00906" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-1"     Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00916" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00926" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00936" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-6-10"    Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00946" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-7-1"     Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00956" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-8-1"     Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00966" RefId="%AID%_O-%TT%%CC%009" ObjectSize="2 Bytes"  DatapointType="DPST-9-31"    Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00976" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-12-1"    Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00986" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-13-1"    Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00996" RefId="%AID%_O-%TT%%CC%009" ObjectSize="4 Bytes"  DatapointType="DPST-14-5"    Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+          
          
             </ComObjectRefs>
           </Static>
@@ -1813,6 +1947,236 @@
                         
                         </ParameterBlock>
                       </when>
+
+                      <when test="7"><!-- ************ Wertüberwachung ************ -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Monitoring" Text="%C% Wertüberwachung: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="alert-remove-outline" ShowInComObjectTree="true" HelpContext="FCB-Monitoring">
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Wertüberwachung" UIHint="Headline" />
+
+                          <!-- Kanal Name -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <!-- Channel Disabled-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <Button Id="%AID%_B-%TT%%CC%007" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
+
+
+                          <!-- Messwert Type-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901" HelpContext="%DOC%" />
+
+                          <!-- Watdchdog -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001" HelpContext="%DOC%" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001">
+                            <when test="&gt;0">
+                              <!-- WatchdogRef RefReplacement -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                                <when test="10">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%211_R-%TT%%CC%21101" HelpContext="%DOC%" />
+                                </when>
+                                <when test="50">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%212_R-%TT%%CC%21201" HelpContext="%DOC%" />
+                                </when>
+                                <when test="51">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%213_R-%TT%%CC%21301" HelpContext="%DOC%" />
+                                </when>
+                                <when test="61">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%214_R-%TT%%CC%21401" HelpContext="%DOC%" />
+                                </when>
+                                <when test="70">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%215_R-%TT%%CC%21501" HelpContext="%DOC%" />
+                                </when>
+                                <when test="80">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%216_R-%TT%%CC%21601" HelpContext="%DOC%" />
+                                </when>
+                                <when test="90">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%217_R-%TT%%CC%21701" HelpContext="%DOC%" />
+                                </when>
+                                <when test="120">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%218_R-%TT%%CC%21801" HelpContext="%DOC%" />
+                                </when>
+                                <when test="130">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%219_R-%TT%%CC%21901" HelpContext="%DOC%" />
+                                </when>
+                                <when test="140">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%220_R-%TT%%CC%22001" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+                         
+                          <!--  Min Val Monitoring -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101" HelpContext="%DOC%" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101">
+                               <when test="2">
+                               <!-- Min Value -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                                <when test="10">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%222_R-%TT%%CC%22201" HelpContext="%DOC%" />
+                                </when>
+                                <when test="50">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%223_R-%TT%%CC%22301" HelpContext="%DOC%" />
+                                </when>
+                                <when test="51">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%224_R-%TT%%CC%22401" HelpContext="%DOC%" />
+                                </when>
+                                <when test="61">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%225_R-%TT%%CC%22501" HelpContext="%DOC%" />
+                                </when>
+                                <when test="70"> 
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%226_R-%TT%%CC%22601" HelpContext="%DOC%" />
+                                </when>
+                                <when test="80">
+                                    <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%227_R-%TT%%CC%22701" HelpContext="%DOC%" />
+                                </when>
+                                <when test="90">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%228_R-%TT%%CC%22801" HelpContext="%DOC%" />
+                                </when>
+                                <when test="120">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%229_R-%TT%%CC%22901" HelpContext="%DOC%" />
+                                </when>
+                                <when test="130">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%230_R-%TT%%CC%23001" HelpContext="%DOC%" />
+                                </when>
+                                <when test="140">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%231_R-%TT%%CC%23101" HelpContext="%DOC%" />
+                                </when>
+                              </choose>              
+                            </when>
+                          </choose>
+                          <!-- Max ValuRef Ref Monitoring -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201" HelpContext="%DOC%" />
+                             <choose ParamRefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201">
+                               <when test="2">
+                               <!-- Max Value -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                                <when test="10">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%233_R-%TT%%CC%23301" HelpContext="%DOC%" />
+                                </when>
+                                <when test="50">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%234_R-%TT%%CC%23401" HelpContext="%DOC%" />
+                                </when>
+                                <when test="51">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%235_R-%TT%%CC%23501" HelpContext="%DOC%" />
+                                </when>
+                                <when test="61">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%236_R-%TT%%CC%23601" HelpContext="%DOC%" />
+                                </when>
+                                <when test="70"> 
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%237_R-%TT%%CC%23701" HelpContext="%DOC%" />
+                                </when>
+                                <when test="80">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%238_R-%TT%%CC%23801" HelpContext="%DOC%" />
+                                </when>
+                                <when test="90">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%239_R-%TT%%CC%23901" HelpContext="%DOC%" />
+                                </when>
+                                <when test="120">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%240_R-%TT%%CC%24001" HelpContext="%DOC%" />
+                                </when>
+                                <when test="130">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%241_R-%TT%%CC%24101" HelpContext="%DOC%" />
+                                </when>
+                                <when test="140">
+                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%242_R-%TT%%CC%24201" HelpContext="%DOC%" />
+                                </when>
+                              </choose>              
+                            </when>
+                          </choose>
+        
+                          <!-- Eingang -->
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                            <when test="10">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00006" />
+                            </when>
+                            <when test="50">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00016" />
+                            </when>
+                            <when test="51">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00026" />
+                            </when>
+                            <when test="61">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00036" />
+                            </when>
+                            <when test="70"> 
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00046" />
+                            </when>
+                            <when test="80">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00056" />
+                            </when>
+                            <when test="90">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00066" />
+                            </when>
+                            <when test="120">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00076" />
+                            </when>
+                            <when test="130">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00086" />
+                            </when>
+                            <when test="140">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00096" />    
+                            </when>
+                          </choose>
+
+                          <!-- Zeit letzer gültige Wert -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00406" />
+                          <!-- Zeitüberschreitungsalarm -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" />
+                          <!-- Mininum Wert Alarm -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" />
+                          <!-- Maximum Wert Alarm -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" />
+                          <!-- Summenalarm -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
+                          
+                          <!-- Ausgang -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301" HelpContext="%DOC%" />
+     		                    <choose ParamRefId="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301">
+                            <when test="&gt;0">
+
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                                <when test="10">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00906" />
+                                </when>
+                                <when test="50">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00916" />
+                                </when>
+                                <when test="51">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00926" />
+                                </when>
+                                <when test="61">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00936" />
+                                </when>
+                                <when test="70"> 
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00946" />
+                                </when>
+                                <when test="80">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00956" />
+                                </when>
+                                <when test="90">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00966" />
+                                </when>
+                                <when test="120">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00976" />
+                                </when>
+                                <when test="130">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00986" />
+                                </when>
+                                <when test="140">
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00996" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+                        </ParameterBlock>
+                      </when>
+
                     </choose>
                   </when>
                 </choose>

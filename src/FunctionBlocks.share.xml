@@ -21,6 +21,23 @@
 									<Enumeration Id="%ENID%" Value="4"  Text="Anzahl"                         /> 
 									<Enumeration Id="%ENID%" Value="5"  Text="Statistische Aggregation"       />
 									<Enumeration Id="%ENID%" Value="6"  Text="Count-Down Zeitgeber"           />
+									<Enumeration Id="%ENID%" Value="7"  Text="Wertüberwachung"            />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBNumericAndBitDpt" Name="FCBNumericDpt" >
+								<TypeRestriction Base="Value" SizeInBit="8" >
+									<!-- align for visibility in ETS -->
+									<Enumeration Text="1.*           1-Bit (0/1)"                      Value="10"   Id="%ENID%" />
+									<Enumeration Text="5.*           8-Bit vorzeichenlos"              Value="50"   Id="%ENID%" />
+									<Enumeration Text="5.001       Prozent (0..100%)"                  Value="51"   Id="%ENID%" />
+									<Enumeration Text="6.*           8-Bit vorzeichenbehaftet"         Value="61"   Id="%ENID%" />
+									<Enumeration Text="7.*           2-Byte vorzeichenlos"             Value="70"   Id="%ENID%" />
+									<Enumeration Text="8.*           2-Byte vorzeichenbehaftet"        Value="80"   Id="%ENID%" />
+									<Enumeration Text="9.*           2-Byte Gleitkommawert"            Value="90"   Id="%ENID%" />
+									<Enumeration Text="12.*         4-Byte vorzeichenlos"             Value="120"   Id="%ENID%" />
+									<Enumeration Text="13.*         4-Byte vorzeichenbehaftet"        Value="130"   Id="%ENID%" />
+									<Enumeration Text="14.*         4-Byte Gleitkommawert"            Value="140"   Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 
@@ -230,6 +247,52 @@
 								<!-- 1 characters -->
 							</ParameterType>
 
+							<ParameterType Id="%AID%_PT-FCBMonitoringWD" Name="FCBMonitoringWD">
+								<TypeRestriction Base="Value" SizeInBit="4">
+									<Enumeration Text="Aus" Value="0" Id="%ENID%" />
+									<Enumeration Text="10 Minuten" Value="1" Id="%ENID%" />
+									<Enumeration Text="30 Minuten" Value="2" Id="%ENID%" />
+									<Enumeration Text="1 Stunde" Value="3" Id="%ENID%" />
+									<Enumeration Text="2 Stunden" Value="4" Id="%ENID%" />
+									<Enumeration Text="3 Stunden" Value="5" Id="%ENID%" />
+									<Enumeration Text="4 Stunden" Value="6" Id="%ENID%" />
+									<Enumeration Text="8 Stunden" Value="7" Id="%ENID%" />
+									<Enumeration Text="12 Stunden" Value="8" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBMonitoringBehavior" Name="FCBMonitoringBehavior">
+								<TypeRestriction Base="Value" SizeInBit="4">
+									<Enumeration Text="Nur Alarm auslösen" Value="0" Id="%ENID%" />
+									<Enumeration Text="Leseanforderung, dann Alarm" Value="1" Id="%ENID%" />	
+									<Enumeration Text="Leseanforderung, dann Ersatzwert und Alarm" Value="2" Id="%ENID%" />
+									<Enumeration Text="Ersatzwert und Alarm" Value="3" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBMonitoringWatcbDogReplacement" Name="FCBMonitoringWatcbDogReplacement">
+								<TypeRestriction Base="Value" SizeInBit="4">
+									<Enumeration Text="Letzter gültiger Wert" Value="1" Id="%ENID%" />
+									<Enumeration Text="Wert vorgeben" Value="2" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBMonitoringRangeReplacement" Name="FCBMonitoringRangeReplacement">
+								<TypeRestriction Base="Value" SizeInBit="4">
+									<Enumeration Text="Überwachung deaktiviert" Value="0" Id="%ENID%" />
+									<Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
+									<Enumeration Text="Letzten gültigen Wert" Value="2" Id="%ENID%" />
+									<Enumeration Text="Grenzwert" Value="3" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBMonitoringOutput" Name="FCBMonitoringOutput">
+								<TypeRestriction Base="Value" SizeInBit="4">
+									<Enumeration Text="Ersatzwerte auf Eingang senden" Value="0" Id="%ENID%" />
+									<Enumeration Text="Getrenntes Ausgangsobjekt, nur gültige Werte" Value="1" Id="%ENID%" />
+									<Enumeration Text="Getrenntes Ausgangsobjekt, gültige und Ersatzwerte" Value="2" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
 
 						</ParameterTypes>
 						<Parameters>
