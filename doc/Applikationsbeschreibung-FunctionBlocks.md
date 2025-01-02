@@ -137,6 +137,9 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Zählt von eine vorgebenen Zeit in herunter.
   Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
+- **Wertüberwachung**
+  Überwacht einen Eingang und löst einen Alarm bei falschen oder ausbleibenden Werten aus.
+  Es können auch Ersatzwerte auf den Bus geschickt werden.
 
 ## Kanaleinstellungen
 
@@ -629,12 +632,26 @@ Zur Auswahl stehen:
 
 Die Überwachung erkennt das ausbleiben von entsprechnenden Werten.
 
+Optionen für den Überwachungszeitraum innerhalb dieses ein Wert empfangen werden muss:
+
+- Aus
+- 10 Minuten
+- 30 Minuten
+- 1 Stunde
+- 2 Stunden
+- 3 Stunden
+- 4 Stunden
+- 8 Stunden
+- 12 Stunden
+
+<!-- DOC -->
+### Verhalten bei Zeitüberschreitung
+
 Es kann festgelegt werden, was im Fehlerfall auf den Bus gesendet werden soll.
 
 Folgenden Optionen stehen zur Auswahl:
 
-- **Aus** Es erfolgt keine zeitliche Überwachung der Messwerte
-- **Nur Alarm auslösen** Es wird nur der Alarm ausgelöst, es wird kein Ersatzwert gesendet
+ **Nur Alarm auslösen** Es wird nur der Alarm ausgelöst, es wird kein Ersatzwert gesendet
 - **Leseanforderung, dann Alarm** Nach Ablauf der einstellten Zeit, wird eine Leseanforderung auf den Bus geschickt und der Alarm ausgelöst
 - **Leseanforderung, dann Ersatzwert und Alarm** Es wird eine Leseanforderung auf den Bus gsendet und der Alarm ausgelöst, bei weiteren Ausbleiben wird ein
 - **Ersatzwert und Alarm** Es wird eine Ersatzwert geschickt und der Alarm ausgelöst

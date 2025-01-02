@@ -291,6 +291,7 @@
 									<Enumeration Text="Ersatzwerte auf Eingang senden" Value="0" Id="%ENID%" />
 									<Enumeration Text="Getrenntes Ausgangsobjekt, nur gültige Werte" Value="1" Id="%ENID%" />
 									<Enumeration Text="Getrenntes Ausgangsobjekt, gültige und Ersatzwerte" Value="2" Id="%ENID%" />
+									<Enumeration Text="Getrenntes Ausgangsobjekt, nur Ersatzwerte" Value="3" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 

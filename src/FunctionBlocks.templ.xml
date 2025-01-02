@@ -263,59 +263,62 @@
               </Union>
 
               <!-- Wertüberwachung -->
-              <Union SizeInBit="121">
+              <Union SizeInBit="136">
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Messwert Type-->
                 <Parameter Id="%AID%_UP-%TT%%CC%209" Name="CH%C%MonitoringValueType" ParameterType="%AID%_PT-FCBNumericAndBitDpt" Offset="0" BitOffset="0" Text="Werttype" Value="90" />
                 <!-- Watdchdog -->
-                <Parameter Id="%AID%_UP-%TT%%CC%210" Name="CH%C%MonitoringWD" ParameterType="%AID%_PT-FCBMonitoringWD" Offset="0" BitOffset="4" Text="Zeitüberwachung (Watchdog)" Value="3" />
+                <Parameter Id="%AID%_UP-%TT%%CC%210" Name="CH%C%MonitoringWDTimeout" ParameterType="%AID%_PT-FCBMonitoringWD" Offset="0" BitOffset="4" Text="Zeitüberwachung (Watchdog)" Value="3" />
+                <!-- Watdchdog Verhalten -->
+                <Parameter Id="%AID%_UP-%TT%%CC%244" Name="CH%C%MonitoringWDBehavior" ParameterType="%AID%_PT-FCBMonitoringBehavior" Offset="1" BitOffset="0" Text="Verhalten bei Zeitüberschreitung" Value="2" />
+         
                 <!-- Watchdog Replacement -->				 
-                <Parameter Id="%AID%_UP-%TT%%CC%211" Name="CH%C%MonitoringWDDpt1"    ParameterType="%AID%_PT-ValueDpt1" Offset="1" BitOffset="0" Text="Ersatzwert" Value="1" />
-                <Parameter Id="%AID%_UP-%TT%%CC%212" Name="CH%C%MonitoringWDDpt5"    ParameterType="%AID%_PT-ValueDpt5" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%213" Name="CH%C%MonitoringWDDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="1" BitOffset="0" Text="Ersatzwert" Value="50" />
-                <Parameter Id="%AID%_UP-%TT%%CC%214" Name="CH%C%MonitoringWDDpt6"    ParameterType="%AID%_PT-ValueDpt6" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%215" Name="CH%C%MonitoringWDDpt7"    ParameterType="%AID%_PT-ValueDpt7" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%216" Name="CH%C%MonitoringWDDpt8"    ParameterType="%AID%_PT-ValueDpt8" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%217" Name="CH%C%MonitoringWDDpt9"    ParameterType="%AID%_PT-ValueDpt9" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%218" Name="CH%C%MonitoringWDDpt12"   ParameterType="%AID%_PT-ValueDpt12" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%219" Name="CH%C%MonitoringWDDpt13"   ParameterType="%AID%_PT-ValueDpt13" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%220" Name="CH%C%MonitoringWDDpt14"   ParameterType="%AID%_PT-ValueDpt14" Offset="1" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%211" Name="CH%C%MonitoringWDDpt1"    ParameterType="%AID%_PT-ValueDpt1"    Offset="2" BitOffset="0" Text="Ersatzwert" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%212" Name="CH%C%MonitoringWDDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%213" Name="CH%C%MonitoringWDDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="2" BitOffset="0" Text="Ersatzwert" Value="50" />
+                <Parameter Id="%AID%_UP-%TT%%CC%214" Name="CH%C%MonitoringWDDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%215" Name="CH%C%MonitoringWDDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%216" Name="CH%C%MonitoringWDDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%217" Name="CH%C%MonitoringWDDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%218" Name="CH%C%MonitoringWDDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%219" Name="CH%C%MonitoringWDDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Id="%AID%_UP-%TT%%CC%220" Name="CH%C%MonitoringWDDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Offset="2" BitOffset="0" Text="Ersatzwert" Value="20" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
                 <!-- Minimum Value Monitoring -->
-                <Parameter Id="%AID%_UP-%TT%%CC%221" Name="CH%C%MonitoringMin" ParameterType="%AID%_PT-FCBMonitoringRangeReplacement" Offset="5" BitOffset="4" Text="Minimalwert Überwachung" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%221" Name="CH%C%MonitoringMin" ParameterType="%AID%_PT-FCBMonitoringRangeReplacement" Offset="6" BitOffset="4" Text="Minimalwert Überwachung" Value="0" />
      		        <!-- Minimum Value -->				 
-                <Parameter Id="%AID%_UP-%TT%%CC%222" Name="CH%C%MonitoringMinDpt1"    ParameterType="%AID%_PT-ValueDpt1" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%223" Name="CH%C%MonitoringMinDpt5"    ParameterType="%AID%_PT-ValueDpt5" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%224" Name="CH%C%MonitoringMinDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%225" Name="CH%C%MonitoringMinDpt6"    ParameterType="%AID%_PT-ValueDpt6" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-128" />
-                <Parameter Id="%AID%_UP-%TT%%CC%226" Name="CH%C%MonitoringMinDpt7"    ParameterType="%AID%_PT-ValueDpt7" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%227" Name="CH%C%MonitoringMinDpt8"    ParameterType="%AID%_PT-ValueDpt8" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-32768" />
-                <Parameter Id="%AID%_UP-%TT%%CC%228" Name="CH%C%MonitoringMinDpt9"    ParameterType="%AID%_PT-ValueDpt9" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-671088" />
-                <Parameter Id="%AID%_UP-%TT%%CC%229" Name="CH%C%MonitoringMinDpt12"   ParameterType="%AID%_PT-ValueDpt12" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%230" Name="CH%C%MonitoringMinDpt13"   ParameterType="%AID%_PT-ValueDpt13" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-2147483648" />
-                <Parameter Id="%AID%_UP-%TT%%CC%231" Name="CH%C%MonitoringMinDpt14"   ParameterType="%AID%_PT-ValueDpt14" Offset="6" BitOffset="0" Text="Minimaler Wert" Value="-1000000000000" />
+                <Parameter Id="%AID%_UP-%TT%%CC%222" Name="CH%C%MonitoringMinDpt1"    ParameterType="%AID%_PT-ValueDpt1"    Offset="7" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%223" Name="CH%C%MonitoringMinDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Offset="7" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%224" Name="CH%C%MonitoringMinDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="7" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%225" Name="CH%C%MonitoringMinDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Offset="7" BitOffset="0" Text="Minimaler Wert" Value="-128" />
+                <Parameter Id="%AID%_UP-%TT%%CC%226" Name="CH%C%MonitoringMinDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Offset="7" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%227" Name="CH%C%MonitoringMinDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Offset="7" BitOffset="0" Text="Minimaler Wert" Value="-32768" />
+                <Parameter Id="%AID%_UP-%TT%%CC%228" Name="CH%C%MonitoringMinDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Offset="7" BitOffset="0" Text="Minimaler Wert" Value="-671088" />
+                <Parameter Id="%AID%_UP-%TT%%CC%229" Name="CH%C%MonitoringMinDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Offset="7" BitOffset="0" Text="Minimaler Wert" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%230" Name="CH%C%MonitoringMinDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Offset="7" BitOffset="0" Text="Minimaler Wert" Value="-2147483648" />
+                <Parameter Id="%AID%_UP-%TT%%CC%231" Name="CH%C%MonitoringMinDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Offset="7" BitOffset="0" Text="Minimaler Wert" Value="-1000000000000" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
               
                 <!-- Maximum Value Monitoring -->
-                <Parameter Id="%AID%_UP-%TT%%CC%232" Name="CH%C%MonitoringMax" ParameterType="%AID%_PT-FCBMonitoringRangeReplacement" Offset="10" BitOffset="4" Text="Maximalwert Überwachung" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%232" Name="CH%C%MonitoringMax"        ParameterType="%AID%_PT-FCBMonitoringRangeReplacement" Offset="11" BitOffset="4" Text="Maximalwert Überwachung" Value="0" />
      		        <!-- Maximum Value -->				 
-                <Parameter Id="%AID%_UP-%TT%%CC%233" Name="CH%C%MonitoringMaxDpt1"    ParameterType="%AID%_PT-ValueDpt1" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="1" />
-                <Parameter Id="%AID%_UP-%TT%%CC%234" Name="CH%C%MonitoringMaxDpt5"    ParameterType="%AID%_PT-ValueDpt5" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="255" />
-                <Parameter Id="%AID%_UP-%TT%%CC%235" Name="CH%C%MonitoringMaxDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="100" />
-                <Parameter Id="%AID%_UP-%TT%%CC%236" Name="CH%C%MonitoringMaxDpt6"    ParameterType="%AID%_PT-ValueDpt6" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="127" />
-                <Parameter Id="%AID%_UP-%TT%%CC%237" Name="CH%C%MonitoringMaxDpt7"    ParameterType="%AID%_PT-ValueDpt7" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="65535" />
-                <Parameter Id="%AID%_UP-%TT%%CC%238" Name="CH%C%MonitoringMaxDpt8"    ParameterType="%AID%_PT-ValueDpt8" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="32767" />
-                <Parameter Id="%AID%_UP-%TT%%CC%239" Name="CH%C%MonitoringMaxDpt9"    ParameterType="%AID%_PT-ValueDpt9" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="670760" />
-                <Parameter Id="%AID%_UP-%TT%%CC%240" Name="CH%C%MonitoringMaxDpt12"   ParameterType="%AID%_PT-ValueDpt12" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="4294967295" />
-                <Parameter Id="%AID%_UP-%TT%%CC%241" Name="CH%C%MonitoringMaxDpt13"   ParameterType="%AID%_PT-ValueDpt13" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="2147483647" />
-                <Parameter Id="%AID%_UP-%TT%%CC%242" Name="CH%C%MonitoringMaxDpt14"   ParameterType="%AID%_PT-ValueDpt14" Offset="11" BitOffset="0" Text="Maximaler Wert" Value="1000000000000" />
+                <Parameter Id="%AID%_UP-%TT%%CC%233" Name="CH%C%MonitoringMaxDpt1"    ParameterType="%AID%_PT-ValueDpt1"    Offset="12" BitOffset="0" Text="Maximaler Wert" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%234" Name="CH%C%MonitoringMaxDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Offset="12" BitOffset="0" Text="Maximaler Wert" Value="255" />
+                <Parameter Id="%AID%_UP-%TT%%CC%235" Name="CH%C%MonitoringMaxDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="12" BitOffset="0" Text="Maximaler Wert" Value="100" />
+                <Parameter Id="%AID%_UP-%TT%%CC%236" Name="CH%C%MonitoringMaxDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Offset="12" BitOffset="0" Text="Maximaler Wert" Value="127" />
+                <Parameter Id="%AID%_UP-%TT%%CC%237" Name="CH%C%MonitoringMaxDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Offset="12" BitOffset="0" Text="Maximaler Wert" Value="65535" />
+                <Parameter Id="%AID%_UP-%TT%%CC%238" Name="CH%C%MonitoringMaxDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Offset="12" BitOffset="0" Text="Maximaler Wert" Value="32767" />
+                <Parameter Id="%AID%_UP-%TT%%CC%239" Name="CH%C%MonitoringMaxDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Offset="12" BitOffset="0" Text="Maximaler Wert" Value="670760" />
+                <Parameter Id="%AID%_UP-%TT%%CC%240" Name="CH%C%MonitoringMaxDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Offset="12" BitOffset="0" Text="Maximaler Wert" Value="4294967295" />
+                <Parameter Id="%AID%_UP-%TT%%CC%241" Name="CH%C%MonitoringMaxDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Offset="12" BitOffset="0" Text="Maximaler Wert" Value="2147483647" />
+                <Parameter Id="%AID%_UP-%TT%%CC%242" Name="CH%C%MonitoringMaxDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Offset="12" BitOffset="0" Text="Maximaler Wert" Value="1000000000000" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
                 <!-- Ausgang -->
-                <Parameter Id="%AID%_UP-%TT%%CC%243" Name="CH%C%MonitoringOutput" ParameterType="%AID%_PT-FCBMonitoringOutput" Offset="15" BitOffset="0" Text="Ersatzwertbehandlung" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%243" Name="CH%C%MonitoringOutput" ParameterType="%AID%_PT-FCBMonitoringOutput" Offset="16" BitOffset="0" Text="Ersatzwertbehandlung" Value="0" />
      		        <!-- 4 bits free -->
               </Union>
            
-              <!-- Next Id: %AID%_UP-%TT%%CC%244 -->
+              <!-- Next Id: %AID%_UP-%TT%%CC%245 -->
 
             </Parameters>
             <ParameterRefs>
@@ -539,6 +542,9 @@
               <ParameterRef Id="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901" RefId="%AID%_UP-%TT%%CC%209" />
               <!-- Watdchdog -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001" RefId="%AID%_UP-%TT%%CC%210" />
+              <!-- Watdchdog Verhalten -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%244_R-%TT%%CC%24401" RefId="%AID%_UP-%TT%%CC%244" />
+        
               <!-- Watchdog Replacement -->				 
               <ParameterRef Id="%AID%_UP-%TT%%CC%211_R-%TT%%CC%21101" RefId="%AID%_UP-%TT%%CC%211" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%212_R-%TT%%CC%21201" RefId="%AID%_UP-%TT%%CC%212" />
@@ -1951,6 +1957,43 @@
                       <when test="7"><!-- ************ Wertüberwachung ************ -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Monitoring" Text="%C% Wertüberwachung: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="alert-remove-outline" ShowInComObjectTree="true" HelpContext="FCB-Monitoring">
 
+  <!-- Eingang -->
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                            <when test="10">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00006" />
+                            </when>
+                            <when test="50">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00016" />
+                            </when>
+                            <when test="51">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00026" />
+                            </when>
+                            <when test="61">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00036" />
+                            </when>
+                            <when test="70"> 
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00046" />
+                            </when>
+                            <when test="80">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00056" />
+                            </when>
+                            <when test="90">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00066" />
+                            </when>
+                            <when test="120">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00076" />
+                            </when>
+                            <when test="130">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00086" />
+                            </when>
+                            <when test="140">
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00096" />    
+                            </when>
+                          </choose>
+
+                           <!-- Zeit letzer gültige Wert -->
+                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00406" />
+                     
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Wertüberwachung" UIHint="Headline" />
 
                           <!-- Kanal Name -->
@@ -1975,6 +2018,16 @@
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001" HelpContext="%DOC%" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001">
                             <when test="&gt;0">
+
+                              <!-- Zeitüberschreitungsalarm -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" />
+                              <!-- Summenalarm -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
+                  
+                       
+                              <!-- Watdchdog Verhalten -->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%244_R-%TT%%CC%24401" HelpContext="%DOC%" />
+        
                               <!-- WatchdogRef RefReplacement -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
                                 <when test="10">
@@ -2014,8 +2067,15 @@
                           <!--  Min Val Monitoring -->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101" HelpContext="%DOC%" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101">
-                               <when test="2">
-                               <!-- Min Value -->
+                            <when test="&gt;0">
+                              <!-- Mininum Wert Alarm -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" />
+                              <!-- Summenalarm -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
+                  
+                            </when>
+                            <when test="3">
+                              <!-- Min Value -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
                                 <when test="10">
                                   <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%222_R-%TT%%CC%22201" HelpContext="%DOC%" />
@@ -2052,10 +2112,17 @@
                           </choose>
                           <!-- Max ValuRef Ref Monitoring -->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201" HelpContext="%DOC%" />
-                             <choose ParamRefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201">
-                               <when test="2">
-                               <!-- Max Value -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                            <choose ParamRefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201">
+                              <when test="&gt;0">
+                                <!-- Maximum Wert Alarm -->
+                                <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" />
+                                <!-- Summenalarm -->
+                                <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
+                  
+                              </when>
+                              <when test="3">
+                                <!-- Max Value -->
+                                <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
                                 <when test="10">
                                   <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%233_R-%TT%%CC%23301" HelpContext="%DOC%" />
                                 </when>
@@ -2090,51 +2157,7 @@
                             </when>
                           </choose>
         
-                          <!-- Eingang -->
-                          <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
-                            <when test="10">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00006" />
-                            </when>
-                            <when test="50">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00016" />
-                            </when>
-                            <when test="51">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00026" />
-                            </when>
-                            <when test="61">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00036" />
-                            </when>
-                            <when test="70"> 
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00046" />
-                            </when>
-                            <when test="80">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00056" />
-                            </when>
-                            <when test="90">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00066" />
-                            </when>
-                            <when test="120">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00076" />
-                            </when>
-                            <when test="130">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00086" />
-                            </when>
-                            <when test="140">
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00096" />    
-                            </when>
-                          </choose>
-
-                          <!-- Zeit letzer gültige Wert -->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00406" />
-                          <!-- Zeitüberschreitungsalarm -->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" />
-                          <!-- Mininum Wert Alarm -->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" />
-                          <!-- Maximum Wert Alarm -->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" />
-                          <!-- Summenalarm -->
-                          <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
-                          
+                         
                           <!-- Ausgang -->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301" HelpContext="%DOC%" />
      		                    <choose ParamRefId="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301">

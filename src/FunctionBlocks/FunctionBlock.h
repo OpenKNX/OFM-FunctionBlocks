@@ -10,6 +10,7 @@ class FunctionBlock : public OpenKNX::Channel
     FunctionBlock(uint8_t channelIndex, const char* name);
     GroupObject& getKo(uint8_t nr);
     bool hasValue(uint8_t nr);
+    Dpt dptType(uint8_t typeParamValue);
   public:
     void setup(bool configured) override;
     const std::string name() override;

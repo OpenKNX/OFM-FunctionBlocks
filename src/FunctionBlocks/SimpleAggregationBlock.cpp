@@ -153,53 +153,6 @@ void SimpleAggregationBlock::initMissingInputValues()
 */
 }
 
-Dpt SimpleAggregationBlock::_dptType(uint8_t typeParamValue)
-{
-    // <Enumeration Text="5.*           8-Bit vorzeichenlos"              Value="50"   Id="%ENID%" />
-    // <Enumeration Text="5.001       Prozent (0..100%)"                  Value="51"   Id="%ENID%" />
-    // <Enumeration Text="6.*           8-Bit vorzeichenbehaftet"         Value="61"   Id="%ENID%" />
-    // <Enumeration Text="7.*           2-Byte vorzeichenlos"             Value="70"   Id="%ENID%" />
-    // <Enumeration Text="8.*           2-Byte vorzeichenbehaftet"        Value="80"   Id="%ENID%" />
-    // <Enumeration Text="9.*           2-Byte Gleitkommawert"            Value="90"   Id="%ENID%" />
-    // <Enumeration Text="12.*         4-Byte vorzeichenlos"             Value="120"   Id="%ENID%" />
-    // <Enumeration Text="13.*         4-Byte vorzeichenbehaftet"        Value="130"   Id="%ENID%" />
-    // <Enumeration Text="14.*         4-Byte Gleitkommawert"            Value="140"   Id="%ENID%" />
-    Dpt dptInput;
-    switch (typeParamValue)
-    {
-        case 50:
-            dptInput = DPT_Value_1_Ucount;
-            break;
-        case 51:
-            dptInput = DPT_Scaling;
-            break;
-        case 61:
-            dptInput = DPT_Value_1_Count;
-            break;
-        case 70:
-            dptInput = DPT_Value_2_Ucount;
-            break;
-        case 80:
-            dptInput = DPT_Value_2_Count;
-            break;
-        case 90:
-            dptInput = DPT_Value_Temp;
-            break;
-        case 120:
-            dptInput = DPT_Value_4_Ucount;
-            break;
-        case 130:
-            dptInput = DPT_Value_4_Count;
-            break;
-        case 140:
-            dptInput = DPT_Value_Amplitude;
-            break;
-        default:
-            dptInput = DPT_Switch;
-            break;
-    }
-    return dptInput;
-}
 
 void SimpleAggregationBlock::handleKo(GroupObject& ko)
 {
@@ -213,7 +166,7 @@ void SimpleAggregationBlock::handleKo(GroupObject& ko)
 
 void SimpleAggregationBlock::_update()
 {
-    const Dpt dptInput = _dptType(ParamFCB_CHAggInputDpt);
+    const Dpt dptInput = dptType(ParamFCB_CHAggInputDpt);
 
     // Recalc the output
     double min = std::numeric_limits<double>::max();
@@ -280,7 +233,7 @@ void SimpleAggregationBlock::_updateOutput(KNXValue& result)
 {
     logDebugP("  result %f (of type %d)", result, _type);
 
-    const Dpt dptOutput = _dptType(ParamFCB_CHAggOutputDptEff);
+    const Dpt dptOutput = dptType(ParamFCB_CHAggOutputDptEff);
 
     // rounding for integer outputs
     if ((dptOutput.mainGroup != 9) && (dptOutput.mainGroup != 14))
