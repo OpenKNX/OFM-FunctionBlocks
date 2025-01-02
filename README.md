@@ -18,14 +18,15 @@ Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
   - Maximum
   - Spannbreite (Maximum - Minimum)
 - Count Down Zeitgeber
+- Wertüberwachung
+  - Zeitüberschreitung (Watchdog)
+  - Minimaler Wert
+  - Maximaler Wert
 
 
 ## Planned Features
 - Multiplexer
 - Counter
-- Messwertüberwachung
-  - Watchdog
-  - Grenzen
 - Blinker
 
 ## Applikationsbeschreibung

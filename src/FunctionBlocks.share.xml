@@ -277,12 +277,22 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBMonitoringRangeReplacement" Name="FCBMonitoringRangeReplacement">
+							<ParameterType Id="%AID%_PT-FCBMonitoringMinReplacement" Name="FCBMonitoringRangeReplacement">
 								<TypeRestriction Base="Value" SizeInBit="4">
 									<Enumeration Text="Überwachung deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
-									<Enumeration Text="Letzten gültigen Wert" Value="2" Id="%ENID%" />
-									<Enumeration Text="Grenzwert" Value="3" Id="%ENID%" />
+									<Enumeration Text="Letzten gültigen Wert senden" Value="2" Id="%ENID%" />
+									<Enumeration Text="Minimalwert senden" Value="3" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+
+							<ParameterType Id="%AID%_PT-FCBMonitoringMaxReplacement" Name="FCBMonitoringRangeReplacement">
+								<TypeRestriction Base="Value" SizeInBit="4">
+									<Enumeration Text="Überwachung deaktiviert" Value="0" Id="%ENID%" />
+									<Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
+									<Enumeration Text="Letzten gültigen Wert senden" Value="2" Id="%ENID%" />
+									<Enumeration Text="Maximalwert senden" Value="3" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 

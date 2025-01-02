@@ -18,8 +18,8 @@
 #define FCB_KoCHSummaryAlarm FCB_KoCHKO8
 #define KoFCB_CHSummaryAlarm KoFCB_CHKO8
 
-#define FCB_KoCHOutput FCB_KoCHKO8
-#define KoFCB_CHSOutput KoFCB_CHKO8
+#define FCB_KoCHOutput FCB_KoCHKO9
+#define KoFCB_CHSOutput KoFCB_CHKO9
 
 ValueMonitorBlock::ValueMonitorBlock(uint8_t channelIndex)
     : FunctionBlock(channelIndex, "ValueMonitor"),
@@ -42,37 +42,32 @@ ValueMonitorBlock::ValueMonitorBlock(uint8_t channelIndex)
         case 0:
             break;
         case 1:
-            _timeoutMillis = 10 * 60 * 1000;
+            _waitForValueTimeoutMs = 10 * 60 * 1000;
             break;
         case 2:
-            _timeoutMillis = 30 * 60 * 1000;
+            _waitForValueTimeoutMs = 30 * 60 * 1000;
             break;
         case 3:
-            _timeoutMillis = 60 * 60 * 1000;
+            _waitForValueTimeoutMs = 60 * 60 * 1000;
             break;
         case 4:
-            _timeoutMillis = 2 * 60 * 60 * 1000;
+            _waitForValueTimeoutMs = 2 * 60 * 60 * 1000;
             break;
         case 5:
-            _timeoutMillis = 3 * 60 * 60 * 1000;
+            _waitForValueTimeoutMs = 3 * 60 * 60 * 1000;
             break;
         case 6:
-            _timeoutMillis = 4 * 60 * 60 * 1000;
+            _waitForValueTimeoutMs = 4 * 60 * 60 * 1000;
             break;
         case 7:
-            _timeoutMillis = 8 * 60 * 60 * 1000;
+            _waitForValueTimeoutMs = 8 * 60 * 60 * 1000;
             break;
         case 8:
-            _timeoutMillis = 12 * 60 * 60 * 1000;
+            _waitForValueTimeoutMs = 12 * 60 * 60 * 1000;
             break;
     }
-    if (_timeoutMillis == 0)
-        setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled);
-    else
-    {
-        _waitTimeStartMillis = max(1UL, millis());
-        setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForResponseValue);
-    }
+    setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled);
+    
 
     if (!KoFCB_CHValueToLow.initialized())
         KoFCB_CHValueToLow.value(false, DPT_Switch);
@@ -86,18 +81,26 @@ void ValueMonitorBlock::readInputKos()
 {
     if (!KoFCB_CHSInput.initialized())
     {
-        if (_state != ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled)
+        if (_waitForValueTimeoutMs > 0)
         {
+            _waitTimeStartMillis = max(1UL, millis());
+            // Watchdog is enabled
             switch (_watchDogFallbackBehaviour)
             {
                 case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorRequestValueAndIgnore:
                 case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorRequestValueAndProvideFallbackValue:
-                    _waitTimeStartMillis = max(1UL, millis());
                     setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForResponseValue);
+                    KoFCB_CHSInput.requestObjectRead();
+                    break;
+                default:
+                    setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout);
                     break;
             }
         }
-        KoFCB_CHSInput.requestObjectRead();
+        else
+        {
+            KoFCB_CHSInput.requestObjectRead();
+        }  
     }
 }
 
@@ -109,7 +112,7 @@ void ValueMonitorBlock::handleKo(GroupObject &ko)
 {
     if (FCB_KoCalcIndex(ko.asap()) == FCB_KoCHSInput)
     {
-        switch (ParamFCB_CHAggOutputDptEff)
+        switch (ParamFCB_CHMonitoringValueType)
         {
             case 10:
                 handleInputKo<bool>(ko, ParamFCB_CHMonitoringMinDpt1, ParamFCB_CHMonitoringMaxDpt1);
@@ -150,39 +153,55 @@ void ValueMonitorBlock::handleKo(GroupObject &ko)
 template <typename T>
 void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
 {
-    if (_state != ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled)
+    if (_watchDogState != ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled)
     {
         _waitTimeStartMillis = max(1UL, millis());
         setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout);
     }
     bool toLow = false;
+    bool hasSummaryAlarm = false;
     if (ParamFCB_CHMonitoringMin > 0)
     {
-        toLow = ((T) ko.value(_dpt)) < minValue;
+        hasSummaryAlarm = true;
+        toLow = ((T)ko.value(_dpt)) < minValue;
         KoFCB_CHValueToLow.valueCompare(toLow, DPT_Switch);
     }
     bool toHigh = false;
     if (ParamFCB_CHMonitoringMax > 0)
     {
+        hasSummaryAlarm = true;
         toHigh = ((T)ko.value(_dpt)) > maxValue;
         KoFCB_CHValueToHigh.valueCompare(toHigh, DPT_Switch);
     }
-    bool isValid = toLow || toHigh;
+    bool isValid = !toLow && !toHigh;
     if (isValid)
     {
         _lastValidValue = ko.value(_dpt);
         hasValidValue = true;
     }
-
-    KoFCB_CHSummaryAlarm.valueCompare(!isValid, DPT_Alarm);
+    if (!hasSummaryAlarm)
+    {
+       hasSummaryAlarm = _watchDogState != ValueMonitorWatchdogStateDisabled;
+    }
+    if (hasSummaryAlarm)
+    {
+        KoFCB_CHSummaryAlarm.valueCompare(!isValid, DPT_Alarm);
+    }
     KoFCB_CHValueReceiveTimeout.valueCompare(false, DPT_Switch);
 
-    if (openknx.time.isValid())
+    if (isValid)
     {
-        tm tm = openknx.time.getLocalTime().toTm();
-        tm.tm_year += 1900;
-        tm.tm_mon += 1;
-        KoFCB_CHLastReceivedValueTimeStamp.valueCompare(tm, DPT_DateTime);
+        if (openknx.time.isValid())
+        {
+            tm tm = openknx.time.getLocalTime().toTm();
+            tm.tm_year += 1900;
+            tm.tm_mon += 1;
+            KoFCB_CHLastReceivedValueTimeStamp.valueCompare(tm, DPT_DateTime);
+        }
+        else
+        {
+            _lastValidTelegramWhileNotTimeAvailable = max(1UL, millis());
+        }
     }
 
     if (toLow)
@@ -214,7 +233,7 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
         // <Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
         // <Enumeration Text="Letzten gültigen Wert" Value="2" Id="%ENID%" />
         // <Enumeration Text="Grenzwert" Value="3" Id="%ENID%" />
-        switch (ParamFCB_CHMonitoringMin)
+        switch (ParamFCB_CHMonitoringMax)
         {
             case 2:
                 if (!hasValidValue)
@@ -224,7 +243,7 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
             case 3:
                 replacementValue = maxValue;
                 break;
-            default: 
+            default:
                 return;
         }
         sendValue(replacementValue, false);
@@ -245,21 +264,41 @@ void ValueMonitorBlock::sendValue(T value, bool isValid)
     // <Enumeration Text="Getrenntes Ausgangsobjekt, nur gültige Werte" Value="1" Id="%ENID%" />
     // <Enumeration Text="Getrenntes Ausgangsobjekt, gültige und Ersatzwerte" Value="2" Id="%ENID%" />
     // <Enumeration Text="Getrenntes Ausgangsobjekt, nur Ersatzwerte" Value="3" Id="%ENID%" />
-    if (ParamFCB_CHMonitoringOutput == 0 && !isValid)
-        KoFCB_CHSInput.value(value, _dpt);
-    else if (ParamFCB_CHMonitoringOutput == 1 && isValid)
-        KoFCB_CHSOutput.value(value, _dpt);
-    else if (ParamFCB_CHMonitoringOutput == 2)
-        KoFCB_CHSOutput.value(value, _dpt);
-    else if (ParamFCB_CHMonitoringOutput == 3 && !isValid)
-        KoFCB_CHSOutput.value(value, _dpt);
+    switch (ParamFCB_CHMonitoringOutput)
+    {
+        case 0:
+            if (!isValid)
+                KoFCB_CHSInput.value(value, _dpt);
+            break;
+        case 1:
+            if (isValid)
+                KoFCB_CHSOutput.value(value, _dpt);
+            break;
+        case 2:
+            KoFCB_CHSOutput.value(value, _dpt);
+            break;
+        case 3:
+            if (!isValid)
+                KoFCB_CHSOutput.value(value, _dpt);
+            break;
+    }
 }
 
 void ValueMonitorBlock::loop()
 {
-    if (_state != ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled)
+    if (_watchDogState != ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled)
     {
         handleTimeout();
+    }
+    if (_lastValidTelegramWhileNotTimeAvailable > 0 && openknx.time.isValid())
+    {
+        auto localTime = openknx.time.getLocalTime();
+        localTime.addSeconds((millis() - _lastValidTelegramWhileNotTimeAvailable) / -1000);
+        tm tm = localTime.toTm();
+        tm.tm_year += 1900;
+        tm.tm_mon += 1;
+        KoFCB_CHLastReceivedValueTimeStamp.valueCompare(tm, DPT_DateTime);
+        _lastValidTelegramWhileNotTimeAvailable = 0;
     }
 }
 
@@ -273,10 +312,10 @@ void ValueMonitorBlock::handleTimeout()
     unsigned long currentMillis = max(1UL, millis());
     bool sendFallbackValue = false;
     bool setAlarm = false;
-    switch (_state)
+    switch (_watchDogState)
     {
         case ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout:
-            if (_timeoutMillis > 0 && currentMillis - _waitTimeStartMillis > _timeoutMillis)
+            if (_waitForValueTimeoutMs > 0 && currentMillis - _waitTimeStartMillis > _waitForValueTimeoutMs)
             {
                 switch (_watchDogFallbackBehaviour)
                 {
@@ -284,6 +323,9 @@ void ValueMonitorBlock::handleTimeout()
                     case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorRequestValueAndProvideFallbackValue:
                         KoFCB_CHSInput.requestObjectRead();
                         setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForResponseValue);
+                        break;
+                    case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorOnlyAlarm:
+                        setAlarm = true;
                         break;
                     case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorProvideFallbackValue:
                         sendFallbackValue = true;
@@ -294,7 +336,7 @@ void ValueMonitorBlock::handleTimeout()
             }
             break;
         case ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForResponseValue:
-            if (_timeoutMillis > 0 && currentMillis - _waitTimeStartMillis > _waitForValueTimeout)
+            if (_waitForValueTimeoutMs > 0 && currentMillis - _waitTimeStartMillis > _waitForValueAfterReadTimeoutMs)
             {
                 switch (_watchDogFallbackBehaviour)
                 {
@@ -311,12 +353,12 @@ void ValueMonitorBlock::handleTimeout()
     }
     if (setAlarm)
     {
-        KoFCB_CHSummaryAlarm.valueCompare(true, DPT_Alarm);
+        KoFCB_CHSummaryAlarm.valueCompare(setAlarm, DPT_Alarm);
         KoFCB_CHValueReceiveTimeout.valueCompare(true, DPT_Switch);
     }
     if (sendFallbackValue)
     {
-        switch (ParamFCB_CHAggOutputDptEff)
+        switch (ParamFCB_CHMonitoringValueType)
         {
             case 10:
                 sendValue<bool>(ParamFCB_CHMonitoringWDDpt1, false);
@@ -354,28 +396,7 @@ void ValueMonitorBlock::handleTimeout()
     }
 }
 
-void ValueMonitorBlock::logState()
-{
-    switch (_state)
-    {
-        case ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled:
-            logInfoP("State: disabled");
-            break;
-        case ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForResponseValue:
-            logInfoP("State: wait for response value");
-            break;
-        case ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout:
-            logInfoP("State: wait for timeout");
-            break;
-    }
-}
-
 void ValueMonitorBlock::setState(ValueMonitorWatchdogState state)
 {
-    if (_state != state)
-    {
-        _state = state;
-        logState();
-        _changed = true;
-    }
+    _watchDogState = state;
 }

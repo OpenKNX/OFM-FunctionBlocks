@@ -26,4 +26,7 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Zählt von eine vorgebenen Zeit in herunter.
   Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
+- **Wertüberwachung**
+  Überwacht einen Eingang und löst einen Alarm bei falschen oder ausbleibenden Werten aus.
+  Es können auch Ersatzwerte auf den Bus geschickt werden.
 

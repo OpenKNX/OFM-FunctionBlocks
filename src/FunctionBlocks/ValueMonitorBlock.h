@@ -24,13 +24,13 @@ enum ValueMonitorWatchdogFallbackBehavior : uint8_t
 class ValueMonitorBlock : public FunctionBlock
 {
   private:
-    const static unsigned long _waitForValueTimeout = 10000;
+    const static unsigned long _waitForValueAfterReadTimeoutMs = 10000;
    
     std::string _name;
-    bool _changed = true;
-    ValueMonitorWatchdogState _state = ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled;
-    unsigned long _timeoutMillis = 0;
+    ValueMonitorWatchdogState _watchDogState = ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled;
+    unsigned long _waitForValueTimeoutMs = 0;
     unsigned long _waitTimeStartMillis = 0;
+    unsigned long _lastValidTelegramWhileNotTimeAvailable = 0;
     Dpt _dpt;
     KNXValue _lastValidValue;
     bool hasValidValue = false;

@@ -627,10 +627,12 @@ Zur Auswahl stehen:
 - 13.*         4-Byte vorzeichenbehaftet 
 - 14.*         4-Byte Gleitkommawert     
 
-<!-- DOC -->
+<!-- DOC HelpContext="Wartezeit auf Telegramme" -->
 ### Zeitueberwachung (Watchdog)
 
-Die Überwachung erkennt das ausbleiben von entsprechnenden Werten.
+Die Überwachung erkennt das ausbleiben von Werten am Eingang.
+
+#### Wartezeit auf Telegramme
 
 Optionen für den Überwachungszeitraum innerhalb dieses ein Wert empfangen werden muss:
 
@@ -664,11 +666,13 @@ Der Wert wird auf den Ausgang gesendet und nicht auf den Eingang.
 
 Soll der Ersatzwert auf die Gruppenadresse des Eingangs verwendet werden, muss "Ersatzwerte auf Eingang senden" gewählt werden, ansonsten werden die Ersatzwerte als neuer Eingangswert erkannt und der Alarm rückgesetzt.
 
-<!-- DOC -->
+<!-- DOC HelpContext="Verhalten bei Wertunterschreitung"  -->
 ### Minimalwert Überwachung
 
 Option was bei unterschreiten des minimalen Wertes passieren soll.
 
+#### Verhalten bei Wertunterschreitung
+
 Folgende Optionen stehen zur Auswahl:
 
 - **Überwachung deaktiviert** 
@@ -677,15 +681,17 @@ Folgende Optionen stehen zur Auswahl:
 - **Grenzwert senden** 
 
 <!-- DOC -->
-### Minimaler Wert
+### Minimaler zulässiger Wert
 
 Miniamaler Grenzwert für die Überwachung.
 
-<!-- DOC -->
+<!-- DOC HelpContext="Verhalten bei Wertüberschreitung" -->
 ### Maximalwert Überwachung
 
 Option was bei überschreiten des maximalen Wertes passieren soll.
 
+#### Verhalten bei Wertüberschreitung
+
 Folgende Optionen stehen zur Auswahl:
 
 - **Überwachung deaktiviert** 
@@ -694,12 +700,24 @@ Folgende Optionen stehen zur Auswahl:
 - **Grenzwert senden** 
 
 <!-- DOC -->
-###  Maximaler Wert
+###  Maximaler zulässiger Wert
 
 Miniamaler Grenzwert für die Überwachung.
 
-<!-- DOC -->
-### Ersatzwertbehandlung
+<!-- DOC HelpContext="Ersatzwertbehandlung" -->
+### Sendeverhalten
 
 Gibt an, ob die Ersatzwerte auf den Eingang ausgegeben werden sollen, oder ob ein getrenntes Ausgangsobjekt zur Verfügung steht.
 
+Optionen:
+
+- **Ersatzwerte auf Eingang senden**
+  Die Ersatzwerte werden auf die am Eingang angeschlossen Gruppenadresse zurückgeschrieben.
+  Hinweis: Das führt dazu, das bei Minimal- oder Maximalwertüberschreitung am Bus unmittelbar nach Empfang des Wertes ein korriegierter Wert gesendet wird. 
+- **Getrenntes Ausgangsobjekt, nur gültige Werte**
+  Am Ausgang werden nur gültige Eingangswerte weitergeleitet.
+  Hinweis: Eingestellte Ersatzwerte werden ignoriert.
+- **Getrenntes Ausgangsobjekt, gültige und Ersatzwerte**
+  Am Ausgang werden alle gültigen Eingangswerte gesendet und im Fehlerfall so eingestellt, Ersatzwerte auf den Bus gesendet.
+- **Getrenntes Ausgangsobjekt, nur Ersatzwerte**
+  Es werden nur eingestellte Ersatzwerte auf den Ausgang gesendet.
