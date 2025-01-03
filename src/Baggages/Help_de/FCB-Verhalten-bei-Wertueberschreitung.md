@@ -1,6 +1,6 @@
 ﻿### Maximalwert Überwachung
 
-Option was bei überschreiten des maximalen Wertes passieren soll.
+Option was bei Überschreiten des maximalen Wertes passieren soll.
 
 #### Verhalten bei Wertüberschreitung
 

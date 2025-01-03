@@ -1,5 +1,5 @@
 ﻿### Zeitueberwachung (Watchdog)
 
-Die Überwachung erkennt das ausbleiben von Werten am Eingang.
+Die Überwachung erkennt das Ausbleiben von Werten am Eingang.
 
 

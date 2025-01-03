@@ -601,7 +601,7 @@ Hinweis: Wird der Zeitgeber erneut gestartet bevor die eingestellte Zeit erreich
 <!-- DOC HelpContext="Monitoring" -->
 ## Wertüberwachtung
 
-Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
+Die Wertüberwachung dient zum Überwachen von Messwerten oder Signalen. 
 Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
 Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
 
@@ -630,7 +630,7 @@ Zur Auswahl stehen:
 <!-- DOC HelpContext="Zeitüberwachung aktiv" -->
 ### Zeitueberwachung (Watchdog)
 
-Die Überwachung erkennt das ausbleiben von Werten am Eingang.
+Die Überwachung erkennt das Ausbleiben von Werten am Eingang.
 
 
 <!-- DOC HelpContext="Watchdog-Zeit"-->
@@ -653,15 +653,15 @@ Es kann festgelegt werden, was im Fehlerfall auf den Bus gesendet werden soll.
 
 Folgenden Optionen stehen zur Auswahl:
 
- **Nur Alarm auslösen** Es wird nur der Alarm ausgelöst, es wird kein Ersatzwert gesendet
+- **Nur Alarm auslösen** Es wird nur der Alarm ausgelöst, es wird kein Ersatzwert gesendet
 - **Leseanforderung, dann Alarm** Nach Ablauf der einstellten Zeit, wird eine Leseanforderung auf den Bus geschickt und der Alarm ausgelöst
-- **Leseanforderung, dann Ersatzwert und Alarm** Es wird eine Leseanforderung auf den Bus gsendet und der Alarm ausgelöst, bei weiteren Ausbleiben wird ein
-- **Ersatzwert und Alarm** Es wird eine Ersatzwert geschickt und der Alarm ausgelöst
+- **Leseanforderung, dann Ersatzwert und Alarm** Es wird eine Leseanforderung auf den Bus gesendet und der Alarm ausgelöst, bei weiteren Ausbleiben wird ein
+- **Ersatzwert und Alarm** Es wird ein Ersatzwert geschickt und der Alarm ausgelöst
 
 <!-- DOC -->
 ### Ersatzwert
 
-Wert der bei fehlenden Wert auf den Bus gesendet werden soll. 
+Wert der bei fehlendem Wert auf den Bus gesendet werden soll. 
 Der Wert wird auf den Ausgang gesendet und nicht auf den Eingang. 
 
 Soll der Ersatzwert auf die Gruppenadresse des Eingangs verwendet werden, muss "Ersatzwerte auf Eingang senden" gewählt werden, ansonsten werden die Ersatzwerte als neuer Eingangswert erkannt und der Alarm rückgesetzt.
@@ -669,7 +669,7 @@ Soll der Ersatzwert auf die Gruppenadresse des Eingangs verwendet werden, muss "
 <!-- DOC HelpContext="Verhalten bei Wertunterschreitung"  -->
 ### Minimalwert Überwachung
 
-Option was bei unterschreiten des minimalen Wertes passieren soll.
+Option was bei Unterschreiten des minimalen Wertes passieren soll.
 
 #### Verhalten bei Wertunterschreitung
 
@@ -683,12 +683,12 @@ Folgende Optionen stehen zur Auswahl:
 <!-- DOC -->
 ### Minimaler zulässiger Wert
 
-Miniamaler Grenzwert für die Überwachung.
+Minimaler Grenzwert für die Überwachung.
 
 <!-- DOC HelpContext="Verhalten bei Wertüberschreitung" -->
 ### Maximalwert Überwachung
 
-Option was bei überschreiten des maximalen Wertes passieren soll.
+Option was bei Überschreiten des maximalen Wertes passieren soll.
 
 #### Verhalten bei Wertüberschreitung
 
@@ -702,7 +702,7 @@ Folgende Optionen stehen zur Auswahl:
 <!-- DOC -->
 ###  Maximaler zulässiger Wert
 
-Miniamaler Grenzwert für die Überwachung.
+Minimaler Grenzwert für die Überwachung.
 
 <!-- DOC HelpContext="Ersatzwertbehandlung" -->
 ### Sendeverhalten
