@@ -627,24 +627,24 @@ Zur Auswahl stehen:
 - 13.*         4-Byte vorzeichenbehaftet 
 - 14.*         4-Byte Gleitkommawert     
 
-<!-- DOC HelpContext="Wartezeit auf Telegramme" -->
+<!-- DOC HelpContext="Zeitüberwachung aktiv" -->
 ### Zeitueberwachung (Watchdog)
 
 Die Überwachung erkennt das ausbleiben von Werten am Eingang.
 
+
+<!-- DOC HelpContext="Watchdog-Zeit"-->
 #### Wartezeit auf Telegramme
 
-Optionen für den Überwachungszeitraum innerhalb dieses ein Wert empfangen werden muss:
+Gibt an wie lange am Eingang kein Wert empfangen wird, bis die Zeitüberwachung Alarm gibt.
 
-- Aus
-- 10 Minuten
-- 30 Minuten
-- 1 Stunde
-- 2 Stunden
-- 3 Stunden
-- 4 Stunden
-- 8 Stunden
-- 12 Stunden
+<!-- DOC HelpContext="Watchdog-Zeitbasis"-->
+#### Einheit für die Wartezeit
+
+Folgende Einheiten können für die Wartezeit gewählt werden:
+
+- Minute(n)
+- Stunde(n)
 
 <!-- DOC -->
 ### Verhalten bei Zeitüberschreitung

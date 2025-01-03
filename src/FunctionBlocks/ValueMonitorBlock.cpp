@@ -37,35 +37,8 @@ ValueMonitorBlock::ValueMonitorBlock(uint8_t channelIndex)
     // <Enumeration Text="4 Stunden" Value="6" Id="%ENID%" />
     // <Enumeration Text="8 Stunden" Value="7" Id="%ENID%" />
     // <Enumeration Text="12 Stunden" Value="8" Id="%ENID%" />
-    switch (ParamFCB_CHMonitoringWDTimeout)
-    {
-        case 0:
-            break;
-        case 1:
-            _waitForValueTimeoutMs = 10 * 60 * 1000;
-            break;
-        case 2:
-            _waitForValueTimeoutMs = 30 * 60 * 1000;
-            break;
-        case 3:
-            _waitForValueTimeoutMs = 60 * 60 * 1000;
-            break;
-        case 4:
-            _waitForValueTimeoutMs = 2 * 60 * 60 * 1000;
-            break;
-        case 5:
-            _waitForValueTimeoutMs = 3 * 60 * 60 * 1000;
-            break;
-        case 6:
-            _waitForValueTimeoutMs = 4 * 60 * 60 * 1000;
-            break;
-        case 7:
-            _waitForValueTimeoutMs = 8 * 60 * 60 * 1000;
-            break;
-        case 8:
-            _waitForValueTimeoutMs = 12 * 60 * 60 * 1000;
-            break;
-    }
+    if (ParamFCB_CHMonitoringWDEnabled)
+        _waitForValueTimeoutMs = ParamFCB_CHMonitoringWDTTimeoutDelayTimeMS;
     setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled);
     
 
