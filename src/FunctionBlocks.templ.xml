@@ -268,64 +268,105 @@
               <Union SizeInBit="160">
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Messwert Type-->
-                <Parameter Id="%AID%_UP-%TT%%CC%209" Name="CH%C%MonitoringValueType" ParameterType="%AID%_PT-FCBNumericAndBitDpt" Offset="0" BitOffset="0" Text="Werttype" Value="90" />
+                <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%209" Name="CH%C%MonitoringValueType" ParameterType="%AID%_PT-FCBNumericAndBitDpt" Text="Werttype" Value="90" />
                 <!-- Watdchdog -->
-                <Parameter Id="%AID%_UP-%TT%%CC%246" Name="CH%C%MonitoringWDEnabled"   ParameterType="%AID%_PT-OnOffYesNo"  Offset="1" BitOffset="0" Text="Zeitüberwachung aktiv" Value="1" />        
+                <Parameter Offset="1" BitOffset="0" Id="%AID%_UP-%TT%%CC%246" Name="CH%C%MonitoringWDEnabled"   ParameterType="%AID%_PT-OnOffYesNo" Text="Zeitüberwachung aktiv" Value="1" />        
                 <!-- Watdchdog DelayBase -->
-                <Parameter Id="%AID%_UP-%TT%%CC%210" Name="CH%C%MonitoringWDTTimeoutDelayBase"   ParameterType="%AID%_PT-FCBDelayBaseMin"  Offset="2" BitOffset="0" Text="Watchdog Zeitbasis" Value="1" />
+                <Parameter Offset="2" BitOffset="0" Id="%AID%_UP-%TT%%CC%210" Name="CH%C%MonitoringWDTTimeoutDelayBase"   ParameterType="%AID%_PT-FCBDelayBaseMin" Text="Watchdog Zeitbasis" Value="1" />
                 <!-- Watdchdog DelayTime -->
-                <Parameter Id="%AID%_UP-%TT%%CC%245" Name="CH%C%MonitoringWDTTimeoutDelayTime"   ParameterType="%AID%_PT-DelayTimeMin1"    Offset="2" BitOffset="2" Text="Watchdog Zeit" Value="60" />
+                <Parameter Offset="2" BitOffset="2" Id="%AID%_UP-%TT%%CC%245" Name="CH%C%MonitoringWDTTimeoutDelayTime"   ParameterType="%AID%_PT-DelayTimeMin1"    Text="Watchdog Zeit" Value="60" />
                 <!-- ^^^  Need 2 Bytes ^^^ -->
                 <!-- Watdchdog Verhalten -->
-                <Parameter Id="%AID%_UP-%TT%%CC%244" Name="CH%C%MonitoringWDBehavior" ParameterType="%AID%_PT-FCBMonitoringBehavior" Offset="4" BitOffset="0" Text="Verhalten bei Zeitüberschreitung" Value="2" />
+                <Parameter Offset="4" BitOffset="0" Id="%AID%_UP-%TT%%CC%244" Name="CH%C%MonitoringWDBehavior" ParameterType="%AID%_PT-FCBMonitoringBehavior" Text="Verhalten bei Zeitüberschreitung" Value="2" />
                 <!--  2 bits free -->
                 <!-- Watchdog Replacement -->				 
-                <Parameter Id="%AID%_UP-%TT%%CC%211" Name="CH%C%MonitoringWDDpt1"    ParameterType="%AID%_PT-ValueDpt1"    Offset="5" BitOffset="0" Text="Ersatzwert" Value="1" />
-                <Parameter Id="%AID%_UP-%TT%%CC%212" Name="CH%C%MonitoringWDDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%213" Name="CH%C%MonitoringWDDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="5" BitOffset="0" Text="Ersatzwert" Value="50" SuffixText="%" />
-                <Parameter Id="%AID%_UP-%TT%%CC%214" Name="CH%C%MonitoringWDDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%215" Name="CH%C%MonitoringWDDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%216" Name="CH%C%MonitoringWDDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%217" Name="CH%C%MonitoringWDDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%218" Name="CH%C%MonitoringWDDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%219" Name="CH%C%MonitoringWDDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
-                <Parameter Id="%AID%_UP-%TT%%CC%220" Name="CH%C%MonitoringWDDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Offset="5" BitOffset="0" Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%211" Name="CH%C%MonitoringWDDpt1"    ParameterType="%AID%_PT-ValueDpt1"    Text="Ersatzwert" Value="1" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%212" Name="CH%C%MonitoringWDDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%213" Name="CH%C%MonitoringWDDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Ersatzwert" Value="50" SuffixText="%" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%214" Name="CH%C%MonitoringWDDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%215" Name="CH%C%MonitoringWDDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%216" Name="CH%C%MonitoringWDDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%217" Name="CH%C%MonitoringWDDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%218" Name="CH%C%MonitoringWDDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%219" Name="CH%C%MonitoringWDDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Ersatzwert" Value="20" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%220" Name="CH%C%MonitoringWDDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Ersatzwert" Value="20" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
                 <!-- Minimum Value Monitoring -->
-                <Parameter Id="%AID%_UP-%TT%%CC%221" Name="CH%C%MonitoringMin" ParameterType="%AID%_PT-FCBMonitoringMinReplacement" Offset="9" BitOffset="4" Text="Verhalten bei Wertunterschreitung" Value="0" />
+                <Parameter Offset="9" BitOffset="4" Id="%AID%_UP-%TT%%CC%221" Name="CH%C%MonitoringMin" ParameterType="%AID%_PT-FCBMonitoringMinReplacement" Text="Verhalten bei Wertunterschreitung" Value="0" />
      		        <!-- Minimum Value -->				 
-                <Parameter Id="%AID%_UP-%TT%%CC%222" Name="CH%C%MonitoringMinDpt1"    ParameterType="%AID%_PT-FCBBooleanMinValueMonitor"    Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%223" Name="CH%C%MonitoringMinDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%224" Name="CH%C%MonitoringMinDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="0" SuffixText="%" />
-                <Parameter Id="%AID%_UP-%TT%%CC%225" Name="CH%C%MonitoringMinDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="-128" />
-                <Parameter Id="%AID%_UP-%TT%%CC%226" Name="CH%C%MonitoringMinDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%227" Name="CH%C%MonitoringMinDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="-32768" />
-                <Parameter Id="%AID%_UP-%TT%%CC%228" Name="CH%C%MonitoringMinDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="-671088" />
-                <Parameter Id="%AID%_UP-%TT%%CC%229" Name="CH%C%MonitoringMinDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Id="%AID%_UP-%TT%%CC%230" Name="CH%C%MonitoringMinDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="-2147483648" />
-                <Parameter Id="%AID%_UP-%TT%%CC%231" Name="CH%C%MonitoringMinDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Offset="10" BitOffset="0" Text="Minimaler zulässiger Wert" Value="-1000000000000" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%222" Name="CH%C%MonitoringMinDpt1"    ParameterType="%AID%_PT-FCBBooleanMinValueMonitor" Text="Minimaler zulässiger Wert" Value="0" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%223" Name="CH%C%MonitoringMinDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Minimaler zulässiger Wert" Value="0" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%224" Name="CH%C%MonitoringMinDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Minimaler zulässiger Wert" Value="0" SuffixText="%" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%225" Name="CH%C%MonitoringMinDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Minimaler zulässiger Wert" Value="-128" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%226" Name="CH%C%MonitoringMinDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Minimaler zulässiger Wert" Value="0" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%227" Name="CH%C%MonitoringMinDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Minimaler zulässiger Wert" Value="-32768" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%228" Name="CH%C%MonitoringMinDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Minimaler zulässiger Wert" Value="-671088" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%229" Name="CH%C%MonitoringMinDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Minimaler zulässiger Wert" Value="0" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%230" Name="CH%C%MonitoringMinDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Minimaler zulässiger Wert" Value="-2147483648" />
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%231" Name="CH%C%MonitoringMinDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Minimaler zulässiger Wert" Value="-1000000000000" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
               
                 <!-- Maximum Value Monitoring -->
-                <Parameter Id="%AID%_UP-%TT%%CC%232" Name="CH%C%MonitoringMax"        ParameterType="%AID%_PT-FCBMonitoringMaxReplacement" Offset="14" BitOffset="4" Text="Verhalten bei Wertüberschreitung" Value="0" />
+                <Parameter Offset="14" BitOffset="4" Id="%AID%_UP-%TT%%CC%232" Name="CH%C%MonitoringMax"        ParameterType="%AID%_PT-FCBMonitoringMaxReplacement" Text="Verhalten bei Wertüberschreitung" Value="0" />
      		        <!-- Maximum Value -->				 
-                <Parameter Id="%AID%_UP-%TT%%CC%233" Name="CH%C%MonitoringMaxDpt1"    ParameterType="%AID%_PT-FCBBooleanMaxValueMonitor"    Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="1" />
-                <Parameter Id="%AID%_UP-%TT%%CC%234" Name="CH%C%MonitoringMaxDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="255" />
-                <Parameter Id="%AID%_UP-%TT%%CC%235" Name="CH%C%MonitoringMaxDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="100" SuffixText="%" />
-                <Parameter Id="%AID%_UP-%TT%%CC%236" Name="CH%C%MonitoringMaxDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="127" />
-                <Parameter Id="%AID%_UP-%TT%%CC%237" Name="CH%C%MonitoringMaxDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="65535" />
-                <Parameter Id="%AID%_UP-%TT%%CC%238" Name="CH%C%MonitoringMaxDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="32767" />
-                <Parameter Id="%AID%_UP-%TT%%CC%239" Name="CH%C%MonitoringMaxDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="670760" />
-                <Parameter Id="%AID%_UP-%TT%%CC%240" Name="CH%C%MonitoringMaxDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="4294967295" />
-                <Parameter Id="%AID%_UP-%TT%%CC%241" Name="CH%C%MonitoringMaxDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="2147483647" />
-                <Parameter Id="%AID%_UP-%TT%%CC%242" Name="CH%C%MonitoringMaxDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Offset="15" BitOffset="0" Text="Maximaler zulässiger Wert" Value="1000000000000" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%233" Name="CH%C%MonitoringMaxDpt1"    ParameterType="%AID%_PT-FCBBooleanMaxValueMonitor" Text="Maximaler zulässiger Wert" Value="1" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%234" Name="CH%C%MonitoringMaxDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Maximaler zulässiger Wert" Value="255" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%235" Name="CH%C%MonitoringMaxDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Maximaler zulässiger Wert" Value="100" SuffixText="%" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%236" Name="CH%C%MonitoringMaxDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Maximaler zulässiger Wert" Value="127" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%237" Name="CH%C%MonitoringMaxDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Maximaler zulässiger Wert" Value="65535" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%238" Name="CH%C%MonitoringMaxDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Maximaler zulässiger Wert" Value="32767" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%239" Name="CH%C%MonitoringMaxDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Maximaler zulässiger Wert" Value="670760" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%240" Name="CH%C%MonitoringMaxDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Maximaler zulässiger Wert" Value="4294967295" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%241" Name="CH%C%MonitoringMaxDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Maximaler zulässiger Wert" Value="2147483647" />
+                <Parameter Offset="15" BitOffset="0" Id="%AID%_UP-%TT%%CC%242" Name="CH%C%MonitoringMaxDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Maximaler zulässiger Wert" Value="1000000000000" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
                 <!-- Ausgang -->
-                <Parameter Id="%AID%_UP-%TT%%CC%243" Name="CH%C%MonitoringOutput" ParameterType="%AID%_PT-FCBMonitoringOutput" Offset="19" BitOffset="0" Text="Sendeverhalten" Value="2" />
+                <Parameter Offset="19" BitOffset="0" Id="%AID%_UP-%TT%%CC%243" Name="CH%C%MonitoringOutput" ParameterType="%AID%_PT-FCBMonitoringOutput" Text="Sendeverhalten" Value="2" />
      		        <!-- 4 bits free -->
               </Union>
+
+              <!-- Auswahl -->
+              <Union SizeInBit="8">
+                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
+                <!-- Auswahl Type-->
+                <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%248" Name="CH%C%SelectionType" ParameterType="%AID%_PT-FCBSelectionType" Text="Anzahl und Typ der Auswahlen (mit gemeinsamen Auswahl-Eingang):" Value="7" />
+                <!-- Auswahl Umschaltung -->
+                <Parameter Offset="1" BitOffset="0" Id="%AID%_UP-%TT%%CC%249" Name="CH%C%SelectionSwitching" ParameterType="%AID%_PT-FCBSelectionSwitching" Text="Bei Umschaltung" Value="1" />
+                <!-- Auswahl Statusausgang -->
+                <Parameter Offset="1" BitOffset="4" Id="%AID%_UP-%TT%%CC%250" Name="CH%C%SelectionStateOutput" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Ausgang" Value="1" />
+              </Union>
+
+               <!-- Blinker -->
+              <Union SizeInBit="88">
+                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
+                <!-- Ein DelayBase -->
+                <Parameter Offset="2" BitOffset="0" Id="%AID%_UP-%TT%%CC%251" Name="CH%C%BlinkerOnDelayBase"   ParameterType="%AID%_PT-DelayBase10" Text="Blinker EIN Zeitbasis" Value="0" />
+                <!-- Ein DelayTime -->
+                <Parameter Offset="2" BitOffset="2" Id="%AID%_UP-%TT%%CC%252" Name="CH%C%BlinkerOnDelayTime"   ParameterType="%AID%_PT-DelayTimeMin1"    Text="Blinker EIN Zeit" Value="1" />
+                <!-- ^^^^ 2 Bytes ^^^^^ -->
+                <!-- Aus DelayBase -->
+                <Parameter Offset="4" BitOffset="0" Id="%AID%_UP-%TT%%CC%253" Name="CH%C%BlinkerOffDelayBase"   ParameterType="%AID%_PT-DelayBase10" Text="Blinker AUS Zeitbasis" Value="0" />
+                <!-- Aus DelayTime -->
+                <Parameter Offset="4" BitOffset="2" Id="%AID%_UP-%TT%%CC%254" Name="CH%C%BlinkerOffDelayTime"   ParameterType="%AID%_PT-DelayTimeMin1"    Text="Blinker AUS Zeit" Value="1" />
+                <!-- ^^^^ 2 Bytes ^^^^^ -->
+                <!-- Start -->
+                <Parameter Offset="6" BitOffset="0" Id="%AID%_UP-%TT%%CC%255" Name="CH%C%BlinkerStart"   ParameterType="%AID%_PT-FCBBlinkerStart"    Text="Start" Value="2" />
+                <!-- Stop -->
+                <Parameter Offset="6" BitOffset="4" Id="%AID%_UP-%TT%%CC%256" Name="CH%C%BlinkerStop"   ParameterType="%AID%_PT-FCBBlinkerStop"    Text="Ende" Value="2" />
+                <!-- Break -->
+                <Parameter Offset="6" BitOffset="4" Id="%AID%_UP-%TT%%CC%257" Name="CH%C%BlinkerBreak"   ParameterType="%AID%_PT-FCBBlinkerBreak"    Text="AUS Telegram am 'Start' Eingang" Value="2" />
+                <!-- Ausgang Dpt -->
+                <Parameter Offset="7" BitOffset="4" Id="%AID%_UP-%TT%%CC%258" Name="CH%C%BlinkerOutputDpt"   ParameterType="%AID%_PT-FCBBlinkerOutputDpt"    Text="Ausgang" Value="10" />
+                <!-- Ein Wert -->
+                <Parameter Offset="8" BitOffset="0" Id="%AID%_UP-%TT%%CC%259" Name="CH%C%BlinkerOnPercentage"    ParameterType="%AID%_PT-ValueDpt5001" Text="Wert für EIN" Value="100" SuffixText="%" />
+                <!-- Aus Wert -->
+                <Parameter Offset="9" BitOffset="0" Id="%AID%_UP-%TT%%CC%260" Name="CH%C%BlinkerOffPercentage"    ParameterType="%AID%_PT-ValueDpt5001" Text="Wert für AUS" Value="0" SuffixText="%" />         
+                <!-- Blinkanzahl -->
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%261" Name="CH%C%BlinkerCount"    ParameterType="%AID%_PT-FCBBlinkCount" Text="Anzahl der Blinkvorgänge" Value="0" />
+             
+              </Union>
            
-              <!-- Next Id: %AID%_UP-%TT%%CC%248 -->
+              <!-- Next Id: %AID%_UP-%TT%%CC%262 -->
 
             </Parameters>
             <ParameterRefs>
@@ -547,6 +588,7 @@
 
 
               <!-- Wertüberwachung -->
+
               <!-- Messwert Type-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901" RefId="%AID%_UP-%TT%%CC%209" />
               <!-- Watdchdog -->
@@ -600,6 +642,41 @@
               <!-- Ausgang -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301" RefId="%AID%_UP-%TT%%CC%243" />
      		   
+
+              <!-- Auswahl -->
+              <!-- Auswahl Type -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801" RefId="%AID%_UP-%TT%%CC%248" />
+              <!-- Auswahl Umschaltung -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%249_R-%TT%%CC%24901" RefId="%AID%_UP-%TT%%CC%249" />
+              <!-- Auswahl Statusausgang -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001" RefId="%AID%_UP-%TT%%CC%250" />
+      
+
+              <!-- Blinker -->
+
+              <!-- Ein DelayBase -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%251_R-%TT%%CC%25101" RefId="%AID%_UP-%TT%%CC%251" />
+              <!-- Ein DelayTime -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%252_R-%TT%%CC%25201" RefId="%AID%_UP-%TT%%CC%252"/>
+              <!-- Aus DelayBase -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%253_R-%TT%%CC%25301" RefId="%AID%_UP-%TT%%CC%253" />
+              <!-- Aus DelayTime -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%254_R-%TT%%CC%25401" RefId="%AID%_UP-%TT%%CC%254" />
+              <!-- Start -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%255_R-%TT%%CC%25501" RefId="%AID%_UP-%TT%%CC%255" />
+              <!-- Stop -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%256_R-%TT%%CC%25601" RefId="%AID%_UP-%TT%%CC%256" />
+              <!-- Break -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%257_R-%TT%%CC%25701" RefId="%AID%_UP-%TT%%CC%257" />
+              <!-- Ausgang Dpt -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801" RefId="%AID%_UP-%TT%%CC%258" />
+              <!-- Ein Wert -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%259_R-%TT%%CC%25901" RefId="%AID%_UP-%TT%%CC%259" />
+              <!-- Aus Wert -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%260_R-%TT%%CC%26001" RefId="%AID%_UP-%TT%%CC%260" />
+              <!-- Blinkanzahl -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101" RefId="%AID%_UP-%TT%%CC%261" />
+ 
             </ParameterRefs>
             <ComObjectTable>
               <!-- KO 0 --><ComObject Id="%AID%_O-%TT%%CC%000" Number="%K00%" Name="CH%C%KO0" ObjectSize="4 Bytes" Text="" FunctionText="" CommunicationFlag="Enabled" ReadFlag="Disabled" WriteFlag="Disabled" TransmitFlag="Disabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
@@ -2252,6 +2329,130 @@
                         </ParameterBlock>
                       </when>
 
+                      <when test="8"><!-- ************ Auswahl ************ -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Selection" Text="%C% Auswahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="multicast" ShowInComObjectTree="true" HelpContext="FCB-Selection">
+      
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Auswahl (Multiplexer)" UIHint="Headline" />
+
+                          <!-- Kanal Name -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <!-- Channel Disabled-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <Button Id="%AID%_B-%TT%%CC%008" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
+
+                          <!-- Auswahl Type -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801" HelpContext="%DOC%" />
+                          <!-- Auswahl Umschaltung -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%249_R-%TT%%CC%24901" HelpContext="%DOC%" />
+
+                          <!-- Auswahl Type -->
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801">
+                            <when test="22 3 23 4 5 5 6 7">
+                              <!-- Auswahl Statusausgang -->
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+                        
+                        </ParameterBlock>
+                      </when>
+
+                      <when test="9"><!-- ************ Blinker ************ -->
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Blinker" Text="%C% Blinker: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="alarm-light-outline" ShowInComObjectTree="true" HelpContext="FCB-Blinker">
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Blinker" UIHint="Headline" />
+
+                          <!-- Kanal Name -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <!-- Channel Disabled-->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+
+                          <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
+                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <Button Id="%AID%_B-%TT%%CC%009" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
+
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
+
+                          <!-- Blinkanzahl -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101" HelpContext="%DOC%" />
+
+                          <ParameterBlock Id="%AID%_PB-nnn" Name="f%C%BlinkerOnTime" Inline="true" Layout="Grid" HelpContext="FCB-Ein-Zeit">
+                            <Rows>
+                              <Row Id="%AID%_PB-nnn_R-1" Name="Row1" />
+                            </Rows>
+                            <Columns>
+                              <Column Id="%AID%_PB-nnn_C-1" Name="Col2" Width="45%" />
+                              <Column Id="%AID%_PB-nnn_C-2" Name="Col3" Width="15%" />
+                              <Column Id="%AID%_PB-nnn_C-3" Name="Col4" Width="25%" />
+                            </Columns>
+                            <ParameterSeparator Id="%AID%_PS-nnn" Text="Ein-Zeit" Cell="1,1" />
+                            <!-- Ein DelayTime -->
+                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%252_R-%TT%%CC%25201" Cell="1,2" HelpContext="%DOC%" />
+                            <!-- Ein DelayBase -->
+                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%251_R-%TT%%CC%25101" Cell="1,3" HelpContext="%DOC%" />
+                          </ParameterBlock>
+                          <ParameterBlock Id="%AID%_PB-nnn" Name="f%C%BlinkerOffTime" Inline="true" Layout="Grid" HelpContext="FCB-Aus-Zeit">
+                            <Rows>
+                              <Row Id="%AID%_PB-nnn_R-1" Name="Row1" />
+                            </Rows>
+                            <Columns>
+                              <Column Id="%AID%_PB-nnn_C-1" Name="Col2" Width="45%" />
+                              <Column Id="%AID%_PB-nnn_C-2" Name="Col3" Width="15%" />
+                              <Column Id="%AID%_PB-nnn_C-3" Name="Col4" Width="25%" />
+                            </Columns>
+                            <ParameterSeparator Id="%AID%_PS-nnn" Text="Aus-Zeit" Cell="1,1" />
+                            <!-- Aus DelayTime -->
+                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%254_R-%TT%%CC%25401" Cell="1,2" HelpContext="%DOC%" />
+                            <!-- Aus DelayBase -->
+                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%253_R-%TT%%CC%25301" Cell="1,3" HelpContext="%DOC%" />
+                          </ParameterBlock>
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Start / Stopp" UIHint="Headline" />
+
+                          <!-- Blinkanzahl -->
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101">
+                            <when test="!=255">
+                              <!-- Nicht immer -->
+                              <!-- Start -->
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%255_R-%TT%%CC%25501" HelpContext="%DOC%" />
+                              <!-- Stop -->
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%256_R-%TT%%CC%25601" HelpContext="%DOC%" />
+                              
+                              <!-- Blinkanzahl -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101">
+                                <when test="!=0">
+                                  <!-- Nicht solange EIN am Ausgang-->
+                                  <!-- Break -->
+                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%257_R-%TT%%CC%25701" HelpContext="%DOC%" />
+                                </when>
+                              </choose>
+                            </when>
+                          </choose>
+                    
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
+                          <!-- Ausgang Dpt -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801" HelpContext="%DOC%" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801">
+                            <when test="51">
+                              <!-- Ein Wert -->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%259_R-%TT%%CC%25901" HelpContext="%DOC%" />
+                              <!-- Aus Wert -->
+                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%260_R-%TT%%CC%26001" HelpContext="%DOC%" />
+                            </when>
+                          </choose>
+                        </ParameterBlock>
+                      </when>
                     </choose>
                   </when>
                 </choose>

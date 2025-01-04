@@ -22,6 +22,8 @@
 									<Enumeration Id="%ENID%" Value="5" Text="Statistische Aggregation" />
 									<Enumeration Id="%ENID%" Value="6" Text="Count-Down Zeitgeber" />
 									<Enumeration Id="%ENID%" Value="7" Text="Wertüberwachung" />
+									<Enumeration Id="%ENID%" Value="8" Text="Auswahl (Mulitplexer)" />
+									<Enumeration Id="%ENID%" Value="9" Text="Blinker" />
 								</TypeRestriction>
 							</ParameterType>
 
@@ -309,6 +311,90 @@
 								<TypeRestriction Base="Value" SizeInBit="1" UIHint="DropDown">
 									<Enumeration Text="Inaktiv" Value="1" Id="%ENID%" />
 									<Enumeration Text="Wert muss immer AUS sein" Value="0" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBSelectionType" Name="FCBSelectionType" >
+								<TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+   									<Enumeration Text="   2-fach Auswahl" Value="2" Id="%ENID%" />
+									<Enumeration Text="2x 2-fach Auswahl" Value="22" Id="%ENID%" />
+									<Enumeration Text="3x 2-fach Auswahl (kein Statusausgang möglich)" Value="32" Id="%ENID%" />
+									<Enumeration Text="   3-fach Auswahl" Value="3" Id="%ENID%" />
+									<Enumeration Text="2x 3-fach Auswahl" Value="23" Id="%ENID%" />
+									<Enumeration Text="   4-fach Auswahl" Value="4" Id="%ENID%" />
+									<Enumeration Text="   5-fach Auswahl" Value="5" Id="%ENID%" />
+									<Enumeration Text="   6-fach Auswahl" Value="6" Id="%ENID%" />
+									<Enumeration Text="   7-fach Auswahl" Value="7" Id="%ENID%" />
+									<Enumeration Text="   8-fach Auswahl (kein Statusausgang möglich)" Value="8" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBSelectionSwitching" Name="FCBSelectionSwitching" >
+								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
+									<Enumeration Text="Nichts senden" Value="0" Id="%ENID%" />
+									<Enumeration Text="Eingangswert senden" Value="1" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBBlinkerStart" Name="FCBBlinkerStart" >
+								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
+									<Enumeration Text="Mit EIN starten" Value="1" Id="%ENID%" />
+									<Enumeration Text="Mit AUS starten" Value="0" Id="%ENID%" />
+									<Enumeration Text="Abhängig von aktueller Aktor Rückmeldung" Value="2" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBBlinkCount" Name="FCBBlinkCount" >
+								<TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+									<Enumeration Text="Immer" Value="255" Id="%ENID%" />
+									<Enumeration Text="Solange Start EIN" Value="0" Id="%ENID%" />
+									<Enumeration Text="1x" Value="1" Id="%ENID%" />
+									<Enumeration Text="2x" Value="2" Id="%ENID%" />
+									<Enumeration Text="3x" Value="3" Id="%ENID%" />
+									<Enumeration Text="4x" Value="4" Id="%ENID%" />
+									<Enumeration Text="5x" Value="5" Id="%ENID%" />
+									<Enumeration Text="6x" Value="6" Id="%ENID%" />
+									<Enumeration Text="7x" Value="7" Id="%ENID%" />
+									<Enumeration Text="8x" Value="8" Id="%ENID%" />
+									<Enumeration Text="9x" Value="9" Id="%ENID%" />
+									<Enumeration Text="10x" Value="10" Id="%ENID%" />
+									<Enumeration Text="11x" Value="11" Id="%ENID%" />
+									<Enumeration Text="12x" Value="12" Id="%ENID%" />
+									<Enumeration Text="13x" Value="13" Id="%ENID%" />
+									<Enumeration Text="14x" Value="14" Id="%ENID%" />
+									<Enumeration Text="15x" Value="15" Id="%ENID%" />
+									<Enumeration Text="16x" Value="16" Id="%ENID%" />
+									<Enumeration Text="17x" Value="17" Id="%ENID%" />
+									<Enumeration Text="18x" Value="18" Id="%ENID%" />
+									<Enumeration Text="19x" Value="19" Id="%ENID%" />
+									<Enumeration Text="20x" Value="20" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBBlinkerStop" Name="FCBBlinkerStop" >
+								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
+									<Enumeration Text="Mit EIN beenden" Value="1" Id="%ENID%" />
+									<Enumeration Text="Mit AUS beenden" Value="0" Id="%ENID%" />
+									<Enumeration Text="Wie Zustand vor Blink-Beginn" Value="2" Id="%ENID%" />
+									<Enumeration Text="Umgekehrt wie Zustand vor Blink-Beginn" Value="3" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBBlinkerBreak" Name="FCBBlinkerStop" >
+								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
+									<Enumeration Text="Ignorieren" Value="0" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden und EIN senden" Value="1" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden und AUS senden" Value="2" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden, Zustand vor Blink-Beginn herstellen" Value="3" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden, Zustand umgekehrt wie vor Blink-Beginn herstellen" Value="4" Id="%ENID%" />
+									<Enumeration Text="Mit aktuellen Zustand beenden (Kein Telegram senden)" Value="5" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBBlinkerOutputDpt" Name="FCBBlinkerOutputDpt" >
+								<TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
+									<Enumeration Text="1.*           1-Bit (0/1)" Value="10" Id="%ENID%" />
+									<Enumeration Text="5.001       Prozent (0..100%)" Value="51" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 

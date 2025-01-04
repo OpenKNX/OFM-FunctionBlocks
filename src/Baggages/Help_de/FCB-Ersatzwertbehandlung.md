@@ -13,3 +13,5 @@ Optionen:
 - **Getrenntes Ausgangsobjekt, gültige und Ersatzwerte**
   Am Ausgang werden alle gültigen Eingangswerte gesendet und im Fehlerfall so eingestellt, Ersatzwerte auf den Bus gesendet.
 - **Getrenntes Ausgangsobjekt, nur Ersatzwerte**
+  Es werden nur eingestellte Ersatzwerte auf den Ausgang gesendet.
+

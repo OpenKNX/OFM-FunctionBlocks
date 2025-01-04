@@ -732,3 +732,58 @@ Optionen:
   Am Ausgang werden alle gültigen Eingangswerte gesendet und im Fehlerfall so eingestellt, Ersatzwerte auf den Bus gesendet.
 - **Getrenntes Ausgangsobjekt, nur Ersatzwerte**
   Es werden nur eingestellte Ersatzwerte auf den Ausgang gesendet.
+
+<!-- DOC HelpContext="Selection" -->
+## Auswahl (Multiplexer)
+
+<!-- DOC -->
+### Anzahl und Typ der Auswahlen mit gemeinsamen Auswahl Eingang
+
+<!-- DOC -->
+### Bei Umschaltung
+ 
+<!-- DOC -->
+### Status Ausgang 
+  
+<!-- DOC -->
+## Blinker
+
+<!-- DOC -->
+### Ein-Zeit
+
+<!-- DOC HelpContext="Blinker-EIN-Zeit" -->
+### Zeit
+ 
+<!-- DOC HelpContext="Blinker-EIN-Zeitbasis" -->
+### Einheit 
+ 
+
+<!-- DOC -->
+### Aus-Zeit
+
+<!-- DOC HelpContext="Blinker-AUS-Zeit" -->
+### Zeit
+ 
+<!-- DOC HelpContext="Blinker-AUS-Zeitbasis" -->
+### Einheit 
+
+<!-- DOC -->
+### Start
+
+<!-- DOC -->
+### Ende
+
+<!-- DOC -->
+### AUS Telegram am Start Eingang
+ 
+
+<!-- DOC -->
+### Ausgang
+
+<!-- DOC -->
+### Wert für EIN
+
+<!-- DOC -->
+### Wert für AUS
+
+
