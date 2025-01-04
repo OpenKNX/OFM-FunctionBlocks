@@ -1,11 +1,21 @@
 ﻿### Verhalten bei Zeitüberschreitung
 
-Es kann festgelegt werden, was im Fehlerfall auf den Bus gesendet werden soll.
+Definiert die Reaktion(en), die erfolgen soll(en), 
+wenn innerhalb des eingestellten Zeitraums kein Eingangstelegramm empfangen wurde: 
 
-Folgenden Optionen stehen zur Auswahl:
+- **Nur Alarm auslösen**
+  Sendet 1 ("Alarm") über das KO *Zeitüberschreitung*. Es erfolgt keine Korrektur des Eingangswertes.
+- **Leseanforderung, dann Alarm**
+  Sendet zunächst eine Leseanforderung für den Eingangswert.
+  Falls nach 10 Sekunden keine Antwort eingegangen ist, wird 1 ("Alarm") über das KO *Zeitüberschreitung* gesendet.
+- **Leseanforderung, dann Ersatzwert und Alarm**
+  Sendet zunächst eine Leseanforderung für den Eingangswert.
+  Falls nach 10 Sekunden keine Antwort eingegangen ist, wird 1 ("Alarm") über das KO *Zeitüberschreitung* 
+  und der Ersatzwert gesendet.
+- **Ersatzwert und Alarm**
+  Sendet sofort 1 ("Alarm") über das KO *Zeitüberschreitung* und den Ersatzwert.
 
-- **Nur Alarm auslösen** Es wird nur der Alarm ausgelöst, es wird kein Ersatzwert gesendet
-- **Leseanforderung, dann Alarm** Nach Ablauf der einstellten Zeit, wird eine Leseanforderung auf den Bus geschickt und der Alarm ausgelöst
-- **Leseanforderung, dann Ersatzwert und Alarm** Es wird eine Leseanforderung auf den Bus gesendet und der Alarm ausgelöst, bei weiteren Ausbleiben wird ein
-- **Ersatzwert und Alarm** Es wird ein Ersatzwert geschickt und der Alarm ausgelöst
+*Hinweis zum Alarm:*
+Zusammen mit dem KO *Zeitüberschreitung* erfolgt auch eine Aktualisierung des KO *Summenalarm*.
+Falls sich eine Wertänderung ergibt, wird der neue Wert gesendet.
 
