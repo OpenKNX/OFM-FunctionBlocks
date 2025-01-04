@@ -371,10 +371,21 @@ Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 Der Count Down kann pausiert werden.
 
 <!-- DOC -->
-### Ablauf Zeit
+### Ablaufzeit
 
 Legt die Zeit für den Count Down Ablauf fest die bei einem Start Befehl verwendet wird.
 Hinweis: Die Zeit wird bei Verwendung des Gruppenobjekts 'Start mit Zeit' nicht verwendet.
+
+<!-- DOC -->
+### Ablaufzeit Einheit
+
+Legt die Einheit für die Ablaufzeit fest.
+
+Optionen:
+
+- Sekunde(n)
+- Minute(n)
+- Stunde(n)
 
 <!-- DOCEND-->
 ### Eingänge
