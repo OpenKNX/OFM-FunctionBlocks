@@ -2,7 +2,7 @@
 
 Zur Auswahl stehen:
 
-- **Bei jedem Eingangstelegram**  
+- **Bei jedem Eingangstelegramm**  
   Wenn einer der Eingänge ein Telegramm empfängt, wird der Ausgangswert auf den Bus gesendet. 
   Diese Einstellung kann zu hintereinderfolgenden gleichen Ausgangswerten am Bus führen.
 

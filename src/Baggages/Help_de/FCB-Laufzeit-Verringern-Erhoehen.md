@@ -1,6 +1,6 @@
 ﻿### Laufzeit Verringern / Erhöhen
 
-Mithilfe des Guppenobjekts Zeitoffset wird die Lauf-Zeit um dem eingestellten Betrag erhöht bzw. erniedrigt.
+Mithilfe des Kommunikationsobjekts (KO) Zeitoffset wird die Lauf-Zeit um dem eingestellten Betrag erhöht bzw. erniedrigt.
 Über ein EIN (1) Telegram wird die Laufzeit verringert.
 Über ein Aus (2) Telegram wird die Laufzeit erhöht.
 

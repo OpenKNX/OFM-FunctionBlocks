@@ -84,7 +84,7 @@ So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb,
 
 Ein Aggregations-Funktionsblock verfügt über bis zu 9 numerische Eingänge, gängiger DPTs. 
 Der Ausgangswert wird basierend auf der gewählten Funktion (Summe, Mittelwert, Minimum, Maximum, Spannbreite) berechnet und kann in verschiedenen numerischen DPTs ausgegeben werden.
-Es kann beeinflusst werden, wie mit Werten umgegangen wird die vom Ausgatyp nicht dargestellt werden können.
+Es kann beeinflusst werden, wie mit Werten umgegangen wird die vom Ausgabetyp nicht dargestellt werden können.
 
 <!-- DOCEND -->
 [ETS Konfiguration](#aggregation)
@@ -103,12 +103,14 @@ Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durc
 <!-- DOC -->
 ## Count-Down Zeitgeber
 
-Der Funktionsblock zählt von eine vorgebenen Zeit herunter.
-Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
+Der Funktionsblock zählt von einer vorgegebenen Zeit herunter.
+Die Laufzeit kann über Konfiguration oder über den Bus gesteuert werden.
 Der Count Down kann pausiert werden.
+
 Es gibt Ausgänge für
+
  - Verbleibende Zeit
- - Textdartstellung der verbleibenden Zeit mit Einheit
+ - Textdarstellung der verbleibenden Zeit mit Einheit
  - Aktiv laufende Zeit
  - Pause aktiv
 
@@ -174,7 +176,7 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Es können auch Ersatzwerte auf den Bus geschickt werden.
 
 - **Count-Down Zeitgeber**
-  Zählt von eine vorgebenen Zeit in herunter.
+  Zählt von einer vorgegebenen Zeit in herunter.
   Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
 - **Blinker**
@@ -230,7 +232,7 @@ Anschließend kann der Text mehrzeilig bearbeitet werden.
 
 Zur Auswahl stehen:
 
-- **Bei jedem Eingangstelegram**  
+- **Bei jedem Eingangstelegramm**  
   Wenn einer der Eingänge ein Telegramm empfängt, wird der Ausgangswert auf den Bus gesendet. 
   Diese Einstellung kann zu hintereinderfolgenden gleichen Ausgangswerten am Bus führen.
 
@@ -258,11 +260,11 @@ Zur Auswahl stehen:
 - **EIN**  
   Der Eingang wird mit EIN vorbelegt
 - **Vom Bus lesen, dann AUS**  
-  Es wird versucht den Eingangswert vom Bus über eine Lesetelegram zu lesen. 
+  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
   Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit AUS vorbelegt.
 - **Vom Bus lesen, dann EIN**  
-  Es wird versucht den Eingangswert vom Bus über eine Lesetelegram zu lesen. 
-  Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit EIND vorbelegt.
+  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
+  Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit EIN vorbelegt.
 
 **Wichtig**: Die Vorbelegung erfolgt vor einer möglichen eingestellten Invertierung des Eingangswertes.
 Das bedeutet das bei einer Vorbelegung von "AUS" und einer eingestellten Invertierung der Wert als EIN von der Logik interpretiert wird.
@@ -307,11 +309,11 @@ Zur Auswahl stehen:
 - **EIN**  
   Der Eingang wird mit EIN vorbelegt
 - **Vom Bus lesen, dann AUS**  
-  Es wird versucht den Eingangswert vom Bus über eine Lesetelegram zu lesen. 
+  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
   Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit AUS vorbelegt.
 - **Vom Bus lesen, dann EIN**  
-  Es wird versucht den Eingangswert vom Bus über eine Lesetelegram zu lesen. 
-  Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit EIND vorbelegt.
+  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
+  Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit EIN vorbelegt.
 
 **Wichtig**: Die Vorbelegung erfolgt vor einer möglichen eingestellten Invertierung des Eingangswertes.
 Das bedeutet das bei einer Vorbelegung von "AUS" und einer eingestellten Invertierung der Wert als EIN von der Logik interpretiert wird.
@@ -350,7 +352,7 @@ Legt fest, wie der Ausgangswert aus den Werten der aktiven Eingänge berechnet w
 <!-- DOC Skip="2" -->
 > Nur für *Summe* und *Mittelwert*
 
-**Individuelle Gewichte** erlaubt eine Berechnung bei der die Eingänge unterschiedlich stark in der Ergebnis einfließen. 
+**Individuelle Gewichte** erlaubt eine Berechnung bei der die Eingänge unterschiedlich stark in das Ergebnis einfließen. 
 Dazu kann je aktivem Eingang ein individuelles Gewicht (Standardwert 1) angegeben werden.
 Mindestens ein Gewicht muss von 0 abweichen, sonst wird kein Ergebnis ausgegeben!
 
@@ -371,8 +373,8 @@ Legt fest, ob der Eingang verwendet wird.
 Definiert wie stark dieser Eingang in das Ergebnis einfließt.
 
 Bei 0 hat dieser Eingang keinen Einfluss auf das Resultat der Berechnung, 
-wird aber verhindern dass ein Ergebnis entsteht so lange der Eingang noch keinen Wert hat, 
-oder kann abhängig vom Sendeverhalten ein Senden auf de Bus auslösen.
+wird aber verhindern, dass ein Ergebnis entsteht, so lange der Eingang noch keinen Wert hat, 
+oder kann abhängig vom Sendeverhalten ein Senden auf den Bus auslösen.
 
 Ein negativer Wert ändert das Vorzeichen des Eingangswertes. Bei der Gewichtssumme fließt der Betrag ein.
 
@@ -407,14 +409,14 @@ In der Standardeinstellung **Identisch mit Eingängen** wird der DPT der Eingän
 <!-- DOC HelpContext="Count-Down"-->
 ## Count-Down Zeitgeber
 
-Der Funktionsblock zählt von eine vorgebenen Zeit herunter.
+Der Funktionsblock zählt von einer vorgegebenen Zeit herunter.
 Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 Der Count Down kann pausiert werden.
 
 <!-- DOC -->
 ### Ablaufzeit
 
-Legt die Zeit für den Count Down Ablauf fest die bei einem Start Befehl verwendet wird.
+Legt die Zeit für den Count Down Ablauf fest, die bei einem Start Befehl verwendet wird.
 Hinweis: Die Zeit wird bei Verwendung des Gruppenobjekts 'Start mit Zeit' nicht verwendet.
 
 <!-- DOC -->
@@ -465,7 +467,7 @@ Wenn 'Minuten' eingestellt wird und ein Telegram mit dem Zahlenwert 5 empfangen 
 <!-- DOC -->
 #### Laufzeit Verringern / Erhöhen
 
-Mithilfe des Guppenobjekts Zeitoffset wird die Lauf-Zeit um dem eingestellten Betrag erhöht bzw. erniedrigt.
+Mithilfe des Kommunikationsobjekts (KO) Zeitoffset wird die Lauf-Zeit um dem eingestellten Betrag erhöht bzw. erniedrigt.
 Über ein EIN (1) Telegram wird die Laufzeit verringert.
 Über ein Aus (2) Telegram wird die Laufzeit erhöht.
 
@@ -520,7 +522,7 @@ Mögliche Einstellungen:
 - Vergangen (Zählt aufwärts)
 
 Über Textbausteine kann konfiguriert werden, wie der Text dargestellt wird.
-In den Textbausteine können Platzhalter verwendet werden um Informationen zur verbleibenden Zeit oder den Laufend/Pausierten Zustand zu visualisieren.
+In den Textbausteinen können Platzhalter verwendet werden um Informationen zur verbleibenden Zeit oder den Laufend/Pausierten Zustand zu visualisieren.
 
 Platzhalter:
 
@@ -550,13 +552,13 @@ Es wrid empfohlen den Platzhalter **S1** und **S2** nur in Sonderfällen zu verw
 <!-- DOC HelpContext="TemplatePause" -->
 #### Pause
 
-Das Konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
+Das konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
 Das Pauszeichen wird im Platzhalter **$** eingesetzt.
 
 <!-- DOC HelpContext="TemplateLaeuft" -->
 #### Läuft
 
-Das Konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
+Das konfigurierte Zeichen wird im Gruppenobjekt 'Text' als kennzeichen für einen pausierten Count-Down verwendet.
 Das Pauszeichen wird im Platzhalter **$** eingesetzt.
 
 <!-- DOC HelpContext="Template" -->
@@ -574,7 +576,7 @@ Beispiele:
 <!-- DOC HelpContext="Template1h" -->
 #### Kleiner 1 Stunde
 
-Die Testformartierung wird verwendet um den Text für eine Restlaufzeit kleiner 1 Stunde auszugeben.
+Die Testformatierung wird verwendet, um den Text für eine Restlaufzeit kleiner 1 Stunde auszugeben.
 
 Hinweis: durch Verwendung des Sekundenplatzhalters wird der KNX Bus start belastet, da jede Sekunde der aktualisierte Text übertragen wird.
 
@@ -624,7 +626,7 @@ Mögliche Einstellungen:
 <!-- DOC HelpContext="GroupObjectTrigger" -->
 ### Auslöser / Ende
 
-Das Gruppenobjekt Trigger kann verwendet werden um ein Signal am Ende der Laufzeit des Count-Down Zeitgebers zu erzeugen.
+Das Gruppenobjekt Trigger kann verwendet werden, um ein Signal am Ende der Laufzeit des Count-Down Zeitgebers zu erzeugen.
 
 Mögliche Einstellungen:
 

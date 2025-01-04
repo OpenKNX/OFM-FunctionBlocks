@@ -33,7 +33,7 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Es können auch Ersatzwerte auf den Bus geschickt werden.
 
 - **Count-Down Zeitgeber**
-  Zählt von eine vorgebenen Zeit in herunter.
+  Zählt von einer vorgegebenen Zeit in herunter.
   Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
 - **Blinker**

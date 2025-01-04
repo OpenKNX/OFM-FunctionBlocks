@@ -12,7 +12,7 @@ Mögliche Einstellungen:
 - Vergangen (Zählt aufwärts)
 
 Über Textbausteine kann konfiguriert werden, wie der Text dargestellt wird.
-In den Textbausteine können Platzhalter verwendet werden um Informationen zur verbleibenden Zeit oder den Laufend/Pausierten Zustand zu visualisieren.
+In den Textbausteinen können Platzhalter verwendet werden um Informationen zur verbleibenden Zeit oder den Laufend/Pausierten Zustand zu visualisieren.
 
 Platzhalter:
 
