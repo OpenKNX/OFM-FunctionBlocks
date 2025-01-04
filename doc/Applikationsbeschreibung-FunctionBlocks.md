@@ -12,6 +12,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Anzahl](#anzahl)
   * [Statistische Aggregation](#statistische-aggregation)
   * [Count-Down Zeitgeber](#count-down-zeitgeber)
+  * [Wertüberwachung](#wertüberwachtung)
 
 
 ### ETS Konfiguration
@@ -24,6 +25,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [**Prioritätsschalter**](#prioritätsschalter-1)
   * [**Aggregation**](#aggregation)
   * [**Count-Down Zeitgeber**](#count-down-zeitgeber-1)
+  * [**Wertüberwachung**](#wertüberwachung-1)
 
 
 # Blocktypen
@@ -87,6 +89,13 @@ Es gibt Ausgänge für
  - Aktiv laufende Zeit
  - Pause aktiv
 
+<!-- DOC -->
+## Wertüberwachung
+
+Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
+Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
+Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
+
 # ETS Konfiguration
 
 <!-- DOC -->
@@ -128,6 +137,9 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Zählt von eine vorgebenen Zeit in herunter.
   Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
+- **Wertüberwachung**
+  Überwacht einen Eingang und löst einen Alarm bei falschen oder ausbleibenden Werten aus.
+  Es können auch Ersatzwerte auf den Bus geschickt werden.
 
 ## Kanaleinstellungen
 
@@ -359,10 +371,21 @@ Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 Der Count Down kann pausiert werden.
 
 <!-- DOC -->
-### Ablauf Zeit
+### Ablaufzeit
 
 Legt die Zeit für den Count Down Ablauf fest die bei einem Start Befehl verwendet wird.
 Hinweis: Die Zeit wird bei Verwendung des Gruppenobjekts 'Start mit Zeit' nicht verwendet.
+
+<!-- DOC -->
+### Ablaufzeit Einheit
+
+Legt die Einheit für die Ablaufzeit fest.
+
+Optionen:
+
+- Sekunde(n)
+- Minute(n)
+- Stunde(n)
 
 <!-- DOCEND-->
 ### Eingänge
@@ -586,4 +609,126 @@ Mögliche Einstellungen:
 
 Hinweis: Wird der Zeitgeber erneut gestartet bevor die eingestellte Zeit erreicht wurde, wird sofort ein AUS (0) Telegram gesendet.
 
-<!-- DOCEND-->
+<!-- DOC HelpContext="Monitoring" -->
+## Wertüberwachtung
+
+Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
+Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
+Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
+
+Anwendungsbeispiel:
+Ein Temperatursensor hat einen Defekt und liefert keine oder nur 0 Werte. 
+In diesem Fall kann ein Ersatzwert auf den Bus gesendet werden, damit die Heizungsteuerung in einen Notbetrieb weiter arbeitet.
+
+<!-- DOC -->
+### Werttype
+
+Die Type des zu überwachenden Wertes.
+
+Zur Auswahl stehen:
+
+- 1.*           1-Bit (0/1)              
+- 5.*           8-Bit vorzeichenlos     
+- 5.001       Prozent (0..100%)          
+- 6.*           8-Bit vorzeichenbehaftet
+- 7.*           2-Byte vorzeichenlos     
+- 8.*           2-Byte vorzeichenbehaftet
+- 9.*           2-Byte Gleitkommawert    
+- 12.*         4-Byte vorzeichenlos      
+- 13.*         4-Byte vorzeichenbehaftet 
+- 14.*         4-Byte Gleitkommawert     
+
+<!-- DOC HelpContext="Zeitüberwachung aktiv" -->
+### Zeitueberwachung (Watchdog)
+
+Die Überwachung erkennt das ausbleiben von Werten am Eingang.
+
+
+<!-- DOC HelpContext="Watchdog-Zeit"-->
+#### Wartezeit auf Telegramme
+
+Gibt an wie lange am Eingang kein Wert empfangen wird, bis die Zeitüberwachung Alarm gibt.
+
+<!-- DOC HelpContext="Watchdog-Zeitbasis"-->
+#### Einheit für die Wartezeit
+
+Folgende Einheiten können für die Wartezeit gewählt werden:
+
+- Minute(n)
+- Stunde(n)
+
+<!-- DOC -->
+### Verhalten bei Zeitüberschreitung
+
+Es kann festgelegt werden, was im Fehlerfall auf den Bus gesendet werden soll.
+
+Folgenden Optionen stehen zur Auswahl:
+
+ **Nur Alarm auslösen** Es wird nur der Alarm ausgelöst, es wird kein Ersatzwert gesendet
+- **Leseanforderung, dann Alarm** Nach Ablauf der einstellten Zeit, wird eine Leseanforderung auf den Bus geschickt und der Alarm ausgelöst
+- **Leseanforderung, dann Ersatzwert und Alarm** Es wird eine Leseanforderung auf den Bus gsendet und der Alarm ausgelöst, bei weiteren Ausbleiben wird ein
+- **Ersatzwert und Alarm** Es wird eine Ersatzwert geschickt und der Alarm ausgelöst
+
+<!-- DOC -->
+### Ersatzwert
+
+Wert der bei fehlenden Wert auf den Bus gesendet werden soll. 
+Der Wert wird auf den Ausgang gesendet und nicht auf den Eingang. 
+
+Soll der Ersatzwert auf die Gruppenadresse des Eingangs verwendet werden, muss "Ersatzwerte auf Eingang senden" gewählt werden, ansonsten werden die Ersatzwerte als neuer Eingangswert erkannt und der Alarm rückgesetzt.
+
+<!-- DOC HelpContext="Verhalten bei Wertunterschreitung"  -->
+### Minimalwert Überwachung
+
+Option was bei unterschreiten des minimalen Wertes passieren soll.
+
+#### Verhalten bei Wertunterschreitung
+
+Folgende Optionen stehen zur Auswahl:
+
+- **Überwachung deaktiviert** 
+- **Nichts senden**
+- **letzten gültiger Wert senden**
+- **Grenzwert senden** 
+
+<!-- DOC -->
+### Minimaler zulässiger Wert
+
+Miniamaler Grenzwert für die Überwachung.
+
+<!-- DOC HelpContext="Verhalten bei Wertüberschreitung" -->
+### Maximalwert Überwachung
+
+Option was bei überschreiten des maximalen Wertes passieren soll.
+
+#### Verhalten bei Wertüberschreitung
+
+Folgende Optionen stehen zur Auswahl:
+
+- **Überwachung deaktiviert** 
+- **Nichts senden**
+- **letzten gültiger Wert senden**
+- **Grenzwert senden** 
+
+<!-- DOC -->
+###  Maximaler zulässiger Wert
+
+Miniamaler Grenzwert für die Überwachung.
+
+<!-- DOC HelpContext="Ersatzwertbehandlung" -->
+### Sendeverhalten
+
+Gibt an, ob die Ersatzwerte auf den Eingang ausgegeben werden sollen, oder ob ein getrenntes Ausgangsobjekt zur Verfügung steht.
+
+Optionen:
+
+- **Ersatzwerte auf Eingang senden**
+  Die Ersatzwerte werden auf die am Eingang angeschlossen Gruppenadresse zurückgeschrieben.
+  Hinweis: Das führt dazu, das bei Minimal- oder Maximalwertüberschreitung am Bus unmittelbar nach Empfang des Wertes ein korriegierter Wert gesendet wird. 
+- **Getrenntes Ausgangsobjekt, nur gültige Werte**
+  Am Ausgang werden nur gültige Eingangswerte weitergeleitet.
+  Hinweis: Eingestellte Ersatzwerte werden ignoriert.
+- **Getrenntes Ausgangsobjekt, gültige und Ersatzwerte**
+  Am Ausgang werden alle gültigen Eingangswerte gesendet und im Fehlerfall so eingestellt, Ersatzwerte auf den Bus gesendet.
+- **Getrenntes Ausgangsobjekt, nur Ersatzwerte**
+  Es werden nur eingestellte Ersatzwerte auf den Ausgang gesendet.

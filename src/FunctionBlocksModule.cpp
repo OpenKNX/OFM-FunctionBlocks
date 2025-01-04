@@ -3,6 +3,7 @@
 #include "FunctionBlocks/LogicFunctionBlock.h"
 #include "FunctionBlocks/PrioritySwitchFunctionBlock.h"
 #include "FunctionBlocks/SimpleAggregationBlock.h"
+#include "FunctionBlocks/ValueMonitorBlock.h"
 #include "knxprod.h"
 
 FunctionBlocksModule::FunctionBlocksModule()
@@ -114,6 +115,8 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
             return new SimpleAggregationBlock(_channelIndex, static_cast<SimpleAggregationBlockType>(ParamFCB_CHAggType));
         case 6:
             return new CountDownBlock(_channelIndex);
+        case 7:
+            return new ValueMonitorBlock(_channelIndex);
         default:
             logErrorP("Unknown channel type %d", ParamFCB_CHChannelType);
             return nullptr;

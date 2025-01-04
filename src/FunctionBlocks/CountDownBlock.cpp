@@ -73,7 +73,7 @@ void CountDownBlock::handleKo(GroupObject &ko)
     {
         case FCB_KoCHStoppStart: {
             if (ko.value(DPT_Switch))
-                start(knx.paramInt(FCB_ParamCalcIndex(FCB_CHCountDownStartValue)));
+                start(ParamFCB_CHCountDownDelayTimeMS / 1000);
             else
                 stop();
             break;
