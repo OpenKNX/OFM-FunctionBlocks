@@ -15,7 +15,7 @@ class CountDownBlock : public FunctionBlock
     void readInputKos() override;
     void initMissingInputValues() override;
     void handleKo(GroupObject &ko) override;  
-    void start(uint64_t startValue);
+    void start(uint64_t startValueSeconds);
     void pause(bool pause);
     void stop();
     void loop() override;
