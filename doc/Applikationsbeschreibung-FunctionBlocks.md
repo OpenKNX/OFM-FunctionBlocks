@@ -7,32 +7,16 @@ Die Anwendung stellt je Kanal einen Funktionsblock bereit.
 Folgende Funktionsblöcke stehen zur Auswahl:
   * [UND](#und)
   * [ODER](#oder)
-  * [Prioritätsschalter](#prioritätsschalter)
-    * [Beispielanwendungen](#beispielsanwendung)
   * [Anzahl](#anzahl)
-  * [Statistische Aggregation](#statistische-aggregation)
-  * [Count-Down Zeitgeber](#count-down-zeitgeber)
-  * [Wertüberwachung](#wertüberwachtung)
   * [Auswahl (Multiplexer)](#auswahl-multiplexer)
+  * [Prioritätsschalter](#prioritätsschalter)
+  * [Statistische Aggregation](#statistische-aggregation)
+  * [Wertüberwachung](#wertüberwachtung)
+  * [Count-Down Zeitgeber](#count-down-zeitgeber)
   * [Blinker](#blinker)
 
 
-### ETS Konfiguration
-
-* **[Allgemein](#allgemein)**
-  * [Kanalauswahl](#kanalauswahl)
-* (n=1 bis 99) *Abhängig vomTyp*:
-  * [Kanal-Typ-unabhängige Einstellungen](#kanaleinstellungen)
-  * {[**UND**, **ODER**, **Anzahl**](#undoderanzahl-kanaleinstellungen)}
-  * [**Prioritätsschalter**](#prioritätsschalter-1)
-  * [**Aggregation**](#aggregation)
-  * [**Count-Down Zeitgeber**](#count-down-zeitgeber-1)
-  * [**Wertüberwachung**](#wertüberwachung-1)
-  * [Auswahl (Multiplexer)](#auswahl-multiplexer-1)
-  * [Blinker](#blinker-1)
-
 # Blocktypen
-
 
 <!-- DOC -->
 ## UND
@@ -41,11 +25,38 @@ Ein UND-Funktionsblock verfügt über bis zu 9 Eingänge.
 Der Ausgang gibt EIN aus, wenn alle Eingänge EIN sind.
 Zusätzlich können sowohl die Eingänge als auch der Ausgang über die Konfiguration invertiert werden.
 
+<!-- DOCEND -->
+[ETS Konfiguration](#undoderanzahl-kanaleinstellungen)
+
 <!-- DOC -->
 ## ODER
 
 Ein ODER-Funktionsblock verfügt über bis zu 9 Eingänge. Der Ausgang gibt EIN aus, wenn mindestens ein Eingang EIN ist.
 Zusätzlich können sowohl die Eingänge als auch der Ausgang über die Konfiguration invertiert werden.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#undoderanzahl-kanaleinstellungen)
+
+<!-- DOC -->
+## Anzahl
+
+Ein Anzahl-Funktionsblock verfügt über bis zu 9 Eingänge. 
+Der Ausgang gibt aus, wie viele der (verwendeten) Eingänge den Wert EIN angenommen haben.
+Die Eingänge können vor Zählung invertiert werden.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#undoderanzahl-kanaleinstellungen)
+
+
+<!-- DOC -->
+## Auswahl (Multiplexer)
+
+Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
+Es stehen 2-8 Eingänge zur Verfügung. 
+Die Auswahl welcher Eingang auf den Ausgang geschalten wird, erfolgt über ein Gruppenobjekt.
+
+<!-- DOCEND -->
+[ETS Konfigruation](#auswahl-multiplexer-1)
 
 <!-- DOC -->
 ## Prioritätsschalter
@@ -65,13 +76,8 @@ Die Farbe der LED kann aber über ein Kommunikationsobjekt nicht verändert werd
 Jedoch bietet der Taste die Möglichkeit verschiedene Prozentwerte mit verschieden Farben darzustellen.
 So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb, Beschattung aktiv, Windsperre auf Prozentwerte umgesetzt werden, die der Taster in verschiedene Farbwerte umsetzt.
 
-
-<!-- DOC -->
-## Anzahl
-
-Ein Anzahl-Funktionsblock verfügt über bis zu 9 Eingänge. 
-Der Ausgang gibt aus, wie viele der (verwendeten) Eingänge den Wert EIN angenommen haben.
-Die Eingänge können vor Zählung invertiert werden.
+<!-- DOCEND -->
+[ETS Konfiguration](#prioritätsschalter-1)
 
 <!-- DOC -->
 ## Statistische Aggregation
@@ -79,6 +85,20 @@ Die Eingänge können vor Zählung invertiert werden.
 Ein Aggregations-Funktionsblock verfügt über bis zu 9 numerische Eingänge, gängiger DPTs. 
 Der Ausgangswert wird basierend auf der gewählten Funktion (Summe, Mittelwert, Minimum, Maximum, Spannbreite) berechnet und kann in verschiedenen numerischen DPTs ausgegeben werden.
 Es kann beeinflusst werden, wie mit Werten umgegangen wird die vom Ausgatyp nicht dargestellt werden können.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#aggregation)
+
+<!-- DOC -->
+## Wertüberwachung
+
+Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
+Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
+Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#wertüberwachung-1)
+
 
 <!-- DOC -->
 ## Count-Down Zeitgeber
@@ -92,12 +112,9 @@ Es gibt Ausgänge für
  - Aktiv laufende Zeit
  - Pause aktiv
 
-<!-- DOC -->
-## Auswahl (Multiplexer)
-
-Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
-Es stehen 2-8 Eingänge zur Verfügung. 
-Die Auswahl welcher Eingang auf den Ausgang geschalten wird, erfolgt über ein Gruppenobjekt.
+<!-- DOCEND -->
+[ETS Konfiguration](#count-down-zeitgeber-1)
+ 
 
 <!-- DOC -->
 ## Blinker
@@ -106,12 +123,8 @@ Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
 Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
 Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
 
-<!-- DOC -->
-## Wertüberwachung
-
-Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
-Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
-Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
+<!-- DOCEND -->
+[ETS Konfiguration](#blinker-1)
 
 # ETS Konfiguration
 
@@ -138,25 +151,36 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Ein ODER-Funktionsblock verfügt über bis zu 9 Eingänge. 
   Der Ausgang gibt EIN aus, wenn mindestens ein Eingang EIN ist.
 
+- **Anzahl**
+  Ein Anzahl-Funktionsblock hat bis zu 9 Eingänge vom Typ EIN/AUS.
+  Der Ausgang gibt die Anzahl der Eingänge mit dem Wert EIN aus.
+
+- **Auswahl (Mulitplexer)**
+  Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
+  Es stehen 2-8 Eingänge zur Verfügung. 
+  Die Auswahl welcher Eingang auf den Ausgang geschalten wird, erfolgt über ein Gruppenobjekt.
+
 - **Prioritätsschalter**
   Ein Prioritätsschalter hat bis zu 9 Eingänge vom Typ EIN/AUS.
   Der Eingang mit der höchsten Priorität der EIN ist, bestimmt den Ausgangswert.
 
-- **Anzahl**
-  Ein Anzahl-Funktionsblock hat bis zu 9 Eingänge vom Typ EIN/AUS.
-  Der Ausgang gibt die Anzahl der Eingänge mit dem Wert EIN aus.
 
 - **Statistische Aggregation**
   Ein Aggregations-Funktionsblock hat bis zu 9 Eingänge mit numerischem Typ.
   Es kann zwischen fünf Funktionen (Summe, Mittelwert, Minimum, Maximum, Spannbreite) zur Berechnung des Ausgangswertes gewählt werden.
 
+- **Wertüberwachung**
+  Überwacht einen Eingang und löst einen Alarm bei falschen oder ausbleibenden Werten aus.
+  Es können auch Ersatzwerte auf den Bus geschickt werden.
+
 - **Count-Down Zeitgeber**
   Zählt von eine vorgebenen Zeit in herunter.
   Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
-- **Wertüberwachung**
-  Überwacht einen Eingang und löst einen Alarm bei falschen oder ausbleibenden Werten aus.
-  Es können auch Ersatzwerte auf den Bus geschickt werden.
+- **Blinker**
+  Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
+  Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
+  Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
 
 ## Kanaleinstellungen
 
