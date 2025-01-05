@@ -1,4 +1,4 @@
 ﻿### Minimaler zulässiger Wert
 
-Miniamaler Grenzwert für die Überwachung.
+Minimaler Grenzwert für die Überwachung.
 

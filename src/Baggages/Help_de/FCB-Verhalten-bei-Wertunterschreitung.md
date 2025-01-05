@@ -1,6 +1,6 @@
 ﻿### Minimalwert Überwachung
 
-Option was bei unterschreiten des minimalen Wertes passieren soll.
+Option was bei Unterschreiten des minimalen Wertes passieren soll.
 
 #### Verhalten bei Wertunterschreitung
 
