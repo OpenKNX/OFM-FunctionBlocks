@@ -199,9 +199,9 @@ void CountDownBlock::initMissingInputValues()
 {
 }
 
-void CountDownBlock::start(uint64_t startValue)
+void CountDownBlock::start(uint64_t startValueSeconds)
 {
-    if (startValue == 0)
+    if (startValueSeconds == 0)
     {
         stop();
     }
@@ -209,8 +209,8 @@ void CountDownBlock::start(uint64_t startValue)
     {
         _lastValueUpdate = 0; // stop previous
         pause(false);
-        _targetSeconds = startValue;
-        _remainingSeconds = startValue;
+        _targetSeconds = startValueSeconds;
+        _remainingSeconds = startValueSeconds;
         _lastValueUpdate = max(1ul, millis());
         updateRemainingKo();
         KoFCB_CHRunning.value(true, DPT_Switch);

@@ -944,8 +944,13 @@
               <!-- Blinken Start/Stop -->  
               <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-10"    Text="%C%: Blinken Start/Stop" FunctionText="{{0:-}} Blinken Start/Stop" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" TransmitFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00018" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-17"    Text="%C%: Blinken Starten" FunctionText="{{0:-}} Blinken Starten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Blinken Aktor Feedback -->  
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"  DatapointType="DPST-1-1"    Text="%C%: Aktor Rückmeldung"      FunctionText="{{0:-}} Aktor Rückmeldung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" UpdateFlag="true"  TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00118" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte" DatapointType="DPST-5-1"    Text="%C%: Aktor Rückmeldung"      FunctionText="{{0:-}} Aktor Rückmeldung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" UpdateFlag="true"  TransmitFlag="Enabled" />
+       
+
               <!-- Blinken Aktiv -->  
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"  DatapointType="DPST-1-11"    Text="%C%: Blinken Aktiv"      FunctionText="{{0:-}} Blinken Aktiv"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled"  TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00808" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"  DatapointType="DPST-1-11"    Text="%C%: Blinken Aktiv"      FunctionText="{{0:-}} Blinken Aktiv"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled"  TransmitFlag="Enabled" />
        
 
             </ComObjectRefs>
@@ -2681,13 +2686,23 @@
                                 </when>
                               </choose>
 
+                              <!-- Ausgang Dpt -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801">
+                                <when test="51">
+                                  <!-- Blinken Aktor Feedback % -->  
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00118" />
+                                </when>
+                                <when test="50">xw
+                                  <!-- Blinken Aktor Feedback Bit -->  
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" />
+                                </when>
+                              </choose>
+
                               <!-- Blinken Aktiv -->  
-                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108"/>
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00808"/>
 
                             </when>
                           </choose>
-
-                        
                       
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
