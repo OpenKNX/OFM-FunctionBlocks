@@ -13,6 +13,8 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Statistische Aggregation](#statistische-aggregation)
   * [Count-Down Zeitgeber](#count-down-zeitgeber)
   * [Wertüberwachung](#wertüberwachtung)
+  * [Auswahl (Multiplexer)](#auswahl-multiplexer)
+  * [Blinker](#blinker)
 
 
 ### ETS Konfiguration
@@ -26,7 +28,8 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [**Aggregation**](#aggregation)
   * [**Count-Down Zeitgeber**](#count-down-zeitgeber-1)
   * [**Wertüberwachung**](#wertüberwachung-1)
-
+  * [Auswahl (Multiplexer)](#auswahl-multiplexer-1)
+  * [Blinker](#blinker-1)
 
 # Blocktypen
 
@@ -88,6 +91,20 @@ Es gibt Ausgänge für
  - Textdartstellung der verbleibenden Zeit mit Einheit
  - Aktiv laufende Zeit
  - Pause aktiv
+
+<!-- DOC -->
+## Auswahl (Multiplexer)
+
+Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
+Es stehen 2-8 Eingänge zur Verfügung. 
+Die Auswahl welcher Eingang auf den Ausgang geschalten wird, erfolgt über ein Gruppenobjekt.
+
+<!-- DOC -->
+## Blinker
+
+Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
+Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
+Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
 
 <!-- DOC -->
 ## Wertüberwachung
@@ -756,7 +773,7 @@ Optionen:
 ### Bei Umschaltung
  
 <!-- DOC -->
-### Status Ausgang 
+### Auswahl Status Objekt
   
 <!-- DOC -->
 ## Blinker
