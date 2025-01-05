@@ -982,12 +982,12 @@
 
                     <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
                       <when test="0"><!-- ************ Deaktiviert ************ -->
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert" Icon="help-box-outline" HelpContext="Empty">
+                        <!-- <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert" Icon="help-box-outline" HelpContext="Empty"> -->
                           
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Deaktiviert" UIHint="Headline" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Dieser Kanal ist deaktiviert. Durch Auswahl eines Types auf der Seite 'Allgemein' wird der Kanal aktiviert." UIHint="Information" />
+                          <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Deaktiviert" UIHint="Headline" /> -->
+                          <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Dieser Kanal ist deaktiviert. Durch Auswahl eines Types auf der Seite 'Allgemein' wird der Kanal aktiviert." UIHint="Information" /> -->
 
-                        </ParameterBlock>
+                        <!-- </ParameterBlock> -->
                       </when>
                       <when test="1"><!-- ************ UND ************ -->
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_And" Text="%C% UND: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
