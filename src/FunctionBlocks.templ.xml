@@ -336,7 +336,7 @@
                 <!-- Auswahl Umschaltung -->
                 <Parameter Offset="2" BitOffset="0" Id="%AID%_UP-%TT%%CC%249" Name="CH%C%SelectionSwitching" ParameterType="%AID%_PT-FCBSelectionSwitching" Text="Bei Umschaltung" Value="1" />
                 <!-- Auswahl Statusausgang -->
-                <Parameter Offset="2" BitOffset="4" Id="%AID%_UP-%TT%%CC%250" Name="CH%C%SelectionStateOutput" ParameterType="%AID%_PT-OnOffYesNo" Text="Status Ausgang" Value="1" />
+                <Parameter Offset="2" BitOffset="4" Id="%AID%_UP-%TT%%CC%250" Name="CH%C%SelectionStateOutput" ParameterType="%AID%_PT-OnOffYesNo" Text="Auswahl Status Objekt" Value="1" />
               </Union>
 
                <!-- Blinker -->
@@ -2395,28 +2395,28 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
 
+                          <!-- Auswahl Value Type -->
+                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301" HelpContext="%DOC%" />
+                          <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
+                            <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" /></when>
+                            <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00004" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00104" /></when>
+                            <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00014" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00114" /></when>
+                            <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00024" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00124" /></when>
+                            <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00034" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00134" /></when>
+                            <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00044" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00144" /></when>
+                            <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00054" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00154" /></when>
+                            <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00064" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00164" /></when>
+                            <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00074" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00174" /></when>
+                            <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00084" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00184" /></when>
+                            <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00084" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00184" /></when>
+                          </choose>
+        
                           <!-- Auswahl Type -->
                           <ParameterRefRef RefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801" HelpContext="%DOC%" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801">
-                            <when test="2">
+                            <when test="&gt;=3">
                               <!-- Auswahl Value Type-->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
-                                <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" /></when>
-                                <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00004" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00104" /></when>
-                                <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00014" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00114" /></when>
-                                <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00024" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00124" /></when>
-                                <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00034" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00134" /></when>
-                                <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00044" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00144" /></when>
-                                <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00054" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00154" /></when>
-                                <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00064" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00164" /></when>
-                                <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00074" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00174" /></when>
-                                <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00084" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00184" /></when>
-                                <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00084" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00184" /></when>
-                              </choose>
-                            </when>
-                            <when test="3">
-                              <!-- Auswahl Value Type-->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
                                 <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" /></when>
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00304" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00314" /></when>
@@ -2430,9 +2430,9 @@
                                 <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00384" /></when>
                               </choose>                   
                             </when>
-                            <when test="4">
+                            <when test="&gt;=4">
                               <!-- Auswahl Value Type-->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
                                 <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" /></when>
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00404" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00414" /></when>
@@ -2446,9 +2446,9 @@
                                 <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00484" /></when>
                               </choose>
                             </when>
-                            <when test="5">
+                            <when test="&gt;=5">
                               <!-- Auswahl Value Type-->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
                                 <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" /></when>
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00504" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00514" /></when>
@@ -2462,9 +2462,9 @@
                                 <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00584" /></when>
                               </choose>
                             </when>
-                            <when test="6">
+                            <when test="&gt;=6">
                               <!-- Auswahl Value Type-->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
                                 <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" /></when>
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00604" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00614" /></when>
@@ -2478,9 +2478,9 @@
                                 <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00684" /></when>
                               </choose>
                             </when>
-                            <when test="7">
+                            <when test="&gt;=7">
                               <!-- Auswahl Value Type-->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
                                 <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" /></when>
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00704" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00714" /></when>
@@ -2496,7 +2496,7 @@
                             </when>
                             <when test="8">
                               <!-- Auswahl Value Type-->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
                                 <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" /></when>
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00804" /></when>
                                 <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00814" /></when>
@@ -2543,10 +2543,6 @@
                             </when>
                           </choose>
                           
-                          <!-- Auswahl Value Type -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301" HelpContext="%DOC%" />
-        
-
                           <!-- Ausgang -->
                           <!-- Auswahl Type -->
                           <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
