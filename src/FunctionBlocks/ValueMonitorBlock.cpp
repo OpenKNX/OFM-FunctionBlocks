@@ -117,20 +117,56 @@ void ValueMonitorBlock::handleKo(GroupObject &ko)
             case 140:
                 handleInputKo<double>(ko, ParamFCB_CHMonitoringMinDpt14, ParamFCB_CHMonitoringMaxDpt14);
                 break;
+            case 160:
+                resetWatchdog();
+                if (_waitForValueTimeoutMs != 0)
+                    KoFCB_CHSummaryAlarm.valueCompare(false, DPT_Alarm);
+                handleLastValidTelegram(ko, true);
+                break;
             default:
                 break;
         }
     }
 }
 
+void ValueMonitorBlock::resetWatchdog()
+{
+    if (_waitForValueTimeoutMs != 0)
+    {
+        if (_watchDogState != ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled)
+        {
+            _waitTimeStartMillis = max(1UL, millis());
+            setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout);
+        }
+        KoFCB_CHValueReceiveTimeout.valueCompare(false, DPT_Switch);
+    }
+}
+
+void ValueMonitorBlock::handleLastValidTelegram(GroupObject &ko, bool isValid)
+{
+    if (isValid)
+    {
+        if (openknx.time.isValid())
+        {
+            tm tm = openknx.time.getLocalTime().toTm();
+            tm.tm_year += 1900;
+            tm.tm_mon += 1;
+            KoFCB_CHLastReceivedValueTimeStamp.valueCompare(tm, DPT_DateTime);
+        }
+        else
+        {
+            _lastValidTelegramWhileNotTimeAvailable = max(1UL, millis());
+        }
+        _lastValidValue = ko.value(_dpt);
+        _hasValidValue = true;
+        sendValue(_lastValidValue, true);
+    }
+}
+
 template <typename T>
 void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
 {
-    if (_watchDogState != ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled)
-    {
-        _waitTimeStartMillis = max(1UL, millis());
-        setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout);
-    }
+    resetWatchdog();
     bool toLow = false;
     bool hasSummaryAlarm = false;
     if (ParamFCB_CHMonitoringMin > 0)
@@ -147,36 +183,16 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
         KoFCB_CHValueToHigh.valueCompare(toHigh, DPT_Switch);
     }
     bool isValid = !toLow && !toHigh;
-    if (isValid)
-    {
-        _lastValidValue = ko.value(_dpt);
-        hasValidValue = true;
-    }
+    handleLastValidTelegram(ko, isValid);
     if (!hasSummaryAlarm)
     {
-       hasSummaryAlarm = _watchDogState != ValueMonitorWatchdogStateDisabled;
+       hasSummaryAlarm = _waitForValueTimeoutMs != 0;
     }
     if (hasSummaryAlarm)
     {
         KoFCB_CHSummaryAlarm.valueCompare(!isValid, DPT_Alarm);
     }
-    KoFCB_CHValueReceiveTimeout.valueCompare(false, DPT_Switch);
-
-    if (isValid)
-    {
-        if (openknx.time.isValid())
-        {
-            tm tm = openknx.time.getLocalTime().toTm();
-            tm.tm_year += 1900;
-            tm.tm_mon += 1;
-            KoFCB_CHLastReceivedValueTimeStamp.valueCompare(tm, DPT_DateTime);
-        }
-        else
-        {
-            _lastValidTelegramWhileNotTimeAvailable = max(1UL, millis());
-        }
-    }
-
+    
     if (toLow)
     {
         T replacementValue;
@@ -187,7 +203,7 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
         switch (ParamFCB_CHMonitoringMin)
         {
             case 2:
-                if (!hasValidValue)
+                if (!_hasValidValue)
                     return;
                 replacementValue = _lastValidValue;
                 break;
@@ -209,7 +225,7 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
         switch (ParamFCB_CHMonitoringMax)
         {
             case 2:
-                if (!hasValidValue)
+                if (!_hasValidValue)
                     return;
                 replacementValue = _lastValidValue;
                 break;
@@ -220,12 +236,6 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
                 return;
         }
         sendValue(replacementValue, false);
-    }
-    else
-    {
-        if (!hasValidValue)
-            return;
-        sendValue(_lastValidValue, true);
     }
     // Do not add code here, return happens early
 }
@@ -362,6 +372,9 @@ void ValueMonitorBlock::handleTimeout()
                 break;
             case 140:
                 sendValue<double>(ParamFCB_CHMonitoringWDDpt14, false);
+                break;
+            case 160:
+                sendValue<const char*>((const char*)ParamFCB_CHMonitoringWDDpt16, false);
                 break;
             default:
                 break;

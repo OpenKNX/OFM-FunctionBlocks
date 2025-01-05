@@ -737,6 +737,9 @@ Optionen:
 ## Auswahl (Multiplexer)
 
 <!-- DOC -->
+### Datentype
+
+<!-- DOC -->
 ### Anzahl und Typ der Auswahlen mit gemeinsamen Auswahl Eingang
 
 <!-- DOC -->
@@ -747,6 +750,9 @@ Optionen:
   
 <!-- DOC -->
 ## Blinker
+
+<!-- DOC -->
+### Anzahl der Blinkvorgänge
 
 <!-- DOC -->
 ### Ein-Zeit

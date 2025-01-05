@@ -27,7 +27,7 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBNumericAndBitDpt" Name="FCBNumericDpt">
+							<ParameterType Id="%AID%_PT-FCBNumericBitStringDpt" Name="FCBNumericDpt">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<!-- align for visibility in ETS -->
 									<Enumeration Text="1.*           1-Bit (0/1)" Value="10" Id="%ENID%" />
@@ -40,6 +40,7 @@
 									<Enumeration Text="12.*         4-Byte vorzeichenlos" Value="120" Id="%ENID%" />
 									<Enumeration Text="13.*         4-Byte vorzeichenbehaftet" Value="130" Id="%ENID%" />
 									<Enumeration Text="14.*         4-Byte Gleitkommawert" Value="140" Id="%ENID%" />
+									<Enumeration Text="16.*        14-Byte Zeichenfolge" Value="160" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 
@@ -239,7 +240,7 @@
 							</ParameterType>
 
 
-							<ParameterType Id="%AID%_PT-FCBCountDownTextTemplate" Name="FCBCountDownTextTemplate">
+							<ParameterType Id="%AID%_PT-FCBValueDpt16" Name="FCBValueDpt16">
 								<TypeText SizeInBit="112" />
 								<!-- 14 characters -->
 							</ParameterType>
@@ -317,10 +318,10 @@
 							<ParameterType Id="%AID%_PT-FCBSelectionType" Name="FCBSelectionType" >
 								<TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
    									<Enumeration Text="   2-fach Auswahl" Value="2" Id="%ENID%" />
-									<Enumeration Text="2x 2-fach Auswahl" Value="22" Id="%ENID%" />
-									<Enumeration Text="3x 2-fach Auswahl (kein Statusausgang möglich)" Value="32" Id="%ENID%" />
+									<!-- <Enumeration Text="2x 2-fach Auswahl" Value="22" Id="%ENID%" /> -->
+									<!-- <Enumeration Text="3x 2-fach Auswahl (kein Statusausgang möglich)" Value="32" Id="%ENID%" /> -->
 									<Enumeration Text="   3-fach Auswahl" Value="3" Id="%ENID%" />
-									<Enumeration Text="2x 3-fach Auswahl" Value="23" Id="%ENID%" />
+									<!-- <Enumeration Text="2x 3-fach Auswahl" Value="23" Id="%ENID%" /> -->
 									<Enumeration Text="   4-fach Auswahl" Value="4" Id="%ENID%" />
 									<Enumeration Text="   5-fach Auswahl" Value="5" Id="%ENID%" />
 									<Enumeration Text="   6-fach Auswahl" Value="6" Id="%ENID%" />
@@ -406,11 +407,16 @@
 								<!-- Number of channels -->
 								<Parameter Id="%AID%_UP-%TT%00000" Name="VisibleChannels" ParameterType="%AID%_PT-FCBNumChannels" Offset="0" BitOffset="0" Text="Verfügbare Kanäle" Value="%FCB_NumChannelsDefault%" SuffixText=" von %N%" />
 							</Union>
+							<!-- Add not allowed -->
+							<Parameter Id="%AID%_P-%TT%00001" Name="AddNotAllowed" ParameterType="%AID%_PT-OnOffYesNo" Text="AddNotAllowed" Value="0"  Access="None"/> 
+					
 						</Parameters>
 						<ParameterRefs>
 							<!-- Number of channels -->
 							<ParameterRef Id="%AID%_UP-%TT%00000_R-%TT%0000001" RefId="%AID%_UP-%TT%00000" />
-
+							<!-- Add not allowed -->
+							<ParameterRef Id="%AID%_P-%TT%00001_R-%TT%0000101" RefId="%AID%_P-%TT%00001" />
+						
 						</ParameterRefs>
 						<ComObjectTable>
 						</ComObjectTable>
@@ -448,6 +454,16 @@
 										<!-- <ParameterRefRef RefId="%AID%_UP-%TT%00000_R-%TT%0000001" HelpContext="%DOC%" /> -->
 
 										<op:include href="FunctionBlocks.templ.xml" xpath="//Dynamic/ChannelIndependentBlock/ParameterBlock[@Name='More']/*" type="template" prefix="FCB" IsInner="true" />
+										
+										 <!-- Hidden -->
+										 <!-- Add not allowed -->
+										<ParameterRefRef RefId="%AID%_P-%TT%00001_R-%TT%0000101" />
+										<choose ParamRefId="%AID%_P-%TT%00001_R-%TT%0000101" >
+											<when test="1">
+												<ParameterSeparator Id="%AID%_PS-nnn" Text="Hinzufügen von 'Deaktiviert' nicht möglich. Es muss zuerst eine Auswahl getroffen werden." UIHint="Error" />
+											</when>
+										</choose>
+										
 										<Button Id="%AID%_B-%TT%00200" Text="Hinzufügen" EventHandler="fcbAddChannel" />
 
 										<!-- HelpContext="BASE-Verfuegbare-Kanaele" IndentLevel="1" /-->

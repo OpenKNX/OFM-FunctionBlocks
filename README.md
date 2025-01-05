@@ -22,12 +22,12 @@ Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
   - Zeitüberschreitung (Watchdog)
   - Minimaler Wert
   - Maximaler Wert
-
+- Multiplexer
+- Blinker
 
 ## Planned Features
-- Multiplexer
 - Counter
-- Blinker
+
 
 ## Applikationsbeschreibung
 

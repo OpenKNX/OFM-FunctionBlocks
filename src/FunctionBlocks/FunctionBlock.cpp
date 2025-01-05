@@ -27,9 +27,10 @@ Dpt FunctionBlock::dptType(uint8_t typeParamValue)
     // <Enumeration Text="7.*           2-Byte vorzeichenlos"             Value="70"   Id="%ENID%" />
     // <Enumeration Text="8.*           2-Byte vorzeichenbehaftet"        Value="80"   Id="%ENID%" />
     // <Enumeration Text="9.*           2-Byte Gleitkommawert"            Value="90"   Id="%ENID%" />
-    // <Enumeration Text="12.*         4-Byte vorzeichenlos"             Value="120"   Id="%ENID%" />
-    // <Enumeration Text="13.*         4-Byte vorzeichenbehaftet"        Value="130"   Id="%ENID%" />
-    // <Enumeration Text="14.*         4-Byte Gleitkommawert"            Value="140"   Id="%ENID%" />
+    // <Enumeration Text="12.*         4-Byte vorzeichenlos"              Value="120"   Id="%ENID%" />
+    // <Enumeration Text="13.*         4-Byte vorzeichenbehaftet"         Value="130"   Id="%ENID%" />
+    // <Enumeration Text="14.*         4-Byte Gleitkommawert"             Value="140"   Id="%ENID%" />
+    // <Enumeration Text="16.*        14-Byte Zeichenfolge"               Value="160"   Id="%ENID%" />
     Dpt dptInput;
     switch (typeParamValue)
     {
@@ -62,6 +63,9 @@ Dpt FunctionBlock::dptType(uint8_t typeParamValue)
             break;
         case 140:
             dptInput = DPT_Value_Amplitude;
+            break;
+        case 160:
+            dptInput = DPT_String_ASCII;
             break;
         default:
             dptInput = DPT_Switch;
