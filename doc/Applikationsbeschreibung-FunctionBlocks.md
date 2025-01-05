@@ -791,7 +791,7 @@ Optionen:
 ### Datentype
 
 <!-- DOC -->
-### Anzahl und Typ der Auswahlen mit gemeinsamen Auswahl Eingang
+### Anzahl und Typ der Auswahlen (mit gemeinsamen Auswahl-Eingang)
 
 <!-- DOC -->
 ### Bei Umschaltung

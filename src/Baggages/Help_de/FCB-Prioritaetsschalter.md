@@ -11,4 +11,3 @@ Die Farbe der LED kann aber über ein Kommunikationsobjekt nicht verändert werd
 Jedoch bietet der Taste die Möglichkeit verschiedene Prozentwerte mit verschieden Farben darzustellen.
 So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb, Beschattung aktiv, Windsperre auf Prozentwerte umgesetzt werden, die der Taster in verschiedene Farbwerte umsetzt.
 
-
