@@ -933,10 +933,10 @@
               <!-- Auswahl -->   
            
               <!-- Auswahl Rückmeldung KO -->  
-              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00707" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit"  DatapointType="DPST-1-5"    Text="%C%: Auswahl Status"    FunctionText="{{0:-}} Auswahl Status"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00707" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit"  DatapointType="DPST-1-1"    Text="%C%: Auswahl Status"    FunctionText="{{0:-}} Auswahl Status"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00717" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Byte" DatapointType="DPST-17-1"   Text="%C%: Auswahl Status"    FunctionText="{{0:-}} Auswahl Status"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <!-- Auswahl KO -->  
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00807" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"  DatapointType="DPST-1-5"    Text="%C%: Auswahl"    FunctionText="{{0:-}} Auswahl"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00807" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"  DatapointType="DPST-1-1"    Text="%C%: Auswahl"    FunctionText="{{0:-}} Auswahl"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00817" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte" DatapointType="DPST-17-1"   Text="%C%: Auswahl"    FunctionText="{{0:-}} Auswahl"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
        
               <!-- Blinker --> 

@@ -787,48 +787,123 @@ Optionen:
 <!-- DOC HelpContext="Selection" -->
 ## Auswahl (Multiplexer)
 
+Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
+Es stehen 2-8 Eingänge zur Verfügung. 
+
+Hinweis: Bevor der Eingang "Auswahl" beschrieben wird, ist der Eingang1 mit dem Ausgang verbunden. 
+Wird beim Eingang "Auswahl" ein größerer Wert als die zur Verfügung stehenden Eingänge übergeben, wird die Auswahl nicht übernommen und es wird weiterhin der zuvor gewählte Eingang auf den Ausgang verbunden.
+
 <!-- DOC -->
 ### Datentype
+
+Auswahl des Datentypes für die Ein- und Ausgänge:
+
+- 1.*           1-Bit (0/1)
+- 5.*           8-Bit vorzeichenlos
+- 5.001       Prozent (0..100%)
+- 6.*           8-Bit vorzeichenbehaftet
+- 7.*           2-Byte vorzeichenlos
+- 8.*           2-Byte vorzeichenbehaftet
+- 9.*           2-Byte Gleitkommawert
+- 12.*         4-Byte vorzeichenlos
+- 13.*         4-Byte vorzeichenbehaftet
+- 14.*         4-Byte Gleitkommawert
+- 16.*        14-Byte Zeichenfolge
 
 <!-- DOC -->
 ### Anzahl und Typ der Auswahlen (mit gemeinsamen Auswahl-Eingang)
 
+Über diese Konfiguration wird die Anzahl der Eingänge festgelegt.
+Bei 2 Eingängen wird für die "Auswahl" ein 1-bit verwendet, bei mehr als 2 Eingängen wir ein Szenen-Objekt verwendet.
+Bei 1-bit enspricht AUS der Auswahl für Eingang 1 und EIN der Auswahl für Eingang 2
+Bei Szenen Auswahl entspricht die Szenennummer der Eingangnummer.
+Achtung: Szene1 entspricht den technischen Zahlenwert 0.
+
 <!-- DOC -->
 ### Bei Umschaltung
+
+Gibt an, ob bei Umschaltung der Auswahl der Wert des neuen gewählten Eingangs auf den Ausgang gesendet werden soll.
+Es wird nur dann ein Wert gesendet, wenn der Eingang mindestens einmal einen Wert empfangen hat.
  
 <!-- DOC -->
 ### Auswahl Status Objekt
-  
+
+Es kann gewählt werden, ob ein Objekt mit der Nummer des aktuell gewählten Eingangs zur Verfügung stehen soll.
+<!-- DOCEND -->
+Diese Option steht nur zur Verfügung, wenn weniger als 8 Eingänge verwendet werden.
+
 <!-- DOC -->
 ## Blinker
+
+Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
+Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
+Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
 
 <!-- DOC -->
 ### Anzahl der Blinkvorgänge
 
+Zur Auswahl stehen:
+
+- **Immmer**
+  Es wird fortlaufend am Ausgang ein Blinksignal gesendet
+- **Solange Start EIN**
+  Solange der Start Eingang auf EIN steht wird am Ausgang ein Blinksignla gesendet.
+- **1-20**
+  Anzahl wie oft der Ausgang ein Blinksignal sendet. 
+  Nach erreichen der Anzahl wird das Blinken automatisch beendet.
+
 <!-- DOC -->
 ### Ein-Zeit
 
+Einschaltdauer des Ausgangs beim Blinken.
+
 <!-- DOC HelpContext="Blinker-EIN-Zeit" -->
-### Zeit
- 
+#### Zeit
+
+Zeit in der gewählten Einheit 
+
 <!-- DOC HelpContext="Blinker-EIN-Zeitbasis" -->
-### Einheit 
+#### Einheit 
  
+Einheit für die Zeit
 
 <!-- DOC -->
 ### Aus-Zeit
 
+Ausschaltdauer des Ausgangs beim Blinken
+
 <!-- DOC HelpContext="Blinker-AUS-Zeit" -->
-### Zeit
+#### Zeit
+
+Zeit in der gewählten Einheit 
  
 <!-- DOC HelpContext="Blinker-AUS-Zeitbasis" -->
 ### Einheit 
 
+Einheit für die Zeit
+
 <!-- DOC -->
 ### Start
 
+Verhalten beim Starten des Blinkvorgangs:
+
+- **Mit EIN starten**
+- **Mit AUS starten**
+- **Abhängig von aktueller Aktor Rückmeldung**
+  Hinweis: der Eingang "Aktor Rückmeldung" muss beschalten werden damit der Blinker richtig funktioniert.
+
 <!-- DOC -->
 ### Ende
+
+Verhalten beim Ende des Blinkvorgangs:
+
+- **Mit EIN beenden**
+- **Mit AUS beenden**
+- **Wie Zustand vor Blink-Beginn**
+  Hinweis: der Eingang "Aktor Rückmeldung" muss beschalten werden damit der Blinker richtig funktioniert.
+- **Umgekehrt wie Zustand vor Blink-Beginn**
+  Hinweis: der Eingang "Aktor Rückmeldung" muss beschalten werden damit der Blinker richtig funktioniert.
+
 
 <!-- DOC -->
 ### AUS Telegram am Start Eingang
