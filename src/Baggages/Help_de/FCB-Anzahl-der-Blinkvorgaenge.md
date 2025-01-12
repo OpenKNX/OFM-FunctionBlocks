@@ -10,3 +10,4 @@ Zur Auswahl stehen:
   Anzahl wie oft der Ausgang ein Blinksignal sendet. 
   Nach erreichen der Anzahl wird das Blinken automatisch beendet.
 
+

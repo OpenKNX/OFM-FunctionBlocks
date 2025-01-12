@@ -340,7 +340,7 @@
               </Union>
 
                <!-- Blinker -->
-              <Union SizeInBit="88">
+              <Union SizeInBit="96">
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Ein DelayBase -->
                 <Parameter Offset="2" BitOffset="0" Id="%AID%_UP-%TT%%CC%251" Name="CH%C%BlinkerOnDelayBase"   ParameterType="%AID%_PT-DelayBase10" Text="Blinker EIN Zeitbasis" Value="0" />
@@ -357,7 +357,7 @@
                 <!-- Stop -->
                 <Parameter Offset="6" BitOffset="4" Id="%AID%_UP-%TT%%CC%256" Name="CH%C%BlinkerStop"   ParameterType="%AID%_PT-FCBBlinkerStop"    Text="Ende" Value="2" />
                 <!-- Break -->
-                <Parameter Offset="6" BitOffset="4" Id="%AID%_UP-%TT%%CC%257" Name="CH%C%BlinkerBreak"   ParameterType="%AID%_PT-FCBBlinkerBreak"    Text="AUS Telegram am 'Start' Eingang" Value="3" />
+                <Parameter Offset="7" BitOffset="0" Id="%AID%_UP-%TT%%CC%257" Name="CH%C%BlinkerBreak"   ParameterType="%AID%_PT-FCBBlinkerBreak"    Text="AUS Telegram am 'Start' Eingang" Value="3" />
                 <!-- Ausgang Dpt -->
                 <Parameter Offset="7" BitOffset="4" Id="%AID%_UP-%TT%%CC%258" Name="CH%C%BlinkerOutputDpt"   ParameterType="%AID%_PT-FCBBlinkerOutputDpt"    Text="Ausgang" Value="10" />
                 <!-- Ein Wert -->
@@ -366,10 +366,12 @@
                 <Parameter Offset="9" BitOffset="0" Id="%AID%_UP-%TT%%CC%260" Name="CH%C%BlinkerOffPercentage"    ParameterType="%AID%_PT-ValueDpt5001" Text="Wert für AUS" Value="0" SuffixText="%" />         
                 <!-- Blinkanzahl -->
                 <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%261" Name="CH%C%BlinkerCount"    ParameterType="%AID%_PT-FCBBlinkCount" Text="Anzahl der Blinkvorgänge" Value="0" />
-             
+                <!-- KO Blink Anzahl -->
+                <Parameter Offset="11" BitOffset="0" Id="%AID%_UP-%TT%%CC%264" Name="CH%C%BlinkerStartAnzahl"    ParameterType="%AID%_PT-OnOffYesNo" Text="Objekt zum Starten mit Anzahl" Value="0" />
+          
               </Union>
            
-              <!-- Next Id: %AID%_UP-%TT%%CC%264 -->
+              <!-- Next Id: %AID%_UP-%TT%%CC%265 -->
 
             </Parameters>
             <ParameterRefs>
@@ -682,6 +684,9 @@
               <ParameterRef Id="%AID%_UP-%TT%%CC%260_R-%TT%%CC%26001" RefId="%AID%_UP-%TT%%CC%260" />
               <!-- Blinkanzahl -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101" RefId="%AID%_UP-%TT%%CC%261" />
+              <!-- KO Blink Anzahl -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%264_R-%TT%%CC%26401" RefId="%AID%_UP-%TT%%CC%264" />
+
  
             </ParameterRefs>
             <ComObjectTable>
@@ -942,11 +947,15 @@
               <!-- Blinker --> 
 
               <!-- Blinken Start/Stop -->  
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-10"    Text="%C%: Blinken Start/Stop" FunctionText="{{0:-}} Blinken Start/Stop" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00018" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-17"    Text="%C%: Blinken Starten" FunctionText="{{0:-}} Blinken Starten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-10"    Text="%C%: Blinken Start/Stop" FunctionText="{{0:-}} Blinken Start/Stop" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00018" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-17"    Text="%C%: Blinken Starten" FunctionText="{{0:-}} Blinken Starten" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
+     
+              <!-- Blinken Start Anzahl -->  
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte" DatapointType="DPST-5-10"    Text="%C%: Blinken Start Anzahl" FunctionText="{{0:-}} Blinken Start mit Anzahl" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
+     
               <!-- Blinken Aktor Feedback -->  
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"  DatapointType="DPST-1-1"    Text="%C%: Aktor Rückmeldung"      FunctionText="{{0:-}} Aktor Rückmeldung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" UpdateFlag="true"  TransmitFlag="Enabled" />
-              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00118" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte" DatapointType="DPST-5-1"    Text="%C%: Aktor Rückmeldung"      FunctionText="{{0:-}} Aktor Rückmeldung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" UpdateFlag="true"  TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00208" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit"  DatapointType="DPST-1-1"    Text="%C%: Aktor Rückmeldung"      FunctionText="{{0:-}} Aktor Rückmeldung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00218" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte" DatapointType="DPST-5-1"    Text="%C%: Aktor Rückmeldung"      FunctionText="{{0:-}} Aktor Rückmeldung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
        
 
               <!-- Blinken Aktiv -->  
@@ -2601,9 +2610,6 @@
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Blinker" UIHint="Headline" />
 
-
-                       
-
                           <!-- Kanal Name -->
                           <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
@@ -2657,6 +2663,10 @@
                             <when test="!=255">
                               <!-- Ungleich "immer" -->
 
+                              <!-- KO Blink Anzahl -->
+                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%264_R-%TT%%CC%26401" HelpContext="%DOC%" />
+                      
+
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="Start / Stopp" UIHint="Headline" />
 
@@ -2676,7 +2686,15 @@
                                   <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00018" />
                                 </when>
                               </choose>
-                    
+
+                              <!-- KO Blink Anzahl -->
+                              <choose ParamRefId="%AID%_UP-%TT%%CC%264_R-%TT%%CC%26401">
+                                <when test="1">
+                                  <!-- Blinken Starten Anzahl-->  
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" />
+                                </when>
+                              </choose>
+
                               <!-- Blinkanzahl -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101">
                                 <when test="!=0">
@@ -2690,11 +2708,11 @@
                               <choose ParamRefId="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801">
                                 <when test="51">
                                   <!-- Blinken Aktor Feedback % -->  
-                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00118" />
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00218" />
                                 </when>
-                                <when test="50">xw
+                                <when test="10">
                                   <!-- Blinken Aktor Feedback Bit -->  
-                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" />
+                                  <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00208" />
                                 </when>
                               </choose>
 

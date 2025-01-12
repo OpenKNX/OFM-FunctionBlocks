@@ -852,6 +852,7 @@ Zur Auswahl stehen:
   Anzahl wie oft der Ausgang ein Blinksignal sendet. 
   Nach erreichen der Anzahl wird das Blinken automatisch beendet.
 
+
 <!-- DOC -->
 ### Ein-Zeit
 
@@ -882,6 +883,16 @@ Zeit in der gewählten Einheit
 
 Einheit für die Zeit
 
+
+<!-- DOC -->
+### Objekt zum Starten mit Anzahl
+
+Blendet ein Objekt ein, das zum Starten des Blinkens mit einer vorgegebenen Anzahl verwendet werden kann.
+Hinweis: Wir eine Szene Objekt Verbunden, entspricht die Blink-Anzahl der Szenennummer minus 1.
+
+Wir 0 empfangen, wird der Blinkvorgang vorzeitig beendet sofern der Parameter 'AUS Telegram am Start Eingang' nicht auf ignorieren gestellt ist.
+
+
 <!-- DOC -->
 ### Start
 
@@ -907,15 +918,47 @@ Verhalten beim Ende des Blinkvorgangs:
 
 <!-- DOC -->
 ### AUS Telegram am Start Eingang
- 
+
+Gibt an ob und wie ein Blinkvorgang durch eine AUS Telegram am Start Eingang beendet werden kann.
+
+- **Ignorieren**
+  AUS-Telegramme am Eingang oder 0 am Eingang zum Starten mit Anzahl werden ignoriert.
+- **Blinken sofort beenden und EIN senden**
+  Das Blinken wird beendet und der Ausgang wir eingeschalten
+- **Blinken sofort beenden und AUS senden**
+  Das Blinken wird beendet und der Ausgang wir ausgeschalten
+- **Blinken sofort beenden, Zustand vor Blink-Beginn herstellen**
+  Das Blinken wird beendet und der Zustand vor dem Blinken wird wieder hergestellt. 
+  Wird der Prozent Datentype verwendet kann dies auch ein Wert ungleich der definierten Werte für EIN und AUS sein.
+- **Blinken sofort beenden, Zustand umgekehrt wie vor Blink-Beginn herstellen**
+  War vor dem Blinken der Aktor eingeschalten, wird der nach dem Blinken ausgeschalten.
+  War vor dem Blinken der Aktor ausgeschalten, wird der nach dem Blinken eingeschalten.
+- Mit aktuellen Zustand beenden (Kein Telegram senden)**
+  Das Blinken wird beendet ohne ein Abschlusstelegram zu senden.
+							
 
 <!-- DOC -->
 ### Ausgang
 
+Der Datentype der für den Ausgang verwendet wird.
+
+- **1.*           1-Bit (0/1)**
+- **5.001       Prozent (0..100%)**
+
 <!-- DOC -->
 ### Wert für EIN
 
+<!-- DOC Skip="1" -->
+Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.001       Prozent (0..100%)" ausgewählt wird
+
+Der Prozentwert der für EIN gesendet wird.
+
 <!-- DOC -->
 ### Wert für AUS
+
+<!-- DOC Skip="1" -->
+Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.001       Prozent (0..100%)" ausgewählt wird
+
+Der Prozentwert der für AUS gesendet wird.
 
 
