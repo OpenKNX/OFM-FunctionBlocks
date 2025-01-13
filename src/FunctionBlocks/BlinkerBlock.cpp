@@ -32,7 +32,9 @@ void BlinkerBlock::handleKo(GroupObject &ko)
         case FCB_KoCHStoppStart: {
             if (ko.value(DPT_Switch))
             {
-                start();
+                // <Enumeration Text="Solange Start EIN" Value="0" Id="%ENID%" />
+                auto maxBlink = ParamFCB_CHBlinkerCount;
+                start(maxBlink);
             }
             else
             {
@@ -42,6 +44,12 @@ void BlinkerBlock::handleKo(GroupObject &ko)
         }
         break;
         case FCB_KoCHStartWithCount: {
+             // <Enumeration Text="Solange Start EIN" Value="0" Id="%ENID%" />
+            if (ParamFCB_CHBlinkerCount == 0 && _onOffChangeCount == 0 && _lastChange != 0)  
+            {
+                // On through KO, ignore input
+                break;
+            }
             uint8_t count = ko.value(DPT_Value_1_Ucount);
             if (count > 0)
             {
@@ -60,18 +68,19 @@ void BlinkerBlock::start(uint8_t count)
 {
     logErrorP("Start, initialized: %d", (int) KoFCB_CHActorFeedback.initialized());
     GroupObject &goState = _hasActorFeedbackKO && KoFCB_CHActorFeedback.initialized() ? KoFCB_CHActorFeedback : KoFCB_CHOutput;
+    bool currentOn = false;
     if (goState.initialized())
     {
         if (ParamFCB_CHBlinkerOutputDpt == 51)
         {
             _startValue = goState.value(DPT_Scaling);
-            _isOn = _startValue != ParamFCB_CHBlinkerOffPercentage;
+            currentOn = _startValue != ParamFCB_CHBlinkerOffPercentage;
             logErrorP("Start hasActorFeedback %d, startValue: %d%%, isOn: %d", (int) _hasActorFeedbackKO, (int)_startValue, (int)_isOn);
         }
         else
         {
             _isOn = goState.value(DPT_Switch);
-            _startValue = _isOn;
+            currentOn = _isOn;
             logErrorP("Start hasActorFeedback %d, startValue: %d, isOn: %d", (int) _hasActorFeedbackKO, (int)_startValue, (int)_isOn);
         }
     }
@@ -80,20 +89,38 @@ void BlinkerBlock::start(uint8_t count)
         if (ParamFCB_CHBlinkerOutputDpt == 51)
         {
             _startValue = ParamFCB_CHBlinkerOffPercentage;
-            _isOn = false;
+            currentOn = false;
             logErrorP("Start, assume startValue: %d%%, isOn: %d", (int)_startValue, (int)_isOn);
         }
         else
         {
             _startValue = 0;
-            _isOn = false;
+            currentOn = false;
             logErrorP("Start, assume startValue: %d, isOn: %d", (int)_startValue, (int)_isOn);
         }
+    }
+   
+    _lastChange = max(millis(), 1ul);
+    // <Enumeration Text="Mit EIN starten" Value="1" Id="%ENID%" />
+    // <Enumeration Text="Mit AUS starten" Value="0" Id="%ENID%" />
+    // <Enumeration Text="Umgekehrt zur aktuellen Aktor Rückmeldung" Value="2" Id="%ENID%" />
+    switch (ParamFCB_CHBlinkerStart)
+    {
+        case 0:
+            _isOn = false;
+            break;
+        case 1:
+            _isOn = true;
+            break;
+        case 2:
+            _isOn = !currentOn;
+            logErrorP("Start with: %d", (int)_isOn);
+            break;
     }
     // <Enumeration Text="Immer" Value="255" Id="%ENID%" />
     // <Enumeration Text="Solange Start EIN" Value="0" Id="%ENID%" />
     auto maxBlink = ParamFCB_CHBlinkerCount;
-    if (maxBlink != 255 && maxBlink != 0)
+    if (maxBlink != 255 && (maxBlink != 0 || count != 0))
     {
         _onOffChangeCount = count * 2;
 
@@ -112,28 +139,20 @@ void BlinkerBlock::start(uint8_t count)
                     _onOffChangeCount--; // Skip last half phase
                 break;
             case 2:
-                _onOffChangeCount--; // Skip last half phase
+                if (_isOn != currentOn)
+                    _onOffChangeCount--; // Skip last half phase
+                break;
+            case 3:
+                if (_isOn == currentOn)
+                    _onOffChangeCount--; // Skip last half phase
                 break;
         }
     }
-
-    _lastChange = max(millis(), 1ul);
-    // <Enumeration Text="Mit EIN starten" Value="1" Id="%ENID%" />
-    // <Enumeration Text="Mit AUS starten" Value="0" Id="%ENID%" />
-    // <Enumeration Text="Abhängig von aktueller Aktor Rückmeldung" Value="2" Id="%ENID%" />
-    switch (ParamFCB_CHBlinkerStart)
+    else
     {
-        case 0:
-            _isOn = true;
-            break;
-        case 1:
-            _isOn = false;
-            break;
-        case 2:
-            _isOn = !_isOn;
-            logErrorP("Start with: %d", (int)_isOn);
-            break;
+        _onOffChangeCount = 0;
     }
+
     KoFCB_CHBlinkingActive.value(true, DPT_Switch);
     setOutput(_isOn);
 }
@@ -145,11 +164,13 @@ void BlinkerBlock::setOutput(bool value)
         uint8_t percentageValue = value ? ParamFCB_CHBlinkerOnPercentage : ParamFCB_CHBlinkerOffPercentage;
         logErrorP("SetOutput, percentageValue: %d%%", (int)percentageValue);
         KoFCB_CHOutput.value(percentageValue, DPT_Scaling);
+        KoFCB_CHActorFeedback.valueNoSend(percentageValue, DPT_Scaling);
     }
     else
     {
         logErrorP("SetOutput, value: %d", (int)value);
         KoFCB_CHOutput.value(value, DPT_Switch);
+        KoFCB_CHActorFeedback.valueNoSend(value, DPT_Switch);
     }
 }
 
@@ -160,26 +181,30 @@ void BlinkerBlock::setOutputToStartValue()
         uint8_t percentageValue = _startValue;
         logErrorP("SetOutput to start value, percentageValue: %d%%", (int)percentageValue);
         KoFCB_CHOutput.value(percentageValue, DPT_Scaling);
+        KoFCB_CHActorFeedback.valueNoSend(percentageValue, DPT_Scaling);
     }
     else
     {
         bool value = _startValue;
         logErrorP("SetOutput to start value, value: %d", (int)value);
         KoFCB_CHOutput.value(value, DPT_Switch);
+        KoFCB_CHActorFeedback.valueNoSend(value, DPT_Switch);
     }
 }
 
 void BlinkerBlock::breakRequest()
 {
+
     // <Enumeration Text="Ignorieren" Value="0" Id="%ENID%" />
     // <Enumeration Text="Blinken sofort beenden und EIN senden" Value="1" Id="%ENID%" />
     // <Enumeration Text="Blinken sofort beenden und AUS senden" Value="2" Id="%ENID%" />
     // <Enumeration Text="Blinken sofort beenden, Zustand vor Blink-Beginn herstellen" Value="3" Id="%ENID%" />
     // <Enumeration Text="Blinken sofort beenden, Zustand umgekehrt wie vor Blink-Beginn herstellen" Value="4" Id="%ENID%" />
     // <Enumeration Text="Mit aktuellen Zustand beenden (Kein Telegram senden)" Value="5" Id="%ENID%" />
-    switch (ParamFCB_CHBlinkerBreak)
+    switch (ParamFCB_CHBlinkerCount == 0 ? ParamFCB_CHBlinkerBreakWithoutBreak : ParamFCB_CHBlinkerBreak)
     {
         case 0:
+        logErrorP("BreakRequest ignore");
             break;
         case 1:
         logErrorP("BreakRequest on");
@@ -255,7 +280,7 @@ void BlinkerBlock::loop()
                             break;
                         case 2:
                             stop();
-                            setOutput(_startValue);
+                            setOutputToStartValue();
                             break;
                         case 3:
                             stop();

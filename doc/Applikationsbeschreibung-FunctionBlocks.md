@@ -900,7 +900,7 @@ Verhalten beim Starten des Blinkvorgangs:
 
 - **Mit EIN starten**
 - **Mit AUS starten**
-- **Abhängig von aktueller Aktor Rückmeldung**
+- **Umgekehrt zur aktuellen Aktor Rückmeldung**
   Hinweis: der Eingang "Aktor Rückmeldung" muss beschalten werden damit der Blinker richtig funktioniert.
 
 <!-- DOC -->
@@ -923,6 +923,7 @@ Gibt an ob und wie ein Blinkvorgang durch eine AUS Telegram am Start Eingang bee
 
 - **Ignorieren**
   AUS-Telegramme am Eingang oder 0 am Eingang zum Starten mit Anzahl werden ignoriert.
+  Diese Option ist nicht vorhanden wenn für 'Anzahl der Blinkvorgänge' die Auswahl 'Solange Start EIN' getroffen wurde. 
 - **Blinken sofort beenden und EIN senden**
   Das Blinken wird beendet und der Ausgang wir eingeschalten
 - **Blinken sofort beenden und AUS senden**

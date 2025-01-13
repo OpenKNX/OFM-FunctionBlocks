@@ -358,6 +358,8 @@
                 <Parameter Offset="6" BitOffset="4" Id="%AID%_UP-%TT%%CC%256" Name="CH%C%BlinkerStop"   ParameterType="%AID%_PT-FCBBlinkerStop"    Text="Ende" Value="2" />
                 <!-- Break -->
                 <Parameter Offset="7" BitOffset="0" Id="%AID%_UP-%TT%%CC%257" Name="CH%C%BlinkerBreak"   ParameterType="%AID%_PT-FCBBlinkerBreak"    Text="AUS Telegram am 'Start' Eingang" Value="3" />
+                <!-- Break without ignore -->
+                <Parameter Offset="7" BitOffset="0" Id="%AID%_UP-%TT%%CC%265" Name="CH%C%BlinkerBreakWithoutBreak"   ParameterType="%AID%_PT-FCBBlinkerBreakWithoutIgnore"    Text="AUS Telegram am 'Start' Eingang" Value="3" />
                 <!-- Ausgang Dpt -->
                 <Parameter Offset="7" BitOffset="4" Id="%AID%_UP-%TT%%CC%258" Name="CH%C%BlinkerOutputDpt"   ParameterType="%AID%_PT-FCBBlinkerOutputDpt"    Text="Ausgang" Value="10" />
                 <!-- Ein Wert -->
@@ -371,7 +373,7 @@
           
               </Union>
            
-              <!-- Next Id: %AID%_UP-%TT%%CC%265 -->
+              <!-- Next Id: %AID%_UP-%TT%%CC%266 -->
 
             </Parameters>
             <ParameterRefs>
@@ -686,7 +688,9 @@
               <ParameterRef Id="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101" RefId="%AID%_UP-%TT%%CC%261" />
               <!-- KO Blink Anzahl -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%264_R-%TT%%CC%26401" RefId="%AID%_UP-%TT%%CC%264" />
-
+              <!-- Break without ignore -->
+              <ParameterRef Id="%AID%_UP-%TT%%CC%265_R-%TT%%CC%26501" RefId="%AID%_UP-%TT%%CC%265" />
+           
  
             </ParameterRefs>
             <ComObjectTable>
@@ -2701,6 +2705,11 @@
                                   <!-- Nicht solange EIN am Ausgang-->
                                   <!-- Break -->
                                   <ParameterRefRef RefId="%AID%_UP-%TT%%CC%257_R-%TT%%CC%25701" HelpContext="%DOC%" />
+                                </when>
+                                <when test="0">
+                                  <!-- Solange EIN am Ausgang-->
+                                  <!-- Break without ignore -->
+                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%265_R-%TT%%CC%26501" HelpContext="FCB-AUS-Telegram-am-Start-Eingang" />                               
                                 </when>
                               </choose>
 

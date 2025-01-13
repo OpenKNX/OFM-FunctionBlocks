@@ -341,7 +341,7 @@
 								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
 									<Enumeration Text="Mit EIN starten" Value="1" Id="%ENID%" />
 									<Enumeration Text="Mit AUS starten" Value="0" Id="%ENID%" />
-									<Enumeration Text="Abhängig von aktueller Aktor Rückmeldung" Value="2" Id="%ENID%" />
+									<Enumeration Text="Umgekehrt zur aktuellen Aktor Rückmeldung" Value="2" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 
@@ -381,9 +381,18 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBBlinkerBreak" Name="FCBBlinkerStop" >
+							<ParameterType Id="%AID%_PT-FCBBlinkerBreak" Name="FCBBlinkerBreak" >
 								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
 									<Enumeration Text="Ignorieren" Value="0" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden und EIN senden" Value="1" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden und AUS senden" Value="2" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden, Zustand vor Blink-Beginn herstellen" Value="3" Id="%ENID%" />
+									<Enumeration Text="Blinken sofort beenden, Zustand umgekehrt wie vor Blink-Beginn herstellen" Value="4" Id="%ENID%" />
+									<Enumeration Text="Mit aktuellen Zustand beenden (Kein Telegram senden)" Value="5" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+							<ParameterType Id="%AID%_PT-FCBBlinkerBreakWithoutIgnore" Name="FCBBlinkerBreakWithoutIgnore" >
+								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
 									<Enumeration Text="Blinken sofort beenden und EIN senden" Value="1" Id="%ENID%" />
 									<Enumeration Text="Blinken sofort beenden und AUS senden" Value="2" Id="%ENID%" />
 									<Enumeration Text="Blinken sofort beenden, Zustand vor Blink-Beginn herstellen" Value="3" Id="%ENID%" />
