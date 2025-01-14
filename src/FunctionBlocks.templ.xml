@@ -975,7 +975,7 @@
                 <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
                   <when test="&gt;=%C%">
                     <!-- Kanal Typ -->
-                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
+                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
                   </when>
                 </choose>
               </ParameterBlock>
@@ -985,7 +985,7 @@
                 <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
                   <when test="=%C-1%">
                     <!-- Kanal Typ -->
-                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
+                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
                     <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
                       <when test="0"><!-- ************ Deaktiviert ************ -->
                         <ParameterSeparator Id="%AID%_PS-nnn" Text="Die Auswahl darf nicht 'Deaktiviert' sein um hinzufügen zu können. Hinzugefügte Kanäle erscheinen nach ca. 1 Sekunde verzögerung links im Baum." UIHint="Information" />
@@ -1017,116 +1017,116 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="UND" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%001" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
 
                           <!-- Binary KO 0 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001">
                             <when test="&gt;0">
                               <!-- Input 1-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002"/>
                               <!-- Input Ko 0 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
 
                             </when>
                           </choose>
 
                           <!-- Binary KO 1 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101">
                             <when test="&gt;0">
                               <!-- Input 2-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" />
                               <!-- Input Ko 1 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 2 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201">
                             <when test="&gt;0">
                               <!-- Input 3-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" />
                               <!-- Input Ko 2 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 3 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301">
                             <when test="&gt;0">
                               <!-- Input 4-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" />
                               <!-- Input Ko 3 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 4 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401">
                             <when test="&gt;0">
                               <!-- Input 5-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" />
                               <!-- Input Ko 4 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 5 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501">
                             <when test="&gt;0">
                               <!-- Input 6-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" />
                               <!-- Input Ko 5 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 6 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601">
                             <when test="&gt;0">
                               <!-- Input 7-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" />
                               <!-- Input Ko 6 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 7 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701">
                             <when test="&gt;0">
                               <!-- Input 8-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" />
                               <!-- Input Ko 7 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 8 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801">
                             <when test="&gt;0">
                               <!-- Input 9-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" />
                               <!-- Input Ko 8 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
@@ -1134,9 +1134,9 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
 
                           <!-- Output Inverted -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
                           <!-- Output Behavior-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
 
 
                           <!-- Output -->
@@ -1150,116 +1150,116 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="ODER" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%002" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
 
                           <!-- Binary KO 0 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001">
                             <when test="&gt;0">
                               <!-- Input 1-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" />
                               <!-- Input Ko 0 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
 
                             </when>
                           </choose>
 
                           <!-- Binary KO 1 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101">
                             <when test="&gt;0">
                               <!-- Input 2-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" />
                               <!-- Input Ko 1 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 2 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201">
                             <when test="&gt;0">
                               <!-- Input 3-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" />
                               <!-- Input Ko 2 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 3 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301">
                             <when test="&gt;0">
                               <!-- Input 4-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" />
                               <!-- Input Ko 3 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 4 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401">
                             <when test="&gt;0">
                               <!-- Input 5-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" />
                               <!-- Input Ko 4 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 5 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501">
                             <when test="&gt;0">
                               <!-- Input 6-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" />
                               <!-- Input Ko 5 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 6 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601">
                             <when test="&gt;0">
                               <!-- Input 7-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" />
                               <!-- Input Ko 6 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 7 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701">
                             <when test="&gt;0">
                               <!-- Input 8-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" />
                               <!-- Input Ko 7 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 8 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801">
                             <when test="&gt;0">
                               <!-- Input 9-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" />
                               <!-- Input Ko 8 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
@@ -1267,9 +1267,9 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
 
                           <!-- Output Inverted -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
                           <!-- Output Behavior-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
 
 
                           <!-- Output -->
@@ -1283,116 +1283,116 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Anzahl" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%004" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
 
                           <!-- Binary KO 0 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%150_R-%TT%%CC%15001">
                             <when test="&gt;0">
                               <!-- Input 1-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" />
                               <!-- Input Ko 0 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%161_R-%TT%%CC%16101" HelpContext="%DOC%"/>
 
                             </when>
                           </choose>
 
                           <!-- Binary KO 1 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%151_R-%TT%%CC%15101">
                             <when test="&gt;0">
                               <!-- Input 2-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" />
                               <!-- Input Ko 1 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%162_R-%TT%%CC%16201" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 2 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%152_R-%TT%%CC%15201">
                             <when test="&gt;0">
                               <!-- Input 3-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" />
                               <!-- Input Ko 2 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%163_R-%TT%%CC%16301" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 3 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%153_R-%TT%%CC%15301">
                             <when test="&gt;0">
                               <!-- Input 4-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" />
                               <!-- Input Ko 3 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%164_R-%TT%%CC%16401" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 4 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%154_R-%TT%%CC%15401">
                             <when test="&gt;0">
                               <!-- Input 5-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00402" />
                               <!-- Input Ko 4 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%165_R-%TT%%CC%16501" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 5 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%155_R-%TT%%CC%15501">
                             <when test="&gt;0">
                               <!-- Input 6-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00502" />
                               <!-- Input Ko 5 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%166_R-%TT%%CC%16601" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 6 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%156_R-%TT%%CC%15601">
                             <when test="&gt;0">
                               <!-- Input 7-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00602" />
                               <!-- Input Ko 6 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%167_R-%TT%%CC%16701" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 7 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%157_R-%TT%%CC%15701">
                             <when test="&gt;0">
                               <!-- Input 8-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00702" />
                               <!-- Input Ko 7 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%168_R-%TT%%CC%16801" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 8 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801" HelpContext="FCB-LogicEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%158_R-%TT%%CC%15801">
                             <when test="&gt;0">
                               <!-- Input 9-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" />
                               <!-- Input Ko 8 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
@@ -1401,10 +1401,10 @@
 
                           <!-- Output Inverted -->
                           <!-- NOT relevant for COUNT
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%160_R-%TT%%CC%16001" HelpContext="%DOC%"/>
                           -->
                           <!-- Output Behavior-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%170_R-%TT%%CC%17001" HelpContext="%DOC%"/>
 
 
                           <!-- Output -->
@@ -1418,23 +1418,23 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Prioritätsschalter" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%003" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
 
                           <!-- Output value Type -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101" HelpContext="FCB-PrioOutputType" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101" HelpContext="FCB-PrioOutputType" />
                           <!-- Output Behavior-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%141_R-%TT%%CC%14101" HelpContext="%DOC%"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%141_R-%TT%%CC%14101" HelpContext="%DOC%"/>
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
@@ -1446,207 +1446,207 @@
                           <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                             <when test="0">
                               <!-- Output 8 Prozent -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%130_R-%TT%%CC%13001" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%130_R-%TT%%CC%13001" HelpContext="%DOC%" />
                             </when>
                             <when test="1">
                               <!-- Output 8 1 Byte ohne Vorzeichen -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%131_R-%TT%%CC%13101" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%131_R-%TT%%CC%13101" HelpContext="%DOC%" />
                             </when>
                           </choose>
 
                           <!-- Binary KO 0 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%102_R-%TT%%CC%10201" HelpContext="FCB-PrioEingang"/>
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%102_R-%TT%%CC%10201" HelpContext="FCB-PrioEingang"/>
                           <choose ParamRefId="%AID%_UP-%TT%%CC%102_R-%TT%%CC%10201">
                             <when test="&gt;0">
                               <!-- Priority 1-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00001" />
                               <!-- Input Ko 0 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%132_R-%TT%%CC%13201" HelpContext="%DOC%"/>
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%132_R-%TT%%CC%13201" HelpContext="%DOC%"/>
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 0 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%112_R-%TT%%CC%11201" HelpContext="%DOC%"/>
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%112_R-%TT%%CC%11201" HelpContext="%DOC%"/>
                                 </when>
                                 <when test="1">
                                   <!-- Output 0 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%113_R-%TT%%CC%11301" HelpContext="%DOC%"/>
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%113_R-%TT%%CC%11301" HelpContext="%DOC%"/>
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 1 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%103_R-%TT%%CC%10301" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%103_R-%TT%%CC%10301" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%103_R-%TT%%CC%10301">
                             <when test="&gt;0">
                               <!-- Priority 2-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00101" />
                               <!-- Input Ko 1 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%133_R-%TT%%CC%13301" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%133_R-%TT%%CC%13301" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 1 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%114_R-%TT%%CC%11401" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%114_R-%TT%%CC%11401" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 1 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%115_R-%TT%%CC%11501" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%115_R-%TT%%CC%11501" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 2 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%104_R-%TT%%CC%10401" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%104_R-%TT%%CC%10401" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%104_R-%TT%%CC%10401">
                             <when test="&gt;0">
                               <!-- Priority 3-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00201" />
                               <!-- Input Ko 2 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%134_R-%TT%%CC%13401" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%134_R-%TT%%CC%13401" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 2 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%116_R-%TT%%CC%11601" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%116_R-%TT%%CC%11601" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 2 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%117_R-%TT%%CC%11701" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%117_R-%TT%%CC%11701" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 3 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%105_R-%TT%%CC%10501" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%105_R-%TT%%CC%10501" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%105_R-%TT%%CC%10501">
                             <when test="&gt;0">
                               <!-- Priority 4-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00301" />
                               <!-- Input Ko 3 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%135_R-%TT%%CC%13501" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%135_R-%TT%%CC%13501" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 3 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%118_R-%TT%%CC%11801" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%118_R-%TT%%CC%11801" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 3 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%119_R-%TT%%CC%11901" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%119_R-%TT%%CC%11901" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 4 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%106_R-%TT%%CC%10601" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%106_R-%TT%%CC%10601" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%106_R-%TT%%CC%10601">
                             <when test="&gt;0">
                               <!-- Priority 5-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00401" />
                               <!-- Input Ko 4 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%136_R-%TT%%CC%13601" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%136_R-%TT%%CC%13601" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 4 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%120_R-%TT%%CC%12001" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%120_R-%TT%%CC%12001" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 4 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%121_R-%TT%%CC%12101" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%121_R-%TT%%CC%12101" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 5 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%107_R-%TT%%CC%10701" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%107_R-%TT%%CC%10701" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%107_R-%TT%%CC%10701">
                             <when test="&gt;0">
                               <!-- Priority 6-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00501" />
                               <!-- Input Ko 5 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%137_R-%TT%%CC%13701" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%137_R-%TT%%CC%13701" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 5 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%122_R-%TT%%CC%12201" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%122_R-%TT%%CC%12201" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 5 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%123_R-%TT%%CC%12301" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%123_R-%TT%%CC%12301" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 6 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%108_R-%TT%%CC%10801" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%108_R-%TT%%CC%10801" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%108_R-%TT%%CC%10801">
                             <when test="&gt;0">
                               <!-- Priority 7-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00601" />
                               <!-- Input Ko 6 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%138_R-%TT%%CC%13801" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%138_R-%TT%%CC%13801" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 6 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%124_R-%TT%%CC%12401" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%124_R-%TT%%CC%12401" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 6 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%125_R-%TT%%CC%12501" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%125_R-%TT%%CC%12501" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 7 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%109_R-%TT%%CC%10901" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%109_R-%TT%%CC%10901" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%109_R-%TT%%CC%10901">
                             <when test="&gt;0">
                               <!-- Priority 8-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00701" />
                               <!-- Input Ko 7 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%139_R-%TT%%CC%13901" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%139_R-%TT%%CC%13901" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 7 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%126_R-%TT%%CC%12601" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%126_R-%TT%%CC%12601" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 7 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%127_R-%TT%%CC%12701" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%127_R-%TT%%CC%12701" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
                           </choose>
 
                           <!-- Binary KO 8 Deactivatable-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%110_R-%TT%%CC%11001" HelpContext="FCB-PrioEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%110_R-%TT%%CC%11001" HelpContext="FCB-PrioEingang" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%110_R-%TT%%CC%11001">
                             <when test="&gt;0">
                               <!-- Priority 9-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00801" />
                               <!-- Input Ko 8 Behavior-->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%140_R-%TT%%CC%14001" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%140_R-%TT%%CC%14001" HelpContext="%DOC%" />
                               <!-- Output Type -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%111_R-%TT%%CC%11101">
                                 <when test="0">
                                   <!-- Output 8 Prozent -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%128_R-%TT%%CC%12801" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%128_R-%TT%%CC%12801" HelpContext="%DOC%" />
                                 </when>
                                 <when test="1">
                                   <!-- Output 8 1 Byte ohne Vorzeichen -->
-                                  <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%129_R-%TT%%CC%12901" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%129_R-%TT%%CC%12901" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                             </when>
@@ -1672,38 +1672,38 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Einfache Statistische Aggregation" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%005" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Aggregation Function -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101" HelpContext="FCB-AggrFunction" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101" HelpContext="FCB-AggrFunction" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101">
                             <when test="0 1"><!-- SUM + AVG -->
                               <!-- Weight -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701" IndentLevel="1" HelpContext="FCB-Gewichtung-der-Eingaenge" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701" HelpContext="FCB-Gewichtung-der-Eingaenge" />
                             </when>
                           </choose>                          
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
                           <!-- Input Value Type -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201" HelpContext="FCB-DptEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201" HelpContext="FCB-DptEingang" />
 
 
                           <!-- KO 0 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%172_R-%TT%%CC%17201" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%188_R-%TT%%CC%18801" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%188_R-%TT%%CC%18801" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00004" /></when>
@@ -1720,11 +1720,11 @@
                           </choose>
 
                           <!-- KO 1 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%173_R-%TT%%CC%17301" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%189_R-%TT%%CC%18901" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%189_R-%TT%%CC%18901" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00104" /></when>
@@ -1741,11 +1741,11 @@
                           </choose>
 
                           <!-- KO 2 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%174_R-%TT%%CC%17401" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%190_R-%TT%%CC%19001" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%190_R-%TT%%CC%19001" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00204" /></when>
@@ -1762,11 +1762,11 @@
                           </choose>
 
                           <!-- KO 3 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%175_R-%TT%%CC%17501" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%191_R-%TT%%CC%19101" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%191_R-%TT%%CC%19101" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00304" /></when>
@@ -1783,11 +1783,11 @@
                           </choose>
 
                           <!-- KO 4 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%176_R-%TT%%CC%17601" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%192_R-%TT%%CC%19201" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%192_R-%TT%%CC%19201" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%004_R-%TT%%CC%00404" /></when>
@@ -1804,11 +1804,11 @@
                           </choose>
 
                           <!-- KO 5 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%177_R-%TT%%CC%17701" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%193_R-%TT%%CC%19301" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%193_R-%TT%%CC%19301" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00504" /></when>
@@ -1825,11 +1825,11 @@
                           </choose>
 
                           <!-- KO 6 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%178_R-%TT%%CC%17801" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%194_R-%TT%%CC%19401" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%194_R-%TT%%CC%19401" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00604" /></when>
@@ -1846,11 +1846,11 @@
                           </choose>
 
                           <!-- KO 7 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%179_R-%TT%%CC%17901" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%195_R-%TT%%CC%19501" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%195_R-%TT%%CC%19501" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00704" /></when>
@@ -1867,11 +1867,11 @@
                           </choose>
 
                           <!-- KO 8 / Input -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" HelpContext="FCB-AggrEingang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" HelpContext="FCB-AggrEingang" />
                           <choose     ParamRefId="%AID%_UP-%TT%%CC%180_R-%TT%%CC%18001" >
                             <when test="&gt;0">
                               <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
-                                <when test="1"><ParameterRefRef RefId="%AID%_UP-%TT%%CC%196_R-%TT%%CC%19601" IndentLevel="1" HelpContext="FCB-AggrEingangGewicht" /></when>
+                                <when test="1"><ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%196_R-%TT%%CC%19601" HelpContext="FCB-AggrEingangGewicht" /></when>
                               </choose>
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00804" /></when>
@@ -1891,8 +1891,8 @@
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
                           <!-- Output Value Type -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601" HelpContext="FCB-DptAusgang" />
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%183_R-%TT%%CC%18301" /><!-- invisible: effective output type -->
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601" HelpContext="FCB-DptAusgang" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%183_R-%TT%%CC%18301" /><!-- invisible: effective output type -->
                           <choose ParamRefId="%AID%_P-%TT%%CC%186_R-%TT%%CC%18601">
                             <when test="255">
                               <!-- type of intputs -->
@@ -1924,19 +1924,19 @@
                               <choose ParamRefId="%AID%_UP-%TT%%CC%182_R-%TT%%CC%18201">
                                 <when test="90 140">
                                   <!-- needed for float inputs -->
-                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" HelpContext="FCB-Rundungsmodus" />
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" HelpContext="FCB-Rundungsmodus" />
                                 </when>
                                 <when default="true">
                                   <!-- int output and int inputs -->
                                   <choose ParamRefId="%AID%_UP-%TT%%CC%171_R-%TT%%CC%17101">
                                     <when test="1"><!-- avg of int inputs is non int -->
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" HelpContext="FCB-Rundungsmodus" />
+                                      <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" HelpContext="FCB-Rundungsmodus" />
                                     </when>
                                     <when test="0">
                                       <choose ParamRefId="%AID%_UP-%TT%%CC%187_R-%TT%%CC%18701">
                                         <when test="1">
                                           <!-- weighted sum of int inputs is non int -->
-                                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" IndentLevel="1" HelpContext="FCB-Rundungsmodus" />
+                                          <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%184_R-%TT%%CC%18401" HelpContext="FCB-Rundungsmodus" />
                                         </when>
                                       </choose>                                      
                                     </when>
@@ -1947,9 +1947,9 @@
                           </choose>
 
                           <!-- Output Overflow -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%185_R-%TT%%CC%18501" IndentLevel="1" HelpContext="FCB-OutOfRange" />
+                          <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%185_R-%TT%%CC%18501" HelpContext="FCB-OutOfRange" />
                           <!-- Output Behavior-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%181_R-%TT%%CC%18101" HelpContext="FCB-Sendeverhalten" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%181_R-%TT%%CC%18101" HelpContext="FCB-Sendeverhalten" />
 
 
                         </ParameterBlock>
@@ -1962,14 +1962,14 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Count-Down Zeitgeber" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%006" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -1987,9 +1987,9 @@
                                 <ParameterSeparator Id="%AID%_PS-nnn" Text="Ablaufzeit" Cell="1,1" />
                             
                                 <!-- Count Down Start Value DelayTime -->
-                                <ParameterRefRef RefId="%AID%_UP-%TT%%CC%198_R-%TT%%CC%19801" Cell="1,2" HelpContext="%DOC%" />
+                                <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%198_R-%TT%%CC%19801" Cell="1,2" HelpContext="%DOC%" />
                                 <!-- Count Down Start Value DelayBase-->
-                                <ParameterRefRef RefId="%AID%_UP-%TT%%CC%247_R-%TT%%CC%24701" Cell="1,3" HelpContext="%DOC%" />
+                                <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%247_R-%TT%%CC%24701" Cell="1,3" HelpContext="%DOC%" />
                           </ParameterBlock>
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -2002,7 +2002,7 @@
                          
 
                           <!-- Count Down Time Start KO -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701" HelpContext="FCB-Start-mit-Zeit" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701" HelpContext="FCB-Start-mit-Zeit" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%197_R-%TT%%CC%19701">
                             <when test="&gt;=1">
                               <!-- Start mit Zeit -->
@@ -2011,7 +2011,7 @@
                           </choose>                     
 
                           <!-- Count Down Zeitoffset -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%199_R-%TT%%CC%19901" HelpContext="FCB-Laufzeit-Verringern-Erhoehen" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%199_R-%TT%%CC%19901" HelpContext="FCB-Laufzeit-Verringern-Erhoehen" />
                            <choose ParamRefId="%AID%_UP-%TT%%CC%199_R-%TT%%CC%19901">
                             <when test="&gt;=1">
                               <!-- Laufzeit Verringern / Erhöhen -->
@@ -2023,7 +2023,7 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgänge" UIHint="Headline" />
 
                           <!-- Group Object Counter -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%207_R-%TT%%CC%20701" HelpContext="FCB-GroupObjectCounter" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%207_R-%TT%%CC%20701" HelpContext="FCB-GroupObjectCounter" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%207_R-%TT%%CC%20701">
                             <when test="1">
                               <!-- Verbleibend Sekunden-->
@@ -2060,7 +2060,7 @@
                           <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00805" />
                           
                           <!-- Count Down Trigger -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%200_R-%TT%%CC%20001" HelpContext="FCB-GroupObjectTrigger" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%200_R-%TT%%CC%20001" HelpContext="FCB-GroupObjectTrigger" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%200_R-%TT%%CC%20001">
                             <when test="1">
                               <!-- Auslöser-->
@@ -2075,15 +2075,15 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                              
                           <!-- Group Object Text -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%208_R-%TT%%CC%20801" HelpContext="FCB-GroupObjectText" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%208_R-%TT%%CC%20801" HelpContext="FCB-GroupObjectText" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%208_R-%TT%%CC%20801">
                             <when test="&gt;=1">
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="Die folgende Textbausteine werden für das Gruppenobjekt 'Text' für die Ausgabe verwendet." />
                               
                               <!-- Text Template Pause -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%205_R-%TT%%CC%20501" HelpContext="FCB-TemplatePause" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%205_R-%TT%%CC%20501" HelpContext="FCB-TemplatePause" />
                               <!-- Text Template Läuft -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%206_R-%TT%%CC%20601" HelpContext="FCB-TemplateLaeuft" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%206_R-%TT%%CC%20601" HelpContext="FCB-TemplateLaeuft" />
 
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="folgende Platzhalter können für die weiteren Bausteine verwendet werden:" />
                               <ParameterSeparator Id="%AID%_PS-nnn" Text=" H2...Stunden (2 oder mehrstellig)" />
@@ -2096,13 +2096,13 @@
                               <ParameterSeparator Id="%AID%_PS-nnn" Text=" $....Läuft / Pause Textbautstein" />
                           
                               <!-- Text Template -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%201_R-%TT%%CC%20101" HelpContext="FCB-Template" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%201_R-%TT%%CC%20101" HelpContext="FCB-Template" />
                               <!-- Text Template kleiner 1 Stunde -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%202_R-%TT%%CC%20201" HelpContext="FCB-Template1h" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%202_R-%TT%%CC%20201" HelpContext="FCB-Template1h" />
                               <!-- Text Template kleiner 1 Minute -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%203_R-%TT%%CC%20301" HelpContext="FCB-Template1m" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%203_R-%TT%%CC%20301" HelpContext="FCB-Template1m" />
                               <!-- Text Template Ende -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%204_R-%TT%%CC%20401" HelpContext="FCB-TemplateEnde" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%204_R-%TT%%CC%20401" HelpContext="FCB-TemplateEnde" />
 
 
                               <!-- Text -->
@@ -2161,14 +2161,14 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Wertüberwachung" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%007" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -2176,13 +2176,13 @@
 
 
                           <!-- Messwert Type-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Zeitüberwachung (Watchdog)" UIHint="Headline" />
 
                           <!-- Watdchdog -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%246_R-%TT%%CC%24601" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%246_R-%TT%%CC%24601" HelpContext="%DOC%" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%246_R-%TT%%CC%24601">
                             <when test="1">
                               <ParameterBlock Id="%AID%_PB-nnn" Name="f%C%MonitoringWatchdogTime" Inline="true" Layout="Grid" HelpContext="FCB-Watchdog-Zeit">
@@ -2196,9 +2196,9 @@
                                 </Columns>
                                 <ParameterSeparator Id="%AID%_PS-nnn" Text="Alarm bei fehlenden Eingangstelegram nach" Cell="1,1" />
                                 <!-- Watdchdog DelayTime -->
-                                <ParameterRefRef RefId="%AID%_UP-%TT%%CC%245_R-%TT%%CC%24501" Cell="1,2" HelpContext="%DOC%" />
+                                <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%245_R-%TT%%CC%24501" Cell="1,2" HelpContext="%DOC%" />
                                 <!-- Watdchdog DelayBase -->
-                                <ParameterRefRef RefId="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001" Cell="1,3" HelpContext="%DOC%" />
+                                <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%210_R-%TT%%CC%21001" Cell="1,3" HelpContext="%DOC%" />
                               </ParameterBlock> 
                               <!-- Zeitüberschreitungsalarm -->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" />
@@ -2207,43 +2207,43 @@
                   
                        
                               <!-- Watdchdog Verhalten -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%244_R-%TT%%CC%24401" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%244_R-%TT%%CC%24401" HelpContext="%DOC%" />
                               <choose ParamRefId="%AID%_UP-%TT%%CC%244_R-%TT%%CC%24401">
                               <when test="2 3">
                                   <!-- WatchdogRef RefReplacement -->
                                   <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
                                     <when test="10">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%211_R-%TT%%CC%21101" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%211_R-%TT%%CC%21101" HelpContext="%DOC%" />
                                     </when>
                                     <when test="50">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%212_R-%TT%%CC%21201" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%212_R-%TT%%CC%21201" HelpContext="%DOC%" />
                                     </when>
                                     <when test="51">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%213_R-%TT%%CC%21301" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%213_R-%TT%%CC%21301" HelpContext="%DOC%" />
                                     </when>
                                     <when test="61">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%214_R-%TT%%CC%21401" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%214_R-%TT%%CC%21401" HelpContext="%DOC%" />
                                     </when>
                                     <when test="70">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%215_R-%TT%%CC%21501" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%215_R-%TT%%CC%21501" HelpContext="%DOC%" />
                                     </when>
                                     <when test="80">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%216_R-%TT%%CC%21601" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%216_R-%TT%%CC%21601" HelpContext="%DOC%" />
                                     </when>
                                     <when test="90">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%217_R-%TT%%CC%21701" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%217_R-%TT%%CC%21701" HelpContext="%DOC%" />
                                     </when>
                                     <when test="120">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%218_R-%TT%%CC%21801" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%218_R-%TT%%CC%21801" HelpContext="%DOC%" />
                                     </when>
                                     <when test="130">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%219_R-%TT%%CC%21901" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%219_R-%TT%%CC%21901" HelpContext="%DOC%" />
                                     </when>
                                     <when test="140">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%220_R-%TT%%CC%22001" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%220_R-%TT%%CC%22001" HelpContext="%DOC%" />
                                     </when>
                                     <when test="160">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%262_R-%TT%%CC%26201" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%262_R-%TT%%CC%26201" HelpContext="%DOC%" />
                                     </when>
                                   </choose>
                                 </when>
@@ -2257,7 +2257,7 @@
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="Minimalwert Überwachung" UIHint="Headline" />
 
                               <!--  Min Val Monitoring -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101" HelpContext="%DOC%" />
                               <choose ParamRefId="%AID%_UP-%TT%%CC%221_R-%TT%%CC%22101">
                                 <when test="&gt;0">
                                   <!-- Mininum Wert Alarm -->
@@ -2268,34 +2268,34 @@
                                   <!-- Min Value -->
                                   <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
                                     <when test="10">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%222_R-%TT%%CC%22201" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%222_R-%TT%%CC%22201" HelpContext="%DOC%" />
                                     </when>
                                     <when test="50">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%223_R-%TT%%CC%22301" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%223_R-%TT%%CC%22301" HelpContext="%DOC%" />
                                     </when>
                                     <when test="51">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%224_R-%TT%%CC%22401" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%224_R-%TT%%CC%22401" HelpContext="%DOC%" />
                                     </when>
                                     <when test="61">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%225_R-%TT%%CC%22501" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%225_R-%TT%%CC%22501" HelpContext="%DOC%" />
                                     </when>
                                     <when test="70"> 
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%226_R-%TT%%CC%22601" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%226_R-%TT%%CC%22601" HelpContext="%DOC%" />
                                     </when>
                                     <when test="80">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%227_R-%TT%%CC%22701" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%227_R-%TT%%CC%22701" HelpContext="%DOC%" />
                                     </when>
                                     <when test="90">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%228_R-%TT%%CC%22801" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%228_R-%TT%%CC%22801" HelpContext="%DOC%" />
                                     </when>
                                     <when test="120">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%229_R-%TT%%CC%22901" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%229_R-%TT%%CC%22901" HelpContext="%DOC%" />
                                     </when>
                                     <when test="130">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%230_R-%TT%%CC%23001" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%230_R-%TT%%CC%23001" HelpContext="%DOC%" />
                                     </when>
                                     <when test="140">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%231_R-%TT%%CC%23101" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%231_R-%TT%%CC%23101" HelpContext="%DOC%" />
                                     </when>
                                   </choose>              
                                 </when>
@@ -2305,7 +2305,7 @@
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="Maximalwert Überwachung" UIHint="Headline" />
 
                               <!-- Max ValuRef Ref Monitoring -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201" HelpContext="%DOC%" />
                                 <choose ParamRefId="%AID%_UP-%TT%%CC%232_R-%TT%%CC%23201">
                                   <when test="&gt;0">
                                     <!-- Maximum Wert Alarm -->
@@ -2316,34 +2316,34 @@
                                     <!-- Max Value -->
                                     <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
                                     <when test="10">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%233_R-%TT%%CC%23301" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%233_R-%TT%%CC%23301" HelpContext="%DOC%" />
                                     </when>
                                     <when test="50">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%234_R-%TT%%CC%23401" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%234_R-%TT%%CC%23401" HelpContext="%DOC%" />
                                     </when>
                                     <when test="51">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%235_R-%TT%%CC%23501" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%235_R-%TT%%CC%23501" HelpContext="%DOC%" />
                                     </when>
                                     <when test="61">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%236_R-%TT%%CC%23601" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%236_R-%TT%%CC%23601" HelpContext="%DOC%" />
                                     </when>
                                     <when test="70"> 
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%237_R-%TT%%CC%23701" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%237_R-%TT%%CC%23701" HelpContext="%DOC%" />
                                     </when>
                                     <when test="80">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%238_R-%TT%%CC%23801" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%238_R-%TT%%CC%23801" HelpContext="%DOC%" />
                                     </when>
                                     <when test="90">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%239_R-%TT%%CC%23901" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%239_R-%TT%%CC%23901" HelpContext="%DOC%" />
                                     </when>
                                     <when test="120">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%240_R-%TT%%CC%24001" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%240_R-%TT%%CC%24001" HelpContext="%DOC%" />
                                     </when>
                                     <when test="130">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%241_R-%TT%%CC%24101" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%241_R-%TT%%CC%24101" HelpContext="%DOC%" />
                                     </when>
                                     <when test="140">
-                                      <ParameterRefRef RefId="%AID%_UP-%TT%%CC%242_R-%TT%%CC%24201" HelpContext="%DOC%" />
+                                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%242_R-%TT%%CC%24201" HelpContext="%DOC%" />
                                     </when>
                                   </choose>              
                                 </when>
@@ -2354,7 +2354,7 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
 
                           <!-- Ausgang -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301" HelpContext="FCB-Ersatzwertbehandlung" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301" HelpContext="FCB-Ersatzwertbehandlung" />
      		                    <choose ParamRefId="%AID%_UP-%TT%%CC%243_R-%TT%%CC%24301">
                             <when test="&gt;0">
 
@@ -2404,21 +2404,21 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Auswahl (Multiplexer)" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%008" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
 
                           <!-- Auswahl Value Type -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301" HelpContext="%DOC%" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%263_R-%TT%%CC%26301">
                             <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" /></when>
                             <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00004" /><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00104" /></when>
@@ -2434,7 +2434,7 @@
                           </choose>
         
                           <!-- Auswahl Type -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801" HelpContext="%DOC%" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801">
                             <when test="&gt;=3">
                               <!-- Auswahl Value Type-->
@@ -2536,7 +2536,7 @@
 
                           </choose>
                           <!-- Auswahl Umschaltung -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%249_R-%TT%%CC%24901" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%249_R-%TT%%CC%24901" HelpContext="%DOC%" />
 
                           <!-- Auswahl Type -->
                           <choose ParamRefId="%AID%_UP-%TT%%CC%248_R-%TT%%CC%24801">
@@ -2544,7 +2544,7 @@
                               <!-- Auswahl 1 Bit -->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00807" /> 
                               <!-- 2 Eingänge -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001" HelpContext="%DOC%" />
                               <choose ParamRefId="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001">
                                 <when test="1">
                                   <!-- Auswahl Status 1 Bit -->
@@ -2560,7 +2560,7 @@
                                 <when test="!=8">
                                   <!-- Nicht 8-fach --> 
                                   <!-- Auswahl Statusausgang -->                 
-                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001" HelpContext="%DOC%" />
                                   <choose ParamRefId="%AID%_UP-%TT%%CC%250_R-%TT%%CC%25001">
                                     <when test="1">
                                         <!-- Auswahl Status 1 Byte -->
@@ -2619,21 +2619,21 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Blinker" UIHint="Headline" />
 
                           <!-- Kanal Name -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
                           <!-- Channel Disabled-->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" HelpContext="%DOC%" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
                           <!-- Documentation --><!-- Multi-Line Comment (not the Module from Common) -->
-                          <ParameterRefRef RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%003_R-%TT%%CC%00301" HelpContext="FCB-Kommentar" />
                           <Button Id="%AID%_B-%TT%%CC%009" Text="Alle '\n' im Text durch Zeilenumbruch ersetzen" EventHandler="newline" EventHandlerParameters="{ &quot;textbox&quot;:&quot;%PREFIX%_CH%C%Comment&quot; }" />
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Konfiguration" UIHint="Headline" />
 
                           <!-- Blinkanzahl -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101" HelpContext="%DOC%" />
 
                           <ParameterBlock Id="%AID%_PB-nnn" Name="f%C%BlinkerOnTime" Inline="true" Layout="Grid" HelpContext="FCB-Ein-Zeit">
                             <Rows>
@@ -2646,9 +2646,9 @@
                             </Columns>
                             <ParameterSeparator Id="%AID%_PS-nnn" Text="Ein-Zeit" Cell="1,1" />
                             <!-- Ein DelayTime -->
-                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%252_R-%TT%%CC%25201" Cell="1,2" HelpContext="%DOC%" />
+                            <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%252_R-%TT%%CC%25201" Cell="1,2" HelpContext="%DOC%" />
                             <!-- Ein DelayBase -->
-                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%251_R-%TT%%CC%25101" Cell="1,3" HelpContext="%DOC%" />
+                            <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%251_R-%TT%%CC%25101" Cell="1,3" HelpContext="%DOC%" />
                           </ParameterBlock>
                           <ParameterBlock Id="%AID%_PB-nnn" Name="f%C%BlinkerOffTime" Inline="true" Layout="Grid" HelpContext="FCB-Aus-Zeit">
                             <Rows>
@@ -2661,9 +2661,9 @@
                             </Columns>
                             <ParameterSeparator Id="%AID%_PS-nnn" Text="Aus-Zeit" Cell="1,1" />
                             <!-- Aus DelayTime -->
-                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%254_R-%TT%%CC%25401" Cell="1,2" HelpContext="%DOC%" />
+                            <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%254_R-%TT%%CC%25401" Cell="1,2" HelpContext="%DOC%" />
                             <!-- Aus DelayBase -->
-                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%253_R-%TT%%CC%25301" Cell="1,3" HelpContext="%DOC%" />
+                            <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%253_R-%TT%%CC%25301" Cell="1,3" HelpContext="%DOC%" />
                           </ParameterBlock>
                   
                           <!-- Blinkanzahl -->
@@ -2672,16 +2672,16 @@
                               <!-- Ungleich "immer" -->
 
                               <!-- KO Blink Anzahl -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%264_R-%TT%%CC%26401" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%264_R-%TT%%CC%26401" HelpContext="%DOC%" />
                       
 
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                               <ParameterSeparator Id="%AID%_PS-nnn" Text="Start / Stopp" UIHint="Headline" />
 
                               <!-- Start -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%255_R-%TT%%CC%25501" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%255_R-%TT%%CC%25501" HelpContext="%DOC%" />
                               <!-- Stop -->
-                              <ParameterRefRef RefId="%AID%_UP-%TT%%CC%256_R-%TT%%CC%25601" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%256_R-%TT%%CC%25601" HelpContext="%DOC%" />
                               
                               <choose ParamRefId="%AID%_UP-%TT%%CC%261_R-%TT%%CC%26101">
                                 <when test="0">
@@ -2708,12 +2708,12 @@
                                 <when test="!=0">
                                   <!-- Nicht solange EIN am Ausgang-->
                                   <!-- Break -->
-                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%257_R-%TT%%CC%25701" HelpContext="%DOC%" />
+                                  <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%257_R-%TT%%CC%25701" HelpContext="%DOC%" />
                                 </when>
                                 <when test="0">
                                   <!-- Solange EIN am Ausgang-->
                                   <!-- Break without ignore -->
-                                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%265_R-%TT%%CC%26501" HelpContext="FCB-AUS-Telegram-am-Start-Eingang" />                               
+                                  <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%265_R-%TT%%CC%26501" HelpContext="FCB-AUS-Telegram-am-Start-Eingang" />                               
                                 </when>
                               </choose>
 
@@ -2738,13 +2738,13 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Ausgang" UIHint="Headline" />
                           <!-- Ausgang Dpt -->
-                          <ParameterRefRef RefId="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801" HelpContext="%DOC%" />
+                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801" HelpContext="%DOC%" />
                           <choose ParamRefId="%AID%_UP-%TT%%CC%258_R-%TT%%CC%25801">
                             <when test="51">
                               <!-- Ein Wert -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%259_R-%TT%%CC%25901" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%259_R-%TT%%CC%25901" HelpContext="%DOC%" />
                               <!-- Aus Wert -->
-                              <ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%%CC%260_R-%TT%%CC%26001" HelpContext="%DOC%" />
+                              <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%260_R-%TT%%CC%26001" HelpContext="%DOC%" />
 
                               <!-- Ausgang Prozent-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00926" />                           
