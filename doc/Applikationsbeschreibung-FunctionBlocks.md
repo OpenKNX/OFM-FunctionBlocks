@@ -7,29 +7,16 @@ Die Anwendung stellt je Kanal einen Funktionsblock bereit.
 Folgende Funktionsblöcke stehen zur Auswahl:
   * [UND](#und)
   * [ODER](#oder)
-  * [Prioritätsschalter](#prioritätsschalter)
-    * [Beispielanwendungen](#beispielsanwendung)
   * [Anzahl](#anzahl)
+  * [Auswahl (Multiplexer)](#auswahl-multiplexer)
+  * [Prioritätsschalter](#prioritätsschalter)
   * [Statistische Aggregation](#statistische-aggregation)
-  * [Count-Down Zeitgeber](#count-down-zeitgeber)
   * [Wertüberwachung](#wertüberwachtung)
-
-
-### ETS Konfiguration
-
-* **[Allgemein](#allgemein)**
-  * [Kanalauswahl](#kanalauswahl)
-* (n=1 bis 99) *Abhängig vomTyp*:
-  * [Kanal-Typ-unabhängige Einstellungen](#kanaleinstellungen)
-  * {[**UND**, **ODER**, **Anzahl**](#undoderanzahl-kanaleinstellungen)}
-  * [**Prioritätsschalter**](#prioritätsschalter-1)
-  * [**Aggregation**](#aggregation)
-  * [**Count-Down Zeitgeber**](#count-down-zeitgeber-1)
-  * [**Wertüberwachung**](#wertüberwachung-1)
+  * [Count-Down Zeitgeber](#count-down-zeitgeber)
+  * [Blinker](#blinker)
 
 
 # Blocktypen
-
 
 <!-- DOC -->
 ## UND
@@ -38,11 +25,38 @@ Ein UND-Funktionsblock verfügt über bis zu 9 Eingänge.
 Der Ausgang gibt EIN aus, wenn alle Eingänge EIN sind.
 Zusätzlich können sowohl die Eingänge als auch der Ausgang über die Konfiguration invertiert werden.
 
+<!-- DOCEND -->
+[ETS Konfiguration](#undoderanzahl-kanaleinstellungen)
+
 <!-- DOC -->
 ## ODER
 
 Ein ODER-Funktionsblock verfügt über bis zu 9 Eingänge. Der Ausgang gibt EIN aus, wenn mindestens ein Eingang EIN ist.
 Zusätzlich können sowohl die Eingänge als auch der Ausgang über die Konfiguration invertiert werden.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#undoderanzahl-kanaleinstellungen)
+
+<!-- DOC -->
+## Anzahl
+
+Ein Anzahl-Funktionsblock verfügt über bis zu 9 Eingänge. 
+Der Ausgang gibt aus, wie viele der (verwendeten) Eingänge den Wert EIN angenommen haben.
+Die Eingänge können vor Zählung invertiert werden.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#undoderanzahl-kanaleinstellungen)
+
+
+<!-- DOC -->
+## Auswahl (Multiplexer)
+
+Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
+Es stehen 2-8 Eingänge zur Verfügung. 
+Die Auswahl welcher Eingang auf den Ausgang geschalten wird, erfolgt über ein Gruppenobjekt.
+
+<!-- DOCEND -->
+[ETS Konfigruation](#auswahl-multiplexer-1)
 
 <!-- DOC -->
 ## Prioritätsschalter
@@ -62,13 +76,8 @@ Die Farbe der LED kann aber über ein Kommunikationsobjekt nicht verändert werd
 Jedoch bietet der Taste die Möglichkeit verschiedene Prozentwerte mit verschieden Farben darzustellen.
 So können z.B. für einen Jalousientaster Kommunikationswerte für Nachbetrieb, Beschattung aktiv, Windsperre auf Prozentwerte umgesetzt werden, die der Taster in verschiedene Farbwerte umsetzt.
 
-
-<!-- DOC -->
-## Anzahl
-
-Ein Anzahl-Funktionsblock verfügt über bis zu 9 Eingänge. 
-Der Ausgang gibt aus, wie viele der (verwendeten) Eingänge den Wert EIN angenommen haben.
-Die Eingänge können vor Zählung invertiert werden.
+<!-- DOCEND -->
+[ETS Konfiguration](#prioritätsschalter-1)
 
 <!-- DOC -->
 ## Statistische Aggregation
@@ -76,6 +85,20 @@ Die Eingänge können vor Zählung invertiert werden.
 Ein Aggregations-Funktionsblock verfügt über bis zu 9 numerische Eingänge, gängiger DPTs. 
 Der Ausgangswert wird basierend auf der gewählten Funktion (Summe, Mittelwert, Minimum, Maximum, Spannbreite) berechnet und kann in verschiedenen numerischen DPTs ausgegeben werden.
 Es kann beeinflusst werden, wie mit Werten umgegangen wird die vom Ausgatyp nicht dargestellt werden können.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#aggregation)
+
+<!-- DOC -->
+## Wertüberwachung
+
+Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
+Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
+Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#wertüberwachung-1)
+
 
 <!-- DOC -->
 ## Count-Down Zeitgeber
@@ -89,12 +112,19 @@ Es gibt Ausgänge für
  - Aktiv laufende Zeit
  - Pause aktiv
 
-<!-- DOC -->
-## Wertüberwachung
+<!-- DOCEND -->
+[ETS Konfiguration](#count-down-zeitgeber-1)
+ 
 
-Die Wertüberwachung dient zum überwachen von Messwerten oder Signalen. 
-Bei zu lange fehlenden Übertragungen, kann ein Ersatzwert auf den Bus gesendet werden.
-Ebenfalls können Minimum und Maximumwerte festgelegt werden und bei Bedarf durch einen Ersatzwert ersetzt werden.
+<!-- DOC -->
+## Blinker
+
+Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
+Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
+Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
+
+<!-- DOCEND -->
+[ETS Konfiguration](#blinker-1)
 
 # ETS Konfiguration
 
@@ -121,25 +151,36 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Ein ODER-Funktionsblock verfügt über bis zu 9 Eingänge. 
   Der Ausgang gibt EIN aus, wenn mindestens ein Eingang EIN ist.
 
+- **Anzahl**
+  Ein Anzahl-Funktionsblock hat bis zu 9 Eingänge vom Typ EIN/AUS.
+  Der Ausgang gibt die Anzahl der Eingänge mit dem Wert EIN aus.
+
+- **Auswahl (Mulitplexer)**
+  Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
+  Es stehen 2-8 Eingänge zur Verfügung. 
+  Die Auswahl welcher Eingang auf den Ausgang geschalten wird, erfolgt über ein Gruppenobjekt.
+
 - **Prioritätsschalter**
   Ein Prioritätsschalter hat bis zu 9 Eingänge vom Typ EIN/AUS.
   Der Eingang mit der höchsten Priorität der EIN ist, bestimmt den Ausgangswert.
 
-- **Anzahl**
-  Ein Anzahl-Funktionsblock hat bis zu 9 Eingänge vom Typ EIN/AUS.
-  Der Ausgang gibt die Anzahl der Eingänge mit dem Wert EIN aus.
 
 - **Statistische Aggregation**
   Ein Aggregations-Funktionsblock hat bis zu 9 Eingänge mit numerischem Typ.
   Es kann zwischen fünf Funktionen (Summe, Mittelwert, Minimum, Maximum, Spannbreite) zur Berechnung des Ausgangswertes gewählt werden.
 
+- **Wertüberwachung**
+  Überwacht einen Eingang und löst einen Alarm bei falschen oder ausbleibenden Werten aus.
+  Es können auch Ersatzwerte auf den Bus geschickt werden.
+
 - **Count-Down Zeitgeber**
   Zählt von eine vorgebenen Zeit in herunter.
   Die Laufzeit kann über konfiguration oder über den Bus gesteuert werden.
 
-- **Wertüberwachung**
-  Überwacht einen Eingang und löst einen Alarm bei falschen oder ausbleibenden Werten aus.
-  Es können auch Ersatzwerte auf den Bus geschickt werden.
+- **Blinker**
+  Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
+  Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
+  Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
 
 ## Kanaleinstellungen
 
@@ -742,3 +783,189 @@ Optionen:
   Am Ausgang werden alle gültigen Eingangswerte gesendet und im Fehlerfall so eingestellt, Ersatzwerte auf den Bus gesendet.
 - **Getrenntes Ausgangsobjekt, nur Ersatzwerte**
   Es werden nur eingestellte Ersatzwerte auf den Ausgang gesendet.
+
+<!-- DOC HelpContext="Selection" -->
+## Auswahl (Multiplexer)
+
+Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
+Es stehen 2-8 Eingänge zur Verfügung. 
+
+Hinweis: Bevor der Eingang "Auswahl" beschrieben wird, ist der Eingang1 mit dem Ausgang verbunden. 
+Wird beim Eingang "Auswahl" ein größerer Wert als die zur Verfügung stehenden Eingänge übergeben, wird die Auswahl nicht übernommen und es wird weiterhin der zuvor gewählte Eingang auf den Ausgang verbunden.
+
+<!-- DOC -->
+### Datentype
+
+Auswahl des Datentypes für die Ein- und Ausgänge:
+
+- 1.*           1-Bit (0/1)
+- 5.*           8-Bit vorzeichenlos
+- 5.001       Prozent (0..100%)
+- 6.*           8-Bit vorzeichenbehaftet
+- 7.*           2-Byte vorzeichenlos
+- 8.*           2-Byte vorzeichenbehaftet
+- 9.*           2-Byte Gleitkommawert
+- 12.*         4-Byte vorzeichenlos
+- 13.*         4-Byte vorzeichenbehaftet
+- 14.*         4-Byte Gleitkommawert
+- 16.*        14-Byte Zeichenfolge
+
+<!-- DOC -->
+### Anzahl und Typ der Auswahlen (mit gemeinsamen Auswahl-Eingang)
+
+Über diese Konfiguration wird die Anzahl der Eingänge festgelegt.
+Bei 2 Eingängen wird für die "Auswahl" ein 1-bit verwendet, bei mehr als 2 Eingängen wir ein Szenen-Objekt verwendet.
+Bei 1-bit enspricht AUS der Auswahl für Eingang 1 und EIN der Auswahl für Eingang 2
+Bei Szenen Auswahl entspricht die Szenennummer der Eingangnummer.
+Achtung: Szene1 entspricht den technischen Zahlenwert 0.
+
+<!-- DOC -->
+### Bei Umschaltung
+
+Gibt an, ob bei Umschaltung der Auswahl der Wert des neuen gewählten Eingangs auf den Ausgang gesendet werden soll.
+
+- **Nichts senden**
+- **Eingangswert senden oder Lesetelegram für Eingang wenn nicht gesetzt**
+  Diese Einstellung bewirkt auch, dass beim Starten auf Eingang1 ein Lesetelegram geschickt wird, das Eingang1 Standardmäßig auf den Ausgang geschalten ist.
+- **Eingangswert senden wenn bekannt, sonst 0-Wert**
+- **Eingangswert senden wenn bekannt, sonst 0-Wert**
+- **Eingangswert senden wenn bekannt, sonst nichts senden**								
+ 
+<!-- DOC -->
+### Auswahl Status Objekt
+
+Es kann gewählt werden, ob ein Objekt mit der Nummer des aktuell gewählten Eingangs zur Verfügung stehen soll.
+<!-- DOCEND -->
+Diese Option steht nur zur Verfügung, wenn weniger als 8 Eingänge verwendet werden.
+
+<!-- DOC -->
+## Blinker
+
+Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
+Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
+Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
+
+<!-- DOC -->
+### Anzahl der Blinkvorgänge
+
+Zur Auswahl stehen:
+
+- **Immmer**
+  Es wird fortlaufend am Ausgang ein Blinksignal gesendet
+- **Solange Start EIN**
+  Solange der Start Eingang auf EIN steht wird am Ausgang ein Blinksignla gesendet.
+- **1-20**
+  Anzahl wie oft der Ausgang ein Blinksignal sendet. 
+  Nach erreichen der Anzahl wird das Blinken automatisch beendet.
+
+
+<!-- DOC -->
+### Ein-Zeit
+
+Einschaltdauer des Ausgangs beim Blinken.
+
+<!-- DOC HelpContext="Blinker-EIN-Zeit" -->
+#### Zeit
+
+Zeit in der gewählten Einheit 
+
+<!-- DOC HelpContext="Blinker-EIN-Zeitbasis" -->
+#### Einheit 
+ 
+Einheit für die Zeit
+
+<!-- DOC -->
+### Aus-Zeit
+
+Ausschaltdauer des Ausgangs beim Blinken
+
+<!-- DOC HelpContext="Blinker-AUS-Zeit" -->
+#### Zeit
+
+Zeit in der gewählten Einheit 
+ 
+<!-- DOC HelpContext="Blinker-AUS-Zeitbasis" -->
+### Einheit 
+
+Einheit für die Zeit
+
+
+<!-- DOC -->
+### Objekt zum Starten mit Anzahl
+
+Blendet ein Objekt ein, das zum Starten des Blinkens mit einer vorgegebenen Anzahl verwendet werden kann.
+Hinweis: Wir eine Szene Objekt Verbunden, entspricht die Blink-Anzahl der Szenennummer minus 1.
+
+Wir 0 empfangen, wird der Blinkvorgang vorzeitig beendet sofern der Parameter 'AUS Telegram am Start Eingang' nicht auf ignorieren gestellt ist.
+
+
+<!-- DOC -->
+### Start
+
+Verhalten beim Starten des Blinkvorgangs:
+
+- **Mit EIN starten**
+- **Mit AUS starten**
+- **Umgekehrt zur aktuellen Aktor Rückmeldung**
+  Hinweis: der Eingang "Aktor Rückmeldung" muss beschalten werden damit der Blinker richtig funktioniert.
+
+<!-- DOC -->
+### Ende
+
+Verhalten beim Ende des Blinkvorgangs:
+
+- **Mit EIN beenden**
+- **Mit AUS beenden**
+- **Wie Zustand vor Blink-Beginn**
+  Hinweis: der Eingang "Aktor Rückmeldung" muss beschalten werden damit der Blinker richtig funktioniert.
+- **Umgekehrt wie Zustand vor Blink-Beginn**
+  Hinweis: der Eingang "Aktor Rückmeldung" muss beschalten werden damit der Blinker richtig funktioniert.
+
+
+<!-- DOC -->
+### AUS Telegram am Start Eingang
+
+Gibt an ob und wie ein Blinkvorgang durch eine AUS Telegram am Start Eingang beendet werden kann.
+
+- **Ignorieren**
+  AUS-Telegramme am Eingang oder 0 am Eingang zum Starten mit Anzahl werden ignoriert.
+  Diese Option ist nicht vorhanden wenn für 'Anzahl der Blinkvorgänge' die Auswahl 'Solange Start EIN' getroffen wurde. 
+- **Blinken sofort beenden und EIN senden**
+  Das Blinken wird beendet und der Ausgang wir eingeschalten
+- **Blinken sofort beenden und AUS senden**
+  Das Blinken wird beendet und der Ausgang wir ausgeschalten
+- **Blinken sofort beenden, Zustand vor Blink-Beginn herstellen**
+  Das Blinken wird beendet und der Zustand vor dem Blinken wird wieder hergestellt. 
+  Wird der Prozent Datentype verwendet kann dies auch ein Wert ungleich der definierten Werte für EIN und AUS sein.
+- **Blinken sofort beenden, Zustand umgekehrt wie vor Blink-Beginn herstellen**
+  War vor dem Blinken der Aktor eingeschalten, wird der nach dem Blinken ausgeschalten.
+  War vor dem Blinken der Aktor ausgeschalten, wird der nach dem Blinken eingeschalten.
+- Mit aktuellen Zustand beenden (Kein Telegram senden)**
+  Das Blinken wird beendet ohne ein Abschlusstelegram zu senden.
+							
+
+<!-- DOC -->
+### Ausgang
+
+Der Datentype der für den Ausgang verwendet wird.
+
+- **1.*           1-Bit (0/1)**
+- **5.001       Prozent (0..100%)**
+
+<!-- DOC -->
+### Wert für EIN
+
+<!-- DOC Skip="1" -->
+Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.001       Prozent (0..100%)" ausgewählt wird
+
+Der Prozentwert der für EIN gesendet wird.
+
+<!-- DOC -->
+### Wert für AUS
+
+<!-- DOC Skip="1" -->
+Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.001       Prozent (0..100%)" ausgewählt wird
+
+Der Prozentwert der für AUS gesendet wird.
+
+

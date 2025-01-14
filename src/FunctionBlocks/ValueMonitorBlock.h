@@ -33,12 +33,14 @@ class ValueMonitorBlock : public FunctionBlock
     unsigned long _lastValidTelegramWhileNotTimeAvailable = 0;
     Dpt _dpt;
     KNXValue _lastValidValue;
-    bool hasValidValue = false;
+    bool _hasValidValue = false;
 
     ValueMonitorWatchdogFallbackBehavior _watchDogFallbackBehaviour = ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorOnlyAlarm;
     void setState(ValueMonitorWatchdogState state);
     void handleTimeout();
     void logState();
+    void resetWatchdog();
+    void handleLastValidTelegram(GroupObject &ko, bool isValid);
 
   public:
     ValueMonitorBlock(uint8_t channelIndex);

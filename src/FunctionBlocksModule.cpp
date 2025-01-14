@@ -4,6 +4,8 @@
 #include "FunctionBlocks/PrioritySwitchFunctionBlock.h"
 #include "FunctionBlocks/SimpleAggregationBlock.h"
 #include "FunctionBlocks/ValueMonitorBlock.h"
+#include "FunctionBlocks/SelectionBlock.h"
+#include "FunctionBlocks/BlinkerBlock.h"
 #include "knxprod.h"
 
 FunctionBlocksModule::FunctionBlocksModule()
@@ -117,6 +119,10 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
             return new CountDownBlock(_channelIndex);
         case 7:
             return new ValueMonitorBlock(_channelIndex);
+        case 8:
+            return new SelectionBlock(_channelIndex);
+        case 9:
+            return new BlinkerBlock(_channelIndex);
         default:
             logErrorP("Unknown channel type %d", ParamFCB_CHChannelType);
             return nullptr;
