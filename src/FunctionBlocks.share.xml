@@ -333,7 +333,9 @@
 							<ParameterType Id="%AID%_PT-FCBSelectionSwitching" Name="FCBSelectionSwitching" >
 								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
 									<Enumeration Text="Nichts senden" Value="0" Id="%ENID%" />
-									<Enumeration Text="Eingangswert senden" Value="1" Id="%ENID%" />
+									<Enumeration Text="Eingangswert senden oder Lesetelegram für Eingang wenn nicht gesetzt" Value="1" Id="%ENID%" />
+									<Enumeration Text="Eingangswert senden wenn bekannt, sonst 0-Wert" Value="2" Id="%ENID%" />		
+									<Enumeration Text="Eingangswert senden wenn bekannt, sonst nichts senden" Value="3" Id="%ENID%" />							
 								</TypeRestriction>
 							</ParameterType>
 

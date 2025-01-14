@@ -16,11 +16,9 @@ SelectionBlock::SelectionBlock(uint8_t channelIndex)
 void SelectionBlock::handleKo(GroupObject &ko)
 {
     auto index = FCB_KoCalcIndex(ko.asap());
-    if (index >= FCB_KoCHKO0 && index <= FCB_KoCHKO7)
+    if (index >= FCB_KoCHKO0 && index <= FCB_KoCHKO7 && _currentIndex == index - FCB_KoCHKO0)
     {
-        auto input = index - FCB_KoCHKO0;
-        if (_currentIndex == input)
-           copyToOutput(ko);
+        copyToOutput(ko);
     }
     else if (index == FCB_KoCHSelection)
     {
@@ -32,12 +30,13 @@ void SelectionBlock::handleKo(GroupObject &ko)
 void SelectionBlock::copyToOutput(GroupObject &ko)
 {
     size_t size = ko.valueSize();
-    uint8_t* sourceData = ko.valueRef();
+    const uint8_t* sourceData = ko.valueRef();
     GroupObject& target = KoFCB_CHOutput;
     if (size == target.valueSize())
     {
         uint8_t* targetData = target.valueRef();
-        memcpy(sourceData, targetData, size);
+        memcpy(targetData, sourceData, size);
+        target.objectWritten();
     }
 }
 
@@ -64,7 +63,7 @@ void SelectionBlock::setNewIndex(uint8_t newIndex)
     {
         return;
     }
-    if (max < 8 && ParamFCB_CHSelectionStateOutput)
+    if (max < 8 /* State can only exist if less then 8 inputs are defined */ && ParamFCB_CHSelectionStateOutput)
     {
         KoFCB_CHSelectionState.value(newIndex, dpt);
     }
@@ -72,12 +71,33 @@ void SelectionBlock::setNewIndex(uint8_t newIndex)
     {
         _currentIndex = newIndex;
         // <Enumeration Text="Nichts senden" Value="0" Id="%ENID%" />
-        // <Enumeration Text="Eingangswert senden" Value="1" Id="%ENID%" />
-        if ((bool)ParamFCB_CHSelectionSwitching)
+        // <Enumeration Text="Eingangswert senden oder Lesetelegram für Eingang wenn nicht gesetzt" Value="1" Id="%ENID%" />
+        // <Enumeration Text="Eingangswert senden wenn bekannt, sonst 0-Wert" Value="2" Id="%ENID%" />		
+        // <Enumeration Text="Eingangswert senden wenn bekannt, sonst nichts" Value="3" Id="%ENID%" />	
+        auto behavior = ParamFCB_CHSelectionSwitching;						
+	    if (behavior > 0)
         {
-            GroupObject& ko = knx.getGroupObject(FCB_KoCalcNumber(newIndex));
+            auto goNr = FCB_KoCalcNumber(newIndex);
+            GroupObject& ko = knx.getGroupObject(goNr);
             if (ko.initialized())
+            {
                 copyToOutput(ko);
+            }
+            else
+            {
+                switch (behavior)
+                {
+                    case 1:
+                        ko.requestObjectRead();
+                        break;
+                    case 2:
+                        GroupObject& target = KoFCB_CHOutput;
+                        auto targetData = target.valueRef();
+                        memset(targetData, 0, target.valueSize());
+                        target.objectWritten();
+                        break;
+                }
+            }   
         }
     }
 }
