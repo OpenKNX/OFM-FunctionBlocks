@@ -15,15 +15,15 @@
 							<ParameterType Id="%AID%_PT-FCBChannelType" Name="FCBChannelType">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<Enumeration Id="%ENID%" Value="0" Text="Deaktiviert" />
-									<Enumeration Id="%ENID%" Value="1" Text="UND" />
-									<Enumeration Id="%ENID%" Value="2" Text="ODER" />
-									<Enumeration Id="%ENID%" Value="4" Text="Anzahl" />
-									<Enumeration Id="%ENID%" Value="8" Text="Auswahl (Mulitplexer)" />
-									<Enumeration Id="%ENID%" Value="3" Text="Prioritätsschalter" />
-									<Enumeration Id="%ENID%" Value="5" Text="Statistische Aggregation" />
-									<Enumeration Id="%ENID%" Value="7" Text="Wertüberwachung" />
-									<Enumeration Id="%ENID%" Value="6" Text="Count-Down Zeitgeber" />
-									<Enumeration Id="%ENID%" Value="9" Text="Blinker" />
+									<Enumeration Id="%ENID%" Value="1" Text="UND" Icon="ampersand" />
+									<Enumeration Id="%ENID%" Value="2" Text="ODER" Icon="greater-than-or-equal" />
+									<Enumeration Id="%ENID%" Value="4" Text="Anzahl" Icon="tally-mark-5" />
+									<Enumeration Id="%ENID%" Value="8" Text="Auswahl (Mulitplexer)" Icon="multicast" />
+									<Enumeration Id="%ENID%" Value="3" Text="Prioritätsschalter" Icon="priority-low" />
+									<Enumeration Id="%ENID%" Value="5" Text="Statistische Aggregation" Icon="set-merge" />
+									<Enumeration Id="%ENID%" Value="7" Text="Wertüberwachung" Icon="alert-remove-outline" />
+									<Enumeration Id="%ENID%" Value="6" Text="Count-Down Zeitgeber" Icon="timer-sand" />
+									<Enumeration Id="%ENID%" Value="9" Text="Blinker" Icon="alarm-light-outline" />
 								</TypeRestriction>
 							</ParameterType>
 
