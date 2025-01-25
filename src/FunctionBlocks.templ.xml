@@ -925,8 +925,8 @@
               <ComObjectRef Id="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" RefId="%AID%_O-%TT%%CC%006" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Wertunterschreitung"    FunctionText="{{0:-}} Wertunterschreitung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <!-- Maximum Wert Alarm -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" RefId="%AID%_O-%TT%%CC%007" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Wertüberschreitung"    FunctionText="{{0:-}} Wertüberschreitung"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
-              <!-- Summenalarm -->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Summenalarm"    FunctionText="{{0:-}} Summenalarm"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <!-- Alarm -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"    DatapointType="DPST-1-5"     Text="%C%: Alarm"    FunctionText="{{0:-}} Alarm"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <!-- Ausgang -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00906" RefId="%AID%_O-%TT%%CC%009" ObjectSize="14 Bytes" DatapointType="DPST-16-0"    Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00916" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-5"     Text="%C%: Ausgang"    FunctionText="{{0:-}} Ausgang"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
@@ -2202,7 +2202,7 @@
                               </ParameterBlock> 
                               <!-- Zeitüberschreitungsalarm -->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%005_R-%TT%%CC%00506" />
-                              <!-- Summenalarm -->
+                              <!-- Alarm -->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
                   
                        
@@ -2262,7 +2262,7 @@
                                 <when test="&gt;0">
                                   <!-- Mininum Wert Alarm -->
                                   <ComObjectRefRef RefId="%AID%_O-%TT%%CC%006_R-%TT%%CC%00606" />
-                                  <!-- Summenalarm -->
+                                  <!-- Alarm -->
                                   <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
                       
                                   <!-- Min Value -->
@@ -2310,7 +2310,7 @@
                                   <when test="&gt;0">
                                     <!-- Maximum Wert Alarm -->
                                     <ComObjectRefRef RefId="%AID%_O-%TT%%CC%007_R-%TT%%CC%00706" />
-                                    <!-- Summenalarm -->
+                                    <!-- Alarm -->
                                     <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00806" />
                       
                                     <!-- Max Value -->

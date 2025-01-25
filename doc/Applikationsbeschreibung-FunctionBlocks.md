@@ -719,7 +719,7 @@ wenn innerhalb des eingestellten Zeitraums kein Eingangstelegramm empfangen wurd
   Sendet sofort 1 ("Alarm") über das KO *Zeitüberschreitung* und den Ersatzwert.
 
 *Hinweis zum Alarm:*
-Zusammen mit dem KO *Zeitüberschreitung* erfolgt auch eine Aktualisierung des KO *Summenalarm*.
+Zusammen mit dem KO *Zeitüberschreitung* erfolgt auch eine Aktualisierung des KO *Alarm*.
 Falls sich eine Wertänderung ergibt, wird der neue Wert gesendet.
 
 <!-- DOC -->
