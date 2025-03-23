@@ -996,7 +996,7 @@
                     <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
                     <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
                       <when test="0"><!-- ************ Deaktiviert ************ -->
-                        <ParameterSeparator Id="%AID%_PS-nnn" Text="Die Auswahl darf nicht 'Deaktiviert' sein um hinzufügen zu können. Hinzugefügte Kanäle erscheinen nach ca. 1 Sekunde verzögerung links im Baum." UIHint="Information" />
+                        <ParameterSeparator Id="%AID%_PS-nnn" Text="Die Auswahl darf nicht 'Deaktiviert' sein um hinzufügen zu können. Hinzugefügte Kanäle erscheinen nach ca. 1 Sekunde Verzögerung links im Baum." UIHint="Information" />
                       </when>
                     </choose>
                   </when>
