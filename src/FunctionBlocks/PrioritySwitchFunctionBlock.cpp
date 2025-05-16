@@ -121,6 +121,36 @@ uint8_t PrioritySwitchFunctionBlock::getParamOutPercent(uint8_t input)
     }
 }
 
+uint8_t PrioritySwitchFunctionBlock::getParamOutScene(uint8_t input)
+{
+    switch (input)
+    {
+        case 0:
+            return ParamFCB_CHPrioOutSceneKo0 - 1;
+        case 1:
+            return ParamFCB_CHPrioOutSceneKo1 - 1;
+        case 2:
+            return ParamFCB_CHPrioOutSceneKo2 - 1;
+        case 3:
+            return ParamFCB_CHPrioOutSceneKo3 - 1;
+        case 4:
+            return ParamFCB_CHPrioOutSceneKo4 - 1;
+        case 5:
+            return ParamFCB_CHPrioOutSceneKo5 - 1;
+        case 6:
+            return ParamFCB_CHPrioOutSceneKo6 - 1;
+        case 7:
+            return ParamFCB_CHPrioOutSceneKo7 - 1;
+        case 8:
+            return ParamFCB_CHPrioOutSceneKo8 - 1;
+        case 255:
+            return ParamFCB_CHPrioOutSceneDefault - 1;
+        default:
+            openknx.hardware.fatalError(FATAL_SYSTEM, "Invalid input");
+            return 0;
+    }
+}
+
 void PrioritySwitchFunctionBlock::readInputKos()
 {
     for (uint8_t i = 0; i < 9; i++)
@@ -195,17 +225,17 @@ void PrioritySwitchFunctionBlock::handleKo(GroupObject& ko)
             // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
             // <Enumeration Text="Normal" Value="1" Id="%ENID%" />
             // <Enumeration Text="Invertiert" Value="2" Id="%ENID%" />
-            auto inputKo = getParamInput(i);
-            if (inputKo == 0)
+            auto inputKoHandling = getParamInput(i);
+            if (inputKoHandling == 0)
                 continue;
        
             if (!hasValue(i))
                 return;
 
-            auto& ko = getKo(i);
+            auto& inputKo = getKo(i);
 
-            auto inputValue = (bool)ko.value(DPT_Switch);
-            if (inputKo == 2)
+            auto inputValue = (bool)inputKo.value(DPT_Switch);
+            if (inputKoHandling == 2)
                 inputValue = !inputValue;
             if (inputValue)
             {
@@ -221,13 +251,35 @@ void PrioritySwitchFunctionBlock::setOutputForPrio(uint8_t input)
 {
     // <Enumeration Text="Prozent" Value="0" Id="%ENID%" />
     // <Enumeration Text="1 Byte (Ohne Vorzeichen)" Value="1" Id="%ENID%" />
+    // <Enumeration Text="Szene" Value="2" Id="%ENID%" />
     auto outputType = ParamFCB_CHPrioOutputType;
-    uint8_t result = outputType ? getParamOutByte(input) : getParamOutPercent(input);
+    uint8_t result;
+    Dpt dptType;
+    switch (outputType)
+    {
+        case 0 : // Percent
+            result = getParamOutPercent(input);
+            dptType = DPT_Scaling;
+            break;
+        case 1 : // Byte
+            result = getParamOutByte(input);
+            dptType = DPT_Value_1_Count;
+            break;
+        case 2 : // Scene
+            result = getParamOutScene(input);
+            dptType = DPT_SceneNumber;
+            break;  
+        default:
+            result = 0;
+            dptType = DPT_Value_1_Count;
+            break;
+
+    }
     
     // <Enumeration Text="Bei jedem Eingangstelegram" Value="0" Id="%ENID%" />
     // <Enumeration Text="Nur bei Änderung des Ausgangswertes" Value="1" Id="%ENID%" />
     if (ParamFCB_CHPrioBehavOut && KoFCB_CHKO9.initialized())
-        KoFCB_CHKO9.valueCompare(result, outputType ?  DPT_Value_1_Count : DPT_Scaling);
+        KoFCB_CHKO9.valueCompare(result, dptType);
     else
-        KoFCB_CHKO9.value(result, outputType ? DPT_Value_1_Count : DPT_Scaling);
+        KoFCB_CHKO9.value(result, dptType);
 }

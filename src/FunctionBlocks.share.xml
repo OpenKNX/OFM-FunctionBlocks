@@ -110,12 +110,18 @@
 								<TypeRestriction Base="Value" SizeInBit="2">
 									<Enumeration Text="Prozent (0-100%)" Value="0" Id="%ENID%" />
 									<Enumeration Text="1 Byte (Ohne Vorzeichen)" Value="1" Id="%ENID%" />
+									<Enumeration Text="Szene" Value="2" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBValuePercentage" Name="FCBValuePercentage">
+							<ParameterType Id="%AID%_PT-FCBValuePercent" Name="FCBValuePercent">
 								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="100" />
 							</ParameterType>
+
+							<ParameterType Id="%AID%_PT-FCBValueScene" Name="FCBValueScene">
+								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="64" />
+							</ParameterType>
+
 
 							<ParameterType Id="%AID%_PT-FCBValue1Byte" Name="FCBValue1Byte">
 								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="255" />

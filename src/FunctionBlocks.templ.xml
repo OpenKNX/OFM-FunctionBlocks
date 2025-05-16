@@ -104,44 +104,54 @@
 
 
                 <!-- Output Value Ko 0-->
-                <Parameter Id="%AID%_UP-%TT%%CC%112" Name="CH%C%PrioOutPKo0" ParameterType="%AID%_PT-FCBValuePercentage" Offset="3" BitOffset="0" Text="Ausgangswert" Value="10" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%112" Name="CH%C%PrioOutPKo0" ParameterType="%AID%_PT-FCBValuePercent" Offset="3" BitOffset="0" Text="Ausgangswert" Value="10" SuffixText='%' />
                 <Parameter Id="%AID%_UP-%TT%%CC%113" Name="CH%C%PrioOutByteKo0" ParameterType="%AID%_PT-FCBValue1Byte" Offset="3" BitOffset="0" Text="Ausgangswert" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%142" Name="CH%C%PrioOutSceneKo0" ParameterType="%AID%_PT-FCBValueScene" Offset="3" BitOffset="0" Text="Ausgangswert Szenennummer" Value="1" />
 
                 <!-- Output Value Ko 1-->
-                <Parameter Id="%AID%_UP-%TT%%CC%114" Name="CH%C%PrioOutPKo1" ParameterType="%AID%_PT-FCBValuePercentage" Offset="4" BitOffset="0" Text="Ausgangswert" Value="20" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%114" Name="CH%C%PrioOutPKo1" ParameterType="%AID%_PT-FCBValuePercent" Offset="4" BitOffset="0" Text="Ausgangswert" Value="20" SuffixText='%' />
                 <Parameter Id="%AID%_UP-%TT%%CC%115" Name="CH%C%PrioOutByteKo1" ParameterType="%AID%_PT-FCBValue1Byte" Offset="4" BitOffset="0" Text="Ausgangswert" Value="2" />
+                <Parameter Id="%AID%_UP-%TT%%CC%143" Name="CH%C%PrioOutSceneKo1" ParameterType="%AID%_PT-FCBValueScene" Offset="4" BitOffset="0" Text="Ausgangswert Szenennummer" Value="2" />
 
                 <!-- Output Value Ko 2-->
-                <Parameter Id="%AID%_UP-%TT%%CC%116" Name="CH%C%PrioOutPKo2" ParameterType="%AID%_PT-FCBValuePercentage" Offset="5" BitOffset="0" Text="Ausgangswert" Value="30" SuffixText='%'/>
+                <Parameter Id="%AID%_UP-%TT%%CC%116" Name="CH%C%PrioOutPKo2" ParameterType="%AID%_PT-FCBValuePercent" Offset="5" BitOffset="0" Text="Ausgangswert" Value="30" SuffixText='%'/>
                 <Parameter Id="%AID%_UP-%TT%%CC%117" Name="CH%C%PrioOutByteKo2" ParameterType="%AID%_PT-FCBValue1Byte" Offset="5" BitOffset="0" Text="Ausgangswert" Value="3" />
+                <Parameter Id="%AID%_UP-%TT%%CC%144" Name="CH%C%PrioOutSceneKo2" ParameterType="%AID%_PT-FCBValueScene" Offset="5" BitOffset="0" Text="Ausgangswert Szenennummer" Value="3" />
 
                 <!-- Output Value Ko 3-->
-                <Parameter Id="%AID%_UP-%TT%%CC%118" Name="CH%C%PrioOutPKo3" ParameterType="%AID%_PT-FCBValuePercentage" Offset="6" BitOffset="0" Text="Ausgangswert" Value="40" SuffixText='%'/>
+                <Parameter Id="%AID%_UP-%TT%%CC%118" Name="CH%C%PrioOutPKo3" ParameterType="%AID%_PT-FCBValuePercent" Offset="6" BitOffset="0" Text="Ausgangswert" Value="40" SuffixText='%'/>
                 <Parameter Id="%AID%_UP-%TT%%CC%119" Name="CH%C%PrioOutByteKo3" ParameterType="%AID%_PT-FCBValue1Byte" Offset="6" BitOffset="0" Text="Ausgangswert" Value="4" />
+                <Parameter Id="%AID%_UP-%TT%%CC%145" Name="CH%C%PrioOutSceneKo3" ParameterType="%AID%_PT-FCBValueScene" Offset="6" BitOffset="0" Text="Ausgangswert Szenennummer" Value="4" />
 
                 <!-- Output Value Ko 4-->
-                <Parameter Id="%AID%_UP-%TT%%CC%120" Name="CH%C%PrioOutPKo4" ParameterType="%AID%_PT-FCBValuePercentage" Offset="7" BitOffset="0" Text="Ausgangswert" Value="50" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%120" Name="CH%C%PrioOutPKo4" ParameterType="%AID%_PT-FCBValuePercent" Offset="7" BitOffset="0" Text="Ausgangswert" Value="50" SuffixText='%' />
                 <Parameter Id="%AID%_UP-%TT%%CC%121" Name="CH%C%PrioOutByteKo4" ParameterType="%AID%_PT-FCBValue1Byte" Offset="7" BitOffset="0" Text="Ausgangswert" Value="5" />
+                <Parameter Id="%AID%_UP-%TT%%CC%146" Name="CH%C%PrioOutSceneKo4" ParameterType="%AID%_PT-FCBValueScene" Offset="7" BitOffset="0" Text="Ausgangswert Szenennummer" Value="5" />
 
                 <!-- Output Value Ko 5-->
-                <Parameter Id="%AID%_UP-%TT%%CC%122" Name="CH%C%PrioOutPKo5" ParameterType="%AID%_PT-FCBValuePercentage" Offset="8" BitOffset="0" Text="Ausgangswert" Value="60" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%122" Name="CH%C%PrioOutPKo5" ParameterType="%AID%_PT-FCBValuePercent" Offset="8" BitOffset="0" Text="Ausgangswert" Value="60" SuffixText='%' />
                 <Parameter Id="%AID%_UP-%TT%%CC%123" Name="CH%C%PrioOutByteKo5" ParameterType="%AID%_PT-FCBValue1Byte" Offset="8" BitOffset="0" Text="Ausgangswert" Value="6" />
+                <Parameter Id="%AID%_UP-%TT%%CC%147" Name="CH%C%PrioOutSceneKo5" ParameterType="%AID%_PT-FCBValueScene" Offset="8" BitOffset="0" Text="Ausgangswert Szenennummer" Value="6" />
 
                 <!-- Output Value Ko 6-->
-                <Parameter Id="%AID%_UP-%TT%%CC%124" Name="CH%C%PrioOutPKo6" ParameterType="%AID%_PT-FCBValuePercentage" Offset="9" BitOffset="0" Text="Ausgangswert" Value="70" SuffixText='%'/>
+                <Parameter Id="%AID%_UP-%TT%%CC%124" Name="CH%C%PrioOutPKo6" ParameterType="%AID%_PT-FCBValuePercent" Offset="9" BitOffset="0" Text="Ausgangswert" Value="70" SuffixText='%'/>
                 <Parameter Id="%AID%_UP-%TT%%CC%125" Name="CH%C%PrioOutByteKo6" ParameterType="%AID%_PT-FCBValue1Byte" Offset="9" BitOffset="0" Text="Ausgangswert" Value="7" />
+                <Parameter Id="%AID%_UP-%TT%%CC%148" Name="CH%C%PrioOutSceneKo6" ParameterType="%AID%_PT-FCBValueScene" Offset="9" BitOffset="0" Text="Ausgangswert Szenennummer" Value="7" />
 
                 <!-- Output Value Ko 7-->
-                <Parameter Id="%AID%_UP-%TT%%CC%126" Name="CH%C%PrioOutPKo7" ParameterType="%AID%_PT-FCBValuePercentage" Offset="10" BitOffset="0" Text="Ausgangswert" Value="80" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%126" Name="CH%C%PrioOutPKo7" ParameterType="%AID%_PT-FCBValuePercent" Offset="10" BitOffset="0" Text="Ausgangswert" Value="80" SuffixText='%' />
                 <Parameter Id="%AID%_UP-%TT%%CC%127" Name="CH%C%PrioOutByteKo7" ParameterType="%AID%_PT-FCBValue1Byte" Offset="10" BitOffset="0" Text="Ausgangswert" Value="8" />
+                <Parameter Id="%AID%_UP-%TT%%CC%149" Name="CH%C%PrioOutSceneKo7" ParameterType="%AID%_PT-FCBValueScene" Offset="10" BitOffset="0" Text="Ausgangswert Szenennummer" Value="8" />
 
                 <!-- Output Value Ko 8-->
-                <Parameter Id="%AID%_UP-%TT%%CC%128" Name="CH%C%PrioOutPKo8" ParameterType="%AID%_PT-FCBValuePercentage" Offset="11" BitOffset="0" Text="Ausgangswert" Value="90" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%128" Name="CH%C%PrioOutPKo8" ParameterType="%AID%_PT-FCBValuePercent" Offset="11" BitOffset="0" Text="Ausgangswert" Value="90" SuffixText='%' />
                 <Parameter Id="%AID%_UP-%TT%%CC%129" Name="CH%C%PrioOutByteKo8" ParameterType="%AID%_PT-FCBValue1Byte" Offset="11" BitOffset="0" Text="Ausgangswert" Value="9" />
+                <Parameter Id="%AID%_UP-%TT%%CC%270" Name="CH%C%PrioOutSceneKo8" ParameterType="%AID%_PT-FCBValueScene" Offset="11" BitOffset="0" Text="Ausgangswert Szenennummer" Value="9" />
 
                 <!-- Output Value Ko 9-->
-                <Parameter Id="%AID%_UP-%TT%%CC%130" Name="CH%C%PrioOutPDefault" ParameterType="%AID%_PT-FCBValuePercentage" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="0" SuffixText='%' />
+                <Parameter Id="%AID%_UP-%TT%%CC%130" Name="CH%C%PrioOutPDefault" ParameterType="%AID%_PT-FCBValuePercent" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="0" SuffixText='%' />
                 <Parameter Id="%AID%_UP-%TT%%CC%131" Name="CH%C%PrioOutByteDefault" ParameterType="%AID%_PT-FCBValue1Byte" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%271" Name="CH%C%PrioOutSceneDefault" ParameterType="%AID%_PT-FCBValueScene" Offset="12" BitOffset="0" Text="Ausgangswert Szenennummer wenn alle Eingänge AUS" Value="64" />
 
                 <!-- Input Ko 0 Behavior-->
                 <Parameter Id="%AID%_UP-%TT%%CC%132" Name="CH%C%PrioBehavKo0" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="13" BitOffset="0" Text="Initialisierung" Value="0" />
@@ -411,33 +421,44 @@
               <!-- Output Value Ko 0-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%112_R-%TT%%CC%11201" RefId="%AID%_UP-%TT%%CC%112" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%113_R-%TT%%CC%11301" RefId="%AID%_UP-%TT%%CC%113" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%142_R-%TT%%CC%14201" RefId="%AID%_UP-%TT%%CC%142" />
               <!-- Output Value Ko 1-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%114_R-%TT%%CC%11401" RefId="%AID%_UP-%TT%%CC%114" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%115_R-%TT%%CC%11501" RefId="%AID%_UP-%TT%%CC%115" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%143_R-%TT%%CC%14301" RefId="%AID%_UP-%TT%%CC%143" />
               <!-- Output Value Ko 2-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%116_R-%TT%%CC%11601" RefId="%AID%_UP-%TT%%CC%116" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%117_R-%TT%%CC%11701" RefId="%AID%_UP-%TT%%CC%117" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%144_R-%TT%%CC%14401" RefId="%AID%_UP-%TT%%CC%144" />
               <!-- Output Value Ko 3-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%118_R-%TT%%CC%11801" RefId="%AID%_UP-%TT%%CC%118" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%119_R-%TT%%CC%11901" RefId="%AID%_UP-%TT%%CC%119" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%145_R-%TT%%CC%14501" RefId="%AID%_UP-%TT%%CC%145" />
               <!-- Output Value Ko 4-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%120_R-%TT%%CC%12001" RefId="%AID%_UP-%TT%%CC%120" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%121_R-%TT%%CC%12101" RefId="%AID%_UP-%TT%%CC%121" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%146_R-%TT%%CC%14601" RefId="%AID%_UP-%TT%%CC%146" />
               <!-- Output Value Ko 5-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%122_R-%TT%%CC%12201" RefId="%AID%_UP-%TT%%CC%122" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%123_R-%TT%%CC%12301" RefId="%AID%_UP-%TT%%CC%123" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%147_R-%TT%%CC%14701" RefId="%AID%_UP-%TT%%CC%147" />
               <!-- Output Value Ko 6-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%124_R-%TT%%CC%12401" RefId="%AID%_UP-%TT%%CC%124" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%125_R-%TT%%CC%12501" RefId="%AID%_UP-%TT%%CC%125" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%148_R-%TT%%CC%14801" RefId="%AID%_UP-%TT%%CC%148" />
               <!-- Output Value Ko 7-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%126_R-%TT%%CC%12601" RefId="%AID%_UP-%TT%%CC%126" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%127_R-%TT%%CC%12701" RefId="%AID%_UP-%TT%%CC%127" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%149_R-%TT%%CC%14901" RefId="%AID%_UP-%TT%%CC%149" />
               <!-- Output Value Ko 8-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%128_R-%TT%%CC%12801" RefId="%AID%_UP-%TT%%CC%128" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%129_R-%TT%%CC%12901" RefId="%AID%_UP-%TT%%CC%129" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%270_R-%TT%%CC%27001" RefId="%AID%_UP-%TT%%CC%270" />
               <!-- Output Value Default-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%130_R-%TT%%CC%13001" RefId="%AID%_UP-%TT%%CC%130" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%131_R-%TT%%CC%13101" RefId="%AID%_UP-%TT%%CC%131" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%271_R-%TT%%CC%27101" RefId="%AID%_UP-%TT%%CC%271" />
+
 
               <!-- Input Ko 0 Behavior-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%132_R-%TT%%CC%13201" RefId="%AID%_UP-%TT%%CC%132" />
@@ -729,6 +750,7 @@
               <!-- Output -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00901" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-1"     Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang %"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00911" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang Wert"   TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00921" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-17-1"    Text="%C%: Ausgang"      FunctionText="{{0:-}} Ausgang Szene"  TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
 
 
               <!-- AND/OR/COUNT -->
@@ -1447,7 +1469,7 @@
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingänge" UIHint="Headline" />
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Der Eingang mit der höchste Priorität gibt den Ausgangswert vor" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang 1 hat die niedrigste Priorität, Eingang 9 die höchste." />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang 1 hat die höchste Priorität, Eingang 9 die niedrigste." />
 
 
                           <!-- Output Type -->
@@ -1459,6 +1481,10 @@
                             <when test="1">
                               <!-- Output 8 1 Byte ohne Vorzeichen -->
                               <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%131_R-%TT%%CC%13101" HelpContext="%DOC%" />
+                            </when>
+                            <when test="2">
+                              <!-- Output 8 Szene -->
+                              <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%271_R-%TT%%CC%27101" HelpContext="FCB-Ausgangswert-wenn-alle-Eingaenge-AUS" />
                             </when>
                           </choose>
 
@@ -1479,6 +1505,10 @@
                                 <when test="1">
                                   <!-- Output 0 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%113_R-%TT%%CC%11301" HelpContext="%DOC%"/>
+                                </when>
+                                <when test="2">
+                                  <!-- Output 0 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%142_R-%TT%%CC%14201" HelpContext="FCB-Ausgangswert"/>
                                 </when>
                               </choose>
                             </when>
@@ -1502,6 +1532,10 @@
                                   <!-- Output 1 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%115_R-%TT%%CC%11501" HelpContext="%DOC%" />
                                 </when>
+                                <when test="2">
+                                  <!-- Output 1 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%143_R-%TT%%CC%14301" HelpContext="FCB-Ausgangswert" />
+                                </when>
                               </choose>
                             </when>
                           </choose>
@@ -1523,6 +1557,10 @@
                                 <when test="1">
                                   <!-- Output 2 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%117_R-%TT%%CC%11701" HelpContext="%DOC%" />
+                                </when>
+                                <when test="2">
+                                  <!-- Output 2 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%144_R-%TT%%CC%14401" HelpContext="FCB-Ausgangswert" />
                                 </when>
                               </choose>
                             </when>
@@ -1546,6 +1584,10 @@
                                   <!-- Output 3 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%119_R-%TT%%CC%11901" HelpContext="%DOC%" />
                                 </when>
+                                <when test="2">
+                                  <!-- Output 3 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%145_R-%TT%%CC%14501" HelpContext="FCB-Ausgangswert" />
+                                </when>
                               </choose>
                             </when>
                           </choose>
@@ -1567,6 +1609,10 @@
                                 <when test="1">
                                   <!-- Output 4 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%121_R-%TT%%CC%12101" HelpContext="%DOC%" />
+                                </when>
+                                <when test="2">
+                                  <!-- Output 4 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%146_R-%TT%%CC%14601" HelpContext="FCB-Ausgangswert" />
                                 </when>
                               </choose>
                             </when>
@@ -1590,6 +1636,10 @@
                                   <!-- Output 5 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%123_R-%TT%%CC%12301" HelpContext="%DOC%" />
                                 </when>
+                                <when test="2">
+                                  <!-- Output 5 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%147_R-%TT%%CC%14701" HelpContext="FCB-Ausgangswert" />
+                                </when>
                               </choose>
                             </when>
                           </choose>
@@ -1611,6 +1661,10 @@
                                 <when test="1">
                                   <!-- Output 6 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%125_R-%TT%%CC%12501" HelpContext="%DOC%" />
+                                </when>
+                                <when test="2">
+                                  <!-- Output 6 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%148_R-%TT%%CC%14801" HelpContext="FCB-Ausgangswert" />
                                 </when>
                               </choose>
                             </when>
@@ -1634,6 +1688,10 @@
                                   <!-- Output 7 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%127_R-%TT%%CC%12701" HelpContext="%DOC%" />
                                 </when>
+                                <when test="2">
+                                  <!-- Output 7 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%149_R-%TT%%CC%14901" HelpContext="FCB-Ausgangswert" />
+                                </when>
                               </choose>
                             </when>
                           </choose>
@@ -1656,6 +1714,10 @@
                                   <!-- Output 8 1 Byte ohne Vorzeichen -->
                                   <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%129_R-%TT%%CC%12901" HelpContext="%DOC%" />
                                 </when>
+                                <when test="2">
+                                  <!-- Output 8 Szene -->
+                                  <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%270_R-%TT%%CC%27001" HelpContext="FCB-Ausgangswert" />
+                                </when>
                               </choose>
                             </when>
                           </choose>
@@ -1669,6 +1731,10 @@
                             <when test="1">
                               <!-- Output Value -->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00911" />
+                            </when>
+                            <when test="2">
+                              <!-- Output Scene -->
+                              <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00921" />
                             </when>
                           </choose>
 

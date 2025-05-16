@@ -96,6 +96,8 @@ GroupObject& FunctionBlock::getKo(uint8_t nr)
             return KoFCB_CHKO7;
         case 8:
             return KoFCB_CHKO8;
+        case 9:
+            return KoFCB_CHKO9;
         default:
             openknx.hardware.fatalError(FATAL_SYSTEM, "Invalid Ko");    
             return KoFCB_CHKO0;
