@@ -18,7 +18,7 @@
 									<Enumeration Id="%ENID%" Value="1" Text="UND" Icon="ampersand" />
 									<Enumeration Id="%ENID%" Value="2" Text="ODER" Icon="greater-than-or-equal" />
 									<Enumeration Id="%ENID%" Value="4" Text="Anzahl" Icon="tally-mark-5" />
-									<Enumeration Id="%ENID%" Value="8" Text="Auswahl (Mulitplexer)" Icon="multicast" />
+									<Enumeration Id="%ENID%" Value="8" Text="Auswahl (Multiplexer)" Icon="multicast" />
 									<Enumeration Id="%ENID%" Value="3" Text="Prioritätsschalter" Icon="priority-low" />
 									<Enumeration Id="%ENID%" Value="5" Text="Statistische Aggregation" Icon="set-merge" />
 									<Enumeration Id="%ENID%" Value="7" Text="Wertüberwachung" Icon="alert-remove-outline" />
