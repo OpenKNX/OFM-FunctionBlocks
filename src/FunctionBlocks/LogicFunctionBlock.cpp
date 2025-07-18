@@ -83,10 +83,10 @@ void LogicFunctionBlock::readInputKos()
         switch (inputBehavior)
         {
             case 0:
-                ko.value(false, DPT_Switch);
+                ko.valueNoSend(false, DPT_Switch);
                 break;
             case 1:
-                ko.value(true, DPT_Switch);
+                ko.valueNoSend(true, DPT_Switch);
                 break;
             case 2:
             case 3:
@@ -114,10 +114,10 @@ void LogicFunctionBlock::initMissingInputValues()
             switch (inputBehavior)
             {
                 case 2:
-                    ko.value(false, DPT_Switch);
+                    ko.valueNoSend(false, DPT_Switch);
                     break;
                 case 3:
-                    ko.value(true, DPT_Switch);
+                    ko.valueNoSend(true, DPT_Switch);
                     break;
             }
         }
