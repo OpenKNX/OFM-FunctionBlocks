@@ -14,7 +14,7 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Ein Anzahl-Funktionsblock hat bis zu 9 Eingänge vom Typ EIN/AUS.
   Der Ausgang gibt die Anzahl der Eingänge mit dem Wert EIN aus.
 
-- **Auswahl (Mulitplexer)**
+- **Auswahl (Multiplexer)**
   Über die Funktion Auswahl kann ein Eingang auf einen Ausgang durchverbunden werden. 
   Es stehen 2-8 Eingänge zur Verfügung. 
   Die Auswahl welcher Eingang auf den Ausgang geschalten wird, erfolgt über ein Gruppenobjekt.

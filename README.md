@@ -6,6 +6,10 @@ Ziel ist, komplexere Logiken einfach per Konfiguration abbilden zu können.
 Im Gegensatz zum Logikmodul sind die Funktion-Blöcke nicht generisch, das heißt, jeder Funktionsblock dient genau einem Zweck und ist nur im geringen Maß konfigurierbar.
 Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 
+## Release Notes
+- 0.6 Eingänge können benannt werden
+- 0.5 Szene-DPT als Prioritätsschalter Ausgang
+
 ## Features
 - AND mit 9 Eingängen
 - OR mit 9 Eingängen
@@ -27,7 +31,6 @@ Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 
 ## Planned Features
 - Counter
-
 
 ## Applikationsbeschreibung
 

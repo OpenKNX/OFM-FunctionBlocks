@@ -249,6 +249,12 @@ Unabhängig von der Einstellung wird der Ausgangswert auch nach der Initialisier
 
 Legt fest, ob der Eingang verwendet wird, und falls ja, ob der Eingangswert **normal** oder **invertiert** verwendet wird.
 
+<!-- DOC HelpContext="InputName" -->
+### Name
+
+Name des Eingangs.
+Wird für die Gruppen-Objektfunktion verwendet und dient zur leichtern Zuordnung bzw. Erstellung der Gruppenadressen.
+
 <!-- DOC -->
 ### Initialisierung
 
@@ -300,6 +306,10 @@ Legt fest, ob der Eingang verwendet wird und ob der Eingangswert normal oder inv
 Die Eingangsnummer 1-9 entspricht gleichzeitig der Priorität, wobei 1 die höchste und 9 die niedrigste darstellt.
 
 <!-- DOCEND-->
+### Name
+
+Name des Eingangs.
+Wird für die Gruppen-Objektfunktion verwendet und dient zur leichtern Zuordnung bzw. Erstellung der Gruppenadressen.
 
 ### Initialisierung
 
@@ -368,6 +378,12 @@ Definiert den DPT der Eingänge. Zur Auswahl stehen gängige numerische DPTs mit
 ### Eingang 1-9
 
 Legt fest, ob der Eingang verwendet wird.
+
+<!-- DOCEND -->
+### Name
+
+Name des Eingangs.
+Wird für die Gruppen-Objektfunktion verwendet und dient zur leichtern Zuordnung bzw. Erstellung der Gruppenadressen.
 
 <!-- DOC HelpContext="AggrEingangGewicht" -->
 ### Gewicht Eingang 1-9
