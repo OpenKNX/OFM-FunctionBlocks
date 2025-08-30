@@ -444,7 +444,7 @@
 						</Script>
 					</Static>
 					<Dynamic>
-						<Channel Name="MainChannel%TT%" Text="Funktionsblöcke" Number="%TT%" Id="%AID%_CH-%TT%" Icon="texture-box">
+						<Channel Name="MainChannel%TT%" Text="Funktionsblöcke" Number="%PREFIX%" Id="%AID%_CH-%TT%" Icon="texture-box">
 							<ParameterBlock Id="%AID%_PB-nnn" Name="FunctionBlockSettings" Text="Allgemein" Icon="cog-outline" HelpContext="FCB-Allgemein">
 
 								<ParameterSeparator Id="%AID%_PS-nnn" Text="Funktionsblöcke" UIHint="Headline" />
