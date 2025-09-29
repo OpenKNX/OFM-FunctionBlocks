@@ -35,7 +35,7 @@ const std::string FunctionBlocksModule::version()
 void FunctionBlocksModule::setup(bool configured)
 {
     Module::setup(configured);
-    FCBChannelOwnerModule::initialize(ParamFCB_VisibleChannels);
+    FCBChannelOwnerModule::initialize(configured ? ParamFCB_VisibleChannels : 0);
     FCBChannelOwnerModule::setup(configured);
     _startTime = millis();
 }
