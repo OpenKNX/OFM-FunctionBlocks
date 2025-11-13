@@ -7,6 +7,7 @@ Im Gegensatz zum Logikmodul sind die Funktion-Blöcke nicht generisch, das heiß
 Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 
 ## Release Notes
+- 0.6.1 Breaking Change: Fix: Ko Pause/Fortsetzten ist nun richtiggestellt: 1...Fortsetzten, 0...Pause
 - 0.6 Eingänge können benannt werden
 - 0.6 Text Input is now ISO-8859-1
 - 0.5 Szene-DPT als Prioritätsschalter Ausgang

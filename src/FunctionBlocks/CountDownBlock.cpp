@@ -185,7 +185,7 @@ void CountDownBlock::handleKo(GroupObject &ko)
             break;
         }
         case FCB_KoCHPauseContinue: {
-            pause(ko.value(DPT_Switch));
+            pause(!ko.value(DPT_Switch));
             break;
         }
     }
