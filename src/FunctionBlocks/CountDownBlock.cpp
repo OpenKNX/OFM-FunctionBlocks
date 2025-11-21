@@ -102,7 +102,7 @@ void CountDownBlock::handleKo(GroupObject &ko)
             break;
         }
         case FCB_KoCHTimeOffset: {
-            bool down = ko.value(DPT_UpDown);
+            bool increment = ko.value(DPT_UpDown);
             // <Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"  />
             // <Enumeration Id="%ENID%" Value="1"  Text="1 Sekunde"    />
             // <Enumeration Id="%ENID%" Value="2"  Text="5 Sekunden"   />
@@ -154,7 +154,20 @@ void CountDownBlock::handleKo(GroupObject &ko)
                     value = 3600;
                     break;
             }
-            if (down)
+            if (increment)
+            {
+                if (_lastValueUpdate == 0)
+                    start(value);
+                else
+                {
+                    _remainingSeconds += value;
+                    _targetSeconds += value;
+                    updateRemainingKo();
+                    updateTextKo(true);
+                }
+               
+            }
+            else
             {
                 if (_remainingSeconds <= value)
                 {
@@ -168,19 +181,7 @@ void CountDownBlock::handleKo(GroupObject &ko)
                     _targetSeconds -= value;
                     updateRemainingKo();
                     updateTextKo(true);
-                }
-            }
-            else
-            {
-                if (_lastValueUpdate == 0)
-                    start(value);
-                else
-                {
-                    _remainingSeconds += value;
-                    _targetSeconds += value;
-                    updateRemainingKo();
-                    updateTextKo(true);
-                }
+                }  
             }
             break;
         }

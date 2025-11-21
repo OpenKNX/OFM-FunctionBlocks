@@ -935,7 +935,7 @@
               <!-- Start mit Zeit -->            
               <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00205" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="{{0:Funktionsblock %C%: Start mit Zeit}}"                FunctionText="Funktionsblock %C%: Eingang, Start mit Zeit"         TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
               <!-- Laufzeit Verringern / Erhöhen -->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00305" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit"    DatapointType="DPST-1-8"     Text="{{0:Funktionsblock %C%: Laufzeit Verringern / Erhöhen}}" FunctionText="Funktionsblock %C%: Eingang, Laufzeit Erhöhen=0/Verringern=1"     TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00305" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit"    DatapointType="DPST-1-7"     Text="{{0:Funktionsblock %C%: Laufzeit Verringern / Erhöhen}}" FunctionText="Funktionsblock %C%: Eingang, Laufzeit Verringern=0/Erhöhen=1"     TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
               <!-- Text -->  
               <ComObjectRef Id="%AID%_O-%TT%%CC%005_R-%TT%%CC%00505" RefId="%AID%_O-%TT%%CC%005" ObjectSize="14 Bytes" DatapointType="DPST-16-1"    Text="{{0:Funktionsblock %C%: Text}}"                          FunctionText="Funktionsblock %C%: Eingang, Text"               TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled" TransmitFlag="Enabled" />
               <!-- Pause Active-->
