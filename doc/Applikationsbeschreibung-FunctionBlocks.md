@@ -522,6 +522,29 @@ Beispiel:
 
 Ist '5 Sekunden' ausgewählt und es wird ein Auf-Befehl (0) empfangen, wird die aktuelle Ablaufzeit um 5 Sekunden verlängert. Bei Emfpang eine Ab-Befehl (1) wird die aktuelle Ablaufzeit um 5 Sekunden verkürzt. 
 
+<!-- DOC HelpContext="MaxAblaufzeit" -->
+#### Maximale Laufzeit
+
+Maximale Laufzeit die über Erhöhen eingestellt werden kann. 
+0 bedeutet kein Limit.
+
+<!-- DOC -->
+### Maximalzeit
+
+Legt die Zeit für die maximale Laufzeit fest, die bei einem Erhöhen Befehl verwendet werden darf.
+Hinweis: Die Zeit wird bei Verwendung des Gruppenobjekts 'Start mit Zeit' nicht verwendet.
+
+<!-- DOC -->
+### Maximalzeit Einheit
+
+Legt die Einheit für die Maximalzeit fest.
+
+Optionen:
+
+- Sekunde(n)
+- Minute(n)
+- Stunde(n)
+
 <!-- DOCEND-->
 ### Ausgänge
 
@@ -617,6 +640,11 @@ Beispiel: "SX Sekunden $" gibt bei laufenden Zeitgeber mit einer Restlaufzeit vo
 Text der nach Ablauf der Zeit angezeigt wird. 
 Eventuell verwendete Platzhalter für Stunden, Minuten und Sekunden werden mit 0 bzw. 00 ausgegeben.
 
+<!-- DOC HelpContext="TemplateStopp" -->
+#### Ende
+
+Text der bei gestoppten Count-Down angezeigt wird.
+Gestoppt bedeutet, der Count-Down wurde noch nie gestartet oder über ein Gruppenobjekt vorzeitigt gestoppt.
 
 <!-- DOC HelpContext="GroupObjectCounter" -->
 #### Zähler Verbleibend / Vergangen

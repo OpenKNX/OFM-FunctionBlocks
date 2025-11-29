@@ -160,6 +160,9 @@ void CountDownBlock::handleKo(GroupObject &ko)
                     start(value);
                 else
                 {
+                    if (_remainingSeconds + value > ParamFCB_CHCountDownMaxDelayTimeMS / 1000)
+                        value = (ParamFCB_CHCountDownMaxDelayTimeMS / 1000) - _remainingSeconds;
+                    
                     _remainingSeconds += value;
                     _targetSeconds += value;
                     updateRemainingKo();
@@ -360,29 +363,31 @@ void CountDownBlock::updateTextKo(bool forceSend, bool end)
             value = _targetSeconds - _remainingSeconds;
             break;
     }
-    const char *format = "";
+    std::string format = "";
     if (_remainingSeconds == 0)
     {
         if (end)
-            format = (const char *)ParamFCB_CHCountDownTemplateEnd;
+            format = std::string((const char *)ParamFCB_CHCountDownTemplateEnd, 14);
+        else
+            format = std::string((const char *)ParamFCB_CHCountDownTemplateStopp, 14);
     }
     else if (_remainingSeconds <= 60)
     {
-        format = (const char *)ParamFCB_CHCountDownTemplate1m;
+        format = std::string((const char *)ParamFCB_CHCountDownTemplate1m, 14);
     }
     else if (_remainingSeconds <= 3600)
     {
-        format = (const char *)ParamFCB_CHCountDownTemplate1h;
+        format = std::string((const char *)ParamFCB_CHCountDownTemplate1h, 14);
     }
     else
     {
-        format = (const char *)ParamFCB_CHCountDownTemplate;
+        format = std::string((const char *)ParamFCB_CHCountDownTemplate, 14);
     }
 
     unsigned int hours = 0;
-    bool useMinutes = strstr(format, "M2") != nullptr || strstr(format, "M1") != nullptr;
-    bool useSeconds = strstr(format, "S2") != nullptr || strstr(format, "S1") != nullptr || strstr(format, "S1") != nullptr;
-    if (strstr(format, "H2") != nullptr || strstr(format, "H1") != nullptr)
+    bool useMinutes = strstr(format.c_str(), "M2") != nullptr || strstr(format.c_str(), "M1") != nullptr;
+    bool useSeconds = strstr(format.c_str(), "S2") != nullptr || strstr(format.c_str(), "S1") != nullptr || strstr(format.c_str(), "S1") != nullptr;
+    if (strstr(format.c_str(), "H2") != nullptr || strstr(format.c_str(), "H1") != nullptr)
     {
         if (useMinutes)
         {
