@@ -7,6 +7,8 @@ Im Gegensatz zum Logikmodul sind die Funktion-Blöcke nicht generisch, das heiß
 Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 
 ## Release Notes
+- 0.7 Count-Down: Konfigurationsparameter für maximale Laufzeit bei Erhöhen durch KO
+- 0.7 Count-Down: Text Parameter für Stopp
 - 0.6.2 Breaking Change: Fix: Ko Verringern/Erhöhen für Count-Down: 0...Verringern, 1...Erhöhen
 - 0.6.1 Breaking Change: Fix: Ko Pause/Fortsetzten ist nun richtiggestellt: 1...Fortsetzten, 0...Pause
 - 0.6 Eingänge können benannt werden
