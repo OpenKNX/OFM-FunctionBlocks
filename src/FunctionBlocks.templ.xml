@@ -943,7 +943,7 @@
 
               <!-- Count Down -->
               <!-- Stop/Restart-->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="{{0:Funktion %C%}}: Stopp/Neustart"                FunctionText="Funktion %C%: Eingang, Stop=0 / Neustart=1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00005" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="{{0:Funktion %C%}}: Stopp/Neustart"                FunctionText="Funktion %C%: Eingang, Stopp=0 / Neustart=1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
               <!-- Pause/Continue-->            
               <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00105" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"    DatapointType="DPST-1-10"    Text="{{0:Funktion %C%}}: Pause/Fortsetzen"             FunctionText="Funktion %C%: Eingang, Pause=0 / Fortsetzen=1"  TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
               <!-- Start mit Zeit -->            
@@ -1021,7 +1021,7 @@
               <!-- Blinker --> 
 
               <!-- Blinken Start/Stop -->  
-              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-10"    Text="{{0:Funktion %C%}}: Blinken Start/Stop"   FunctionText="Funktion %C%: Eingang, Stop=0 / Start=1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-10"    Text="{{0:Funktion %C%}}: Blinken Start / Stopp"   FunctionText="Funktion %C%: Eingang, Stopp=0 / Start=1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00018" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-17"    Text="{{0:Funktion %C%}}: Blinken Starten"      FunctionText="Funktion %C%: Eingang, Auslöser" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
      
               <!-- Blinken Start Anzahl -->  
