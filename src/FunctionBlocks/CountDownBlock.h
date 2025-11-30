@@ -21,6 +21,7 @@ class CountDownBlock : public FunctionBlock
     void loop() override;
     void finished();
     void updateRemainingKo();
+    std::string readParameterString(uint8_t* paramterValue, int size);
     void updateTextKo(bool forceSend, bool end = false);
 #ifdef OPENKNX_FCB_DEBUG
     bool processCommand(const std::string cmd, bool diagnoseKo) override;
