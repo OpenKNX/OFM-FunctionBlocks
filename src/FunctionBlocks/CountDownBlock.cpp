@@ -367,21 +367,21 @@ void CountDownBlock::updateTextKo(bool forceSend, bool end)
     if (_remainingSeconds == 0)
     {
         if (end)
-            format = std::string((const char *)ParamFCB_CHCountDownTemplateEnd, 14);
+            format = std::string((const char *)ParamFCB_CHCountDownTemplateEnd, strnlen((const char *)ParamFCB_CHCountDownTemplateEnd, 14));
         else
-            format = std::string((const char *)ParamFCB_CHCountDownTemplateStopp, 14);
+            format = std::string((const char *)ParamFCB_CHCountDownTemplateStopp, strnlen((const char *)ParamFCB_CHCountDownTemplateStopp, 14));
     }
     else if (_remainingSeconds <= 60)
     {
-        format = std::string((const char *)ParamFCB_CHCountDownTemplate1m, 14);
+        format = std::string((const char *)ParamFCB_CHCountDownTemplate1m, strnlen((const char *)ParamFCB_CHCountDownTemplate1m, 14));
     }
     else if (_remainingSeconds <= 3600)
     {
-        format = std::string((const char *)ParamFCB_CHCountDownTemplate1h, 14);
+        format = std::string((const char *)ParamFCB_CHCountDownTemplate1h, strnlen((const char *)ParamFCB_CHCountDownTemplate1h, 14));
     }
     else
     {
-        format = std::string((const char *)ParamFCB_CHCountDownTemplate, 14);
+        format = std::string((const char *)ParamFCB_CHCountDownTemplate, strnlen((const char *)ParamFCB_CHCountDownTemplate, 14));
     }
 
     unsigned int hours = 0;
