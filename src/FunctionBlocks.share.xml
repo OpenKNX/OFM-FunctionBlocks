@@ -8,6 +8,13 @@
 				<ApplicationProgram>
 					<Static>
 						<ParameterTypes>
+							 <!-- Status LEDs-->
+							<ParameterType Id="%AID%_PT-SLEDFunc" Name="SLEDFunc">
+								<TypeRestriction Base="Value" SizeInBit="16" UIHint="DropDown">
+								<Enumeration Text="Zeitsignal (Blinkend)" Value="400" Id="%ENID%" />
+								</TypeRestriction>
+							</ParameterType>
+
 							<ParameterType Id="%AID%_PT-FCBNumChannels" Name="FCBNumChannels">
 								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="%N%" />
 							</ParameterType>

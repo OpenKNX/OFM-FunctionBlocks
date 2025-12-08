@@ -5,6 +5,11 @@
 class FunctionBlocksModule : public FCBChannelOwnerModule
 {
     unsigned int _startTime = 0;
+#ifdef OPENKNX_LEDFUNC_BASE_TIME
+    OpenKNX::Led::FunctionGroup* _timeSignal = nullptr;
+    uint8_t _lastSecondChange = 0;
+#endif
+    
   public:
     FunctionBlocksModule();
     const std::string name() override;
