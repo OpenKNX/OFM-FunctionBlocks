@@ -1521,6 +1521,8 @@
                             <when test="&gt;0">
                               <!-- Input 9-->
                               <ComObjectRefRef RefId="%AID%_O-%TT%%CC%008_R-%TT%%CC%00802" />
+                              <!-- Input Ko 8 Name -->
+                              <ParameterRefRef IndentLevel="2" RefId="%AID%_P-%TT%%CC%018_R-%TT%%CC%01801" HelpContext="FCB-InputName" />
                               <!-- Input Ko 8 Behavior-->
                               <ParameterRefRef  IndentLevel="2" RefId="%AID%_UP-%TT%%CC%169_R-%TT%%CC%16901" HelpContext="%DOC%" />
                             </when>
