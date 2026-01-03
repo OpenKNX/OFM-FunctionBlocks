@@ -1,15 +1,14 @@
 #pragma once
 #include "OpenKNX.h"
 #include "ChannelOwnerModule.h"
+#include "LedFunctionTimeStateSeconds.h"
+#include "LedFunctionValueMonitor.h"
 
 class FunctionBlocksModule : public FCBChannelOwnerModule
 {
     unsigned int _startTime = 0;
-#ifdef OPENKNX_LEDFUNC_BASE_TIME
-    OpenKNX::Led::FunctionGroup* _timeSignal = nullptr;
-    uint8_t _lastSecondChange = 0;
-#endif
-    
+    LedFunctionTimeStateSeconds _statusLedTimeStateSeconds;
+    LedFunctionValueMonitor _statusLedValueMonitor;
   public:
     FunctionBlocksModule();
     const std::string name() override;
@@ -19,7 +18,7 @@ class FunctionBlocksModule : public FCBChannelOwnerModule
     OpenKNX::Channel* createChannel(uint8_t _channelIndex /* this parameter is used in macros, do not rename */) override;
     void showHelp() override;
     bool processCommand(const std::string cmd, bool diagnoseKo) override;
-    void loop() override;
+    void loop(bool configured) override;
 };
 
 extern FunctionBlocksModule openknxFunctionBlocksModule;

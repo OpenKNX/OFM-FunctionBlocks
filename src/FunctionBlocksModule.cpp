@@ -36,16 +36,11 @@ const std::string FunctionBlocksModule::version()
 
 void FunctionBlocksModule::setup(bool configured)
 {
-#ifdef OPENKNX_LEDFUNC_BASE_TIME
-    _timeSignal = openknx.ledFunctions.get(OPENKNX_LEDFUNC_FCB_TIME_SIGNAL);
-#endif
-
     Module::setup(configured);
     FCBChannelOwnerModule::initialize(configured ? ParamFCB_VisibleChannels : 0);
     FCBChannelOwnerModule::setup(configured);
     _startTime = millis();
  
-  
 }
 
 void FunctionBlocksModule::showHelp()
@@ -133,34 +128,9 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
     }
 }
 
-void FunctionBlocksModule::loop()
+void FunctionBlocksModule::loop(bool configured)
 {
-#ifdef OPENKNX_LEDFUNC_BASE_TIME
-    if (openknx.time.isValid())
-    {       
-        // time is valid
-        auto localTime = openknx.time.getLocalTime();
-        uint8_t phase = localTime.second % 2;
-        if (phase < 1) 
-        {
-            _timeSignal->color(OpenKNX::Led::Color::Blue);
-            _timeSignal->on();
-        } 
-        else
-        {                
-            _timeSignal->off();
-        }
-    }
-    else
-    {
-        // time is invalid
-        _timeSignal->color(OpenKNX::Led::Color::Red);
-        _timeSignal->on(OpenKNX::Led::Capability::COLOR);
-        _timeSignal->off(OpenKNX::Led::Capability::MONOCHROME);
-    }
-#endif
-
-    if (_startTime != 0 && millis() - _startTime > 3000)
+    if (configured && _startTime != 0 && millis() - _startTime > 3000)
     {
         _startTime = 0;
         for (uint8_t i = 0; i < getNumberOfChannels(); i++)
@@ -172,7 +142,9 @@ void FunctionBlocksModule::loop()
             }
         }
     }
-    FCBChannelOwnerModule::loop();
+    FCBChannelOwnerModule::loop(configured);
+    _statusLedTimeStateSeconds.loop();
+    _statusLedValueMonitor.loop();
 }
 
 FunctionBlocksModule openknxFunctionBlocksModule;

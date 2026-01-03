@@ -1,5 +1,6 @@
 #pragma once
 #include "FunctionBlock.h"
+#include "vector"
 
 
 enum ValueMonitorWatchdogState : uint8_t
@@ -21,9 +22,20 @@ enum ValueMonitorWatchdogFallbackBehavior : uint8_t
     ValueMonitorWatchdogBehaviorProvideFallbackValue = 3
 };
 
+enum ValueMonitorAlarmState : uint8_t
+{
+    ValueMonitorAlarmStateNoAlarm = 0,
+    ValueMonitorAlarmStateWaitForValue = 1,
+    ValueMonitorAlarmStateValueTooLow = 2,
+    ValueMonitorAlarmStateValueTooHigh = 3,
+    ValueMonitorAlarmStateTimeout = 4,
+    
+};
+
 class ValueMonitorBlock : public FunctionBlock
 {
   private:
+    static std::vector<ValueMonitorBlock*> _instances;
     const static unsigned long _waitForValueAfterReadTimeoutMs = 10000;
    
     std::string _name;
@@ -34,9 +46,11 @@ class ValueMonitorBlock : public FunctionBlock
     Dpt _dpt;
     KNXValue _lastValidValue;
     bool _hasValidValue = false;
-
+    ValueMonitorAlarmState _alarmState = ValueMonitorAlarmState::ValueMonitorAlarmStateWaitForValue;
+   
     ValueMonitorWatchdogFallbackBehavior _watchDogFallbackBehaviour = ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorOnlyAlarm;
     void setState(ValueMonitorWatchdogState state);
+    void setAlarmState(ValueMonitorAlarmState state, const char* logMessage);
     void handleTimeout();
     void logState();
     void resetWatchdog();
@@ -58,4 +72,6 @@ class ValueMonitorBlock : public FunctionBlock
     void finished();
     void updateRemainingKo();
     void updateTextKo(bool forceSend, bool end = false);
+    static const std::vector<ValueMonitorBlock*>& getInstances();
+    ValueMonitorAlarmState alarmState() const;
 };

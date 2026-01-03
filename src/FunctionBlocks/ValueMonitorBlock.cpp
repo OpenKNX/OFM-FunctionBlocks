@@ -21,10 +21,13 @@
 #define FCB_KoCHOutput FCB_KoCHKO9
 #define KoFCB_CHSOutput KoFCB_CHKO9
 
+std::vector<ValueMonitorBlock*> ValueMonitorBlock::_instances = std::vector<ValueMonitorBlock*>();
+
 ValueMonitorBlock::ValueMonitorBlock(uint8_t channelIndex)
     : FunctionBlock(channelIndex, "ValueMonitor"),
       _lastValidValue(false)
 {
+    setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateWaitForValue, "Initializing ValueMonitorBlock");
     _dpt = dptType(ParamFCB_CHMonitoringValueType);
     _watchDogFallbackBehaviour = (ValueMonitorWatchdogFallbackBehavior)ParamFCB_CHMonitoringWDBehavior;
 
@@ -48,6 +51,12 @@ ValueMonitorBlock::ValueMonitorBlock(uint8_t channelIndex)
         KoFCB_CHValueToHigh.value(false, DPT_Switch);
     if (!KoFCB_CHSummaryAlarm.initialized())
         KoFCB_CHSummaryAlarm.value(false, DPT_Switch);
+    _instances.push_back(this);
+}
+
+const std::vector<ValueMonitorBlock*>& ValueMonitorBlock::getInstances()
+{
+    return _instances;
 }
 
 void ValueMonitorBlock::readInputKos()
@@ -64,6 +73,7 @@ void ValueMonitorBlock::readInputKos()
                 case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorRequestValueAndProvideFallbackValue:
                     setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForResponseValue);
                     KoFCB_CHSInput.requestObjectRead();
+                    setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateWaitForValue, "Requesting initial value read");
                     break;
                 default:
                     setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout);
@@ -118,6 +128,7 @@ void ValueMonitorBlock::handleKo(GroupObject &ko)
                 handleInputKo<double>(ko, ParamFCB_CHMonitoringMinDpt14, ParamFCB_CHMonitoringMaxDpt14);
                 break;
             case 160:
+                setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateNoAlarm, "No Alarm");
                 resetWatchdog();
                 if (_waitForValueTimeoutMs != 0)
                     KoFCB_CHSummaryAlarm.valueCompare(false, DPT_Alarm);
@@ -127,6 +138,17 @@ void ValueMonitorBlock::handleKo(GroupObject &ko)
                 break;
         }
     }
+}
+
+void ValueMonitorBlock::setAlarmState(ValueMonitorAlarmState state, const char* logMessage)
+{
+    //logDebugP("ValueMonitorBlock: %s", logMessage);
+    _alarmState = state;
+}
+
+ValueMonitorAlarmState ValueMonitorBlock::alarmState() const
+{
+    return _alarmState;
 }
 
 void ValueMonitorBlock::resetWatchdog()
@@ -195,6 +217,7 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
     
     if (toLow)
     {
+        setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateValueTooLow, "Value too low");
         T replacementValue;
         //	<Enumeration Text="Überwachung deaktiviert" Value="0" Id="%ENID%" />
         // <Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
@@ -217,6 +240,7 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
     }
     else if (toHigh)
     {
+        setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateValueTooHigh, "Value too high");
         T replacementValue;
         //	<Enumeration Text="Überwachung deaktiviert" Value="0" Id="%ENID%" />
         // <Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
@@ -237,7 +261,10 @@ void ValueMonitorBlock::handleInputKo(GroupObject &ko, T minValue, T maxValue)
         }
         sendValue(replacementValue, false);
     }
-    // Do not add code here, return happens early
+    else
+    {
+        setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateNoAlarm, "Valid value received");
+    }
 }
 
 template <typename T>
@@ -306,13 +333,16 @@ void ValueMonitorBlock::handleTimeout()
                     case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorRequestValueAndProvideFallbackValue:
                         KoFCB_CHSInput.requestObjectRead();
                         setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForResponseValue);
+                        setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateWaitForValue, "Requesting value read");
                         break;
                     case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorOnlyAlarm:
                         setAlarm = true;
+                        setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateTimeout, "Timeout alarm");
                         break;
                     case ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorProvideFallbackValue:
                         sendFallbackValue = true;
                         setAlarm = true;
+                        setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateTimeout, "Timeout alarm");
                         break;
                 }
                 _waitTimeStartMillis = max(1UL, millis());
@@ -329,6 +359,7 @@ void ValueMonitorBlock::handleTimeout()
                         break;
                 }
                 setAlarm = true;
+                setAlarmState(ValueMonitorAlarmState::ValueMonitorAlarmStateWaitForValue, "Timeout waiting for response value");
                 _waitTimeStartMillis = max(1UL, millis());
                 setState(ValueMonitorWatchdogState::ValueMonitorWatchdogStateWaitForTimeout);
             }
