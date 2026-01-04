@@ -67,8 +67,10 @@
               
                 <!-- Output Inverted -->
                 <Parameter Id="%AID%_UP-%TT%%CC%160" Name="CH%C%LogicOutInv" ParameterType="%AID%_PT-OnOffYesNo" Offset="2" BitOffset="3" Text="Invertiert" Value="0" />
+                <!-- Output Behavior-->
+                <Parameter Id="%AID%_UP-%TT%%CC%170" Name="CH%C%LogicBehavOut" ParameterType="%AID%_PT-FCBOutputBehavior" Offset="2" BitOffset="4" Text="Sendeverhalten" Value="1" />
 
-                <!-- 4 Bits free -->
+                <!-- 3 Bits free -->
 
                 <!-- Input Ko 0 Behavior-->
                 <Parameter Id="%AID%_UP-%TT%%CC%161" Name="CH%C%LogicBehavKo0" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="3" BitOffset="0" Text="Initialisierung" Value="0" />
@@ -89,8 +91,7 @@
                 <!-- Input Ko 8 Behavior-->
                 <Parameter Id="%AID%_UP-%TT%%CC%169" Name="CH%C%LogicBehavKo8" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="7" BitOffset="0" Text="Initialisierung" Value="0" />
 
-                <!-- Output Behavior-->
-                <Parameter Id="%AID%_UP-%TT%%CC%170" Name="CH%C%LogicBehavOut" ParameterType="%AID%_PT-FCBOutputBehavior" Offset="7" BitOffset="4" Text="Sendeverhalten" Value="1" />
+                <!-- 4 Bits free -->
 
               </Union>
 
