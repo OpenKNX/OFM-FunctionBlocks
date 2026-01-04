@@ -6,6 +6,7 @@
 #include "FunctionBlocks/ValueMonitorBlock.h"
 #include "FunctionBlocks/SelectionBlock.h"
 #include "FunctionBlocks/BlinkerBlock.h"
+#include "FunctionBlocks/BayesianBinarySensorBlock.h"
 #include "knxprod.h"
 
 #define OPENKNX_LEDFUNC_FCB_TIME_SIGNAL 400
@@ -102,6 +103,7 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
     // <Enumeration Id="%ENID%" Value="7"  Text="Wertüberwachung"                />
     // <Enumeration Id="%ENID%" Value="6"  Text="Count Down Zeitgeber"           />
     // <Enumeration Id="%ENID%" Value="9"  Text="Blinker"                        />
+    // <Enumeration Id="%ENID%" Value="10" Text="Bayesian Binary Sensor"         />
     switch (ParamFCB_CHChannelType)
     {
         case 0:
@@ -125,6 +127,8 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
             return new SelectionBlock(_channelIndex);
         case 9:
             return new BlinkerBlock(_channelIndex);
+        case 10:
+            return new BayesianBinarySensorBlock(_channelIndex);
         default:
             logErrorP("Unknown channel type %d", ParamFCB_CHChannelType);
             return nullptr;
