@@ -1,0 +1,2 @@
+﻿### PSensorTRUE-EreignisFALSE
+

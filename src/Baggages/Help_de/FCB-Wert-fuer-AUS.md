@@ -3,3 +3,4 @@
 
 Der Prozentwert der für AUS gesendet wird.
 
+
