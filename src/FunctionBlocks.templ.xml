@@ -823,7 +823,7 @@
               <!-- Output -->
              
               <!--   AND/OR -->
-              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-1"     Text="{{0:Funktion %C%: Eingang 9}}"    FunctionText="Funktion %C%: Ausgang, Schalten"    TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00902" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Bit"    DatapointType="DPST-1-1"     Text="{{0:Funktion %C%: Ausgang}}"    FunctionText="Funktion %C%: Ausgang, Schalten"    TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
              
               <!--   COUNT -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%009_R-%TT%%CC%00903" RefId="%AID%_O-%TT%%CC%009" ObjectSize="1 Byte"   DatapointType="DPST-5-10"    Text="{{0:Funktion %C%: Anzahl}}"      FunctionText="Funktion %C%: Ausgang, Anzahl" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001"   ReadFlag="Enabled" TransmitFlag="Enabled" />
