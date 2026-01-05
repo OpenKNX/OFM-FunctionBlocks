@@ -1081,7 +1081,9 @@
                     <!-- Kanal Typ -->
 
                     <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
-                      <when test="0"><!-- ************ Deaktiviert ************ -->
+
+                      <!-- ************ Deaktiviert ************ -->
+                      <when test="0">
                         <!-- <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert" Icon="help-box-outline" HelpContext="Empty"> -->
                           
                           <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Deaktiviert" UIHint="Headline" /> -->
@@ -1089,7 +1091,9 @@
 
                         <!-- </ParameterBlock> -->
                       </when>
-                      <when test="1"><!-- ************ UND ************ -->
+
+                      <!-- ************ UND ************ -->
+                      <when test="1">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_And" Text="%C% UND: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="UND" UIHint="Headline" />
@@ -1240,7 +1244,9 @@
 
                         </ParameterBlock>
                       </when>
-                      <when test="2"><!-- ************ ODER ************ -->
+
+                      <!-- ************ ODER ************ -->
+                      <when test="2">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Or" Text="%C% ODER: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="ODER" UIHint="Headline" />
@@ -1391,7 +1397,9 @@
 
                         </ParameterBlock>
                       </when>
-                      <when test="4"><!-- ************ ANZAHL ************ -->
+
+                      <!-- ************ ANZAHL ************ -->
+                      <when test="4">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Anzahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="tally-mark-5" ShowInComObjectTree="true" HelpContext="FCB-Anzahl">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Anzahl" UIHint="Headline" />
@@ -1544,7 +1552,9 @@
 
                         </ParameterBlock>
                       </when>
-                      <when test="3"><!-- ************ Priority Schalter ************ -->
+
+                      <!-- ************ Priority Schalter ************ -->
+                      <when test="3">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Prio" Text="%C% Prioritätsschalter: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Prioritätsschalter" UIHint="Headline" />
@@ -1861,7 +1871,9 @@
 
                         </ParameterBlock>
                       </when>
-                      <when test="5"><!-- ************ Simple Statistic Aggregation ************ -->
+
+                      <!-- ************ Aggregation ************ -->
+                      <when test="5">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Aggr" Text="%C% Aggregation: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="set-merge" ShowInComObjectTree="true" HelpContext="FCB-Statistische-Aggregation" >
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Einfache Statistische Aggregation" UIHint="Headline" />
@@ -2169,8 +2181,8 @@
                         </ParameterBlock>
                       </when>
 
-
-                      <when test="6"><!-- ************ Count Down ************ -->
+                      <!-- ************ Count Down ************ -->
+                      <when test="6">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Count-Down Zeitgeber: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="timer-sand" ShowInComObjectTree="true" HelpContext="FCB-Count-Down">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Count-Down Zeitgeber" UIHint="Headline" />
@@ -2349,7 +2361,8 @@
                         </ParameterBlock>
                       </when>
 
-                      <when test="7"><!-- ************ Wertüberwachung ************ -->
+                      <!-- ************ Wertüberwachung ************ -->
+                      <when test="7">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Monitoring" Text="%C% Wertüberwachung: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="alert-remove-outline" ShowInComObjectTree="true" HelpContext="FCB-Monitoring">
 
                           <!-- Eingang -->
@@ -2632,7 +2645,8 @@
                         </ParameterBlock>
                       </when>
 
-                      <when test="8"><!-- ************ Auswahl ************ -->
+                      <!-- ************ Auswahl ************ -->
+                      <when test="8">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Selection" Text="%C% Auswahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="multicast" ShowInComObjectTree="true" HelpContext="FCB-Selection">
       
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Auswahl (Multiplexer)" UIHint="Headline" />
@@ -2887,7 +2901,8 @@
                         </ParameterBlock>
                       </when>
 
-                      <when test="9"><!-- ************ Blinker ************ -->
+                      <!-- ************ Blinker ************ -->
+                      <when test="9">
                         <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Blinker" Text="%C% Blinker: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="alarm-light-outline" ShowInComObjectTree="true" HelpContext="FCB-Blinker">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Blinker" UIHint="Headline" />
@@ -3030,6 +3045,7 @@
                           </choose>
                         </ParameterBlock>
                       </when>
+
                     </choose>
                   </when>
                 </choose>
