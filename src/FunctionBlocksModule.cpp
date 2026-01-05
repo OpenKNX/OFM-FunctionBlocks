@@ -95,10 +95,13 @@ OpenKNX::Channel* FunctionBlocksModule::createChannel(uint8_t _channelIndex)
     // <Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"                    />
     // <Enumeration Id="%ENID%" Value="1"  Text="UND"                            />
     // <Enumeration Id="%ENID%" Value="2"  Text="ODER"                           />
-    // <Enumeration Id="%ENID%" Value="3"  Text="Prioritätsschalter"             />
     // <Enumeration Id="%ENID%" Value="4"  Text="Anzahl"                         />
+    // <Enumeration Id="%ENID%" Value="8"  Text="Auswahl (Multiplexer)"          />
+    // <Enumeration Id="%ENID%" Value="3"  Text="Prioritätsschalter"             />
     // <Enumeration Id="%ENID%" Value="5"  Text="Statistische Aggregation"       />
+    // <Enumeration Id="%ENID%" Value="7"  Text="Wertüberwachung"                />
     // <Enumeration Id="%ENID%" Value="6"  Text="Count Down Zeitgeber"           />
+    // <Enumeration Id="%ENID%" Value="9"  Text="Blinker"                        />
     switch (ParamFCB_CHChannelType)
     {
         case 0:
