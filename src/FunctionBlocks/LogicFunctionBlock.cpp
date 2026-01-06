@@ -77,8 +77,8 @@ void LogicFunctionBlock::readInputKos()
         auto& ko = getKo(i);
         // <Enumeration Text="AUS" Value="0" Id="%ENID%" />
         // <Enumeration Text="EIN" Value="1" Id="%ENID%" />
-        // <Enumeration Text="von Bus lesen, dann AUS" Value="3" Id="%ENID%" />
-        // <Enumeration Text="von Bus lesen, dann EIN" Value="4" Id="%ENID%" />
+        // <Enumeration Text="von Bus lesen, dann AUS" Value="2" Id="%ENID%" />
+        // <Enumeration Text="von Bus lesen, dann EIN" Value="3" Id="%ENID%" />
         auto inputBehavior = getParamInputBehavior(i);
         switch (inputBehavior)
         {

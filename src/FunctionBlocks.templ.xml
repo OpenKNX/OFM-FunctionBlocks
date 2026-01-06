@@ -1017,24 +1017,20 @@
               <!-- Auswahl KO -->  
               <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00807" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"  DatapointType="DPST-1-1"     Text="{{0:Funktion %C%}}: Auswahl"              FunctionText="Funktion %C%: Ausgang, 0 / 1"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00817" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte" DatapointType="DPST-17-1"    Text="{{0:Funktion %C%}}: Auswahl"              FunctionText="Funktion %C%: Ausgang, Zahl"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
-       
-              <!-- Blinker --> 
 
-              <!-- Blinken Start/Stop -->  
+
+              <!-- Blinker --> 
+              <!-- Blinken Start/Stop -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00008" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-10"    Text="{{0:Funktion %C%}}: Blinken Start / Stopp"   FunctionText="Funktion %C%: Eingang, Stopp=0 / Start=1" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00018" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"  DatapointType="DPST-1-17"    Text="{{0:Funktion %C%}}: Blinken Starten"      FunctionText="Funktion %C%: Eingang, Auslöser" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
-     
-              <!-- Blinken Start Anzahl -->  
+              <!-- Blinken Start Anzahl -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00108" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Byte" DatapointType="DPST-5-10"    Text="{{0:Funktion %C%}}: Blinken Start Anzahl" FunctionText="Funktion %C%: Eingang, Anzahl" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" />
-     
-              <!-- Blinken Aktor Feedback -->  
+              <!-- Blinken Aktor Feedback -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00208" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit"  DatapointType="DPST-1-1"     Text="{{0:Funktion %C%}}: Aktor Rückmeldung"     FunctionText="Funktion %C%: Eingang, Schalten"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
               <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00218" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Byte" DatapointType="DPST-5-1"     Text="{{0:Funktion %C%}}: Aktor Rückmeldung"     FunctionText="Funktion %C%: Eingang, Prozent"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" WriteFlag="Enabled" UpdateFlag="Enabled" />
-       
-
-              <!-- Blinken Aktiv -->  
+              <!-- Blinken Aktiv -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00808" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Bit"  DatapointType="DPST-1-11" Text="{{0:Funktion %C%}}: Blinken Aktiv"            FunctionText="Funktion %C%: Ausgang, Schalten"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled"  TransmitFlag="Enabled" />
-       
+
 
             </ComObjectRefs>
           </Static>
