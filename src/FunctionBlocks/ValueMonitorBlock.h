@@ -3,33 +3,32 @@
 #include "vector"
 
 
-enum ValueMonitorWatchdogState : uint8_t
+enum class ValueMonitorWatchdogState : uint8_t
 {
-    ValueMonitorWatchdogStateDisabled,
-    ValueMonitorWatchdogStateWaitForResponseValue,
-    ValueMonitorWatchdogStateWaitForTimeout
+    Disabled,
+    WaitForResponseValue,
+    WaitForTimeout
 };
 
 // <Enumeration Text="Nur Alarm auslösen" Value="0" Id="%ENID%" />
 // <Enumeration Text="Leseanforderung, dann Alarm" Value="1" Id="%ENID%" />	
 // <Enumeration Text="Leseanforderung, dann Ersatzwert und Alarm" Value="2" Id="%ENID%" />
 // <Enumeration Text="Ersatzwert und Alarm" Value="3" Id="%ENID%" />
-enum ValueMonitorWatchdogFallbackBehavior : uint8_t
+enum class ValueMonitorWatchdogFallbackBehavior : uint8_t
 {
-    ValueMonitorWatchdogBehaviorOnlyAlarm = 0,
-    ValueMonitorWatchdogBehaviorRequestValueAndIgnore = 1,
-    ValueMonitorWatchdogBehaviorRequestValueAndProvideFallbackValue = 2,
-    ValueMonitorWatchdogBehaviorProvideFallbackValue = 3
+    OnlyAlarm = 0,
+    RequestValueAndIgnore = 1,
+    RequestValueAndProvideFallbackValue = 2,
+    ProvideFallbackValue = 3
 };
 
-enum ValueMonitorAlarmState : uint8_t
+enum class ValueMonitorAlarmState : uint8_t
 {
-    ValueMonitorAlarmStateNoAlarm = 0,
-    ValueMonitorAlarmStateWaitForValue = 1,
-    ValueMonitorAlarmStateValueTooLow = 2,
-    ValueMonitorAlarmStateValueTooHigh = 3,
-    ValueMonitorAlarmStateTimeout = 4,
-    
+    NoAlarm = 0,
+    WaitForValue = 1,
+    ValueTooLow = 2,
+    ValueTooHigh = 3,
+    Timeout = 4,
 };
 
 class ValueMonitorBlock : public FunctionBlock
@@ -39,16 +38,16 @@ class ValueMonitorBlock : public FunctionBlock
     const static unsigned long _waitForValueAfterReadTimeoutMs = 10000;
    
     std::string _name;
-    ValueMonitorWatchdogState _watchDogState = ValueMonitorWatchdogState::ValueMonitorWatchdogStateDisabled;
+    ValueMonitorWatchdogState _watchDogState = ValueMonitorWatchdogState::Disabled;
     unsigned long _waitForValueTimeoutMs = 0;
     unsigned long _waitTimeStartMillis = 0;
     unsigned long _lastValidTelegramWhileNotTimeAvailable = 0;
     Dpt _dpt;
     KNXValue _lastValidValue;
     bool _hasValidValue = false;
-    ValueMonitorAlarmState _alarmState = ValueMonitorAlarmState::ValueMonitorAlarmStateWaitForValue;
+    ValueMonitorAlarmState _alarmState = ValueMonitorAlarmState::WaitForValue;
    
-    ValueMonitorWatchdogFallbackBehavior _watchDogFallbackBehaviour = ValueMonitorWatchdogFallbackBehavior::ValueMonitorWatchdogBehaviorOnlyAlarm;
+    ValueMonitorWatchdogFallbackBehavior _watchDogFallbackBehaviour = ValueMonitorWatchdogFallbackBehavior::OnlyAlarm;
     void setState(ValueMonitorWatchdogState state);
     void setAlarmState(ValueMonitorAlarmState state, const char* logMessage);
     void handleTimeout();

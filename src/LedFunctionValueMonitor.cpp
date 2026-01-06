@@ -12,7 +12,7 @@ void LedFunctionValueMonitor::loop()
     }
     auto valueMonitorInstances = ValueMonitorBlock::getInstances();
     int intanceCount = 0;
-    ValueMonitorAlarmState sumAlarmState = ValueMonitorAlarmState::ValueMonitorAlarmStateNoAlarm;
+    ValueMonitorAlarmState sumAlarmState = ValueMonitorAlarmState::NoAlarm;
     for (const auto& instance : valueMonitorInstances)
     {
         intanceCount++;
@@ -29,27 +29,27 @@ void LedFunctionValueMonitor::loop()
 
         switch (sumAlarmState)
         {
-            case ValueMonitorAlarmState::ValueMonitorAlarmStateNoAlarm:
+            case ValueMonitorAlarmState::NoAlarm:
                 _ledFunctionGroup->color(OpenKNX::Led::Color::Green);
                 _ledFunctionGroup->on(OpenKNX::Led::Capability::COLOR);
                 _ledFunctionGroup->off(OpenKNX::Led::Capability::MONOCHROME);
                 break;
-            case ValueMonitorAlarmState::ValueMonitorAlarmStateWaitForValue:
+            case ValueMonitorAlarmState::WaitForValue:
                 _ledFunctionGroup->color(OpenKNX::Led::Color::Yellow);
                 _ledFunctionGroup->on(OpenKNX::Led::Capability::COLOR);
                 _ledFunctionGroup->blinking(500, OpenKNX::Led::Capability::MONOCHROME);
                 break;
-            case ValueMonitorAlarmState::ValueMonitorAlarmStateValueTooLow:
+            case ValueMonitorAlarmState::ValueTooLow:
                 _ledFunctionGroup->color(OpenKNX::Led::Color::Blue);
                 _ledFunctionGroup->on(OpenKNX::Led::Capability::COLOR);
                 _ledFunctionGroup->blinking(200, OpenKNX::Led::Capability::MONOCHROME);
                 break;
-            case ValueMonitorAlarmState::ValueMonitorAlarmStateValueTooHigh:
+            case ValueMonitorAlarmState::ValueTooHigh:
                 _ledFunctionGroup->color(OpenKNX::Led::Color::Orange);
                 _ledFunctionGroup->on(OpenKNX::Led::Capability::COLOR);
                 _ledFunctionGroup->blinking(100, OpenKNX::Led::Capability::MONOCHROME);
                 break;
-            case ValueMonitorAlarmState::ValueMonitorAlarmStateTimeout:
+            case ValueMonitorAlarmState::Timeout:
                 _ledFunctionGroup->color(OpenKNX::Led::Color::Red);
                 _ledFunctionGroup->on();
                 break;
