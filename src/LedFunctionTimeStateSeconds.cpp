@@ -24,7 +24,7 @@ void LedFunctionTimeStateSeconds::loop()
     else if (openknx.time.isValid())
     {
         auto localTime = openknx.time.getLocalTime();
-        auto inaccurate = !openknx.time.isInaccurate();
+        auto inaccurate = openknx.time.isInaccurate();
         uint8_t phase = localTime.second % (inaccurate ? 4 : 2);
         if (phase < 1) 
         {
