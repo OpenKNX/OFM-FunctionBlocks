@@ -2929,7 +2929,7 @@
                               <Column Id="%AID%_PB-nnn_C-2" Name="Col3" Width="15%" />
                               <Column Id="%AID%_PB-nnn_C-3" Name="Col4" Width="25%" />
                             </Columns>
-                            <ParameterSeparator Id="%AID%_PS-nnn" Text="  Ein-Zeit" Cell="1,1" />
+                            <ParameterSeparator Id="%AID%_PS-nnn" Text="  EIN-Zeit" Cell="1,1" />
                             <!-- Ein DelayTime -->
                             <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%252_R-%TT%%CC%25201" Cell="1,2" HelpContext="%DOC%" />
                             <!-- Ein DelayBase -->
@@ -2944,7 +2944,7 @@
                               <Column Id="%AID%_PB-nnn_C-2" Name="Col3" Width="15%" />
                               <Column Id="%AID%_PB-nnn_C-3" Name="Col4" Width="25%" />
                             </Columns>
-                            <ParameterSeparator Id="%AID%_PS-nnn" Text="  Aus-Zeit" Cell="1,1" />
+                            <ParameterSeparator Id="%AID%_PS-nnn" Text="  AUS-Zeit" Cell="1,1" />
                             <!-- Aus DelayTime -->
                             <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%254_R-%TT%%CC%25401" Cell="1,2" HelpContext="%DOC%" />
                             <!-- Aus DelayBase -->
