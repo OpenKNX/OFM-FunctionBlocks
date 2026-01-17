@@ -14,7 +14,8 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Wertüberwachung](#wertüberwachtung)
   * [Count-Down Zeitgeber](#count-down-zeitgeber)
   * [Blinker](#blinker)
-  * 
+  * [Bayes Sensor](#bayes-sensor)
+  * [Text Format](#text-format)
 
 
 # Blocktypen
@@ -133,6 +134,11 @@ Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten ode
 ## Bayes Sensor
 
 <!-- TODO -->
+
+<!-- DOC HelpContext="TextFormatter" -->
+### Text Format ###
+
+Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.
 
 # ETS Konfiguration
 
@@ -1060,3 +1066,127 @@ Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der We
 ### PSensorTRUE-EreignisFALSE
 
 Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der Wert AUS anliegt.
+
+<!--DOCEND -->
+## Text Format
+
+Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.
+
+<!-- DOC -->
+### Format 
+
+Formatierung der Ausgabe. 
+Für Parameter werden die Eingänge werden die Platzhalter #1-#9 verwendet. 
+Um ein '#'-Zeichen darzustellen, müssen ## Rauten eingegeben werden.
+
+Beispiele:
+
+Wind #1km/h........Wind 35km/h
+Kanal ##1: #1......Kanal #1: Ein
+#1°-#2°............22°-24°
+
+<!-- DOC -->
+### Textbaustein Aus
+
+Frei definierbare Wert zur Darstellung von Aus (0)-Werten bei 1 Bit Werten.
+
+<!-- DOC -->
+### Textbaustein Ein
+
+Frei definierbare Wert zur Darstellung von Ein (1)-Werten bei 1 Bit Werten.
+
+<!-- DOC HelpContext="FormatDataType" -->
+### Datentype
+
+Datentype des Eingangs:
+
+- Deaktiviert
+- 1.*           1-Bit (0/1)
+- 5.*           8-Bit vorzeichenlos
+- 5.001       Prozent (0..100%)
+- 6.*           8-Bit vorzeichenbehaftet
+- 7.*           2-Byte vorzeichenlos
+- 8.*           2-Byte vorzeichenbehaftet
+- 9.*           2-Byte Gleitkommawert
+- 12.*         4-Byte vorzeichenlos
+- 13.*         4-Byte vorzeichenbehaftet
+- 14.*         4-Byte Gleitkommawert
+- 16.*        14-Byte Zeichenfolge
+
+<!-- DOC -->
+### Anzeige als
+
+Gibt an, wie der Bitwert angezeigt werden soll.
+
+- Aus/Ein-Textbausteine
+  Es werden die unter Textbaustein Aus bzw. Ein definierten Texte verwendet.
+- 0 / 1
+- Aus / Ein
+- Inaktiv / Aktiv
+- OK / Fehler
+- Normal / Störung
+- Bereit / Alarm
+- Geschlossen / Offen
+- Zu / Auf
+- Versperrt / Entsperrt
+- Verriegelt / Entriegelt
+- Abwesend / Anwesend
+
+<!-- DOC -->
+### Runden
+
+Rundungsoptione:
+
+- Deaktiviert
+- Nachkommastellen
+- Genauigkeit (Stellenanzahl)
+  Wird z.b. 3 angegeben, wird 123456 zu 123000 bzw. 1,23456 zu 1,23
+
+<!-- DOC -->
+### Rundungsart
+
+Optionen:
+
+- Bei 5 Aufrunden
+- Immer aufrunden
+- Immer abrunden
+
+<!-- DOC -->
+### Auf 5 Runden
+
+Die letzte Stelle wird auf 0 oder auf 5 gerunden.
+
+Beispiel runden auf eine Kommastelle:
+
+- 12,13 wird zu 12,0
+- 12,45 wird zu 12,5
+- 12,88 wird zu 13,0
+
+<!-- DOC -->
+### Genauigkeit
+
+Angabe der Genauigkeit in Stellen.
+
+Beispiel für Angabe 3:
+
+- 123456 wird zu 123000
+- 1,23456 wird zu 1,23
+- 0,00123456 wird zu 0,00123
+
+<!-- DOC -->
+### Auffüllen
+
+Links vom Wert auffüllen.
+
+<!-- DOC -->
+### Auffüllen nach Komma
+
+Rechts vom Wert auffüllen.
+
+<!-- DOC -->
+### Stellen
+
+Anzahl der Zeichen die mit Auffüllen erreicht werden soll.
+
+
+
