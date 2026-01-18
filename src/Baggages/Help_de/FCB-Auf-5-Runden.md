@@ -2,7 +2,7 @@
 
 Die letzte Stelle wird auf 0 oder auf 5 gerunden.
 
-Beispiel runden auf eine Kommastelle:
+Beispiel: Runden auf eine Kommastelle:
 
 - 12,13 wird zu 12,0
 - 12,45 wird zu 12,5

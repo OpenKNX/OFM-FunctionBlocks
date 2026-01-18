@@ -1105,7 +1105,7 @@ Frei definierbare Wert zur Darstellung von Ein (1)-Werten bei 1 Bit Werten.
 <!-- DOC -->
 ### Tausendertrennzeichen
 
-Wenn ausgefüllt, wird ein Tausendertrennzeichen beim formatieren von Zahlen verwendet.
+Wenn ausgefüllt, wird ein Tausendertrennzeichen beim Formatieren von Zahlen verwendet.
 
 <!-- DOC HelpContext="FormatDataType" -->
 ### Datentype
@@ -1168,7 +1168,7 @@ Optionen:
 
 Die letzte Stelle wird auf 0 oder auf 5 gerunden.
 
-Beispiel runden auf eine Kommastelle:
+Beispiel: Runden auf eine Kommastelle:
 
 - 12,13 wird zu 12,0
 - 12,45 wird zu 12,5

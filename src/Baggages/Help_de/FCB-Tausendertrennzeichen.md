@@ -1,4 +1,4 @@
 ﻿### Tausendertrennzeichen
 
-Wenn ausgefüllt, wird ein Tausendertrennzeichen beim formatieren von Zahlen verwendet.
+Wenn ausgefüllt, wird ein Tausendertrennzeichen beim Formatieren von Zahlen verwendet.
 
