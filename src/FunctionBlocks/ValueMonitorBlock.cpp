@@ -71,9 +71,18 @@ void ValueMonitorBlock::readInputKos()
             {
                 case ValueMonitorWatchdogFallbackBehavior::RequestValueAndIgnore:
                 case ValueMonitorWatchdogFallbackBehavior::RequestValueAndProvideFallbackValue:
-                    setState(ValueMonitorWatchdogState::WaitForResponseValue);
-                    KoFCB_CHSInput.requestObjectRead();
-                    setAlarmState(ValueMonitorAlarmState::NoAlarm, "Requesting initial value read");
+                    // <Enumeration Text="Nichts" Value="1" Id="%ENID%" />
+                    // <Enumeration Text="Leseanforderung, dann Alarm wenn Zeitüberwachung konfiguriert" Value="0" Id="%ENID%" />	         
+                    if (ParamFCB_CHMonitoringStart == 0) // Leseanforderung, dann Alarm
+                    {
+                        setState(ValueMonitorWatchdogState::WaitForResponseValue);
+                        KoFCB_CHSInput.requestObjectRead();
+                        setAlarmState(ValueMonitorAlarmState::NoAlarm, "Requesting initial value read");
+                    }
+                    else
+                    {
+                        setState(ValueMonitorWatchdogState::WaitForTimeout);
+                    }
                     break;
                 default:
                     setState(ValueMonitorWatchdogState::WaitForTimeout);
@@ -82,7 +91,12 @@ void ValueMonitorBlock::readInputKos()
         }
         else
         {
-            KoFCB_CHSInput.requestObjectRead();
+            // <Enumeration Text="Nichts" Value="1" Id="%ENID%" />
+            // <Enumeration Text="Leseanforderung, dann Alarm wenn Zeitüberwachung konfiguriert" Value="0" Id="%ENID%" />	         
+            if (ParamFCB_CHMonitoringStart == 0) // Leseanforderung, dann Alarm
+            {
+                KoFCB_CHSInput.requestObjectRead();
+            }
         }  
     }
 }

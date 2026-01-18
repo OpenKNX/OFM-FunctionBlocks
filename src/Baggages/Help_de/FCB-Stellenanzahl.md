@@ -1,4 +1,4 @@
-﻿### Genauigkeit
+﻿### Stellenanzahl
 
 Angabe der Genauigkeit in Stellen.
 

@@ -293,10 +293,10 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBMonitoringWatcbDogReplacement" Name="FCBMonitoringWatcbDogReplacement">
-								<TypeRestriction Base="Value" SizeInBit="4">
-									<Enumeration Text="Letzter gültiger Wert" Value="1" Id="%ENID%" />
-									<Enumeration Text="Wert vorgeben" Value="2" Id="%ENID%" />
+							<ParameterType Id="%AID%_PT-FCBMonitoringStart" Name="FCBMonitoringStart" >
+								<TypeRestriction Base="Value" SizeInBit="2" UIHint="DropDown" >
+									<Enumeration Text="Nichts" Value="1" Id="%ENID%" />
+									<Enumeration Text="Leseanforderung, dann Alarm wenn Zeitüberwachung konfiguriert" Value="0" Id="%ENID%" />									
 								</TypeRestriction>
 							</ParameterType>
 
@@ -378,8 +378,13 @@
 								<!-- 28 characters -->
 							</ParameterType>
 
+							<ParameterType Id="%AID%_PT-FCBFormatThousand" Name="FCBFormatThousand" >
+								<TypeText SizeInBit="8" />
+								<!-- 1 characters -->
+							</ParameterType>
+
 							<ParameterType Id="%AID%_PT-FCBFormatRoundFloat" Name="FCBFormatRound" >
-								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
+								<TypeRestriction Base="Value" SizeInBit="2" UIHint="DropDown">
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
 									<Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" />
@@ -387,7 +392,7 @@
 							</ParameterType>
 
 							<ParameterType Id="%AID%_PT-FCBFormatRoundDecimal" Name="FCBFormatRound" >
-								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
+								<TypeRestriction Base="Value" SizeInBit="2" UIHint="DropDown">
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" />
 								</TypeRestriction>
@@ -425,7 +430,7 @@
 
 							<ParameterType Id="%AID%_PT-FCBFormatRoundType" Name="FCBFormatRoundType">
 								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
-									<Enumeration Text="Bei 5 Aufrunden" Value="0" Id="%ENID%" />
+									<Enumeration Text="Ab 5 Aufrunden" Value="0" Id="%ENID%" />
 									<Enumeration Text="Immer aufrunden" Value="1" Id="%ENID%" />
 									<Enumeration Text="Immer abrunden" Value="2" Id="%ENID%" />
 								</TypeRestriction>
@@ -433,7 +438,7 @@
 
 							<ParameterType Id="%AID%_PT-FCBFormatBitFormat" Name="FCBFormatBitFormat">
 								<TypeRestriction Base="Value" SizeInBit="8" UIHint="DropDown">
-									<Enumeration Text="Aus/Ein-Textbausteine" Value="1" Id="%ENID%" />
+									<Enumeration Text="Textbausteine aus 'Format Optionen'" Value="1" Id="%ENID%" />
 									<Enumeration Text="0 / 1" Value="2" Id="%ENID%" />
 									<Enumeration Text="Aus / Ein" Value="0" Id="%ENID%" />
 									<Enumeration Text="Inaktiv / Aktiv" Value="3" Id="%ENID%" />

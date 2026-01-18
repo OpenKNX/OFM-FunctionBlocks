@@ -6,5 +6,7 @@ Um ein '#'-Zeichen darzustellen, müssen ## Rauten eingegeben werden.
 
 Beispiele:
 
-Wind #1km/h........Wind 35km/h
-Kanal ##1: #1......Kanal #1: Ein
+- Wind @1km/h........Wind 35km/h
+- @1° - @2°............22° - 24°
+- @1@@Home...........3@Home
+

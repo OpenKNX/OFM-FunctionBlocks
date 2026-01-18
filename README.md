@@ -7,6 +7,8 @@ Im Gegensatz zum Logikmodul sind die Funktion-Blöcke nicht generisch, das heiß
 Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 
 ## Release Notes
+
+- 0.9 Startverhalten bei Wertüberwachung konfigurierbar
 - 0.8 Fix: Bennennung Eingang 9 bei FB-"Anzahl" nicht möglich
 - 0.7 Count-Down: Konfigurationsparameter für maximale Laufzeit bei Erhöhen durch KO
 - 0.7 Count-Down: Text Parameter für Stopp

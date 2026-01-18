@@ -2,7 +2,7 @@
 
 Optionen:
 
-- Bei 5 Aufrunden
+- Ab 5 Aufrunden
 - Immer aufrunden
 - Immer abrunden
 

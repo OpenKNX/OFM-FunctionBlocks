@@ -747,6 +747,13 @@ Zur Auswahl stehen:
 
 Die Überwachung erkennt das Ausbleiben von Werten am Eingang.
 
+<!-- DOC HelpContext="Watchdog-Start"-->
+#### Verhalten beim Start
+
+Folgenden Optionen stehen zur Auswahl:
+
+- Nichts
+- Leseanforderung, dann Alarm wenn Zeitüberwachung konfiguriert   
 
 <!-- DOC HelpContext="Watchdog-Zeit"-->
 #### Wartezeit auf Telegramme
@@ -1081,9 +1088,9 @@ Um ein '#'-Zeichen darzustellen, müssen ## Rauten eingegeben werden.
 
 Beispiele:
 
-Wind #1km/h........Wind 35km/h
-Kanal ##1: #1......Kanal #1: Ein
-#1°-#2°............22°-24°
+- Wind @1km/h........Wind 35km/h
+- @1° - @2°............22° - 24°
+- @1@@Home...........3@Home
 
 <!-- DOC -->
 ### Textbaustein Aus
@@ -1094,6 +1101,11 @@ Frei definierbare Wert zur Darstellung von Aus (0)-Werten bei 1 Bit Werten.
 ### Textbaustein Ein
 
 Frei definierbare Wert zur Darstellung von Ein (1)-Werten bei 1 Bit Werten.
+
+<!-- DOC -->
+### Tausendertrennzeichen
+
+Wenn ausgefüllt, wird ein Tausendertrennzeichen beim formatieren von Zahlen verwendet.
 
 <!-- DOC HelpContext="FormatDataType" -->
 ### Datentype
@@ -1118,8 +1130,8 @@ Datentype des Eingangs:
 
 Gibt an, wie der Bitwert angezeigt werden soll.
 
-- Aus/Ein-Textbausteine
-  Es werden die unter Textbaustein Aus bzw. Ein definierten Texte verwendet.
+- Textbausteine aus 'Format Optionen'
+  Es werden die unter 'Textbaustein Aus' bzw. 'Textbaustein Ein' definierten Texte verwendet.
 - 0 / 1
 - Aus / Ein
 - Inaktiv / Aktiv
@@ -1147,7 +1159,7 @@ Rundungsoptione:
 
 Optionen:
 
-- Bei 5 Aufrunden
+- Ab 5 Aufrunden
 - Immer aufrunden
 - Immer abrunden
 
@@ -1163,7 +1175,7 @@ Beispiel runden auf eine Kommastelle:
 - 12,88 wird zu 13,0
 
 <!-- DOC -->
-### Genauigkeit
+### Stellenanzahl
 
 Angabe der Genauigkeit in Stellen.
 
