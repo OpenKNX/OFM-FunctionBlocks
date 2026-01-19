@@ -1,5 +1,6 @@
 #pragma once
 #include "OpenKNX.h"
+#include <string>
 
 class FunctionBlock : public OpenKNX::Channel
 {
@@ -11,6 +12,7 @@ class FunctionBlock : public OpenKNX::Channel
     GroupObject& getKo(uint8_t nr);
     bool hasValue(uint8_t nr);
     Dpt dptType(uint8_t typeParamValue);
+    std::string readParameterString(uint8_t* parameterValue, int size);
   public:
     void setup(bool configured) override;
     const std::string name() override;

@@ -346,10 +346,6 @@ void CountDownBlock::updateRemainingKo()
     KoFCB_CHRemaining.value(remaining, DPT_Value_1_Ucount);
 }
 
-std::string CountDownBlock::readParameterString(uint8_t* parameterValue, int size)
-{
-    return std::string((const char *)parameterValue, strnlen((const char *)parameterValue, size));
-}
 
 void CountDownBlock::updateTextKo(bool forceSend, bool end)
 {

@@ -472,13 +472,13 @@
                 <!-- ^^^^ 28 Bytes ^^^ -->
 
                 <!-- Aus Text -->
-                <Parameter Offset="28" BitOffset="0" Id="%AID%_UP-%TT%%CC%301" Name="CH%C%FormatOff1" ParameterType="%AID%_PT-FCBValueDpt16" Text="Textbaustein Aus" Value="" />
+                <Parameter Offset="28" BitOffset="0" Id="%AID%_UP-%TT%%CC%301" Name="CH%C%FormatOff" ParameterType="%AID%_PT-FCBValueDpt16" Text="Textbaustein Aus" Value="" />
                 <!-- ^^^^ 14 Bytes ^^^ -->
                 <!-- Ein Text -->
-                <Parameter Offset="42" BitOffset="0" Id="%AID%_UP-%TT%%CC%302" Name="CH%C%FormatOn1" ParameterType="%AID%_PT-FCBValueDpt16" Text="Textbaustein Ein" Value="" />
+                <Parameter Offset="42" BitOffset="0" Id="%AID%_UP-%TT%%CC%302" Name="CH%C%FormatOn" ParameterType="%AID%_PT-FCBValueDpt16" Text="Textbaustein Ein" Value="" />
                 <!-- ^^^^ 14 Bytes ^^^ -->
                 <!-- Thousand Separator -->
-                <Parameter Offset="56" BitOffset="0" Id="%AID%_UP-%TT%%CC%303" Name="CH%C%FormatThousand1" ParameterType="%AID%_PT-FCBFormatThousand" Text="Tausendertrennzeichen" Value="" />
+                <Parameter Offset="56" BitOffset="0" Id="%AID%_UP-%TT%%CC%303" Name="CH%C%FormatThousand" ParameterType="%AID%_PT-FCBFormatThousand" Text="Tausendertrennzeichen" Value="" />
 
                 <!-- Input1 -->
                 <!-- Input Type -->
@@ -499,7 +499,7 @@
                 <!-- Stellen -->
                 <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%312" Name="CH%C%FormatDecimalPlaces1" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" />
                 <!-- Precision -->
-                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%313" Name="CH%C%FormatPrecision1" ParameterType="%AID%_PT-FCBFormatPrecision" Text="Stellenanzahl" Value="3" />
+                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%313" Name="CH%C%FormatSignificant1" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" />
                 
                 <!-- Fillup Precomma --> <!-- float only -->
                 <Parameter Offset="59" BitOffset="0" Id="%AID%_UP-%TT%%CC%314" Name="CH%C%FormatFillupPrecomma1" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" />  

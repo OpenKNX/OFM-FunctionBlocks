@@ -403,7 +403,7 @@
 								<TypeNumber SizeInBit="4" Type="unsignedInt" minInclusive="0" maxInclusive="8" />
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBFormatPrecision" Name="FCBFormatPrecision">
+							<ParameterType Id="%AID%_PT-FCBFormatSignificant" Name="FCBFormatSignificant">
 								<TypeNumber SizeInBit="4" Type="unsignedInt" minInclusive="1" maxInclusive="8" />
 							</ParameterType>
 

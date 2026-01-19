@@ -123,3 +123,8 @@ bool FunctionBlock::processCommand(const std::string cmd, bool diagnoseKo)
 {
     return false;
 }
+
+std::string FunctionBlock::readParameterString(uint8_t* parameterValue, int size)
+{
+    return std::string((const char *)parameterValue, strnlen((const char *)parameterValue, size));
+}
