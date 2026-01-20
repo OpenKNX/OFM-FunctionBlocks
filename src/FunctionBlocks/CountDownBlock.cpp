@@ -368,21 +368,21 @@ void CountDownBlock::updateTextKo(bool forceSend, bool end)
     if (_remainingSeconds == 0)
     {
         if (end)
-            format = readParameterString(ParamFCB_CHCountDownTemplateEnd,  14);
+            format = readParameterString(ParamFCB_CHCountDownTemplateEnd,  FCB_CHCountDownTemplateEndLength);
         else
-            format = readParameterString(ParamFCB_CHCountDownTemplateStopp, 14);
+            format = readParameterString(ParamFCB_CHCountDownTemplateStopp, FCB_CHCountDownTemplateStoppLength);
     }
     else if (_remainingSeconds <= 60)
     {
-        format = readParameterString(ParamFCB_CHCountDownTemplate1m, 14);
+        format = readParameterString(ParamFCB_CHCountDownTemplate1m, FCB_CHCountDownTemplate1mLength);
     }
     else if (_remainingSeconds <= 3600)
     {
-        format = readParameterString(ParamFCB_CHCountDownTemplate1h, 14);
+        format = readParameterString(ParamFCB_CHCountDownTemplate1h, FCB_CHCountDownTemplate1hLength);
     }
     else
     {
-        format = readParameterString(ParamFCB_CHCountDownTemplate, 14);
+        format = readParameterString(ParamFCB_CHCountDownTemplate, FCB_CHCountDownTemplateLength);
     }
 
     unsigned int hours = 0;

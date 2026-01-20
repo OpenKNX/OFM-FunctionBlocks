@@ -6,7 +6,7 @@
 TextFormatBlock::TextFormatBlock(uint8_t channelIndex)
     : FunctionBlock(channelIndex, "TextFormat")
 {
-    _format = readParameterString(ParamFCB_CHFormatString, 28);
+    _format = readParameterString(ParamFCB_CHFormatString, FCB_CHFormatStringLength);
 }
 
 void TextFormatBlock::readInputKos()
