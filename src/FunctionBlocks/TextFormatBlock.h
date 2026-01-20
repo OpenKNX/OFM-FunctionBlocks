@@ -21,7 +21,7 @@ class TextFormatBlock : public FunctionBlock
     double roundToSignificant(double value, int digits, RoundType type, bool roundZeroFive);
     double roundToDecimalPlaces(double value, int decimalPlaces, RoundType type, bool roundZeroFive);
     double roundValue(TextFormatBlock::RoundType type, double factor, double scaledValue, bool roundZeroFive);
-    std::string formatNumberString(const std::string &input, char thousandSep, char decimalSep, int minIntegerDigits, char padChar);
+    std::string formatNumberString(const std::string &input, char thousandSep, char decimalSep, int minIntegerDigits, char padChar, bool fillupRight);
 
   public:
     TextFormatBlock(uint8_t channelIndex);

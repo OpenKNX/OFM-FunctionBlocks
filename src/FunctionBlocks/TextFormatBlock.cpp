@@ -149,33 +149,17 @@ double TextFormatBlock::roundValue(TextFormatBlock::RoundType type, double facto
 
 std::string TextFormatBlock::formatDecimal(int64_t value, uint8_t koNr)
 {
-    std::string result;
-    // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-    // <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" />
-    switch (ParamFCB_CHFormatRound1)
-    {
-        case 2: {
-            int significantDigits = ParamFCB_CHFormatSignificant1;
-            RoundType type = static_cast<RoundType>(ParamFCB_CHFCBFormatRoundType1);
-            bool roundZeroFive = ParamFCB_CHFCBFormatRound5_1;
-            double roundedValue = roundToSignificant((double)value, significantDigits, type, roundZeroFive);
-            result = std::to_string((int64_t)roundedValue);
-            break;
-        }
-        case 0:
-        default:
-            result = std::to_string(value);
-            break;
-    }
-    return result;
+    return formatFloat(static_cast<double>(value), koNr);
 }
 
 std::string TextFormatBlock::formatFloat(double value, uint8_t koNr)
 {
     std::string result;
+    logDebugP("Formatting float value: %f", value);
     // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
     // <Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
     // <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" />
+    char buffer[64];
     switch (ParamFCB_CHFormatRoundFloat1)
     {
         case 1: {
@@ -183,7 +167,10 @@ std::string TextFormatBlock::formatFloat(double value, uint8_t koNr)
             RoundType type = static_cast<RoundType>(ParamFCB_CHFCBFormatRoundType1);
             bool roundZeroFive = ParamFCB_CHFCBFormatRound5_1;
             double roundedValue = roundToDecimalPlaces(value, decimalPlaces, type, roundZeroFive);
-            result = std::to_string(roundedValue);
+            logDebugP("Rounded value: %lf", roundedValue);
+            snprintf(buffer, sizeof(buffer), "%.14g", roundedValue);
+            result = buffer;
+            logDebugP("Result value: %s", result.c_str());
             break;
         }
         case 2: {
@@ -191,25 +178,55 @@ std::string TextFormatBlock::formatFloat(double value, uint8_t koNr)
             RoundType type = static_cast<RoundType>(ParamFCB_CHFCBFormatRoundType1);
             bool roundZeroFive = ParamFCB_CHFCBFormatRound5_1;
             double roundedValue = roundToSignificant(value, significantDigits, type, roundZeroFive);
-            result = std::to_string(roundedValue);
+            logDebugP("Rounded significant value: %lf", roundedValue);
+            snprintf(buffer, sizeof(buffer), "%.14g", roundedValue);
+            result = buffer;
+            logDebugP("Result value: %s", result.c_str());
             break;
         }
         case 0:
         default:
-            result = std::to_string(value);
+            snprintf(buffer, sizeof(buffer), "%.14g", value);
+            result = buffer;
+            logDebugP("Result value: %s", result.c_str());
             break;
     }
+    // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
+    // <Enumeration Text="Links mit 0" Value="1" Id="%ENID%" />
+    // <Enumeration Text="Links mit Leerzeichen" Value="2" Id="%ENID%" />
+    // <Enumeration Text="Rechts mit Leerzeichen" Value="3" Id="%ENID%" />
+    char padChar = '\0';
+    bool fillupRight = false;
+    int minIntegerDigits = ParamFCB_CHFormatFillupPrecomma1;
+    switch (ParamFCB_CHFormatFillupMode1)
+    {
+        case 0:
+            minIntegerDigits = -1;
+            break;
+        case 1:
+            padChar = '0';
+            break;
+        case 2:
+            padChar = ' ';
+            break;
+        case 3:
+            padChar = ' ';
+            fillupRight = true;
+            break;
+    }
+    result = formatNumberString(result, ((const char*)ParamFCB_CHFormatThousand)[0], '.', ParamFCB_CHFormatFillupLength1, padChar, fillupRight);
     return result;
 }
 
-std::string formatNumberString(
+std::string TextFormatBlock::formatNumberString(
     const std::string& input,
     char thousandSep,
     char decimalSep,
     int minIntegerDigits, // minimum number of integer digits (no sign, no separators)
-    char padChar          // '0' or ' '
-)
+    char padChar,         // '0' or ' '
+    bool fillupRight)
 {
+    logDebugP("Formatting number string: '%s' min: %d  padChar: '%c' right: %d", input.c_str(), minIntegerDigits, padChar, fillupRight);
     //  Extract optional sign
     char sign = '\0';
     size_t start = 0;
@@ -233,12 +250,12 @@ std::string formatNumberString(
             : input.substr(dotPos + 1);
 
     // Pad integer digits (before thousand separators)
-    if (minIntegerDigits > 0 &&
-        static_cast<int>(integerPart.size()) < minIntegerDigits)
+    if (padChar == '0' && minIntegerDigits > 0 &&
+        static_cast<int>(integerPart.size()) < minIntegerDigits && !fillupRight)
     {
 
         int padCount = minIntegerDigits - static_cast<int>(integerPart.size());
-        integerPart.insert(0, padCount, '0');
+        integerPart.insert(0, padCount, padChar);
     }
 
     // Insert thousand separators
@@ -265,17 +282,6 @@ std::string formatNumberString(
     }
     result += formattedInt;
 
-    // Apply space padding to the LEFT of the whole number
-    if (padChar == ' ' && minIntegerDigits > 0)
-    {
-        int digitCount = static_cast<int>(integerPart.size());
-        int spaceCount = minIntegerDigits - digitCount;
-        if (spaceCount > 0)
-        {
-            result.insert(0, spaceCount, ' ');
-        }
-    }
-
     // Append fractional part
     if (!fractionalPart.empty())
     {
@@ -283,6 +289,33 @@ std::string formatNumberString(
         result += fractionalPart;
     }
 
+    // Final padding with spaces if needed
+    if (padChar == ' ' && minIntegerDigits > 0)
+    {
+        if (fillupRight)
+        {
+            // Apply space padding to the RIGHT of the whole number
+            int digitCount = 0;
+            for (char c : result)
+            {
+                if (c != sign && c != thousandSep)
+                    digitCount++;
+            }
+            int spaceCount = minIntegerDigits - digitCount;
+            if (spaceCount > 0)
+                result += std::string(spaceCount, ' ');
+        }
+        else
+        {
+             // Apply space padding to the LEFT of the whole number
+            int digitCount = static_cast<int>(integerPart.size());
+            int spaceCount = minIntegerDigits - digitCount;
+            if (spaceCount > 0)
+            {
+                result.insert(0, spaceCount, ' ');
+            }
+        }
+    }
     return result;
 }
 
@@ -349,6 +382,7 @@ void TextFormatBlock::updateTextKo(bool forceSend)
     if (result.length() > 14)
         result = result.substr(0, 14);
 
+    logDebugP("Formatted text: '%s'", result.c_str());
     KoFCB_CHText.valueCompare(result.c_str(), DPT_String_8859_1);
     if (forceSend)
         KoFCB_CHText.objectWritten();
