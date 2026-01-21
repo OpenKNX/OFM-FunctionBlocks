@@ -430,7 +430,7 @@
 
 							<ParameterType Id="%AID%_PT-FCBFormatRoundType" Name="FCBFormatRoundType">
 								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
-									<Enumeration Text="Ab 5 Aufrunden" Value="0" Id="%ENID%" />
+									<Enumeration Text="Ab der Hälfte Aufrunden" Value="0" Id="%ENID%" />
 									<Enumeration Text="Immer aufrunden" Value="1" Id="%ENID%" />
 									<Enumeration Text="Immer abrunden" Value="2" Id="%ENID%" />
 								</TypeRestriction>

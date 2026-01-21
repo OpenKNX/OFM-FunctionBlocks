@@ -7,15 +7,31 @@ TextFormatBlock::TextFormatBlock(uint8_t channelIndex)
     : FunctionBlock(channelIndex, "TextFormat")
 {
     _format = readParameterString(ParamFCB_CHFormatString, FCB_CHFormatStringLength);
+    _thousandSeparator = ((const char*)ParamFCB_CHFormatThousand)[0];
+    _textBlockOn = readParameterString(ParamFCB_CHFormatOn, FCB_CHFormatOnLength);
+    _textBlockOff = readParameterString(ParamFCB_CHFormatOff, FCB_CHFormatOffLength);
 }
+#define FCB_TEXT_FORMAT_MAX_INPUTS 4
+
+/*************************** IMPORTANT **************************/
+/*                                                              */
+/*  DO NOT use none input related parameters after these lines  */
+/*                                                              */
+/*************************** IMPORTANT **************************/
+
+#undef FCB_ParamCalcIndex
+#define FCB_ParamCalcIndex(index) (index + FCB_ParamBlockOffset + _channelIndex * FCB_ParamBlockSize + (input - 1) * (FCB_CHFormatIn2 - FCB_CHFormatIn1))
 
 void TextFormatBlock::readInputKos()
 {
-    if (ParamFCB_CHFormatIn1 != 0)
+    for (int input = 1; input <= FCB_TEXT_FORMAT_MAX_INPUTS; input++)
     {
-        auto& ko = getKo(0);
-        if (!ko.initialized())
-            ko.requestObjectRead();
+        if (ParamFCB_CHFormatIn1 != 0)
+        {
+            auto& ko = getKo(0);
+            if (!ko.initialized())
+                ko.requestObjectRead();
+        }
     }
 }
 
@@ -29,7 +45,7 @@ void TextFormatBlock::handleKo(GroupObject& ko)
     updateTextKo(false);
 }
 
-std::string TextFormatBlock::formatBit(bool value, uint8_t koNr)
+std::string TextFormatBlock::formatBit(int input, bool value, uint8_t koNr)
 {
     // <Enumeration Text="Textbausteine aus 'Format Optionen'" Value="1" Id="%ENID%" />
     // <Enumeration Text="0 / 1" Value="2" Id="%ENID%" />
@@ -46,7 +62,7 @@ std::string TextFormatBlock::formatBit(bool value, uint8_t koNr)
     switch (ParamFCB_CHFormatBit1)
     {
         case 1:
-            return value ? readParameterString(ParamFCB_CHFormatOn, 14) : readParameterString(ParamFCB_CHFormatOff, 14);
+            return value ? _textBlockOn : _textBlockOff;
         case 2:
             return std::string(value ? "1" : "0");
         case 3:
@@ -100,13 +116,19 @@ double TextFormatBlock::roundToDecimalPlaces(
     RoundType type,
     bool roundZeroFive)
 {
+    if (roundZeroFive)
+        decimalPlaces--;
+
     double factor = std::pow(10.0, decimalPlaces);
     double scaledValue = value * factor;
+  
     return roundValue(type, factor, scaledValue, roundZeroFive);
 }
 
 double TextFormatBlock::roundValue(TextFormatBlock::RoundType type, double factor, double scaledValue, bool roundZeroFive)
 {
+    if (roundZeroFive)
+        scaledValue *= 2.0;
     double result = scaledValue;
     // Normal rounding
     switch (type)
@@ -124,35 +146,36 @@ double TextFormatBlock::roundValue(TextFormatBlock::RoundType type, double facto
             result = std::round(scaledValue);
             break;
     }
-
-    // optional 0/5 rounding on the last digit
     if (roundZeroFive)
-    {
-        double remainder = std::fmod(result, 10.0);
-        double base = result - remainder;
+        result /= 2.0;
 
-        if (remainder < 2.5)
-        {
-            result = base;
-        }
-        else if (remainder < 7.5)
-        {
-            result = base + 5.0;
-        }
-        else
-        {
-            result = base + 10.0;
-        }
-    }
     return result / factor;
 }
 
-std::string TextFormatBlock::formatDecimal(int64_t value, uint8_t koNr)
+std::string TextFormatBlock::formatDecimal(int input, int64_t value, uint8_t koNr)
 {
-    return formatFloat(static_cast<double>(value), koNr);
+    return doFormat(input, static_cast<double>(value), koNr, -1, '\0');
 }
 
-std::string TextFormatBlock::formatFloat(double value, uint8_t koNr)
+std::string TextFormatBlock::formatFloat(int input, double value, uint8_t koNr)
+{
+    char rightPadChar = '\0';
+    // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
+    // <Enumeration Text="Mit 0" Value="1" Id="%ENID%" />
+    // <Enumeration Text="Mit Leerzeichen" Value="2" Id="%ENID%" />
+    switch (ParamFCB_CHFormatFillupAfterComma1)
+    {
+        case 1:
+            rightPadChar = '0';
+            break;
+        case 2:
+            rightPadChar = ' ';
+            break;
+    }
+    return doFormat(input, value, koNr, ParamFCB_CHFormatDecimalPlaces1, rightPadChar);
+}
+
+std::string TextFormatBlock::doFormat(int input, double value, uint8_t koNr, int decimalPlaces, char rightPadChar)
 {
     std::string result;
     logDebugP("Formatting float value: %f", value);
@@ -163,7 +186,6 @@ std::string TextFormatBlock::formatFloat(double value, uint8_t koNr)
     switch (ParamFCB_CHFormatRoundFloat1)
     {
         case 1: {
-            int decimalPlaces = ParamFCB_CHFormatDecimalPlaces1;
             RoundType type = static_cast<RoundType>(ParamFCB_CHFCBFormatRoundType1);
             bool roundZeroFive = ParamFCB_CHFCBFormatRound5_1;
             double roundedValue = roundToDecimalPlaces(value, decimalPlaces, type, roundZeroFive);
@@ -214,40 +236,57 @@ std::string TextFormatBlock::formatFloat(double value, uint8_t koNr)
             fillupRight = true;
             break;
     }
-    result = formatNumberString(result, ((const char*)ParamFCB_CHFormatThousand)[0], '.', ParamFCB_CHFormatFillupLength1, padChar, fillupRight);
+    if (rightPadChar != '\0' && decimalPlaces > 0)
+    {
+        // Add right padding after decimal point
+        std::size_t pos = result.rfind('.');
+        if (pos == std::string::npos)
+        {
+           result += '.' + std::string(decimalPlaces, rightPadChar);
+        }
+        else
+        {
+            std::size_t currentDecimals = result.length() - pos - 1;
+            if (static_cast<int>(currentDecimals) < decimalPlaces)
+            {
+                result += std::string(decimalPlaces - currentDecimals, rightPadChar);
+            }
+        }
+    }
+    result = formatNumberString(result, _thousandSeparator, ',', ParamFCB_CHFormatFillupLength1, padChar, fillupRight);
     return result;
 }
 
 std::string TextFormatBlock::formatNumberString(
-    const std::string& input,
+    const std::string& numberString,
     char thousandSep,
     char decimalSep,
     int minIntegerDigits, // minimum number of integer digits (no sign, no separators)
     char padChar,         // '0' or ' '
     bool fillupRight)
 {
-    logDebugP("Formatting number string: '%s' min: %d  padChar: '%c' right: %d", input.c_str(), minIntegerDigits, padChar, fillupRight);
+    logDebugP("Formatting number string: '%s' min: %d  padChar: '%c' right: %d", numberString.c_str(), minIntegerDigits, padChar, fillupRight);
     //  Extract optional sign
     char sign = '\0';
     size_t start = 0;
-    if (!input.empty() && (input[0] == '-' || input[0] == '+'))
+    if (!numberString.empty() && (numberString[0] == '-' || numberString[0] == '+'))
     {
-        sign = input[0];
+        sign = numberString[0];
         start = 1;
     }
 
     // Split integer and fractional parts
-    size_t dotPos = input.find('.', start);
+    size_t dotPos = numberString.find('.', start);
 
     std::string integerPart =
         (dotPos == std::string::npos)
-            ? input.substr(start)
-            : input.substr(start, dotPos - start);
+            ? numberString.substr(start)
+            : numberString.substr(start, dotPos - start);
 
     std::string fractionalPart =
         (dotPos == std::string::npos)
             ? ""
-            : input.substr(dotPos + 1);
+            : numberString.substr(dotPos + 1);
 
     // Pad integer digits (before thousand separators)
     if (padChar == '0' && minIntegerDigits > 0 &&
@@ -329,41 +368,42 @@ void TextFormatBlock::updateTextKo(bool forceSend)
         if (waitForParameter)
         {
             waitForParameter = false;
-            if (c >= '1' && c <= '9')
+            if (c >= '1' && c <= '0' + FCB_TEXT_FORMAT_MAX_INPUTS)
             {
                 uint8_t koNr = c - '1';
+                int input = c - '0';
                 auto inTypeId = ParamFCB_CHFormatIn1;
                 switch (inTypeId)
                 {
                     case 10: // Bit
-                        result += formatBit((bool)getKo(koNr).value(DPT_Switch), koNr);
+                        result += formatBit(input, (bool)getKo(koNr).value(DPT_Switch), koNr);
                         break;
                     case 50:
-                        result += formatDecimal((int64_t)getKo(koNr).value(DPT_Value_1_Ucount), koNr);
+                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Ucount), koNr);
                         break;
                     case 51:
-                        result += formatDecimal((int64_t)getKo(koNr).value(DPT_Scaling), koNr);
+                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Scaling), koNr);
                         break;
                     case 61:
-                        result += formatDecimal((int64_t)getKo(koNr).value(DPT_Value_1_Count), koNr);
+                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Count), koNr);
                         break;
                     case 70:
-                        result += formatDecimal((int64_t)getKo(koNr).value(DPT_Value_2_Ucount), koNr);
+                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Ucount), koNr);
                         break;
                     case 80:
-                        result += formatDecimal((int64_t)getKo(koNr).value(DPT_Value_2_Count), koNr);
+                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Count), koNr);
                         break;
                     case 90:
-                        result += formatFloat((double)getKo(koNr).value(DPT_Value_Temp), koNr);
+                        result += formatFloat(input, (double)getKo(koNr).value(DPT_Value_Temp), koNr);
                         break;
                     case 120:
-                        result += formatDecimal((int64_t)getKo(koNr).value(DPT_Value_4_Ucount), koNr);
+                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Ucount), koNr);
                         break;
                     case 130:
-                        result += formatDecimal((int64_t)getKo(koNr).value(DPT_Value_4_Count), koNr);
+                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Count), koNr);
                         break;
                     case 140:
-                        result += formatFloat((double)getKo(koNr).value(DPT_Value_Amplitude), koNr);
+                        result += formatFloat(input, (double)getKo(koNr).value(DPT_Value_Amplitude), koNr);
                         break;
                     case 160:
                         result += (const char*)getKo(koNr).value(DPT_String_8859_1);
@@ -386,10 +426,4 @@ void TextFormatBlock::updateTextKo(bool forceSend)
     KoFCB_CHText.valueCompare(result.c_str(), DPT_String_8859_1);
     if (forceSend)
         KoFCB_CHText.objectWritten();
-}
-
-bool TextFormatBlock::processCommand(const std::string cmd, bool diagnoseKo)
-{
-    // No commands to process
-    return false;
 }
