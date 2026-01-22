@@ -3722,10 +3722,14 @@
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%316_R-%TT%%CC%31601" HelpContext="%DOC%" />
                                   <!-- Round to 5-->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%317_R-%TT%%CC%31701" HelpContext="%DOC%" />
-                                  <!-- Fillup After Comman -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%315_R-%TT%%CC%31501" HelpContext="%DOC%"  />
                                   <!-- Stellen -->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%312_R-%TT%%CC%31201" HelpContext="%DOC%" />
+                                  <choose ParamRefId="%AID%_UP-%TT%%CC%312_R-%TT%%CC%31201">
+                                    <when test="!=0">
+                                      <!-- Fillup After Comman -->
+                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%315_R-%TT%%CC%31501" HelpContext="%DOC%"  />
+                                    </when>
+                                  </choose>
                                 </when>
                                 <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
                                   <!-- Round Type -->
@@ -3839,10 +3843,14 @@
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%326_R-%TT%%CC%32601" HelpContext="%DOC%" />
                                   <!-- Round to 5-->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%327_R-%TT%%CC%32701" HelpContext="%DOC%" />
-                                  <!-- Fillup After Comman -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%325_R-%TT%%CC%32501" HelpContext="%DOC%"  />
                                   <!-- Stellen -->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%322_R-%TT%%CC%32201" HelpContext="%DOC%" />
+                                  <choose ParamRefId="%AID%_UP-%TT%%CC%322_R-%TT%%CC%32201">
+                                    <when test="!=0">
+                                      <!-- Fillup After Comman -->
+                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%325_R-%TT%%CC%32501" HelpContext="%DOC%"  />
+                                    </when>
+                                  </choose> 
                                 </when>
                                 <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
                                   <!-- Round Type -->
@@ -3951,10 +3959,14 @@
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%336_R-%TT%%CC%33601" HelpContext="%DOC%" />
                                   <!-- Round to 5-->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%337_R-%TT%%CC%33701" HelpContext="%DOC%" />
-                                  <!-- Fillup After Comman -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%335_R-%TT%%CC%33501" HelpContext="%DOC%"  />
                                   <!-- Stellen -->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%332_R-%TT%%CC%33201" HelpContext="%DOC%" />
+                                  <choose ParamRefId="%AID%_UP-%TT%%CC%332_R-%TT%%CC%33201">
+                                    <when test="!=0">
+                                      <!-- Fillup After Comman -->
+                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%335_R-%TT%%CC%33501" HelpContext="%DOC%"  />
+                                    </when>
+                                  </choose>
                                 </when>
                                 <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
                                   <!-- Round Type -->
@@ -4058,10 +4070,14 @@
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%346_R-%TT%%CC%34601" HelpContext="%DOC%" />
                                   <!-- Round to 5-->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%347_R-%TT%%CC%34701" HelpContext="%DOC%" />
-                                  <!-- Fillup After Comman -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%345_R-%TT%%CC%34501" HelpContext="%DOC%"  />
                                   <!-- Stellen -->
                                   <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%342_R-%TT%%CC%34201" HelpContext="%DOC%" />
+                                  <choose ParamRefId="%AID%_UP-%TT%%CC%342_R-%TT%%CC%34201">
+                                    <when test="!=0">
+                                      <!-- Fillup After Comman -->
+                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%345_R-%TT%%CC%34501" HelpContext="%DOC%"  />
+                                    </when>
+                                  </choose>
                                 </when>
                                 <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
                                   <!-- Round Type -->
