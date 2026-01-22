@@ -14,7 +14,6 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Wertüberwachung](#wertüberwachtung)
   * [Count-Down Zeitgeber](#count-down-zeitgeber)
   * [Blinker](#blinker)
-  * [Bayes Sensor](#bayes-sensor)
   * [Text Format](#text-format)
 
 
@@ -130,11 +129,6 @@ Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten ode
 <!-- DOCEND -->
 [ETS Konfiguration](#blinker-1)
 
-<!-- DOC -->
-## Bayes Sensor
-
-<!-- TODO -->
-
 <!-- DOC HelpContext="TextFormatter" -->
 ### Text Format ###
 
@@ -197,10 +191,6 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Die Funktion Blinker stellt einen Ausgang für ein Blinklicht bereit.
   Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
   Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
-
-- **Bayes Sensor**
-  Ermittelt einen binären Zustands-Wert aus bis zu 9 Eingangswerten, auf Basis eines Naiven Bayes-Klassifikators.
-  Der ausgegebene Wert entspricht dem wahrscheinlichsten Zustand bei gleichzeitigem Vorliegen der unabhängigen Eingangswerte.
 
 - **Text Format**
   Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.  
@@ -1043,42 +1033,6 @@ Der Prozentwert der für EIN gesendet wird.
 Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.001       Prozent (0..100%)" ausgewählt wird
 
 Der Prozentwert der für AUS gesendet wird.
-
-
-## Bayes Binär-Sensor
-
-<!-- TODO -->
-
-<!-- DOC -->
-### BayesianBinarySensor
-
-<!-- TODO -->
-
-<!-- DOC -->
-### Prior-Wahrscheinlichkeit
-
-Wahrscheinlichkeit, dass der Zustandswert EIN ist, unabgängig von den Eingangswerten. Bzw. Zeitanteil.
-
-<!-- DOC -->
-### Schwellwert für binären Ausgang
-
-Minimale Wahrscheinlichkeit, ab der der Ausgangswert auf EIN gesetzt wird. 
-
-<!-- DOC -->
-### Wahrscheinlichkeits-Ausgang aktivieren
-
-Es kann ein zusätzliches KO bereitgestellt werden, über das die ermittelte Wahrscheinlichkeit ausgegeben wird.
-Wenn dieses aktiv ist, dann reduziert die maximale Anzahl der Eingänge auf 8.
-
-<!-- DOC -->
-### PSensorTRUE-EreignisTRUE
-
-Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der Wert EIN anliegt.
-
-<!-- DOC -->
-### PSensorTRUE-EreignisFALSE
-
-Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der Wert AUS anliegt.
 
 <!--DOCEND -->
 ## Text Format

@@ -32,7 +32,7 @@
 									<Enumeration Id="%ENID%" Value="7"  Text="Wertüberwachung" Icon="alert-remove-outline" />
 									<Enumeration Id="%ENID%" Value="6"  Text="Count-Down Zeitgeber" Icon="timer-sand" />
 									<Enumeration Id="%ENID%" Value="9"  Text="Blinker" Icon="alarm-light-outline" />
-									<Enumeration Id="%ENID%" Value="10" Text="Bayesian Binary Sensor" Icon="brain" />
+									<!-- <Enumeration Id="%ENID%" Value="10" Text="Bayesian Binary Sensor" Icon="brain" /> -->
 									<Enumeration Id="%ENID%" Value="11" Text="Text Format" Icon="format-text-variant-outline" />
 								</TypeRestriction>
 							</ParameterType>
