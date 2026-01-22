@@ -140,6 +140,9 @@ Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten ode
 
 Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.
 
+<!-- DOCEND -->
+[ETS Konfiguration](#text-format-1)
+
 # ETS Konfiguration
 
 <!-- DOC -->
