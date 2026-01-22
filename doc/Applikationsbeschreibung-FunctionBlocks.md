@@ -202,6 +202,9 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Ermittelt einen binären Zustands-Wert aus bis zu 9 Eingangswerten, auf Basis eines Naiven Bayes-Klassifikators.
   Der ausgegebene Wert entspricht dem wahrscheinlichsten Zustand bei gleichzeitigem Vorliegen der unabhängigen Eingangswerte.
 
+- **Text Format**
+  Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.  
+
 ## Kanaleinstellungen
 
 Jeder Kanal bietet folgende Einstellungen:
