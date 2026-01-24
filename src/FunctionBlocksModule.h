@@ -1,7 +1,7 @@
 #pragma once
 #include "knxprod.h"
-#ifndef FCB_CHFormatStringLength
-#error "OpenKNXproducer 3.12.6.0 or higher is required to compile this project. Please update your OpenKNXproducer installation."
+#ifndef ParamFCB_CHFormatStringStr
+#error "OpenKNXproducer 3.12.8.0 or higher is required to compile this project. Please update your OpenKNXproducer installation."
 #endif
 #include "OpenKNX.h"
 #include "ChannelOwnerModule.h"

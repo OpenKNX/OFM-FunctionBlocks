@@ -6,11 +6,11 @@
 TextFormatBlock::TextFormatBlock(uint8_t channelIndex)
     : FunctionBlock(channelIndex, "TextFormat")
 {   
-    _format =  knx.paramString(FCB_ParamCalcIndex(FCB_CHFormatString), FCB_CHFormatStringLength);
+    _format =  ParamFCB_CHFormatStringStr;
     logDebugP("TextFormatBlock2 format string: '%s'", _format.c_str());
     _thousandSeparator = ((const char*)ParamFCB_CHFormatThousand)[0];
-    _textBlockOn = knx.paramString(FCB_ParamCalcIndex(FCB_CHFormatOn), FCB_CHFormatOnLength);
-    _textBlockOff = knx.paramString(FCB_ParamCalcIndex(FCB_CHFormatOff), FCB_CHFormatOffLength);
+    _textBlockOn = ParamFCB_CHFormatOnStr;
+    _textBlockOff = ParamFCB_CHFormatOffStr;
 }
 #define FCB_TEXT_FORMAT_MAX_INPUTS 4
 
