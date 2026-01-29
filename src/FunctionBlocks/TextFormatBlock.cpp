@@ -1,3 +1,4 @@
+#include "../FunctionBlocksModule.h"
 #include "TextFormatBlock.h"
 #include <algorithm>
 
