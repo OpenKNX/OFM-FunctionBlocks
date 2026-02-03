@@ -465,7 +465,7 @@
               </Union>
 
               <!-- Format -->
-              <Union SizeInBit="488">
+              <Union SizeInBit="584">
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Format String -->
                 <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%300" Name="CH%C%FormatString" ParameterType="%AID%_PT-FCBFormatString" Text="Format" Value="" />
