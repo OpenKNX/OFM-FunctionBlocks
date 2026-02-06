@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="../../../../Organization/knxprod-support/knx_project_14/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-model href="../../../../Organization/knxprod-support/knx_project_20/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer"
-  xmlns="http://knx.org/xml/project/14" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
+  xmlns="http://knx.org/xml/project/20" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
   <ManufacturerData>
     <Manufacturer>
       <ApplicationPrograms>
@@ -43,7 +43,7 @@
               <Parameter Id="%AID%_P-%TT%%CC%018" Name="CH%C%NameKo8"   ParameterType="%AID%_PT-Text40Byte" Text="Name"  Value="" />
             
               <!-- AND / OR / COUNT -->
-              <Union SizeInBit="64">
+              <Union SizeInBit="64" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
 
                 <!-- Binary KO 0 Deactivatable-->
@@ -146,7 +146,7 @@
 
 
               <!-- Priority Switch -->
-              <Union SizeInBit="144">
+              <Union SizeInBit="144" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Binary KO 0 Deactivatable-->
                 <Parameter Id="%AID%_UP-%TT%%CC%102" Name="CH%C%PrioKo0D" ParameterType="%AID%_PT-FCBBinaryKoDeativatable" Offset="0" BitOffset="0" Text="Eingang 1" Value="1" />
@@ -248,7 +248,7 @@
               </Union>
 
               <!-- Simple Statistic Aggregation -->
-              <Union SizeInBit="120">
+              <Union SizeInBit="120" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
 
                 <!-- Weighed -->
@@ -304,7 +304,7 @@
 
       
               <!-- Count Down -->
-              <Union SizeInBit="632">
+              <Union SizeInBit="632" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Count Down Time Start Ko-->
                 <Parameter Id="%AID%_UP-%TT%%CC%197" Name="CH%C%CountDownTimeStartKo" ParameterType="%AID%_PT-FCBCountDownTimeStartKo" Offset="0" BitOffset="0" Text="Start mit Zeit" Value="0" />
@@ -352,7 +352,7 @@
               </Union>
 
               <!-- Wertüberwachung -->
-              <Union SizeInBit="248">
+              <Union SizeInBit="248" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Messwert Type-->
                 <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%209" Name="CH%C%MonitoringValueType" ParameterType="%AID%_PT-FCBNumericBitStringDpt" Text="Werttype" Value="90" />
@@ -418,7 +418,7 @@
               </Union>
 
               <!-- Auswahl -->
-              <Union SizeInBit="24">
+              <Union SizeInBit="24" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Auswahl KO Type-->
                 <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%263" Name="CH%C%SelectionValueType" ParameterType="%AID%_PT-FCBNumericBitStringDpt" Text="Datentype" Value="90" />
@@ -431,7 +431,7 @@
               </Union>
 
                <!-- Blinker -->
-              <Union SizeInBit="96">
+              <Union SizeInBit="96" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Ein DelayBase -->
                 <Parameter Offset="2" BitOffset="0" Id="%AID%_UP-%TT%%CC%251" Name="CH%C%BlinkerOnDelayBase"   ParameterType="%AID%_PT-DelayBase10" Text="Blinker EIN Zeitbasis" Value="0" />
@@ -465,7 +465,7 @@
               </Union>
 
               <!-- Format -->
-              <Union SizeInBit="584">
+              <Union SizeInBit="584" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Format String -->
                 <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%300" Name="CH%C%FormatString" ParameterType="%AID%_PT-FCBFormatString" Text="Format" Value="" />
