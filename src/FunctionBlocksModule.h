@@ -10,9 +10,31 @@
 
 class FunctionBlocksModule : public FCBChannelOwnerModule
 {
+   
     unsigned int _startTime = 0;
     LedFunctionTimeStateSeconds _statusLedTimeStateSeconds;
     LedFunctionValueMonitor _statusLedValueMonitor;
+  #ifdef OPENKNX_LEDFUNC_BASE_PROG_UNCONFIGUREDSUPPORT
+    class DummyLedToGetCurrentState : public OpenKNX::Led::Base
+    {
+      public:
+        unsigned long progLedLastOff = millis();
+        bool isOff = true;;
+        void writeLed(uint8_t brightness) override 
+        {
+          isOff = brightness == 0;
+          if (isOff)
+          { 
+            progLedLastOff = millis();
+          }
+        }
+        void init() override { _initialized = true; }
+    };
+    OpenKNX::Led::FunctionGroup* _ledProgLedFunctionGroup;
+    DummyLedToGetCurrentState* _dummyLed;
+    unsigned long _lastBlink = 0;
+    int _blinkState = 0;
+  #endif
   public:
     FunctionBlocksModule();
     const std::string name() override;
