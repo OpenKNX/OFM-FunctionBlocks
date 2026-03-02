@@ -42,13 +42,10 @@ void FunctionBlocksModule::setup(bool configured)
     FCBChannelOwnerModule::setup(configured);
     _startTime = millis();
 #if OPENKNX_LEDFUNC_BASE_PROG_UNCONFIGUREDSUPPORT
-    if (!configured)
-    {
-        _ledProgLedFunctionGroup = openknx.ledFunctions.get(OPENKNX_LEDFUNC_BASE_PROG);
-        _dummyLed = new DummyLedToGetCurrentState();
-        _dummyLed->init();
-        openknx.ledFunctions.assignLed2Function(_dummyLed, OPENKNX_LEDFUNC_BASE_PROG);
-    }
+    _ledProgLedFunctionGroup = openknx.ledFunctions.get(OPENKNX_LEDFUNC_BASE_PROG);
+    _dummyLed = new DummyLedToGetCurrentState();
+    _dummyLed->init();
+    openknx.ledFunctions.assignLed2Function(_dummyLed, OPENKNX_LEDFUNC_BASE_PROG);
 #endif
 }
 
@@ -81,7 +78,7 @@ bool FunctionBlocksModule::processCommand(const std::string cmd, bool diagnoseKo
             {
                 logInfoP("Channel %d not found", channel);
                 return true;
-            }
+           } 
             FunctionBlock* functionBlock = (FunctionBlock*)getChannel(channel - 1);
             if (functionBlock != nullptr)
             {
