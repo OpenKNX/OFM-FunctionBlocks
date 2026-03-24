@@ -173,54 +173,54 @@
 
 
                 <!-- Output Value Ko 0-->
-                <Parameter Id="%AID%_UP-%TT%%CC%112" Name="CH%C%PrioOutPKo0" ParameterType="%AID%_PT-FCBValuePercent" Offset="3" BitOffset="0" Text="Ausgangswert" Value="100" SuffixText='%' />
-                <Parameter Id="%AID%_UP-%TT%%CC%113" Name="CH%C%PrioOutByteKo0" ParameterType="%AID%_PT-FCBValue1Byte" Offset="3" BitOffset="0" Text="Ausgangswert" Value="1" />
-                <Parameter Id="%AID%_UP-%TT%%CC%142" Name="CH%C%PrioOutSceneKo0" ParameterType="%AID%_PT-FCBValueScene" Offset="3" BitOffset="0" Text="Ausgangswert Szenennummer" Value="1" />
+                <Parameter Id="%AID%_UP-%TT%%CC%112" Name="CH%C%PrioOutPKo0" ParameterType="%AID%_PT-FCBValuePercent" Offset="3" BitOffset="0" Text="Ausgangswert" Value="100" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%113" Name="CH%C%PrioOutByteKo0" ParameterType="%AID%_PT-FCBValue1Byte" Offset="3" BitOffset="0" Text="Ausgangswert" Value="1" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%142" Name="CH%C%PrioOutSceneKo0" ParameterType="%AID%_PT-FCBValueScene" Offset="3" BitOffset="0" Text="Ausgangswert Szenennummer" Value="1" op:nowarn="true" />
 
                 <!-- Output Value Ko 1-->
-                <Parameter Id="%AID%_UP-%TT%%CC%114" Name="CH%C%PrioOutPKo1" ParameterType="%AID%_PT-FCBValuePercent" Offset="4" BitOffset="0" Text="Ausgangswert" Value="90" SuffixText='%' />
-                <Parameter Id="%AID%_UP-%TT%%CC%115" Name="CH%C%PrioOutByteKo1" ParameterType="%AID%_PT-FCBValue1Byte" Offset="4" BitOffset="0" Text="Ausgangswert" Value="2" />
-                <Parameter Id="%AID%_UP-%TT%%CC%143" Name="CH%C%PrioOutSceneKo1" ParameterType="%AID%_PT-FCBValueScene" Offset="4" BitOffset="0" Text="Ausgangswert Szenennummer" Value="2" />
+                <Parameter Id="%AID%_UP-%TT%%CC%114" Name="CH%C%PrioOutPKo1" ParameterType="%AID%_PT-FCBValuePercent" Offset="4" BitOffset="0" Text="Ausgangswert" Value="90" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%115" Name="CH%C%PrioOutByteKo1" ParameterType="%AID%_PT-FCBValue1Byte" Offset="4" BitOffset="0" Text="Ausgangswert" Value="2" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%143" Name="CH%C%PrioOutSceneKo1" ParameterType="%AID%_PT-FCBValueScene" Offset="4" BitOffset="0" Text="Ausgangswert Szenennummer" Value="2" op:nowarn="true" />
 
                 <!-- Output Value Ko 2-->
-                <Parameter Id="%AID%_UP-%TT%%CC%116" Name="CH%C%PrioOutPKo2" ParameterType="%AID%_PT-FCBValuePercent" Offset="5" BitOffset="0" Text="Ausgangswert" Value="80" SuffixText='%'/>
-                <Parameter Id="%AID%_UP-%TT%%CC%117" Name="CH%C%PrioOutByteKo2" ParameterType="%AID%_PT-FCBValue1Byte" Offset="5" BitOffset="0" Text="Ausgangswert" Value="3" />
-                <Parameter Id="%AID%_UP-%TT%%CC%144" Name="CH%C%PrioOutSceneKo2" ParameterType="%AID%_PT-FCBValueScene" Offset="5" BitOffset="0" Text="Ausgangswert Szenennummer" Value="3" />
+                <Parameter Id="%AID%_UP-%TT%%CC%116" Name="CH%C%PrioOutPKo2" ParameterType="%AID%_PT-FCBValuePercent" Offset="5" BitOffset="0" Text="Ausgangswert" Value="80" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%117" Name="CH%C%PrioOutByteKo2" ParameterType="%AID%_PT-FCBValue1Byte" Offset="5" BitOffset="0" Text="Ausgangswert" Value="3" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%144" Name="CH%C%PrioOutSceneKo2" ParameterType="%AID%_PT-FCBValueScene" Offset="5" BitOffset="0" Text="Ausgangswert Szenennummer" Value="3" op:nowarn="true" />
 
                 <!-- Output Value Ko 3-->
-                <Parameter Id="%AID%_UP-%TT%%CC%118" Name="CH%C%PrioOutPKo3" ParameterType="%AID%_PT-FCBValuePercent" Offset="6" BitOffset="0" Text="Ausgangswert" Value="70" SuffixText='%'/>
-                <Parameter Id="%AID%_UP-%TT%%CC%119" Name="CH%C%PrioOutByteKo3" ParameterType="%AID%_PT-FCBValue1Byte" Offset="6" BitOffset="0" Text="Ausgangswert" Value="4" />
-                <Parameter Id="%AID%_UP-%TT%%CC%145" Name="CH%C%PrioOutSceneKo3" ParameterType="%AID%_PT-FCBValueScene" Offset="6" BitOffset="0" Text="Ausgangswert Szenennummer" Value="4" />
+                <Parameter Id="%AID%_UP-%TT%%CC%118" Name="CH%C%PrioOutPKo3" ParameterType="%AID%_PT-FCBValuePercent" Offset="6" BitOffset="0" Text="Ausgangswert" Value="70" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%119" Name="CH%C%PrioOutByteKo3" ParameterType="%AID%_PT-FCBValue1Byte" Offset="6" BitOffset="0" Text="Ausgangswert" Value="4" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%145" Name="CH%C%PrioOutSceneKo3" ParameterType="%AID%_PT-FCBValueScene" Offset="6" BitOffset="0" Text="Ausgangswert Szenennummer" Value="4" op:nowarn="true" />
 
                 <!-- Output Value Ko 4-->
-                <Parameter Id="%AID%_UP-%TT%%CC%120" Name="CH%C%PrioOutPKo4" ParameterType="%AID%_PT-FCBValuePercent" Offset="7" BitOffset="0" Text="Ausgangswert" Value="60" SuffixText='%' />
-                <Parameter Id="%AID%_UP-%TT%%CC%121" Name="CH%C%PrioOutByteKo4" ParameterType="%AID%_PT-FCBValue1Byte" Offset="7" BitOffset="0" Text="Ausgangswert" Value="5" />
-                <Parameter Id="%AID%_UP-%TT%%CC%146" Name="CH%C%PrioOutSceneKo4" ParameterType="%AID%_PT-FCBValueScene" Offset="7" BitOffset="0" Text="Ausgangswert Szenennummer" Value="5" />
+                <Parameter Id="%AID%_UP-%TT%%CC%120" Name="CH%C%PrioOutPKo4" ParameterType="%AID%_PT-FCBValuePercent" Offset="7" BitOffset="0" Text="Ausgangswert" Value="60" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%121" Name="CH%C%PrioOutByteKo4" ParameterType="%AID%_PT-FCBValue1Byte" Offset="7" BitOffset="0" Text="Ausgangswert" Value="5" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%146" Name="CH%C%PrioOutSceneKo4" ParameterType="%AID%_PT-FCBValueScene" Offset="7" BitOffset="0" Text="Ausgangswert Szenennummer" Value="5" op:nowarn="true" />
 
                 <!-- Output Value Ko 5-->
-                <Parameter Id="%AID%_UP-%TT%%CC%122" Name="CH%C%PrioOutPKo5" ParameterType="%AID%_PT-FCBValuePercent" Offset="8" BitOffset="0" Text="Ausgangswert" Value="50" SuffixText='%' />
-                <Parameter Id="%AID%_UP-%TT%%CC%123" Name="CH%C%PrioOutByteKo5" ParameterType="%AID%_PT-FCBValue1Byte" Offset="8" BitOffset="0" Text="Ausgangswert" Value="6" />
-                <Parameter Id="%AID%_UP-%TT%%CC%147" Name="CH%C%PrioOutSceneKo5" ParameterType="%AID%_PT-FCBValueScene" Offset="8" BitOffset="0" Text="Ausgangswert Szenennummer" Value="6" />
+                <Parameter Id="%AID%_UP-%TT%%CC%122" Name="CH%C%PrioOutPKo5" ParameterType="%AID%_PT-FCBValuePercent" Offset="8" BitOffset="0" Text="Ausgangswert" Value="50" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%123" Name="CH%C%PrioOutByteKo5" ParameterType="%AID%_PT-FCBValue1Byte" Offset="8" BitOffset="0" Text="Ausgangswert" Value="6" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%147" Name="CH%C%PrioOutSceneKo5" ParameterType="%AID%_PT-FCBValueScene" Offset="8" BitOffset="0" Text="Ausgangswert Szenennummer" Value="6" op:nowarn="true" />
 
                 <!-- Output Value Ko 6-->
-                <Parameter Id="%AID%_UP-%TT%%CC%124" Name="CH%C%PrioOutPKo6" ParameterType="%AID%_PT-FCBValuePercent" Offset="9" BitOffset="0" Text="Ausgangswert" Value="40" SuffixText='%'/>
-                <Parameter Id="%AID%_UP-%TT%%CC%125" Name="CH%C%PrioOutByteKo6" ParameterType="%AID%_PT-FCBValue1Byte" Offset="9" BitOffset="0" Text="Ausgangswert" Value="7" />
-                <Parameter Id="%AID%_UP-%TT%%CC%148" Name="CH%C%PrioOutSceneKo6" ParameterType="%AID%_PT-FCBValueScene" Offset="9" BitOffset="0" Text="Ausgangswert Szenennummer" Value="7" />
+                <Parameter Id="%AID%_UP-%TT%%CC%124" Name="CH%C%PrioOutPKo6" ParameterType="%AID%_PT-FCBValuePercent" Offset="9" BitOffset="0" Text="Ausgangswert" Value="40" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%125" Name="CH%C%PrioOutByteKo6" ParameterType="%AID%_PT-FCBValue1Byte" Offset="9" BitOffset="0" Text="Ausgangswert" Value="7" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%148" Name="CH%C%PrioOutSceneKo6" ParameterType="%AID%_PT-FCBValueScene" Offset="9" BitOffset="0" Text="Ausgangswert Szenennummer" Value="7" op:nowarn="true" />
 
                 <!-- Output Value Ko 7-->
-                <Parameter Id="%AID%_UP-%TT%%CC%126" Name="CH%C%PrioOutPKo7" ParameterType="%AID%_PT-FCBValuePercent" Offset="10" BitOffset="0" Text="Ausgangswert" Value="30" SuffixText='%' />
-                <Parameter Id="%AID%_UP-%TT%%CC%127" Name="CH%C%PrioOutByteKo7" ParameterType="%AID%_PT-FCBValue1Byte" Offset="10" BitOffset="0" Text="Ausgangswert" Value="8" />
-                <Parameter Id="%AID%_UP-%TT%%CC%149" Name="CH%C%PrioOutSceneKo7" ParameterType="%AID%_PT-FCBValueScene" Offset="10" BitOffset="0" Text="Ausgangswert Szenennummer" Value="8" />
+                <Parameter Id="%AID%_UP-%TT%%CC%126" Name="CH%C%PrioOutPKo7" ParameterType="%AID%_PT-FCBValuePercent" Offset="10" BitOffset="0" Text="Ausgangswert" Value="30" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%127" Name="CH%C%PrioOutByteKo7" ParameterType="%AID%_PT-FCBValue1Byte" Offset="10" BitOffset="0" Text="Ausgangswert" Value="8" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%149" Name="CH%C%PrioOutSceneKo7" ParameterType="%AID%_PT-FCBValueScene" Offset="10" BitOffset="0" Text="Ausgangswert Szenennummer" Value="8" op:nowarn="true" />
 
                 <!-- Output Value Ko 8-->
-                <Parameter Id="%AID%_UP-%TT%%CC%128" Name="CH%C%PrioOutPKo8" ParameterType="%AID%_PT-FCBValuePercent" Offset="11" BitOffset="0" Text="Ausgangswert" Value="20" SuffixText='%' />
-                <Parameter Id="%AID%_UP-%TT%%CC%129" Name="CH%C%PrioOutByteKo8" ParameterType="%AID%_PT-FCBValue1Byte" Offset="11" BitOffset="0" Text="Ausgangswert" Value="9" />
-                <Parameter Id="%AID%_UP-%TT%%CC%270" Name="CH%C%PrioOutSceneKo8" ParameterType="%AID%_PT-FCBValueScene" Offset="11" BitOffset="0" Text="Ausgangswert Szenennummer" Value="9" />
+                <Parameter Id="%AID%_UP-%TT%%CC%128" Name="CH%C%PrioOutPKo8" ParameterType="%AID%_PT-FCBValuePercent" Offset="11" BitOffset="0" Text="Ausgangswert" Value="20" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%129" Name="CH%C%PrioOutByteKo8" ParameterType="%AID%_PT-FCBValue1Byte" Offset="11" BitOffset="0" Text="Ausgangswert" Value="9" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%270" Name="CH%C%PrioOutSceneKo8" ParameterType="%AID%_PT-FCBValueScene" Offset="11" BitOffset="0" Text="Ausgangswert Szenennummer" Value="9" op:nowarn="true" />
 
                 <!-- Output Value Ko 9-->
-                <Parameter Id="%AID%_UP-%TT%%CC%130" Name="CH%C%PrioOutPDefault" ParameterType="%AID%_PT-FCBValuePercent" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="0" SuffixText='%' />
-                <Parameter Id="%AID%_UP-%TT%%CC%131" Name="CH%C%PrioOutByteDefault" ParameterType="%AID%_PT-FCBValue1Byte" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="10" />
-                <Parameter Id="%AID%_UP-%TT%%CC%271" Name="CH%C%PrioOutSceneDefault" ParameterType="%AID%_PT-FCBValueScene" Offset="12" BitOffset="0" Text="Ausgangswert Szenennummer wenn alle Eingänge AUS" Value="64" />
+                <Parameter Id="%AID%_UP-%TT%%CC%130" Name="CH%C%PrioOutPDefault" ParameterType="%AID%_PT-FCBValuePercent" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="0" SuffixText="%" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%131" Name="CH%C%PrioOutByteDefault" ParameterType="%AID%_PT-FCBValue1Byte" Offset="12" BitOffset="0" Text="Ausgangswert wenn alle Eingänge AUS" Value="10" op:nowarn="true" />
+                <Parameter Id="%AID%_UP-%TT%%CC%271" Name="CH%C%PrioOutSceneDefault" ParameterType="%AID%_PT-FCBValueScene" Offset="12" BitOffset="0" Text="Ausgangswert Szenennummer wenn alle Eingänge AUS" Value="64" op:nowarn="true" />
 
                 <!-- Input Ko 0 Behavior-->
                 <Parameter Id="%AID%_UP-%TT%%CC%132" Name="CH%C%PrioBehavKo0" ParameterType="%AID%_PT-FCBInputValueBehavior" Offset="13" BitOffset="0" Text="Initialisierung" Value="0" />
@@ -371,46 +371,46 @@
                 <!-- ^^^  Need 2 Bits ^^^ -->
                 <!--  2 bits free -->
                 <!-- Watchdog Replacement -->				 
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%211" Name="CH%C%MonitoringWDDpt1"    ParameterType="%AID%_PT-ValueDpt1"    Text="Ersatzwert" Value="1" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%212" Name="CH%C%MonitoringWDDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%213" Name="CH%C%MonitoringWDDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Ersatzwert" Value="50" SuffixText="%" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%214" Name="CH%C%MonitoringWDDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%215" Name="CH%C%MonitoringWDDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%216" Name="CH%C%MonitoringWDDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%217" Name="CH%C%MonitoringWDDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%218" Name="CH%C%MonitoringWDDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%219" Name="CH%C%MonitoringWDDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%220" Name="CH%C%MonitoringWDDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Ersatzwert" Value="20" />
-                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%262" Name="CH%C%MonitoringWDDpt16"   ParameterType="%AID%_PT-FCBValueDpt16"   Text="Ersatzwert" Value="Fehler" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%211" Name="CH%C%MonitoringWDDpt1"    ParameterType="%AID%_PT-ValueDpt1"    Text="Ersatzwert" Value="1" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%212" Name="CH%C%MonitoringWDDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%213" Name="CH%C%MonitoringWDDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Ersatzwert" Value="50" SuffixText="%" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%214" Name="CH%C%MonitoringWDDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%215" Name="CH%C%MonitoringWDDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%216" Name="CH%C%MonitoringWDDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%217" Name="CH%C%MonitoringWDDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%218" Name="CH%C%MonitoringWDDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%219" Name="CH%C%MonitoringWDDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%220" Name="CH%C%MonitoringWDDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Ersatzwert" Value="20" op:nowarn="true" />
+                <Parameter Offset="5" BitOffset="0" Id="%AID%_UP-%TT%%CC%262" Name="CH%C%MonitoringWDDpt16"   ParameterType="%AID%_PT-FCBValueDpt16"   Text="Ersatzwert" Value="Fehler" op:nowarn="true" />
                 <!-- ^^^  Max size 14 Bytes + 0 Terminator = 15 Bytes ^^^ -->
                 <!-- Minimum Value Monitoring -->
                 <Parameter Offset="20" BitOffset="0" Id="%AID%_UP-%TT%%CC%221" Name="CH%C%MonitoringMin" ParameterType="%AID%_PT-FCBMonitoringMinReplacement" Text="Verhalten bei Wertunterschreitung" Value="0" />
      		        <!-- Minimum Value -->				 
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%222" Name="CH%C%MonitoringMinDpt1"    ParameterType="%AID%_PT-FCBBooleanMinValueMonitor" Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%223" Name="CH%C%MonitoringMinDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%224" Name="CH%C%MonitoringMinDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Minimaler zulässiger Wert" Value="0" SuffixText="%" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%225" Name="CH%C%MonitoringMinDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Minimaler zulässiger Wert" Value="-128" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%226" Name="CH%C%MonitoringMinDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%227" Name="CH%C%MonitoringMinDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Minimaler zulässiger Wert" Value="-32768" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%228" Name="CH%C%MonitoringMinDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Minimaler zulässiger Wert" Value="-671088" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%229" Name="CH%C%MonitoringMinDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Minimaler zulässiger Wert" Value="0" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%230" Name="CH%C%MonitoringMinDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Minimaler zulässiger Wert" Value="-2147483648" />
-                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%231" Name="CH%C%MonitoringMinDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Minimaler zulässiger Wert" Value="-1000000000000" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%222" Name="CH%C%MonitoringMinDpt1"    ParameterType="%AID%_PT-FCBBooleanMinValueMonitor" Text="Minimaler zulässiger Wert" Value="0" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%223" Name="CH%C%MonitoringMinDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Minimaler zulässiger Wert" Value="0" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%224" Name="CH%C%MonitoringMinDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Minimaler zulässiger Wert" Value="0" SuffixText="%" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%225" Name="CH%C%MonitoringMinDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Minimaler zulässiger Wert" Value="-128" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%226" Name="CH%C%MonitoringMinDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Minimaler zulässiger Wert" Value="0" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%227" Name="CH%C%MonitoringMinDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Minimaler zulässiger Wert" Value="-32768" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%228" Name="CH%C%MonitoringMinDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Minimaler zulässiger Wert" Value="-671088" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%229" Name="CH%C%MonitoringMinDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Minimaler zulässiger Wert" Value="0" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%230" Name="CH%C%MonitoringMinDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Minimaler zulässiger Wert" Value="-2147483648" op:nowarn="true" />
+                <Parameter Offset="21" BitOffset="0" Id="%AID%_UP-%TT%%CC%231" Name="CH%C%MonitoringMinDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Minimaler zulässiger Wert" Value="-1000000000000" op:nowarn="true" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
               
                 <!-- Maximum Value Monitoring -->
                 <Parameter Offset="25" BitOffset="0" Id="%AID%_UP-%TT%%CC%232" Name="CH%C%MonitoringMax"        ParameterType="%AID%_PT-FCBMonitoringMaxReplacement" Text="Verhalten bei Wertüberschreitung" Value="0" />
      		        <!-- Maximum Value -->				 
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%233" Name="CH%C%MonitoringMaxDpt1"    ParameterType="%AID%_PT-FCBBooleanMaxValueMonitor" Text="Maximaler zulässiger Wert" Value="1" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%234" Name="CH%C%MonitoringMaxDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Maximaler zulässiger Wert" Value="255" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%235" Name="CH%C%MonitoringMaxDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Maximaler zulässiger Wert" Value="100" SuffixText="%" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%236" Name="CH%C%MonitoringMaxDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Maximaler zulässiger Wert" Value="127" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%237" Name="CH%C%MonitoringMaxDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Maximaler zulässiger Wert" Value="65535" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%238" Name="CH%C%MonitoringMaxDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Maximaler zulässiger Wert" Value="32767" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%239" Name="CH%C%MonitoringMaxDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Maximaler zulässiger Wert" Value="670760" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%240" Name="CH%C%MonitoringMaxDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Maximaler zulässiger Wert" Value="4294967295" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%241" Name="CH%C%MonitoringMaxDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Maximaler zulässiger Wert" Value="2147483647" />
-                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%242" Name="CH%C%MonitoringMaxDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Maximaler zulässiger Wert" Value="1000000000000" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%233" Name="CH%C%MonitoringMaxDpt1"    ParameterType="%AID%_PT-FCBBooleanMaxValueMonitor" Text="Maximaler zulässiger Wert" Value="1" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%234" Name="CH%C%MonitoringMaxDpt5"    ParameterType="%AID%_PT-ValueDpt5"    Text="Maximaler zulässiger Wert" Value="255" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%235" Name="CH%C%MonitoringMaxDpt5001" ParameterType="%AID%_PT-ValueDpt5001" Text="Maximaler zulässiger Wert" Value="100" SuffixText="%" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%236" Name="CH%C%MonitoringMaxDpt6"    ParameterType="%AID%_PT-ValueDpt6"    Text="Maximaler zulässiger Wert" Value="127" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%237" Name="CH%C%MonitoringMaxDpt7"    ParameterType="%AID%_PT-ValueDpt7"    Text="Maximaler zulässiger Wert" Value="65535" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%238" Name="CH%C%MonitoringMaxDpt8"    ParameterType="%AID%_PT-ValueDpt8"    Text="Maximaler zulässiger Wert" Value="32767" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%239" Name="CH%C%MonitoringMaxDpt9"    ParameterType="%AID%_PT-ValueDpt9"    Text="Maximaler zulässiger Wert" Value="670760" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%240" Name="CH%C%MonitoringMaxDpt12"   ParameterType="%AID%_PT-ValueDpt12"   Text="Maximaler zulässiger Wert" Value="4294967295" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%241" Name="CH%C%MonitoringMaxDpt13"   ParameterType="%AID%_PT-ValueDpt13"   Text="Maximaler zulässiger Wert" Value="2147483647" op:nowarn="true" />
+                <Parameter Offset="26" BitOffset="0" Id="%AID%_UP-%TT%%CC%242" Name="CH%C%MonitoringMaxDpt14"   ParameterType="%AID%_PT-ValueDpt14"   Text="Maximaler zulässiger Wert" Value="1000000000000" op:nowarn="true" />
                 <!-- ^^^  Max size 4 Bytes ^^^ -->
                 <!-- Ausgang -->
                 <Parameter Offset="30" BitOffset="0" Id="%AID%_UP-%TT%%CC%243" Name="CH%C%MonitoringOutput" ParameterType="%AID%_PT-FCBMonitoringOutput" Text="Sendeverhalten" Value="2" />
@@ -430,8 +430,8 @@
                 <Parameter Offset="2" BitOffset="4" Id="%AID%_UP-%TT%%CC%250" Name="CH%C%SelectionStateOutput" ParameterType="%AID%_PT-OnOffYesNo" Text="Auswahl Status Objekt" Value="1" />
               </Union>
 
-               <!-- Blinker -->
-              <Union SizeInBit="96" op:nowarn="true" >
+              <!-- Blinker -->
+              <Union SizeInBit="104" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Ein DelayBase -->
                 <Parameter Offset="2" BitOffset="0" Id="%AID%_UP-%TT%%CC%251" Name="CH%C%BlinkerOnDelayBase"   ParameterType="%AID%_PT-DelayBase10" Text="Blinker EIN Zeitbasis" Value="0" />
@@ -448,20 +448,20 @@
                 <!-- Stop -->
                 <Parameter Offset="6" BitOffset="4" Id="%AID%_UP-%TT%%CC%256" Name="CH%C%BlinkerStop"   ParameterType="%AID%_PT-FCBBlinkerStop"    Text="Ende" Value="2" />
                 <!-- Break -->
-                <Parameter Offset="7" BitOffset="0" Id="%AID%_UP-%TT%%CC%257" Name="CH%C%BlinkerBreak"   ParameterType="%AID%_PT-FCBBlinkerBreak"    Text="AUS Telegram am 'Start' Eingang" Value="3" />
+                <Parameter Offset="7" BitOffset="0" Id="%AID%_UP-%TT%%CC%257" Name="CH%C%BlinkerBreak"   ParameterType="%AID%_PT-FCBBlinkerBreak"    Text="AUS Telegram am 'Start' Eingang" Value="3" op:nowarn="true" />
                 <!-- Break without ignore -->
-                <Parameter Offset="7" BitOffset="0" Id="%AID%_UP-%TT%%CC%265" Name="CH%C%BlinkerBreakWithoutBreak"   ParameterType="%AID%_PT-FCBBlinkerBreakWithoutIgnore"    Text="AUS Telegram am 'Start' Eingang" Value="3" />
+                <Parameter Offset="7" BitOffset="0" Id="%AID%_UP-%TT%%CC%265" Name="CH%C%BlinkerBreakWithoutBreak"   ParameterType="%AID%_PT-FCBBlinkerBreakWithoutIgnore"    Text="AUS Telegram am 'Start' Eingang" Value="3" op:nowarn="true" />
                 <!-- Ausgang Dpt -->
-                <Parameter Offset="7" BitOffset="4" Id="%AID%_UP-%TT%%CC%258" Name="CH%C%BlinkerOutputDpt"   ParameterType="%AID%_PT-FCBBlinkerOutputDpt"    Text="Ausgang" Value="10" />
+                <!-- 4 bits free -->
+                <Parameter Offset="8" BitOffset="0" Id="%AID%_UP-%TT%%CC%258" Name="CH%C%BlinkerOutputDpt"   ParameterType="%AID%_PT-FCBBlinkerOutputDpt"    Text="Ausgang" Value="10" />
                 <!-- Ein Wert -->
-                <Parameter Offset="8" BitOffset="0" Id="%AID%_UP-%TT%%CC%259" Name="CH%C%BlinkerOnPercentage"    ParameterType="%AID%_PT-ValueDpt5001" Text="Wert für EIN" Value="100" SuffixText="%" />
+                <Parameter Offset="9" BitOffset="0" Id="%AID%_UP-%TT%%CC%259" Name="CH%C%BlinkerOnPercentage"    ParameterType="%AID%_PT-ValueDpt5001" Text="Wert für EIN" Value="100" SuffixText="%" />
                 <!-- Aus Wert -->
-                <Parameter Offset="9" BitOffset="0" Id="%AID%_UP-%TT%%CC%260" Name="CH%C%BlinkerOffPercentage"    ParameterType="%AID%_PT-ValueDpt5001" Text="Wert für AUS" Value="0" SuffixText="%" />         
+                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%260" Name="CH%C%BlinkerOffPercentage"    ParameterType="%AID%_PT-ValueDpt5001" Text="Wert für AUS" Value="0" SuffixText="%" />         
                 <!-- Blinkanzahl -->
-                <Parameter Offset="10" BitOffset="0" Id="%AID%_UP-%TT%%CC%261" Name="CH%C%BlinkerCount"    ParameterType="%AID%_PT-FCBBlinkCount" Text="Anzahl der Blinkvorgänge" Value="0" />
+                <Parameter Offset="11" BitOffset="0" Id="%AID%_UP-%TT%%CC%261" Name="CH%C%BlinkerCount"    ParameterType="%AID%_PT-FCBBlinkCount" Text="Anzahl der Blinkvorgänge" Value="0" />
                 <!-- KO Blink Anzahl -->
-                <Parameter Offset="11" BitOffset="0" Id="%AID%_UP-%TT%%CC%264" Name="CH%C%BlinkerStartAnzahl"    ParameterType="%AID%_PT-OnOffYesNo" Text="Objekt zum Starten mit Anzahl" Value="0" />
-          
+                <Parameter Offset="12" BitOffset="0" Id="%AID%_UP-%TT%%CC%264" Name="CH%C%BlinkerStartAnzahl"    ParameterType="%AID%_PT-OnOffYesNo" Text="Objekt zum Starten mit Anzahl" Value="0" />
               </Union>
 
               <!-- Format -->
@@ -486,22 +486,22 @@
           
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
-                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%311" Name="CH%C%FormatRoundFloat1" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" />
+                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%311" Name="CH%C%FormatRoundFloat1" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Rounding decimal -->
-                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%319" Name="CH%C%FormatRound1" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" />
+                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%319" Name="CH%C%FormatRound1" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Round to 5-->
-                <Parameter Offset="58" BitOffset="2" Id="%AID%_UP-%TT%%CC%317" Name="CH%C%FCBFormatRound5_1" ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" />
+                <Parameter Offset="58" BitOffset="2" Id="%AID%_UP-%TT%%CC%317" Name="CH%C%FCBFormatRound5_1" ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
                 <!-- 1 bit free -->
                 <!-- Stellen -->
-                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%312" Name="CH%C%FormatDecimalPlaces1" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" />
+                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%312" Name="CH%C%FormatDecimalPlaces1" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
                 <!-- Precision -->
-                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%313" Name="CH%C%FormatSignificant1" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" />
+                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%313" Name="CH%C%FormatSignificant1" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
                 <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="59" BitOffset="0" Id="%AID%_UP-%TT%%CC%314" Name="CH%C%FormatFillupPrecomma1" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" />  
+                <Parameter Offset="59" BitOffset="0" Id="%AID%_UP-%TT%%CC%314" Name="CH%C%FormatFillupPrecomma1" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
                 <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="59" BitOffset="0" Id="%AID%_UP-%TT%%CC%410" Name="CH%C%FormatFillupMode1" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" /> 
+                <Parameter Offset="59" BitOffset="0" Id="%AID%_UP-%TT%%CC%410" Name="CH%C%FormatFillupMode1" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" /> 
                 <!-- ^^^^ 4 Bits ^^^ -->
                 <!-- Fillup After Comma -->
                 <Parameter Offset="59" BitOffset="4" Id="%AID%_UP-%TT%%CC%315" Name="CH%C%FormatFillupAfterComma1" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
@@ -512,7 +512,7 @@
                 <Parameter Offset="60" BitOffset="4" Id="%AID%_UP-%TT%%CC%411" Name="CH%C%FormatFillupLength1" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
                 <!-- Bit parameter-->
                 <!-- Bit display -->
-                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%318" Name="CH%C%FormatBit1" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" /> 
+                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%318" Name="CH%C%FormatBit1" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" /> 
 
 
                 <!-- Input2 -->
@@ -520,22 +520,22 @@
                 <Parameter Offset="61" BitOffset="0" Id="%AID%_UP-%TT%%CC%320" Name="CH%C%FormatIn2" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
-                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%321" Name="CH%C%FormatRoundFloat2" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" />
+                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%321" Name="CH%C%FormatRoundFloat2" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Rounding decimal -->
-                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%329" Name="CH%C%FormatRound2" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" />   
+                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%329" Name="CH%C%FormatRound2" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />   
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Round to 5-->
-                <Parameter Offset="62" BitOffset="2" Id="%AID%_UP-%TT%%CC%327" Name="CH%C%FCBFormatRound5_2" ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" />
+                <Parameter Offset="62" BitOffset="2" Id="%AID%_UP-%TT%%CC%327" Name="CH%C%FCBFormatRound5_2" ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
                 <!-- 1 bit free -->
                 <!-- Stellen -->
-                <Parameter Offset="62" BitOffset="4" Id="%AID%_UP-%TT%%CC%322" Name="CH%C%FormatDecimalPlaces2" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" />
+                <Parameter Offset="62" BitOffset="4" Id="%AID%_UP-%TT%%CC%322" Name="CH%C%FormatDecimalPlaces2" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
                 <!-- Precision -->
-                <Parameter Offset="62" BitOffset="4" Id="%AID%_UP-%TT%%CC%323" Name="CH%C%FormatSignificant2" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" />
+                <Parameter Offset="62" BitOffset="4" Id="%AID%_UP-%TT%%CC%323" Name="CH%C%FormatSignificant2" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
                 <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="63" BitOffset="0" Id="%AID%_UP-%TT%%CC%324" Name="CH%C%FormatFillupPrecomma2" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" />  
+                <Parameter Offset="63" BitOffset="0" Id="%AID%_UP-%TT%%CC%324" Name="CH%C%FormatFillupPrecomma2" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
                 <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="63" BitOffset="0" Id="%AID%_UP-%TT%%CC%420" Name="CH%C%FormatFillupMode2" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" /> 
+                <Parameter Offset="63" BitOffset="0" Id="%AID%_UP-%TT%%CC%420" Name="CH%C%FormatFillupMode2" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" /> 
                 <!-- ^^^^ 4 Bits ^^^ -->
                 <!-- Fillup After Comma -->
                 <Parameter Offset="63" BitOffset="4" Id="%AID%_UP-%TT%%CC%325" Name="CH%C%FormatFillupAfterComma2" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
@@ -546,7 +546,7 @@
                 <Parameter Offset="64" BitOffset="4" Id="%AID%_UP-%TT%%CC%421" Name="CH%C%FormatFillupLength2" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
                 <!-- Bit parameter-->
                 <!-- Bit display -->
-                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%328" Name="CH%C%FormatBit2" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" />
+                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%328" Name="CH%C%FormatBit2" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" />
 
 
                 <!-- Input3 -->
@@ -554,22 +554,22 @@
                 <Parameter Offset="65" BitOffset="0" Id="%AID%_UP-%TT%%CC%330" Name="CH%C%FormatIn3" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
-                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%331" Name="CH%C%FormatRoundFloat3" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" />
+                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%331" Name="CH%C%FormatRoundFloat3" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Rounding decimal -->
-                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%339" Name="CH%C%FormatRound3" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" />   
+                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%339" Name="CH%C%FormatRound3" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />   
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Round to 5-->
-                <Parameter Offset="66" BitOffset="2" Id="%AID%_UP-%TT%%CC%337" Name="CH%C%FCBFormatRound5_3"  ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" />
+                <Parameter Offset="66" BitOffset="2" Id="%AID%_UP-%TT%%CC%337" Name="CH%C%FCBFormatRound5_3"  ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
                 <!-- 1 bit free -->
                 <!-- Stellen -->
-                <Parameter Offset="66" BitOffset="4" Id="%AID%_UP-%TT%%CC%332" Name="CH%C%FormatDecimalPlaces3" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" />
+                <Parameter Offset="66" BitOffset="4" Id="%AID%_UP-%TT%%CC%332" Name="CH%C%FormatDecimalPlaces3" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
                 <!-- Precision -->
-                <Parameter Offset="66" BitOffset="4" Id="%AID%_UP-%TT%%CC%333" Name="CH%C%FormatSignificant3" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" />
+                <Parameter Offset="66" BitOffset="4" Id="%AID%_UP-%TT%%CC%333" Name="CH%C%FormatSignificant3" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
                 <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="67" BitOffset="0" Id="%AID%_UP-%TT%%CC%334" Name="CH%C%FormatFillupPrecomma3" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" />  
+                <Parameter Offset="67" BitOffset="0" Id="%AID%_UP-%TT%%CC%334" Name="CH%C%FormatFillupPrecomma3" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
                 <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="67" BitOffset="0" Id="%AID%_UP-%TT%%CC%430" Name="CH%C%FormatFillupMode3" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" /> 
+                <Parameter Offset="67" BitOffset="0" Id="%AID%_UP-%TT%%CC%430" Name="CH%C%FormatFillupMode3" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" /> 
                 <!-- ^^^^ 4 Bits ^^^ -->
                 <!-- Fillup After Comma -->
                 <Parameter Offset="67" BitOffset="4" Id="%AID%_UP-%TT%%CC%335" Name="CH%C%FormatFillupAfterComma3" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
@@ -580,7 +580,7 @@
                 <Parameter Offset="68" BitOffset="4" Id="%AID%_UP-%TT%%CC%431" Name="CH%C%FormatFillupLength3" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
                 <!-- Bit parameter-->
                 <!-- Bit display -->
-                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%338" Name="CH%C%FormatBit3" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" /> 
+                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%338" Name="CH%C%FormatBit3" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" /> 
 
 
                 <!-- Input4 -->
@@ -588,22 +588,22 @@
                 <Parameter Offset="69" BitOffset="0" Id="%AID%_UP-%TT%%CC%340" Name="CH%C%FormatIn4" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
-                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%341" Name="CH%C%FormatRoundFloat4" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" />
+                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%341" Name="CH%C%FormatRoundFloat4" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Rounding decimal -->
-                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%349" Name="CH%C%FormatRound4" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" />   
+                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%349" Name="CH%C%FormatRound4" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />   
                 <!-- ^^^^ 2 Bits ^^^ -->
                 <!-- Round to 5-->
-                <Parameter Offset="70" BitOffset="2" Id="%AID%_UP-%TT%%CC%347" Name="CH%C%FCBFormatRound5_4"  ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" />
+                <Parameter Offset="70" BitOffset="2" Id="%AID%_UP-%TT%%CC%347" Name="CH%C%FCBFormatRound5_4"  ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
                 <!-- 1 bit free -->
                 <!-- Stellen -->
-                <Parameter Offset="70" BitOffset="4" Id="%AID%_UP-%TT%%CC%342" Name="CH%C%FormatDecimalPlaces4" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" />
+                <Parameter Offset="70" BitOffset="4" Id="%AID%_UP-%TT%%CC%342" Name="CH%C%FormatDecimalPlaces4" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
                 <!-- Precision -->
-                <Parameter Offset="70" BitOffset="4" Id="%AID%_UP-%TT%%CC%343" Name="CH%C%FormatSignificant4" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" />
+                <Parameter Offset="70" BitOffset="4" Id="%AID%_UP-%TT%%CC%343" Name="CH%C%FormatSignificant4" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
                 <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="71" BitOffset="0" Id="%AID%_UP-%TT%%CC%344" Name="CH%C%FormatFillupPrecomma4" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" />  
+                <Parameter Offset="71" BitOffset="0" Id="%AID%_UP-%TT%%CC%344" Name="CH%C%FormatFillupPrecomma4" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
                 <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="71" BitOffset="0" Id="%AID%_UP-%TT%%CC%440" Name="CH%C%FormatFillupMode4" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" />
+                <Parameter Offset="71" BitOffset="0" Id="%AID%_UP-%TT%%CC%440" Name="CH%C%FormatFillupMode4" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 4 Bits ^^^ -->
                 <!-- Fillup After Comma -->
                 <Parameter Offset="71" BitOffset="4" Id="%AID%_UP-%TT%%CC%345" Name="CH%C%FormatFillupAfterComma4" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
@@ -614,7 +614,7 @@
                 <Parameter Offset="72" BitOffset="4" Id="%AID%_UP-%TT%%CC%441" Name="CH%C%FormatFillupLength4" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
                 <!-- Bit parameter-->
                 <!-- Bit display -->
-                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%348" Name="CH%C%FormatBit4" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" />
+                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%348" Name="CH%C%FormatBit4" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" />
 
                 
               </Union>
