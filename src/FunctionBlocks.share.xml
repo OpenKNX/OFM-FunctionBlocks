@@ -9,7 +9,7 @@
 				<ApplicationProgram>
 					<Static>
 						<ParameterTypes>
-							 <!-- Status LEDs-->
+							<!-- Status LEDs-->
 							<ParameterType Id="%AID%_PT-SLEDFunc" Name="SLEDFunc">
 								<TypeRestriction Base="Value" SizeInBit="16" UIHint="DropDown">
 									<Enumeration Text="Zeitstatus (Sekundensignal)" Value="400" Id="%ENID%" />
