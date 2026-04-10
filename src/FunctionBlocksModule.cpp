@@ -41,12 +41,7 @@ void FunctionBlocksModule::setup(bool configured)
     FCBChannelOwnerModule::initialize(configured ? ParamFCB_VisibleChannels : 0);
     FCBChannelOwnerModule::setup(configured);
     _startTime = millis();
-#if OPENKNX_LEDFUNC_BASE_PROG_UNCONFIGUREDSUPPORT
-    _ledProgLedFunctionGroup = openknx.ledFunctions.get(OPENKNX_LEDFUNC_BASE_PROG);
-    _dummyLed = new DummyLedToGetCurrentState();
-    _dummyLed->init();
-    openknx.ledFunctions.assignLed2Function(_dummyLed, OPENKNX_LEDFUNC_BASE_PROG);
-#endif
+
 }
 
 void FunctionBlocksModule::showHelp()
@@ -160,68 +155,6 @@ void FunctionBlocksModule::loop(bool configured)
     FCBChannelOwnerModule::loop(configured);
     _statusLedTimeStateSeconds.loop();
     _statusLedValueMonitor.loop();
-#if OPENKNX_LEDFUNC_BASE_PROG_UNCONFIGUREDSUPPORT
-    if (!configured)
-    {
-        if (knx.progMode())
-        {
-            _ledProgLedFunctionGroup->color(OpenKNX::Led::Color::Red);
-            _ledProgLedFunctionGroup->on();
-            _blinkState = 0;
-        }
-        else
-        {
-            switch (_blinkState)
-            {
-                case 0:
-                    if (_dummyLed->isOff)
-                    {
-                        if (millis() - _dummyLed->progLedLastOff >= 3000)
-                        {
-                            _blinkState = 1;
-                            _ledProgLedFunctionGroup->color(OpenKNX::Led::Color::Orange);
-                            _ledProgLedFunctionGroup->on();
-                            _lastBlink = millis();
-                        }
-                    }
-                    break;
-                case 1:
-                    if (millis() - _lastBlink >= 50)
-                    {
-                        _ledProgLedFunctionGroup->off();
-                        _dummyLed->progLedLastOff = millis();
-                        if (knx.individualAddress() == 0xFFFF)
-                        {
-                            _blinkState = 2;
-                            _lastBlink = millis();
-                        }
-                        else
-                        {
-                            _blinkState = 0;
-                        }
-                    }
-                    break;
-                case 2:
-                    if (millis() - _lastBlink >= 50)
-                    {
-                        _ledProgLedFunctionGroup->color(OpenKNX::Led::Color::Orange);
-                        _ledProgLedFunctionGroup->on();
-                        _lastBlink = millis();
-                        _blinkState = 3;
-                    }
-                    break;
-                case 3:
-                    if (millis() - _lastBlink >= 50)
-                    {
-                        _ledProgLedFunctionGroup->off();
-                        _dummyLed->progLedLastOff = millis();
-                        _blinkState = 0;
-                    }
-                    break;
-            }
-        }
-    }
-#endif
 }
 
 FunctionBlocksModule openknxFunctionBlocksModule;
