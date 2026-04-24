@@ -38,7 +38,7 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBNumericBitStringDpt" Name="FCBNumericDpt">
+							<ParameterType Id="%AID%_PT-FCBNumericBitStringDpt" Name="FCBNumericBitStringDpt">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<!-- align for visibility in ETS -->
 									<Enumeration Text="1.*           1-Bit (0/1)" Value="10" Id="%ENID%" />
@@ -156,7 +156,7 @@
 								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="0" maxInclusive="255" />
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBInputValueBehavior" Name="FCBFCBInputValueBehavior">
+							<ParameterType Id="%AID%_PT-FCBInputValueBehavior" Name="FCBInputValueBehavior">
 								<TypeRestriction Base="Value" SizeInBit="4">
 									<Enumeration Text="AUS" Value="0" Id="%ENID%" />
 									<Enumeration Text="EIN" Value="1" Id="%ENID%" />
@@ -301,7 +301,7 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBMonitoringMinReplacement" Name="FCBMonitoringRangeReplacement">
+							<ParameterType Id="%AID%_PT-FCBMonitoringMinReplacement" Name="FCBMonitoringMinReplacement">
 								<TypeRestriction Base="Value" SizeInBit="4">
 									<Enumeration Text="Überwachung deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
@@ -311,7 +311,7 @@
 							</ParameterType>
 
 
-							<ParameterType Id="%AID%_PT-FCBMonitoringMaxReplacement" Name="FCBMonitoringRangeReplacement">
+							<ParameterType Id="%AID%_PT-FCBMonitoringMaxReplacement" Name="FCBMonitoringMaxReplacement">
 								<TypeRestriction Base="Value" SizeInBit="4">
 									<Enumeration Text="Überwachung deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Nichts senden" Value="1" Id="%ENID%" />
@@ -384,7 +384,7 @@
 								<!-- 1 characters -->
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBFormatRoundFloat" Name="FCBFormatRound" >
+							<ParameterType Id="%AID%_PT-FCBFormatRoundFloat" Name="FCBFormatRoundFloat" >
 								<TypeRestriction Base="Value" SizeInBit="2" UIHint="DropDown">
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
@@ -392,7 +392,7 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBFormatRoundDecimal" Name="FCBFormatRound" >
+							<ParameterType Id="%AID%_PT-FCBFormatRoundDecimal" Name="FCBFormatRoundDecimal" >
 								<TypeRestriction Base="Value" SizeInBit="2" UIHint="DropDown">
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" />
@@ -412,7 +412,7 @@
 								<TypeNumber SizeInBit="4" Type="unsignedInt" minInclusive="2" maxInclusive="14" />
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBFormatFillupMode" Name="FCBFormatFillup">
+							<ParameterType Id="%AID%_PT-FCBFormatFillupMode" Name="FCBFormatFillupMode">
 								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Links mit 0" Value="1" Id="%ENID%" />
@@ -421,7 +421,7 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBFormatFillupFloat" Name="FCBFormatFillup">
+							<ParameterType Id="%AID%_PT-FCBFormatFillupFloat" Name="FCBFormatFillupFloat">
 								<TypeRestriction Base="Value" SizeInBit="4" UIHint="DropDown">
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
 									<Enumeration Text="Mit 0" Value="1" Id="%ENID%" />
@@ -535,11 +535,11 @@
 								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="99" />
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBBayesPP" Name="FCBBayesianPP">
+							<ParameterType Id="%AID%_PT-FCBBayesPP" Name="FCBBayesPP">
 								<TypeNumber SizeInBit="8" Type="unsignedInt" minInclusive="1" maxInclusive="99" />
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBBayesEnableProbOutput" Name="FCBBayesianEnableProbOutput">
+							<ParameterType Id="%AID%_PT-FCBBayesEnableProbOutput" Name="FCBBayesEnableProbOutput">
 								<TypeRestriction Base="Value" SizeInBit="1" UIHint="DropDown">
 									<Enumeration Text="Nein (9 Eingänge)" Value="0" Id="%ENID%" />
 									<Enumeration Text="Ja (8 Eingänge)" Value="1" Id="%ENID%" />
