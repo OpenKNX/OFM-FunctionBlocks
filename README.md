@@ -8,17 +8,7 @@ Bei Bedarf können die FunktionsBlöcke mit Logiken ergänzen werden.
 
 ## Release Notes
 
-- 0.9.1 Fix: Crash beim Programmieren
-- 0.9 Neuer Functionsblock "Text Format"
-- 0.9 Startverhalten bei Wertüberwachung konfigurierbar
-- 0.8 Fix: Bennennung Eingang 9 bei FB-"Anzahl" nicht möglich
-- 0.7 Count-Down: Konfigurationsparameter für maximale Laufzeit bei Erhöhen durch KO
-- 0.7 Count-Down: Text Parameter für Stopp
-- 0.6.2 Breaking Change: Fix: Ko Verringern/Erhöhen für Count-Down: 0...Verringern, 1...Erhöhen
-- 0.6.1 Breaking Change: Fix: Ko Pause/Fortsetzten ist nun richtiggestellt: 1...Fortsetzten, 0...Pause
-- 0.6 Eingänge können benannt werden
-- 0.6 Text Input is now ISO-8859-1
-- 0.5 Szene-DPT als Prioritätsschalter Ausgang
+Die vollständige Historie liegt in [release_notes.md](release_notes.md).
 
 ## Features
 - AND mit 9 Eingängen
