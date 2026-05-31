@@ -1,6 +1,7 @@
 #pragma once
 #include "OpenKNX.h"
 #include <string>
+#include "MemoryAllocator.h"
 
 class FunctionBlock : public OpenKNX::Channel
 {
@@ -14,6 +15,10 @@ class FunctionBlock : public OpenKNX::Channel
     Dpt dptType(uint8_t typeParamValue);
     std::string readParameterString(uint8_t* parameterValue, int size);
   public:
+  static void* operator new(size_t size)
+    {
+        return HS_MALLOC(size);
+    }  
     void setup(bool configured) override;
     const std::string name() override;
     virtual void readInputKos() = 0;
