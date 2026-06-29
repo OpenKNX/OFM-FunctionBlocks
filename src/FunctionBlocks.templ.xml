@@ -1417,25 +1417,6 @@
                 </choose>
               </ParameterBlock>
 
-              <ParameterBlock Id="%AID%_PB-nnn" Name="More">
-                <!-- Anzahl der Kanäle -->
-                <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
-                  <when test="=%C-1%">
-                     <ParameterSeparator Id="%AID%_PS-nnn" Text="Funktionsblock %C%" />
-                    <!-- Kanal Name -->
-                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
-  
-                    <!-- Kanal Typ -->
-                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
-                    <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
-                      <when test="0"><!-- ************ Deaktiviert ************ -->
-                        <ParameterSeparator Id="%AID%_PS-nnn" Text="Die Auswahl darf nicht 'Deaktiviert' sein um hinzufügen zu können. Hinzugefügte Kanäle erscheinen nach ca. 1 Sekunde Verzögerung links im Baum." UIHint="Information" />
-                      </when>
-                    </choose>
-                  </when>
-                </choose>
-              </ParameterBlock>
-
               <ParameterBlock Id="%AID%_PB-nnn" Name="Channel">
 
                 <!-- Anzahl der Kanäle -->
