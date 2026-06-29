@@ -569,9 +569,6 @@
 						</ComObjectTable>
 						<ComObjectRefs>
 						</ComObjectRefs>
-						<Script>
-							<op:include href="FunctionBlocks.script.js" prefix="FCB" type="script" />
-						</Script>
 					</Static>
 					<Dynamic>
 						<Channel Name="MainChannel%TT%" Text="Funktionsblöcke" Number="%PREFIX%" Id="%AID%_CH-%TT%" Icon="texture-box">
