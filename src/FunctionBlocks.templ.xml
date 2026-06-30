@@ -284,7 +284,7 @@
                 <!-- 1 bits free -->
 
                 <!-- Inputs Value Type -->
-                <Parameter Id="%AID%_UP-%TT%%CC%182" Name="CH%C%AggInputDpt"        ParameterType="%AID%_PT-FCBNumericDpt"     Offset="4"  BitOffset="0" Text="Wertetype / DPT"   Value="90" />
+                <Parameter Id="%AID%_UP-%TT%%CC%182" Name="CH%C%AggInputDpt"        ParameterType="%AID%_PT-FCBNumericDpt"     Offset="4"  BitOffset="0" Text="Wertetyp / DPT"    Value="90" />
                 <!-- Output Value Type (Effective) -->
                 <Parameter Id="%AID%_UP-%TT%%CC%183" Name="CH%C%AggOutputDptEff"    ParameterType="%AID%_PT-FCBNumericDpt"     Offset="5"  BitOffset="0" Text="DPT Ausgang"       Value="90"  Access="None" />
 
@@ -300,7 +300,7 @@
 
               </Union>
               <!-- Output Value Type -->
-              <Parameter Id="%AID%_P-%TT%%CC%186"  Name="CH%C%AggOutputDpt"  ParameterType="%AID%_PT-FCBNumericOutputDpt"  Text="Wertetype / DPT"  Value="255" />
+              <Parameter Id="%AID%_P-%TT%%CC%186"  Name="CH%C%AggOutputDpt"  ParameterType="%AID%_PT-FCBNumericOutputDpt"  Text="Wertetyp / DPT"  Value="255" />
 
       
               <!-- Count Down -->
@@ -421,7 +421,7 @@
               <Union SizeInBit="24" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Auswahl KO Type-->
-                <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%263" Name="CH%C%SelectionValueType" ParameterType="%AID%_PT-FCBNumericBitStringDpt" Text="Datentype" Value="90" />
+                <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%263" Name="CH%C%SelectionValueType" ParameterType="%AID%_PT-FCBNumericBitStringDpt" Text="Datentyp" Value="90" />
                 <!-- Auswahl Type-->
                 <Parameter Offset="1" BitOffset="0" Id="%AID%_UP-%TT%%CC%248" Name="CH%C%SelectionType" ParameterType="%AID%_PT-FCBSelectionType" Text="Anzahl und Typ der Auswahlen (mit gemeinsamen Auswahl-Eingang)" Value="7" />
                 <!-- Auswahl Umschaltung -->
@@ -482,7 +482,7 @@
 
                 <!-- Input1 -->
                 <!-- Input Type -->
-                <Parameter Offset="57" BitOffset="0" Id="%AID%_UP-%TT%%CC%310" Name="CH%C%FormatIn1" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
+                <Parameter Offset="57" BitOffset="0" Id="%AID%_UP-%TT%%CC%310" Name="CH%C%FormatIn1" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentyp" Value="0" />
           
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
@@ -517,7 +517,7 @@
 
                 <!-- Input2 -->
                 <!-- Input Type -->
-                <Parameter Offset="61" BitOffset="0" Id="%AID%_UP-%TT%%CC%320" Name="CH%C%FormatIn2" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
+                <Parameter Offset="61" BitOffset="0" Id="%AID%_UP-%TT%%CC%320" Name="CH%C%FormatIn2" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentyp" Value="0" />
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
                 <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%321" Name="CH%C%FormatRoundFloat2" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
@@ -551,7 +551,7 @@
 
                 <!-- Input3 -->
                 <!-- Input Type -->
-                <Parameter Offset="65" BitOffset="0" Id="%AID%_UP-%TT%%CC%330" Name="CH%C%FormatIn3" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
+                <Parameter Offset="65" BitOffset="0" Id="%AID%_UP-%TT%%CC%330" Name="CH%C%FormatIn3" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentyp" Value="0" />
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
                 <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%331" Name="CH%C%FormatRoundFloat3" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
@@ -585,7 +585,7 @@
 
                 <!-- Input4 -->
                 <!-- Input Type -->
-                <Parameter Offset="69" BitOffset="0" Id="%AID%_UP-%TT%%CC%340" Name="CH%C%FormatIn4" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
+                <Parameter Offset="69" BitOffset="0" Id="%AID%_UP-%TT%%CC%340" Name="CH%C%FormatIn4" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentyp" Value="0" />
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
                 <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%341" Name="CH%C%FormatRoundFloat4" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
