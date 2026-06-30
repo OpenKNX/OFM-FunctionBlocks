@@ -206,10 +206,10 @@ Die Bezeichnung wird innerhalb der ETS für die Benennung des Kanals und für di
 Die Bezeichnung hat keinen Einfluss auf das Verhalten des Funktionsblocks und kann jederzeit auch nachträglich angepasst werden.
 
 <!-- DOC -->
-### Kanal deaktivieren (zu Testzwecken)
+### Suspendiert
 
-Mit dieser Einstellung kann ein Kanal deaktiviert werden, ohne das die Konfigurationswerte und Gruppenadressen an den Kommunikationsobjekten verloren gehen.
-Ein deaktivierter Kanal sendet keine Telegramme auf dem KNX-Bus. 
+Mit dieser Einstellung wird der Kanal wie deaktiviert behandelt, aber die Kommunikationsobjekte und alle Einstellungen bleiben sichtbar.
+Dadurch müssen GA-Verknüpfungen nicht entfernt oder erneut hinzugefügt werden beim späteren Reaktivieren.
 
 
 <!-- DOC -->

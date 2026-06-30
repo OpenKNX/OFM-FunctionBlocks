@@ -18,7 +18,7 @@
                 <!-- Channel Type -->
                 <Parameter Id="%AID%_UP-%TT%%CC%001" Name="CH%C%ChannelType" ParameterType="%AID%_PT-FCBChannelType" Offset="0" BitOffset="0" Text="Type" Value="0" />
                 <!-- Channel Disabled -->
-                <Parameter Id="%AID%_UP-%TT%%CC%002" Name="CH%C%ChannelDisabled" ParameterType="%AID%_PT-CheckBox" Offset="1" BitOffset="0" Text="Kanal deaktivieren (zu Testzwecken)" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%002" Name="CH%C%ChannelDisabled" ParameterType="%AID%_PT-Suspended" Offset="1" BitOffset="0" Text="Suspendiert" Value="0" />
 
                 <!-- 7 Bits free-->
               </Union>
