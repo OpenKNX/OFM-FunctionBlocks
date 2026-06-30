@@ -40,7 +40,6 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
   Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
 
-- **Bayes Sensor**
-  Ermittelt einen binären Zustands-Wert aus bis zu 9 Eingangswerten, auf Basis eines Naiven Bayes-Klassifikators.
-  Der ausgegebene Wert entspricht dem wahrscheinlichsten Zustand bei gleichzeitigem Vorliegen der unabhängigen Eingangswerte.
+- **Text Format**
+  Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.  
 
