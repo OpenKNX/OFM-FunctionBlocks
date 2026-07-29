@@ -1,5 +1,15 @@
 # Release Notes
 
+## 0.10.1
+### Breaking Changes
+- none
+
+### Feature
+- none
+
+### Bug
+- Fix #29: Dauer war durch uint8_t Berechnung auf 255s beschränkt bei "Start mit Zeit" in {"Einheit Minuten", "Einheit Stunden"}
+
 ## 0.10.0
 ### Breaking Changes
 - none
