@@ -425,7 +425,8 @@ void TextFormatBlock::updateTextKo(bool forceSend)
         result = result.substr(0, 14);
 
     logDebugP("Formatted text: '%s'", result.c_str());
-    KoFCB_CHText.valueCompare(result.c_str(), DPT_String_8859_1);
     if (forceSend)
-        KoFCB_CHText.objectWritten();
+        KoFCB_CHText.value(result.c_str(), DPT_String_8859_1);
+    else
+        KoFCB_CHText.valueCompare(result.c_str(), DPT_String_8859_1);
 }
