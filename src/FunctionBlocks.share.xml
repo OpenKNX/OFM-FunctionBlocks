@@ -2,7 +2,6 @@
 <?xml-model href="../../../../Organization/knxprod-support/knx_project_20/knx-editor.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <KNX xmlns:op="http://github.com/OpenKNX/OpenKNXproducer" xmlns="http://knx.org/xml/project/20" CreatedBy="KNX MT" ToolVersion="5.1.255.16695">
 	<op:minOpenKNXproducerVersion value="3.13.1" />
-	<op:config name="%FCB_NumChannelsDefault%" value="0" />
 	<ManufacturerData>
 		<Manufacturer>
 			<ApplicationPrograms>
@@ -548,22 +547,19 @@
 
 						</ParameterTypes>
 						<Parameters>
-							<!-- Base Settings -->
+							<!-- DO NOT reuse for upgradability as used before v0.11:
 							<Union SizeInBit="8">
 								<Memory CodeSegment="%MID%" Offset="0" BitOffset="0" />
-								<!-- Number of channels -->
 								<Parameter Id="%AID%_UP-%TT%00000" Name="VisibleChannels" ParameterType="%AID%_PT-FCBNumChannels" Offset="0" BitOffset="0" Text="Verfügbare Kanäle" Value="%FCB_NumChannelsDefault%" SuffixText=" von %N%" />
 							</Union>
-							<!-- Add not allowed -->
-							<Parameter Id="%AID%_P-%TT%00001" Name="AddNotAllowed" ParameterType="%AID%_PT-OnOffYesNo" Text="AddNotAllowed" Value="0"  Access="None"/> 
-					
+							<Parameter Id="%AID%_P-%TT%00001" Name="AddNotAllowed" ParameterType="%AID%_PT-OnOffYesNo" Text="AddNotAllowed" Value="0"  Access="None"/>
+							-->
 						</Parameters>
 						<ParameterRefs>
-							<!-- Number of channels -->
+							<!-- DO NOT reuse for upgradability as used before v0.11:
 							<ParameterRef Id="%AID%_UP-%TT%00000_R-%TT%0000001" RefId="%AID%_UP-%TT%00000" />
-							<!-- Add not allowed -->
 							<ParameterRef Id="%AID%_P-%TT%00001_R-%TT%0000101" RefId="%AID%_P-%TT%00001" />
-						
+							-->
 						</ParameterRefs>
 						<ComObjectTable>
 						</ComObjectTable>
@@ -580,14 +576,8 @@
 								<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 
 							</ParameterBlock>
-							<ParameterBlock Id="%AID%_PB-nnn" Text="Kanalauswahl" Icon="format-list-bulleted" ><!-- TODO HelpContext="DFA-Dokumentation" -->
+							<ParameterBlock Id="%AID%_PB-nnn" Text="Kanalauswahl" Icon="format-list-bulleted" ><!-- TODO HelpContext="FCB-Dokumentation" -->
 
-								<!-- FCB Client Kanalauswahl -->
-								<ParameterSeparator Id="%AID%_PS-nnn" Text="Kanalauswahl" UIHint="Headline" />
-								<!-- Kanalanzahl -->
-								<ParameterRefRef IndentLevel="1" RefId="%AID%_UP-%TT%00000_R-%TT%0000001" HelpContext="%DOC%" />
-
-								<ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
 								<ParameterBlock Id="%AID%_PB-nnn" Inline="true" Layout="Grid">
 									<Rows>
 										<Row Id="%AID%_PB-nnn_R-1" />
