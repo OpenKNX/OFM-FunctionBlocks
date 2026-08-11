@@ -3627,7 +3627,7 @@
 
                           <!-- Format String -->
                           <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%300_R-%TT%%CC%30001" HelpContext="%DOC%" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Im Format String werden die Eingeänge über @1-@4 referenziert.&#xD;&#xA;Um ein @ auszugeben, muss @@ geschrieben werden.&#xD;&#xA;Beispiele sind in der Kontext Hilfe angeführt." UIHint="Information" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Im Format String werden die Eingänge über @1 bis @4 referenziert.&#xD;&#xA;Um ein @ auszugeben, muss @@ geschrieben werden.&#xD;&#xA;Beispiele sind in der Kontexthilfe angeführt." UIHint="Information" />
                        
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
