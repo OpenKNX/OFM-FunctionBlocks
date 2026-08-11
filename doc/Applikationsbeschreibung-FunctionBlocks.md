@@ -1044,7 +1044,7 @@ Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.0
 
 Der Prozentwert der für AUS gesendet wird.
 
-
+<!--DOCEND -->
 ## Bayes Binär-Sensor
 
 <!-- TODO -->
@@ -1055,7 +1055,7 @@ Der Prozentwert der für AUS gesendet wird.
 <!-- TODO -->
 
 <!-- DOC -->
-### Prior-Wahrscheinlichkeit
+### Prior-Wahrscheinlichkeit   P( A )
 
 Wahrscheinlichkeit, dass der Zustandswert EIN ist, unabgängig von den Eingangswerten. Bzw. Zeitanteil.
 
@@ -1065,10 +1065,16 @@ Wahrscheinlichkeit, dass der Zustandswert EIN ist, unabgängig von den Eingangsw
 Minimale Wahrscheinlichkeit, ab der der Ausgangswert auf EIN gesetzt wird. 
 
 <!-- DOC -->
-### Wahrscheinlichkeits-Ausgang aktivieren
+### Ein-/Ausgangs-Kombination
 
-Es kann ein zusätzliches KO bereitgestellt werden, über das die ermittelte Wahrscheinlichkeit ausgegeben wird.
-Wenn dieses aktiv ist, dann reduziert die maximale Anzahl der Eingänge auf 8.
+Zusätzlich zum binären Ausgangswert kann die zugrunde liegende Wahrscheinlichkeit ausgegeben werden.
+Wenn das Wahrscheinlichkeits-KO aktiv ist, dann reduziert die maximale Anzahl der Eingänge auf 8.
+
+<!-- DOC Skip="5" -->
+Optionen:
+
+* 8 Eingänge + Wahrscheinlichkeits-Ausgang
+* 9 Eingänge
 
 <!-- DOC -->
 ### PSensorTRUE-EreignisTRUE

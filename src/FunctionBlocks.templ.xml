@@ -98,11 +98,11 @@
               <!-- Bayes Sensor -->
               <Union SizeInBit="184"><Memory CodeSegment="%MID%" Offset="10" BitOffset="0" />
                 <!-- Prior Probability -->
-                <Parameter Offset="0"  BitOffset="0" Id="%AID%_UP-%TT%%CC%269" Name="CH%C%BayesianPrior"            ParameterType="%AID%_PT-FCBBayesP"                   Text="Prior-Wahrscheinlichkeit"               Value="50" SuffixText="%" />
+                <Parameter Offset="0"  BitOffset="0" Id="%AID%_UP-%TT%%CC%269" Name="CH%C%BayesianPrior"            ParameterType="%AID%_PT-FCBBayesP"                   Text="Prior-Wahrscheinlichkeit   P( A )"      Value="50" SuffixText="%" />
                 <!-- Threshold -->
-                <Parameter Offset="1"  BitOffset="0" Id="%AID%_UP-%TT%%CC%272" Name="CH%C%BayesianThreshold"        ParameterType="%AID%_PT-FCBBayesPThreshold"          Text="Schwellwert für binären Ausgang"        Value="75" SuffixText="%" />
+                <Parameter Offset="1"  BitOffset="0" Id="%AID%_UP-%TT%%CC%272" Name="CH%C%BayesianThreshold"        ParameterType="%AID%_PT-FCBBayesPThreshold"          Text="Schwellwert (≥) für binären Ausgang"    Value="75" SuffixText="%" />
                 <!-- Enable Probability Output -->
-                <Parameter Offset="2"  BitOffset="0" Id="%AID%_UP-%TT%%CC%290" Name="CH%C%BayesianEnableProbOutput" ParameterType="%AID%_PT-FCBBayesEnableProbOutput"    Text="Wahrscheinlichkeits-Ausgang aktivieren" Value="1" />
+                <Parameter Offset="2"  BitOffset="0" Id="%AID%_UP-%TT%%CC%290" Name="CH%C%BayesianEnableProbOutput" ParameterType="%AID%_PT-FCBBayesEnableProbOutput"    Text="Ein-/Ausgangs-Kombination" Value="1" />
 
                 <!-- TODO empty Offset-Space [3,5[ -->
 
@@ -3430,11 +3430,11 @@
                               <Row Id="%AID%_PB-03_R-9"  Name="Input9"  Text="9"     CollapseIfEmpty="true" />
                             </Rows>
                             <Columns>
-                              <Column Id="%AID%_PB-03_C-1" Name="Aktiv"           Text="Aktiv"                      Width="20%" />
+                              <Column Id="%AID%_PB-03_C-1" Name="Aktiv"           Text="E_i Aktiv"                      Width="19%" />
                               <Column Id="%AID%_PB-03_C-2" Name="Name"            Text="Name"                       Width="40%" />
-                              <Column Id="%AID%_PB-03_C-3" Name="Init"            Text="Initialisieren"             Width="40%" />
-                              <Column Id="%AID%_PB-03_C-4" Name="PAEi"            Text="P( A | E_i )"               Width="15%" />
-                              <Column Id="%AID%_PB-03_C-5" Name="PAnEi"           Text="P( A | ~E_i )"              Width="15%" />
+                              <Column Id="%AID%_PB-03_C-3" Name="Init"            Text="Initialisieren"             Width="35%" />
+                              <Column Id="%AID%_PB-03_C-4" Name="PAEi"            Text="P( A | E_i )"               Width="18%" />
+                              <Column Id="%AID%_PB-03_C-5" Name="PAnEi"           Text="P( A | ~E_i )"              Width="18%" />
                             </Columns>
 
                             <!-- Binary KO 0 Deactivatable-->

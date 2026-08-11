@@ -539,9 +539,9 @@
 							</ParameterType>
 
 							<ParameterType Id="%AID%_PT-FCBBayesEnableProbOutput" Name="FCBBayesEnableProbOutput">
-								<TypeRestriction Base="Value" SizeInBit="1" UIHint="DropDown">
-									<Enumeration Text="Nein (9 Eingänge)" Value="0" Id="%ENID%" />
-									<Enumeration Text="Ja (8 Eingänge)" Value="1" Id="%ENID%" />
+								<TypeRestriction Base="Value" SizeInBit="1">
+									<Enumeration Text="8 Eingänge + Wahrscheinlichkeits-Ausgang" Value="1" Id="%ENID%" />
+									<Enumeration Text="9 Eingänge" Value="0" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 
