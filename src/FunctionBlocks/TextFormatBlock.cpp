@@ -165,7 +165,7 @@ std::string TextFormatBlock::formatFloat(int input, double value, uint8_t koNr)
     // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
     // <Enumeration Text="Mit 0" Value="1" Id="%ENID%" />
     // <Enumeration Text="Mit Leerzeichen" Value="2" Id="%ENID%" />
-    switch (ParamFCB_CHFormatFillupAfterComma1)
+    switch (ParamFCB_CHFormatFillupAfterComma1) // TODO FIXME Placeholder 1
     {
         case 1:
             rightPadChar = '0';
@@ -372,10 +372,9 @@ void TextFormatBlock::updateTextKo(bool forceSend)
             waitForParameter = false;
             if (c >= '1' && c <= '0' + FCB_TEXT_FORMAT_MAX_INPUTS)
             {
-                uint8_t koNr = c - '1';
-                int input = c - '0';
-                auto inTypeId = ParamFCB_CHFormatIn1;
-                switch (inTypeId)
+                const uint8_t koNr = c - '1';
+                const int input = c - '0';
+                switch (ParamFCB_CHFormatIn1)
                 {
                     case 10: // Bit
                         result += formatBit(input, (bool)getKo(koNr).value(DPT_Switch), koNr);
