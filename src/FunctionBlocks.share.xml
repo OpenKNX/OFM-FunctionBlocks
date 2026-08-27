@@ -54,7 +54,7 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Name="FCBNumericBitStringWithDisabledDpt">
+							<ParameterType Id="%AID%_PT-FCBFormatterPlaceholderDptAndMore" Name="FCBFormatterPlaceholderDptAndMore">
 								<TypeRestriction Base="Value" SizeInBit="8">
 									<!-- align for visibility in ETS -->
 									<Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
@@ -69,6 +69,7 @@
 									<Enumeration Text="13.*         4-Byte vorzeichenbehaftet" Value="130" Id="%ENID%" />
 									<Enumeration Text="14.*         4-Byte Gleitkommawert" Value="140" Id="%ENID%" />
 									<Enumeration Text="16.*        14-Byte Zeichenfolge" Value="160" Id="%ENID%" />
+									<Enumeration Text="Zeitfunktionen" Value="199" Id="%ENID%" />
 								</TypeRestriction>
 							</ParameterType>
 
