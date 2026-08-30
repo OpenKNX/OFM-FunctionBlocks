@@ -124,84 +124,78 @@
                   </when>
 
                   <when test="90 140"> <!-- Floating Types -->
-
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Vorkommastellen" />
+                              <ParameterSeparator Id="%AID%_PS-nnn" Text="    Vorkommastellen" />
               
                               <!-- Fillup Precomma -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+314%_R-%TT%%CC%%ParamIdBase+314%01" HelpContext="%DOC%" />
+                              <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+314%_R-%TT%%CC%%ParamIdBase+314%01" HelpContext="%DOC%" />
                               <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+314%_R-%TT%%CC%%ParamIdBase+314%01">
                                 <when test="!=0">
                                   <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+411%_R-%TT%%CC%%ParamIdBase+411%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+411%_R-%TT%%CC%%ParamIdBase+411%01" HelpContext="%DOC%" />
                                 </when>
                               </choose>  
                         
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
+                              <ParameterSeparator Id="%AID%_PS-nnn" Text="    Genauigkeit" />
                               <!-- Numeric parameter -->
                               <!-- Rounding float -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+311%_R-%TT%%CC%%ParamIdBase+311%01" HelpContext="%DOC%" />
+                              <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+311%_R-%TT%%CC%%ParamIdBase+311%01" HelpContext="%DOC%" />
                               <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
                               <Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
                               <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+311%_R-%TT%%CC%%ParamIdBase+311%01">
                                 <when test="1"> <!-- Nachkommastellen -->
                                   <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+316%_R-%TT%%CC%%ParamIdBase+316%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+316%_R-%TT%%CC%%ParamIdBase+316%01" HelpContext="%DOC%" />
                                   <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+317%_R-%TT%%CC%%ParamIdBase+317%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+317%_R-%TT%%CC%%ParamIdBase+317%01" HelpContext="%DOC%" />
                                   <!-- Stellen -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+312%_R-%TT%%CC%%ParamIdBase+312%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+312%_R-%TT%%CC%%ParamIdBase+312%01" HelpContext="%DOC%" />
                                   <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+312%_R-%TT%%CC%%ParamIdBase+312%01">
                                     <when test="!=0">
                                       <!-- Fillup After Comman -->
-                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+315%_R-%TT%%CC%%ParamIdBase+315%01" HelpContext="%DOC%"  />
+                                      <ParameterRefRef IndentLevel="5" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+315%_R-%TT%%CC%%ParamIdBase+315%01" HelpContext="%DOC%"  />
                                     </when>
                                   </choose>
                                 </when>
                                 <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
                                   <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+316%_R-%TT%%CC%%ParamIdBase+316%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+316%_R-%TT%%CC%%ParamIdBase+316%01" HelpContext="%DOC%" />
                                   <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+317%_R-%TT%%CC%%ParamIdBase+317%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+317%_R-%TT%%CC%%ParamIdBase+317%01" HelpContext="%DOC%" />
                                   <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+313%_R-%TT%%CC%%ParamIdBase+313%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+313%_R-%TT%%CC%%ParamIdBase+313%01" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                                
                   </when>
 
                   <when test="50 51 61 70 80 120 130"> <!-- Decimal Types -->
-
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Stellen" />
+                              <ParameterSeparator Id="%AID%_PS-nnn" Text="    Stellen" />
               
                               <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+410%_R-%TT%%CC%%ParamIdBase+410%01" HelpContext="%DOC%" />
+                              <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+410%_R-%TT%%CC%%ParamIdBase+410%01" HelpContext="%DOC%" />
                               <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+410%_R-%TT%%CC%%ParamIdBase+410%01">
                                 <when test="!=0"> <!-- Fillup mode = Fixed Length -->
                                   <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+411%_R-%TT%%CC%%ParamIdBase+411%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+411%_R-%TT%%CC%%ParamIdBase+411%01" HelpContext="%DOC%" />
                                 </when>
                               </choose>
 
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
+                              <ParameterSeparator Id="%AID%_PS-nnn" Text="    Genauigkeit" />
               
                               <!-- Numeric parameter -->
                               <!-- Rounding decimal -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+319%_R-%TT%%CC%%ParamIdBase+319%01" HelpContext="%DOC%" />
+                              <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+319%_R-%TT%%CC%%ParamIdBase+319%01" HelpContext="%DOC%" />
                               <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
                               <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
                               <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+319%_R-%TT%%CC%%ParamIdBase+319%01">
                                 <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
                                   <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+316%_R-%TT%%CC%%ParamIdBase+316%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+316%_R-%TT%%CC%%ParamIdBase+316%01" HelpContext="%DOC%" />
                                   <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+317%_R-%TT%%CC%%ParamIdBase+317%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+317%_R-%TT%%CC%%ParamIdBase+317%01" HelpContext="%DOC%" />
                                   <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+313%_R-%TT%%CC%%ParamIdBase+313%01" HelpContext="%DOC%" />
+                                  <ParameterRefRef IndentLevel="4" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+313%_R-%TT%%CC%%ParamIdBase+313%01" HelpContext="%DOC%" />
                                 </when>
                               </choose>
                   </when>
