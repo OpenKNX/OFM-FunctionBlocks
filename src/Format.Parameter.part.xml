@@ -9,13 +9,12 @@
           <Static>
             <Parameters>
               <!-- Format -->
+              <!-- Memory CodeSegment="%MID%" Offset="2" BitOffset="0" /-->
               <Union SizeInBit="584" op:nowarn="true" >
-                <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
 
                 <!-- Input N -->
                 <!-- Input Type -->
-                <Parameter Offset="%ParamOffset+0%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+310%" Name="CH%C%FormatIn%ParamN%" ParameterType="%AID%_PT-FCBFormatterPlaceholderDptAndMore" Text="Datentyp" Value="0" />
-
+                <Parameter Offset="%ParamOffset+0%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+310%" Name="CH%C%FormatIn%ParamN%" ParameterType="%AID%_PT-FCBFormatterPlaceholderDptAndMore" Text="Typ" Value="0" />
                 <!-- Numeric parameter -->
                 <!-- Rounding float -->
                 <Parameter Offset="%ParamOffset+1%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+311%" Name="CH%C%FormatRoundFloat%ParamN%" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
@@ -23,6 +22,13 @@
                 <!-- Rounding decimal -->
                 <Parameter Offset="%ParamOffset+1%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+319%" Name="CH%C%FormatRound%ParamN%" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 2 Bits ^^^ -->
+
+                <Parameter Offset="%ParamOffset+1%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+412%" Name="CH%C%FormatTime%ParamN%"      ParameterType="%AID%_PT-FCBFormatterTimeSubtype"        Text="Zeitfunktion"           Value="0" op:nowarn="true" />
+                <Parameter Offset="%ParamOffset+2%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+413%" Name="CH%C%FormatUpdate%ParamN%"    ParameterType="%AID%_PT-FCBFormatterTimeUpdate"         Text="Aktualisieren"          Value="0" op:nowarn="true" />
+                <Parameter Offset="%ParamOffset+2%" BitOffset="1" Id="%AID%_UP-%TT%%CC%%ParamIdBase+414%" Name="CH%C%FormatSun%ParamN%"       ParameterType="%AID%_PT-FCBFormatterTimeSun"            Text="Zeit Ausgaben"          Value="0" op:nowarn="true" />
+                <Parameter Offset="%ParamOffset+2%" BitOffset="3" Id="%AID%_UP-%TT%%CC%%ParamIdBase+415%" Name="CH%C%FormatTimeRes%ParamN%"   ParameterType="%AID%_PT-FCBFormatterTimeResolution"     Text="Zeitauflösung"          Value="5" op:nowarn="true" />
+                <Parameter Offset="%ParamOffset+2%" BitOffset="7" Id="%AID%_UP-%TT%%CC%%ParamIdBase+416%" Name="CH%C%FormatTimeShown%ParamN%" ParameterType="%AID%_PT-FCBFormatterTimeShown"          Text="Angezeigter Zeitpunkt"  Value="0" op:nowarn="true" />
+
                 <!-- Round to 5-->
                 <Parameter Offset="%ParamOffset+1%" BitOffset="2" Id="%AID%_UP-%TT%%CC%%ParamIdBase+317%" Name="CH%C%FCBFormatRound5_%ParamN%" ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
                 <!-- 1 bit free -->
@@ -36,7 +42,7 @@
                 <Parameter Offset="%ParamOffset+2%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+410%" Name="CH%C%FormatFillupMode%ParamN%" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 4 Bits ^^^ -->
                 <!-- Fillup After Comma -->
-                <Parameter Offset="%ParamOffset+2%" BitOffset="4" Id="%AID%_UP-%TT%%CC%%ParamIdBase+315%" Name="CH%C%FormatFillupAfterComma%ParamN%" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
+                <Parameter Offset="%ParamOffset+2%" BitOffset="4" Id="%AID%_UP-%TT%%CC%%ParamIdBase+315%" Name="CH%C%FormatFillupAfterComma%ParamN%" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" op:nowarn="true" />
                 <!-- ^^^^ 4 Bits ^^^ -->
                 <Parameter Offset="%ParamOffset+3%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+316%" Name="CH%C%FCBFormatRoundType%ParamN%" ParameterType="%AID%_PT-FCBFormatRoundType" Text="Rundungsart" Value="0" />
                 <!-- ^^^^ 4 Bits ^^^ -->
@@ -75,6 +81,13 @@
               <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+410%_R-%TT%%CC%%ParamIdBase+410%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+410%" />
               <!-- Fillup length -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+411%_R-%TT%%CC%%ParamIdBase+411%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+411%" />
+
+              <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+412%_R-%TT%%CC%%ParamIdBase+412%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+412%" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+413%_R-%TT%%CC%%ParamIdBase+413%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+413%" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+414%_R-%TT%%CC%%ParamIdBase+414%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+414%" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+415%_R-%TT%%CC%%ParamIdBase+415%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+415%" />
+              <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+416%_R-%TT%%CC%%ParamIdBase+416%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+416%" />
+
             </ParameterRefs>
           </Static>
           <Dynamic>
@@ -82,7 +95,7 @@
               <ParameterBlock Id="%AID%_PB-nnn" Name="FCB_FORMAT_PARAM">
 
                 <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang %FcbFormatParamN% (Platzhalter @%FcbFormatParamN%)" UIHint="Headline" />
+                <ParameterSeparator Id="%AID%_PS-nnn" Text="Platzhalter @%FcbFormatParamN% / Eingang %FcbFormatParamN%" UIHint="Headline" />
 
                 <!-- Input Type-->
                 <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+310%_R-%TT%%CC%%ParamIdBase+310%01" HelpContext="FCB-FormatDataType" />
@@ -209,6 +222,61 @@
                                   <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+411%_R-%TT%%CC%%ParamIdBase+411%01" HelpContext="%DOC%" />
                                 </when>
                               </choose>
+                  </when>
+
+                  <when test="199"> <!-- Time -->
+                              <!-- Time-Value -->
+                                <!-- Now -->
+                                  <!-- Minute Accuracy & Update -->
+                                  <!-- LATER: 5-Minute Accuracy & Update ; future time -->
+                                <!-- {SunRise, SunSet}; Daily or Event Update -->
+                                  <!-- Next -->
+                                  <!-- LATER: Today -->
+                                  <!-- LATER: Tomorrow -->
+                                <!-- LATER: Date `YYYY-MM-DD` -->
+                                <!-- LATER: Date `YYYY` -->
+                                <!-- LATER: Date `MM` -->
+                                <!-- LATER: Date `DD` -->
+                                <!-- LATER: Date `DDD` -->
+
+                    <!-- Zeit-Typ -->
+                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+412%_R-%TT%%CC%%ParamIdBase+412%01" IndentLevel="2" /><!-- TODO HelpContext="%DOC%" -->
+                    <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+412%_R-%TT%%CC%%ParamIdBase+412%01">
+                      <!--
+                        <Enumeration Id="%ENID%" Value="0" Text="Uhrzeit aktuell (hh:mm)" />
+                        <Enumeration Id="%ENID%" Value="1" Text="Sonnenaufgang (hh:mm)"   />
+                        <Enumeration Id="%ENID%" Value="2" Text="Sonnenuntergang (hh:mm)" />
+                        <Enumeration Id="%ENID%" Value="3" Text="Wochentag (Mo,..,So)"    />
+                        <Enumeration Id="%ENID%" Value="4" Text="Tag (01,..,31)"          />
+                        <Enumeration Id="%ENID%" Value="5" Text="Monat (Jan,..,Dez)"      />
+                        <Enumeration Id="%ENID%" Value="6" Text="Monat (01,..,12)"        />
+                        <Enumeration Id="%ENID%" Value="7" Text="Jahr (YYYY)"             />
+                        <Enumeration Id="%ENID%" Value="8" Text="Jahr (00,..,99)"         />
+                      -->
+                      <when test="0">
+                      </when>
+                      <when test="1 2">
+                        <!-- Auswahl -->
+                        <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+414%_R-%TT%%CC%%ParamIdBase+414%01" IndentLevel="3" /><!-- TODO HelpContext="%DOC%" -->
+                      </when>
+                      <when test="0"><!-- 1 2 -->
+                        <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+415%_R-%TT%%CC%%ParamIdBase+415%01" IndentLevel="3" /><!-- TODO HelpContext="%DOC%" -->
+                        <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+415%_R-%TT%%CC%%ParamIdBase+415%01">
+                          <when test="&gt;1"> <!-- > minute resolution -->
+                            <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+416%_R-%TT%%CC%%ParamIdBase+416%01" IndentLevel="4" /><!-- TODO HelpContext="%DOC%" -->
+                          </when>
+                        </choose>
+                      </when>
+
+                    </choose>
+                    <!-- Update by  -->
+                    <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+413%_R-%TT%%CC%%ParamIdBase+413%01" IndentLevel="2" /><!-- TODO HelpContext="%DOC%" -->
+                    <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+413%_R-%TT%%CC%%ParamIdBase+413%01">
+                      <when test="1">
+                        <!-- Trigger KO -->
+                        <ComObjectRefRef RefId="%AID%_O-%TT%%CC%00%FcbFormatParamN-1%_R-%TT%%CC%00%FcbFormatParamN-1%03" />
+                      </when>
+                    </choose>
                   </when>
 
                 </choose>

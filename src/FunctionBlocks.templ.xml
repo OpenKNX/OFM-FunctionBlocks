@@ -488,7 +488,7 @@
                 <!-- Thousand Separator -->
                 <Parameter Offset="56" BitOffset="0" Id="%AID%_UP-%TT%%CC%303" Name="CH%C%FormatThousand" ParameterType="%AID%_PT-FCBFormatThousand" Text="Tausendertrennzeichen" Value="" />
 
-                <op:usePart name="FORMAT_PARAMS" xpath="//Parameters/Union/Parameter" />
+                <op:usePart name="FORMAT_PARAMS" xpath="//Parameters/Union/*" />
                 
               </Union>
 
@@ -880,7 +880,7 @@
               <!-- Thousend Separator-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%303_R-%TT%%CC%30301" RefId="%AID%_UP-%TT%%CC%303" /> 
 
-              <op:usePart name="FORMAT_PARAMS" xpath="//Parameters/Union/ParameterRefs/*" />
+              <op:usePart name="FORMAT_PARAMS" xpath="//ParameterRefs/*" />
          
             </ParameterRefs>
             <ComObjectTable>
@@ -1156,6 +1156,11 @@
               <!-- Bayesian -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00803" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte" DatapointType="DPST-5-1"     Text="{{0:Funktion %C%}}: Wahrscheinlichkeit"         FunctionText="Funktion %C%: Ausgang, Wahrscheinlichkeit"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled"  TransmitFlag="Enabled" />
 
+              <!-- Text Format: Time Trigger -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00003" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 1}}"    FunctionText="Funktion %C%: Eingang 1, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%010_R-%TT%%CC%01001"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00103" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 2}}"    FunctionText="Funktion %C%: Eingang 2, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%011_R-%TT%%CC%01101"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00203" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 3}}"    FunctionText="Funktion %C%: Eingang 3, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%012_R-%TT%%CC%01201"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00303" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 4}}"    FunctionText="Funktion %C%: Eingang 3, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%013_R-%TT%%CC%01301"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
 
             </ComObjectRefs>
           </Static>
