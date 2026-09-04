@@ -17,9 +17,9 @@ class TextFormatBlock : public FunctionBlock
     std::string _textBlockOn;
     std::string _textBlockOff;
     char _thousandSeparator;
-    std::string formatBit(int input, bool value, uint8_t koNr );
+    std::string formatBit(int input, bool value, uint8_t koNr);
     std::string formatDecimal(int input, int64_t value, uint8_t koNr);
-    std::string formatFloat(int input,double value, uint8_t koNr);
+    std::string formatFloat(int input, double value, uint8_t koNr);
     std::string doFormat(int input, double value, uint8_t koNr, int decimalPlaces, char rightPadChar);
     void updateTextKo(bool forceSend);
     double roundToSignificant(double value, int digits, RoundType type, bool roundZeroFive);

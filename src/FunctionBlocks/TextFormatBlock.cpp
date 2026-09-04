@@ -1,13 +1,13 @@
-#include "../FunctionBlocksModule.h"
 #include "TextFormatBlock.h"
+#include "../FunctionBlocksModule.h"
 #include <algorithm>
 
 #define KoFCB_CHText KoFCB_CHKO9
 
 TextFormatBlock::TextFormatBlock(uint8_t channelIndex)
     : FunctionBlock(channelIndex, "TextFormat")
-{   
-    _format =  ParamFCB_CHFormatStringStr;
+{
+    _format = ParamFCB_CHFormatStringStr;
     logDebugP("TextFormatBlock2 format string: '%s'", _format.c_str());
     _thousandSeparator = ((const char*)ParamFCB_CHFormatThousand)[0];
     _textBlockOn = ParamFCB_CHFormatOnStr;
@@ -123,7 +123,7 @@ double TextFormatBlock::roundToDecimalPlaces(
 
     double factor = std::pow(10.0, decimalPlaces);
     double scaledValue = value * factor;
-  
+
     return roundValue(type, factor, scaledValue, roundZeroFive);
 }
 
@@ -244,7 +244,7 @@ std::string TextFormatBlock::doFormat(int input, double value, uint8_t koNr, int
         std::size_t pos = result.rfind('.');
         if (pos == std::string::npos)
         {
-           result += '.' + std::string(decimalPlaces, rightPadChar);
+            result += '.' + std::string(decimalPlaces, rightPadChar);
         }
         else
         {
@@ -348,7 +348,7 @@ std::string TextFormatBlock::formatNumberString(
         }
         else
         {
-             // Apply space padding to the LEFT of the whole number
+            // Apply space padding to the LEFT of the whole number
             int digitCount = static_cast<int>(integerPart.size());
             int spaceCount = minIntegerDigits - digitCount;
             if (spaceCount > 0)
