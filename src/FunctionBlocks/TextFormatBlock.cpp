@@ -494,57 +494,67 @@ std::string TextFormatBlock::formatNumberString(
 
 void TextFormatBlock::updateTextKo(bool forceSend)
 {
+    std::string placeholder[FCB_TEXT_FORMAT_MAX_INPUTS];
+    for (int input = 1; input <= FCB_TEXT_FORMAT_MAX_INPUTS; input++)
+    {
+        // fill placeholder
+        const uint8_t koNr =  input - 1; // c - '1';
+        // const int input = c - '0';
+
+        switch (ParamFCB_CHFormatIn1)
+        {
+            case 10: // Bit
+                placeholder[input-1] = formatBit(input, (bool)getKo(koNr).value(DPT_Switch), koNr);
+                break;
+            case 50:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Ucount), koNr);
+                break;
+            case 51:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Scaling), koNr);
+                break;
+            case 61:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Count), koNr);
+                break;
+            case 70:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Ucount), koNr);
+                break;
+            case 80:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Count), koNr);
+                break;
+            case 90:
+                placeholder[input-1] = formatFloat(input, (double)getKo(koNr).value(DPT_Value_Temp), koNr);
+                break;
+            case 120:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Ucount), koNr);
+                break;
+            case 130:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Count), koNr);
+                break;
+            case 140:
+                placeholder[input-1] = formatFloat(input, (double)getKo(koNr).value(DPT_Value_Amplitude), koNr);
+                break;
+            case 160:
+                placeholder[input-1] = (const char*)getKo(koNr).value(DPT_String_8859_1);
+                break;
+            case 199:
+                placeholder[input-1] = formatTime(input);
+                break;
+        }
+
+    }
+
+    // process format string
     std::string result;
     bool waitForParameter = false;
     for (size_t i = 0; i < _format.length() && result.length() < 14; i++)
     {
-        auto c = _format[i];
+        const char c = _format[i];
         if (waitForParameter)
         {
             waitForParameter = false;
             if (c >= '1' && c <= '0' + FCB_TEXT_FORMAT_MAX_INPUTS)
             {
-                const uint8_t koNr = c - '1';
-                const int input = c - '0';
-                switch (ParamFCB_CHFormatIn1)
-                {
-                    case 10: // Bit
-                        result += formatBit(input, (bool)getKo(koNr).value(DPT_Switch), koNr);
-                        break;
-                    case 50:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Ucount), koNr);
-                        break;
-                    case 51:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Scaling), koNr);
-                        break;
-                    case 61:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Count), koNr);
-                        break;
-                    case 70:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Ucount), koNr);
-                        break;
-                    case 80:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Count), koNr);
-                        break;
-                    case 90:
-                        result += formatFloat(input, (double)getKo(koNr).value(DPT_Value_Temp), koNr);
-                        break;
-                    case 120:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Ucount), koNr);
-                        break;
-                    case 130:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Count), koNr);
-                        break;
-                    case 140:
-                        result += formatFloat(input, (double)getKo(koNr).value(DPT_Value_Amplitude), koNr);
-                        break;
-                    case 160:
-                        result += (const char*)getKo(koNr).value(DPT_String_8859_1);
-                        break;
-                    case 199:
-                        result += formatTime(input);
-                        break;
-                }
+                result += placeholder[c - '1'];
                 continue;
             }
         }
