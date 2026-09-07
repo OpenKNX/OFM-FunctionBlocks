@@ -27,12 +27,7 @@ void FunctionBlocksModule::showInformations()
 
 const std::string FunctionBlocksModule::version()
 {
-#ifdef MODULE_FunctionBlocks_Version
     return MODULE_FunctionBlocks_Version;
-#else
-    // hides the module in the version output on the console, because the firmware version is sufficient.
-    return "";
-#endif
 }
 
 void FunctionBlocksModule::setup(bool configured)
