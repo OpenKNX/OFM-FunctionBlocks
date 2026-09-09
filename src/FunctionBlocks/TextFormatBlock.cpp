@@ -267,7 +267,7 @@ std::string TextFormatBlock::formatTime(int input)
                     tCopy.addMinutes( (ParamFCB_CHFormatTimeShown1 ? -1 : 1) * (ParamFCB_CHFormatTimeRes1 - 1) );
                 }
                 
-                snprintf(result, sizeof(result), "%2u%c%2u", tCopy.hour, openknx.time.isInaccurate() ? '!' : ':', tCopy.minute);
+                snprintf(result, sizeof(result), "%02u%c%02u", tCopy.hour, openknx.time.isInaccurate() ? '!' : ':', tCopy.minute);
             }
             else
             {
@@ -277,7 +277,7 @@ std::string TextFormatBlock::formatTime(int input)
         }
         case PT_FCBFormatterTimeSubtype::SunRise:
         case PT_FCBFormatterTimeSubtype::SunSet:
-            snprintf(result, sizeof(result), isValid ?  "%2u%c%2u" : "??:??", t.hour, openknx.time.isInaccurate() ? '!' : ':', t.minute);
+            snprintf(result, sizeof(result), isValid ?  "%02u%c%02u" : "??:??", t.hour, openknx.time.isInaccurate() ? '!' : ':', t.minute);
             break;
         case PT_FCBFormatterTimeSubtype::DDD: // (Wochentagskürzel)
         {
