@@ -567,15 +567,6 @@
 								</TypeRestriction>
 							</ParameterType>
 
-							<ParameterType Id="%AID%_PT-FCBFormatterTimeSun" Name="FCBFormatterTimeSun">
-								<TypeRestriction Base="Value" SizeInBit="2">
-									<Enumeration Id="%ENID%" Value="3" Text="letzter (davor: gestern / danach: heute)" />
-									<Enumeration Id="%ENID%" Value="0" Text="heute" />
-									<Enumeration Id="%ENID%" Value="1" Text="nächster (davor: heute / danach: morgen)" />
-									<Enumeration Id="%ENID%" Value="2" Text="morgen" />
-								</TypeRestriction>
-							</ParameterType>
-
 							<ParameterType Id="%AID%_PT-FCBFormatterTimeResolution" Name="FCBFormatterTimeResolution">
 								<TypeRestriction Base="Value" SizeInBit="4">
 									<Enumeration Id="%ENID%"  Value="1" Text="1-minütlich" />

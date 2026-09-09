@@ -25,7 +25,7 @@
 
                 <Parameter Offset="%ParamOffset+1%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+412%" Name="CH%C%FormatTime%ParamN%"      ParameterType="%AID%_PT-FCBFormatterTimeSubtype"        Text="Zeitfunktion"           Value="0" op:nowarn="true" />
                 <Parameter Offset="%ParamOffset+2%" BitOffset="0" Id="%AID%_UP-%TT%%CC%%ParamIdBase+413%" Name="CH%C%FormatUpdate%ParamN%"    ParameterType="%AID%_PT-FCBFormatterTimeUpdate"         Text="Aktualisieren"          Value="0" op:nowarn="true" />
-                <Parameter Offset="%ParamOffset+2%" BitOffset="1" Id="%AID%_UP-%TT%%CC%%ParamIdBase+414%" Name="CH%C%FormatSun%ParamN%"       ParameterType="%AID%_PT-FCBFormatterTimeSun"            Text="Zeit Ausgaben"          Value="0" op:nowarn="true" />
+                <!-- 2 Bits unused -->
                 <Parameter Offset="%ParamOffset+2%" BitOffset="3" Id="%AID%_UP-%TT%%CC%%ParamIdBase+415%" Name="CH%C%FormatTimeRes%ParamN%"   ParameterType="%AID%_PT-FCBFormatterTimeResolution"     Text="Zeitauflösung"          Value="5" op:nowarn="true" />
                 <Parameter Offset="%ParamOffset+2%" BitOffset="7" Id="%AID%_UP-%TT%%CC%%ParamIdBase+416%" Name="CH%C%FormatTimeShown%ParamN%" ParameterType="%AID%_PT-FCBFormatterTimeShown"          Text="Angezeigter Zeitpunkt"  Value="0" op:nowarn="true" />
 
@@ -84,7 +84,7 @@
 
               <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+412%_R-%TT%%CC%%ParamIdBase+412%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+412%" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+413%_R-%TT%%CC%%ParamIdBase+413%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+413%" />
-              <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+414%_R-%TT%%CC%%ParamIdBase+414%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+414%" />
+              <!-- +414 reserved for sub-subtype -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+415%_R-%TT%%CC%%ParamIdBase+415%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+415%" />
               <ParameterRef Id="%AID%_UP-%TT%%CC%%ParamIdBase+416%_R-%TT%%CC%%ParamIdBase+416%01" RefId="%AID%_UP-%TT%%CC%%ParamIdBase+416%" />
 
@@ -254,10 +254,6 @@
                         <Enumeration Id="%ENID%" Value="8" Text="Jahr (00,..,99)"         />
                       -->
                       <when test="0">
-                      </when>
-                      <when test="1 2">
-                        <!-- Auswahl -->
-                        <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+414%_R-%TT%%CC%%ParamIdBase+414%01" IndentLevel="3" /><!-- TODO HelpContext="%DOC%" -->
                       </when>
                       <when test="0"><!-- 1 2 -->
                         <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+415%_R-%TT%%CC%%ParamIdBase+415%01" IndentLevel="3" /><!-- TODO HelpContext="%DOC%" -->
