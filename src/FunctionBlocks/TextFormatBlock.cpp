@@ -96,7 +96,7 @@ void TextFormatBlock::handleKo(GroupObject& ko)
     {
         // update time placeholders by trigger
         const int input = index + 1;
-        if (ParamFCB_CHFormatIn1 == 199 && ParamFCB_CHFormatUpdate1 == 1)
+        if (ParamFCB_CHFormatIn1 == 199 && ParamFCB_CHFormatUpdate1 == 1 && (bool)ko.value(DPT_Switch))
         {
             updatePlaceholder(input);
         }
