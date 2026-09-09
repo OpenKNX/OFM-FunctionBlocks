@@ -549,8 +549,8 @@
 							<ParameterType Id="%AID%_PT-FCBFormatterTimeSubtype" Name="FCBFormatterTimeSubtype" op:headerExport="enum" >
 								<TypeRestriction Base="Value" SizeInBit="4">
 									<Enumeration Id="%ENID%" Value="0" Text="Uhrzeit aktuell (hh:mm)" op:headerName="TimeNow"   />
-									<Enumeration Id="%ENID%" Value="1" Text="Sonnenaufgang (hh:mm)"   op:headerName="SunSet"    />
-									<Enumeration Id="%ENID%" Value="2" Text="Sonnenuntergang (hh:mm)" op:headerName="SunRise"   />
+									<Enumeration Id="%ENID%" Value="1" Text="Sonnenaufgang (hh:mm)"   op:headerName="SunRise"   />
+									<Enumeration Id="%ENID%" Value="2" Text="Sonnenuntergang (hh:mm)" op:headerName="SunSet"    />
 									<Enumeration Id="%ENID%" Value="3" Text="Wochentag (Mo,..,So)"    op:headerName="DDD"       />
 									<Enumeration Id="%ENID%" Value="4" Text="Tag (01,..,31)"          op:headerName="DD"        />
 									<Enumeration Id="%ENID%" Value="5" Text="Monat (Jan,..,Dez)"      op:headerName="MMM"       />
