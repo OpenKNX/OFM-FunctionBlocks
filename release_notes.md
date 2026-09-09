@@ -1,14 +1,17 @@
 # Release Notes
 
-## 0.10.1
+## 0.11.0
 ### Breaking Changes
 - none
 
 ### Feature
-- none
+- Neuer Funktionsblock: Bayes-Sensor
+- Funktionserweiterung Text-Block: Zeitfunktionen (Uhrzeit, Sonnenauf-/-untergang, Datumsbestandteile) 
+- OpenKNX-Standardisierung: Anpassung auf neues UI-Pattern für Kanal-Auswahl
 
 ### Bug
 - Fix #29: Dauer war durch uint8_t Berechnung auf 255s beschränkt bei "Start mit Zeit" in {"Einheit Minuten", "Einheit Stunden"}
+- Verschiedene kleine Korrekturen in UI und Hilfetexten
 
 ## 0.10.0
 ### Breaking Changes
