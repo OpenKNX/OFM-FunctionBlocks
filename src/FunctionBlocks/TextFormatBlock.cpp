@@ -264,7 +264,7 @@ std::string TextFormatBlock::formatTime(int input)
                 if (ParamFCB_CHFormatTimeRes1 > 1 && (t.minute % ParamFCB_CHFormatTimeRes1 != 0))
                 {
                     // TODO: use a copy?
-                    tCopy.addMinutes( (ParamFCB_CHFormatTimeShown1 ? -1 : 1) * (ParamFCB_CHFormatTimeRes1 - 1) );
+                    tCopy.addMinutes(-(t.minute % ParamFCB_CHFormatTimeRes1) + (ParamFCB_CHFormatTimeShown1 ? -1 : 1) * (ParamFCB_CHFormatTimeRes1) );
                 }
                 
                 snprintf(result, sizeof(result), "%02u%c%02u", tCopy.hour, openknx.time.isInaccurate() ? '!' : ':', tCopy.minute);
