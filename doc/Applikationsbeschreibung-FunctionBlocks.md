@@ -279,18 +279,13 @@ Wird für die Gruppen-Objektfunktion verwendet und dient zur leichtern Zuordnung
 <!-- DOC -->
 ### Initialisierung
 
-Legt den Initialwert für den Eingang fest.
-Zur Auswahl stehen:
+Legt fest, wie der Eingang nach dem Gerätestart belegt wird:
 
-- **AUS**  
-  Der Eingang wird mit AUS vorbelegt
-- **EIN**  
-  Der Eingang wird mit EIN vorbelegt
-- **Vom Bus lesen, dann AUS**  
-  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
+- **AUS** - Der Eingang wird mit AUS vorbelegt
+- **EIN** - Der Eingang wird mit EIN vorbelegt
+- **Vom Bus lesen, dann AUS** - Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
   Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit AUS vorbelegt.
-- **Vom Bus lesen, dann EIN**  
-  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
+- **Vom Bus lesen, dann EIN** - Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
   Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit EIN vorbelegt.
 
 **Wichtig**: Die Vorbelegung erfolgt vor einer möglichen eingestellten Invertierung des Eingangswertes.
