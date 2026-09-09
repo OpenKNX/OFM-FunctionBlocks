@@ -3205,9 +3205,9 @@
                               <Row Id="%AID%_PB-03_R-9"  Name="Input9"  Text="9"     CollapseIfEmpty="true" />
                             </Rows>
                             <Columns>
-                              <Column Id="%AID%_PB-03_C-1" Name="Aktiv"           Text="E_i Aktiv"                      Width="19%" />
+                              <Column Id="%AID%_PB-03_C-1" Name="Aktiv"           Text="E_i Aktiv"                  Width="19%" />
                               <Column Id="%AID%_PB-03_C-2" Name="Name"            Text="Name"                       Width="40%" />
-                              <Column Id="%AID%_PB-03_C-3" Name="Init"            Text="Initialisieren"             Width="35%" />
+                              <Column Id="%AID%_PB-03_C-3" Name="Init"            Text="Initialisierung"            Width="35%" />
                               <Column Id="%AID%_PB-03_C-4" Name="PAEi"            Text="P( A | E_i )"               Width="18%" />
                               <Column Id="%AID%_PB-03_C-5" Name="PAnEi"           Text="P( A | ~E_i )"              Width="18%" />
                             </Columns>

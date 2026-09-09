@@ -131,9 +131,12 @@ Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten ode
 [ETS Konfiguration](#blinker-1)
 
 <!-- DOC -->
-## Bayes Sensor
+## Bayes-Sensor
 
-<!-- TODO -->
+Mit einem Bayes-Sensor-Funktionsblock kann auf Basis von Wahrscheinlichkeiten ein binärer Ausgangswert aus mehreren binären Eingangswerten ermittelt werden.
+
+<!-- DOCEND -->
+[ETS-Konfiguration](#bayes-sensor-1)
 
 <!-- DOC HelpContext="TextFormatter" -->
 ### Text Format ###
@@ -1039,20 +1042,21 @@ Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.0
 
 Der Prozentwert der für AUS gesendet wird.
 
-<!--DOCEND -->
-## Bayes Binär-Sensor
+<!-- DOC HelpContext="BayesianBinarySensor" -->
+## Bayes Sensor
 
-<!-- TODO -->
+Ermittelt auf Basis von (bedingten) Wahrscheinlichkeiten einen binären Ausgangswert aus mehreren binären Eingangswerten.
 
-<!-- DOC -->
-### BayesianBinarySensor
-
-<!-- TODO -->
+<!-- TODO Referenz / Quelle ergänzen -->
+Dafür müssen für alle Eingangswerte die Wahrscheinlichkeiten für den EIN-Ausgangswert angegeben werden.
+Eine Forderung nach stochastischer Unabhängigkeit der Eingänge kann in der Praxis abgeschwächt werden;
+solange keine "zu starke" Abhängigkeit besteht, sollen trotzdem nutzbare Ergebnisse geliefert werden.
 
 <!-- DOC -->
 ### Prior-Wahrscheinlichkeit   P( A )
 
-Wahrscheinlichkeit, dass der Zustandswert EIN ist, unabgängig von den Eingangswerten. Bzw. Zeitanteil.
+Wahrscheinlichkeit, dass der Zustandswert EIN ist, unabhängig von den Eingangswerten.
+Bzw. Zeitanteil.
 
 <!-- DOC -->
 ### Schwellwert für binären Ausgang
@@ -1071,13 +1075,13 @@ Optionen:
 * 8 Eingänge + Wahrscheinlichkeits-Ausgang
 * 9 Eingänge
 
-<!-- DOC -->
-### PSensorTRUE-EreignisTRUE
+<!-- DOC HelpContext="PSensorTRUE-EreignisTRUE" -->
+### P( A | E_i )
 
 Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der Wert EIN anliegt.
 
-<!-- DOC -->
-### PSensorTRUE-EreignisFALSE
+<!-- DOC HelpContext="PSensorTRUE-EreignisFALSE" -->
+### P( A | ~E_i )
 
 Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der Wert AUS anliegt.
 
