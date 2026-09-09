@@ -35,8 +35,8 @@
 - none
 
 ### Feature
-- Neuer Functionsblock "Text Format".
-- Startverhalten bei Wertueberwachung konfigurierbar.
+- Neuer Funktionsblock "Text Format".
+- Startverhalten bei Wertüberwachung konfigurierbar.
 
 ### Bug
 - none
@@ -49,32 +49,32 @@
 - none
 
 ### Bug
-- Fix: Bennennung Eingang 9 bei FB-"Anzahl" nicht moeglich.
+- Fix: Benennung Eingang 9 bei FB-"Anzahl" nicht möglich.
 
 ## 0.7
 ### Breaking Changes
 - none
 
 ### Feature
-- Count-Down: Konfigurationsparameter fuer maximale Laufzeit bei Erhoehen durch KO.
-- Count-Down: Text-Parameter fuer Stopp.
+- Count-Down: Konfigurationsparameter für maximale Laufzeit bei Erhöhen durch KO.
+- Count-Down: Text-Parameter für Stopp.
 
 ### Bug
 - none
 
 ## 0.6.2
 ### Breaking Changes
-- Verhalten von KO Verringern/Erhoehen fuer Count-Down wurde geaendert.
+- Verhalten von KO Verringern/Erhöhen für Count-Down wurde geändert.
 
 ### Feature
 - none
 
 ### Bug
-- Fix: KO Verringern/Erhoehen fuer Count-Down (0 = Verringern, 1 = Erhoehen).
+- Fix: KO Verringern/Erhöhen für Count-Down (0 = Verringern, 1 = Erhöhen).
 
 ## 0.6.1
 ### Breaking Changes
-- Verhalten von KO Pause/Fortsetzen wurde geaendert.
+- Verhalten von KO Pause/Fortsetzen wurde geändert.
 
 ### Feature
 - none
@@ -87,7 +87,7 @@
 - none
 
 ### Feature
-- Eingaenge koennen benannt werden.
+- Eingänge können benannt werden.
 - Text-Input verwendet ISO-8859-1.
 
 ### Bug
@@ -98,7 +98,7 @@
 - none
 
 ### Feature
-- Szene-DPT als Prioritaetsschalter-Ausgang.
+- Szene-DPT als Prioritätsschalter-Ausgang.
 
 ### Bug
 - none
