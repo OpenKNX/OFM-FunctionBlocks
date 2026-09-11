@@ -1,20 +1,23 @@
-#include "../FunctionBlocksModule.h"
 #include "TextFormatBlock.h"
+#include "../FunctionBlocksModule.h"
 #include <algorithm>
 
 #define KoFCB_CHText KoFCB_CHKO9
 
 TextFormatBlock::TextFormatBlock(uint8_t channelIndex)
     : FunctionBlock(channelIndex, "TextFormat")
-{   
-    _format =  ParamFCB_CHFormatStringStr;
+{
+    _format = ParamFCB_CHFormatStringStr;
     logDebugP("TextFormatBlock2 format string: '%s'", _format.c_str());
     _thousandSeparator = ((const char*)ParamFCB_CHFormatThousand)[0];
     _textBlockOn = ParamFCB_CHFormatOnStr;
     _textBlockOff = ParamFCB_CHFormatOffStr;
-}
-#define FCB_TEXT_FORMAT_MAX_INPUTS 4
 
+    _hasContinousTime = (ParamFCB_CHFormatIn1 == 199 && ParamFCB_CHFormatUpdate1 == 0)
+                     || (ParamFCB_CHFormatIn2 == 199 && ParamFCB_CHFormatUpdate2 == 0)
+                     || (ParamFCB_CHFormatIn3 == 199 && ParamFCB_CHFormatUpdate3 == 0)
+                     || (ParamFCB_CHFormatIn4 == 199 && ParamFCB_CHFormatUpdate4 == 0);
+}
 /*************************** IMPORTANT **************************/
 /*                                                              */
 /*  DO NOT use none input related parameters after these lines  */
@@ -24,11 +27,55 @@ TextFormatBlock::TextFormatBlock(uint8_t channelIndex)
 #undef FCB_ParamCalcIndex
 #define FCB_ParamCalcIndex(index) (index + FCB_ParamBlockOffset + _channelIndex * FCB_ParamBlockSize + (input - 1) * (FCB_CHFormatIn2 - FCB_CHFormatIn1))
 
+void TextFormatBlock::updatePlaceholder(const byte input)
+{
+    switch (ParamFCB_CHFormatTime1)
+    {
+        case PT_FCBFormatterTimeSubtype::SunRise: // sunrise
+            _tPlaceholders[input - 1] = openknx.sun.sunRiseLocalTime();
+            break;
+        case PT_FCBFormatterTimeSubtype::SunSet: // sunset
+            _tPlaceholders[input - 1] = openknx.sun.sunSetLocalTime();
+            break;
+        default:
+            _tPlaceholders[input - 1] = openknx.time.getLocalTime();
+            break;
+    }
+}
+
+void TextFormatBlock::loop()
+{
+    if (_hasContinousTime && delayCheck(_lastTimeUpdate, 1000))
+    {
+        _lastTimeUpdate = millis();
+    
+        bool updated = false;
+    
+        // TODO FIXME : update after minute change only!
+        
+        for (int input = 1; input <= FCB_TEXT_FORMAT_MAX_INPUTS; input++)
+        {
+            // update for time only
+            // update time placeholders continously
+    
+            if (ParamFCB_CHFormatIn1 == 199 && ParamFCB_CHFormatUpdate1 == 0)
+            {
+                updatePlaceholder(input);
+                updated = true;
+            }
+        }    
+    
+        if (updated)
+            updateTextKo(false);
+    }
+}
+
 void TextFormatBlock::readInputKos()
 {
     for (int input = 1; input <= FCB_TEXT_FORMAT_MAX_INPUTS; input++)
     {
-        if (ParamFCB_CHFormatIn1 != 0)
+        // Note: time type has no KO, or use KO as trigger
+        if (ParamFCB_CHFormatIn1 != 0 && ParamFCB_CHFormatIn1 != 199)
         {
             auto& ko = getKo(0);
             if (!ko.initialized())
@@ -44,7 +91,18 @@ void TextFormatBlock::initMissingInputValues()
 
 void TextFormatBlock::handleKo(GroupObject& ko)
 {
-    updateTextKo(false);
+    const int index = FCB_KoCalcIndex(ko.asap());
+    if (FCB_KoCHKO0 <= index && index < FCB_KoCHKO0 + FCB_TEXT_FORMAT_MAX_INPUTS)
+    {
+        // update time placeholders by trigger
+        const int input = index + 1;
+        if (ParamFCB_CHFormatIn1 == 199 && ParamFCB_CHFormatUpdate1 == 1 && (bool)ko.value(DPT_Switch))
+        {
+            updatePlaceholder(input);
+        }
+
+        updateTextKo(false);
+    }    
 }
 
 std::string TextFormatBlock::formatBit(int input, bool value, uint8_t koNr)
@@ -123,7 +181,7 @@ double TextFormatBlock::roundToDecimalPlaces(
 
     double factor = std::pow(10.0, decimalPlaces);
     double scaledValue = value * factor;
-  
+
     return roundValue(type, factor, scaledValue, roundZeroFive);
 }
 
@@ -165,7 +223,7 @@ std::string TextFormatBlock::formatFloat(int input, double value, uint8_t koNr)
     // <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
     // <Enumeration Text="Mit 0" Value="1" Id="%ENID%" />
     // <Enumeration Text="Mit Leerzeichen" Value="2" Id="%ENID%" />
-    switch (ParamFCB_CHFormatFillupAfterComma1)
+    switch (ParamFCB_CHFormatFillupAfterComma1) // TODO FIXME Placeholder 1
     {
         case 1:
             rightPadChar = '0';
@@ -175,6 +233,80 @@ std::string TextFormatBlock::formatFloat(int input, double value, uint8_t koNr)
             break;
     }
     return doFormat(input, value, koNr, ParamFCB_CHFormatDecimalPlaces1, rightPadChar);
+}
+
+std::string TextFormatBlock::formatTime(int input)
+{
+    // Concept for Time-Placeholders:
+    // *  OpenKNX::DateTime placeholders[4]
+    // *  for trigger: 1. set on trigger-event + 2. call update
+    // *  | else: 1. set on minute (current time OR sun-time with last/next) or day change + 2. call update
+    // *
+
+
+    // TODO: mechanism for updating by KO needs store value on update -> processKO
+
+    const OpenKNX::DateTime t = _tPlaceholders[input - 1];
+
+
+    const bool isValid = openknx.time.isValid(); // TODO should false, for trigger and empty
+    char result[15] = "";
+    const PT_FCBFormatterTimeSubtype timeType = ParamFCB_CHFormatTime1;
+    switch (timeType)
+    {
+        case PT_FCBFormatterTimeSubtype::TimeNow:
+        {
+            if (isValid)
+            {
+                OpenKNX::DateTime tCopy = t;
+
+                // output correction fix for N-minute resolution
+                if (ParamFCB_CHFormatTimeRes1 > 1 && (t.minute % ParamFCB_CHFormatTimeRes1 != 0))
+                {
+                    // TODO: use a copy?
+                    tCopy.addMinutes(-(t.minute % ParamFCB_CHFormatTimeRes1) + (ParamFCB_CHFormatTimeShown1 ? -1 : 1) * (ParamFCB_CHFormatTimeRes1) );
+                }
+                
+                snprintf(result, sizeof(result), "%02u%c%02u", tCopy.hour, openknx.time.isInaccurate() ? '!' : ':', tCopy.minute);
+            }
+            else
+            {
+                snprintf(result, sizeof(result), "??:??");
+            }
+            break;
+        }
+        case PT_FCBFormatterTimeSubtype::SunRise:
+        case PT_FCBFormatterTimeSubtype::SunSet:
+            snprintf(result, sizeof(result), isValid ?  "%02u%c%02u" : "??:??", t.hour, openknx.time.isInaccurate() ? '!' : ':', t.minute);
+            break;
+        case PT_FCBFormatterTimeSubtype::DDD: // (Wochentagskürzel)
+        {
+            // 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday
+            static const char* const dofShort[] = {"So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "??"};
+            snprintf(result, sizeof(result), "%s", dofShort[isValid ? MIN(t.dayOfWeek, 6) : 7]);
+            break;
+        }
+        case PT_FCBFormatterTimeSubtype::DD:
+            snprintf(result, sizeof(result), isValid ? "%02u" : "??", t.day);
+            break;
+        case PT_FCBFormatterTimeSubtype::MM:
+            snprintf(result, sizeof(result), isValid ? "%02u" : "??", t.month);
+            break;
+        case PT_FCBFormatterTimeSubtype::YY:
+            snprintf(result, sizeof(result), isValid ? "%02u" : "??", (t.year % 100));
+            break;
+        case PT_FCBFormatterTimeSubtype::MMM: // (Jan,..)
+        {
+            static const char* const dofShort[] = {"???", "Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"};
+            //                                  = {"??",  "Jn",  "Fb",  "Mz",  "Ap",  "Ma",  "Jn",  "Jl",  "Ag",  "Sp",  "Ok",  "Nv",  "Dz" };
+            snprintf(result, sizeof(result), "%s", dofShort[isValid ? MIN(t.dayOfWeek, 12) : 0]);
+            break;
+        }
+        case PT_FCBFormatterTimeSubtype::YYYY:
+            snprintf(result, sizeof(result), isValid ? "%04u" : "????", t.year);
+            break;
+    }
+    return result;
 }
 
 std::string TextFormatBlock::doFormat(int input, double value, uint8_t koNr, int decimalPlaces, char rightPadChar)
@@ -244,7 +376,7 @@ std::string TextFormatBlock::doFormat(int input, double value, uint8_t koNr, int
         std::size_t pos = result.rfind('.');
         if (pos == std::string::npos)
         {
-           result += '.' + std::string(decimalPlaces, rightPadChar);
+            result += '.' + std::string(decimalPlaces, rightPadChar);
         }
         else
         {
@@ -348,7 +480,7 @@ std::string TextFormatBlock::formatNumberString(
         }
         else
         {
-             // Apply space padding to the LEFT of the whole number
+            // Apply space padding to the LEFT of the whole number
             int digitCount = static_cast<int>(integerPart.size());
             int spaceCount = minIntegerDigits - digitCount;
             if (spaceCount > 0)
@@ -362,55 +494,67 @@ std::string TextFormatBlock::formatNumberString(
 
 void TextFormatBlock::updateTextKo(bool forceSend)
 {
+    std::string placeholder[FCB_TEXT_FORMAT_MAX_INPUTS];
+    for (int input = 1; input <= FCB_TEXT_FORMAT_MAX_INPUTS; input++)
+    {
+        // fill placeholder
+        const uint8_t koNr =  input - 1; // c - '1';
+        // const int input = c - '0';
+
+        switch (ParamFCB_CHFormatIn1)
+        {
+            case 10: // Bit
+                placeholder[input-1] = formatBit(input, (bool)getKo(koNr).value(DPT_Switch), koNr);
+                break;
+            case 50:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Ucount), koNr);
+                break;
+            case 51:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Scaling), koNr);
+                break;
+            case 61:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Count), koNr);
+                break;
+            case 70:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Ucount), koNr);
+                break;
+            case 80:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Count), koNr);
+                break;
+            case 90:
+                placeholder[input-1] = formatFloat(input, (double)getKo(koNr).value(DPT_Value_Temp), koNr);
+                break;
+            case 120:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Ucount), koNr);
+                break;
+            case 130:
+                placeholder[input-1] = formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Count), koNr);
+                break;
+            case 140:
+                placeholder[input-1] = formatFloat(input, (double)getKo(koNr).value(DPT_Value_Amplitude), koNr);
+                break;
+            case 160:
+                placeholder[input-1] = (const char*)getKo(koNr).value(DPT_String_8859_1);
+                break;
+            case 199:
+                placeholder[input-1] = formatTime(input);
+                break;
+        }
+
+    }
+
+    // process format string
     std::string result;
     bool waitForParameter = false;
     for (size_t i = 0; i < _format.length() && result.length() < 14; i++)
     {
-        auto c = _format[i];
+        const char c = _format[i];
         if (waitForParameter)
         {
             waitForParameter = false;
             if (c >= '1' && c <= '0' + FCB_TEXT_FORMAT_MAX_INPUTS)
             {
-                uint8_t koNr = c - '1';
-                int input = c - '0';
-                auto inTypeId = ParamFCB_CHFormatIn1;
-                switch (inTypeId)
-                {
-                    case 10: // Bit
-                        result += formatBit(input, (bool)getKo(koNr).value(DPT_Switch), koNr);
-                        break;
-                    case 50:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Ucount), koNr);
-                        break;
-                    case 51:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Scaling), koNr);
-                        break;
-                    case 61:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_1_Count), koNr);
-                        break;
-                    case 70:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Ucount), koNr);
-                        break;
-                    case 80:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_2_Count), koNr);
-                        break;
-                    case 90:
-                        result += formatFloat(input, (double)getKo(koNr).value(DPT_Value_Temp), koNr);
-                        break;
-                    case 120:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Ucount), koNr);
-                        break;
-                    case 130:
-                        result += formatDecimal(input, (int64_t)getKo(koNr).value(DPT_Value_4_Count), koNr);
-                        break;
-                    case 140:
-                        result += formatFloat(input, (double)getKo(koNr).value(DPT_Value_Amplitude), koNr);
-                        break;
-                    case 160:
-                        result += (const char*)getKo(koNr).value(DPT_String_8859_1);
-                        break;
-                }
+                result += placeholder[c - '1'];
                 continue;
             }
         }
@@ -425,7 +569,8 @@ void TextFormatBlock::updateTextKo(bool forceSend)
         result = result.substr(0, 14);
 
     logDebugP("Formatted text: '%s'", result.c_str());
-    KoFCB_CHText.valueCompare(result.c_str(), DPT_String_8859_1);
     if (forceSend)
-        KoFCB_CHText.objectWritten();
+        KoFCB_CHText.value(result.c_str(), DPT_String_8859_1);
+    else
+        KoFCB_CHText.valueCompare(result.c_str(), DPT_String_8859_1);
 }
