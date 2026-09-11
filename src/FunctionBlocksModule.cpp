@@ -27,18 +27,13 @@ void FunctionBlocksModule::showInformations()
 
 const std::string FunctionBlocksModule::version()
 {
-#ifdef MODULE_FunctionBlocks_Version
     return MODULE_FunctionBlocks_Version;
-#else
-    // hides the module in the version output on the console, because the firmware version is sufficient.
-    return "";
-#endif
 }
 
 void FunctionBlocksModule::setup(bool configured)
 {
     Module::setup(configured);
-    FCBChannelOwnerModule::initialize(configured ? ParamFCB_VisibleChannels : 0);
+    FCBChannelOwnerModule::initialize(FCB_ChannelCount);
     FCBChannelOwnerModule::setup(configured);
     _startTime = millis();
 
