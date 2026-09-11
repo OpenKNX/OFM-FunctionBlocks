@@ -9,8 +9,7 @@
           <Static>
             <Parameters>
               <!-- Format -->
-              <!-- Memory CodeSegment="%MID%" Offset="2" BitOffset="0" /-->
-              <Union SizeInBit="584" op:nowarn="true" >
+              <Union SizeInBit="584" op:nowarn="true" ><!-- Memory CodeSegment="%MID%" Offset="2" BitOffset="0" /-->
 
                 <!-- Input N -->
                 <!-- Input Type -->
@@ -224,21 +223,7 @@
                               </choose>
                   </when>
 
-                  <when test="199"> <!-- Time -->
-                              <!-- Time-Value -->
-                                <!-- Now -->
-                                  <!-- Minute Accuracy & Update -->
-                                  <!-- LATER: 5-Minute Accuracy & Update ; future time -->
-                                <!-- {SunRise, SunSet}; Daily or Event Update -->
-                                  <!-- Next -->
-                                  <!-- LATER: Today -->
-                                  <!-- LATER: Tomorrow -->
-                                <!-- LATER: Date `YYYY-MM-DD` -->
-                                <!-- LATER: Date `YYYY` -->
-                                <!-- LATER: Date `MM` -->
-                                <!-- LATER: Date `DD` -->
-                                <!-- LATER: Date `DDD` -->
-
+                  <when test="199">
                     <!-- Zeit-Typ -->
                     <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+412%_R-%TT%%CC%%ParamIdBase+412%01" IndentLevel="2" /><!-- TODO HelpContext="%DOC%" -->
                     <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+412%_R-%TT%%CC%%ParamIdBase+412%01">
@@ -254,8 +239,6 @@
                         <Enumeration Id="%ENID%" Value="8" Text="Jahr (00,..,99)"         />
                       -->
                       <when test="0">
-                      </when>
-                      <when test="0"><!-- 1 2 -->
                         <ParameterRefRef RefId="%AID%_UP-%TT%%CC%%ParamIdBase+415%_R-%TT%%CC%%ParamIdBase+415%01" IndentLevel="3" /><!-- TODO HelpContext="%DOC%" -->
                         <choose ParamRefId="%AID%_UP-%TT%%CC%%ParamIdBase+415%_R-%TT%%CC%%ParamIdBase+415%01">
                           <when test="&gt;1"> <!-- > minute resolution -->
