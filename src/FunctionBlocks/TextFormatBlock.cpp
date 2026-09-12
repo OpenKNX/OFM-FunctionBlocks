@@ -17,6 +17,25 @@ TextFormatBlock::TextFormatBlock(uint8_t channelIndex)
                      || (ParamFCB_CHFormatIn2 == PT_FCBFormatPlaceholder::TimeFunctions && ParamFCB_CHFormatUpdate2 == 0)
                      || (ParamFCB_CHFormatIn3 == PT_FCBFormatPlaceholder::TimeFunctions && ParamFCB_CHFormatUpdate3 == 0)
                      || (ParamFCB_CHFormatIn4 == PT_FCBFormatPlaceholder::TimeFunctions && ParamFCB_CHFormatUpdate4 == 0);
+
+    if (_hasContinousTime)
+    {
+        const OpenKNX::Time::TimeChangedEvents events = (OpenKNX::Time::TimeChangedEvents)
+            ( OpenKNX::Time::TimeChangedEvents::TimeChangedEventValidChanged
+            | OpenKNX::Time::TimeChangedEvents::TimeChangedEventInaccurateChanged
+            | OpenKNX::Time::TimeChangedEvents::TimeChangedEventMinuteChanged
+            | OpenKNX::Time::TimeChangedEvents::TimeChangedEventHourChanged
+            | OpenKNX::Time::TimeChangedEvents::TimeChangedEventDayChanged
+            | OpenKNX::Time::TimeChangedEvents::TimeChangedEventMonthChanged
+            | OpenKNX::Time::TimeChangedEvents::TimeChangedEventYearChanged
+            );
+        // TODO check reduction to module callback only
+        openknx.time.registerCallback(events, [this](OpenKNX::Time::TimeChangedArgs args) {
+            _needsTimeUpdate = true;
+        });
+
+        _needsTimeUpdate = true;
+    }
 }
 /*************************** IMPORTANT **************************/
 /*                                                              */
@@ -41,30 +60,28 @@ void TextFormatBlock::updatePlaceholder(const byte input)
             _tPlaceholders[input - 1] = openknx.time.getLocalTime();
             break;
     }
+    _tPlaceholdersValid[input - 1] = openknx.time.isValid();
+    _tPlaceholdersInaccurate[input - 1] = openknx.time.isInaccurate();
 }
 
 void TextFormatBlock::loop()
 {
-    if (_hasContinousTime && delayCheck(_lastTimeUpdate, 1000))
+    if (_needsTimeUpdate)
     {
-        _lastTimeUpdate = millis();
-    
+        _needsTimeUpdate = false;
+
         bool updated = false;
-    
-        // TODO FIXME : update after minute change only!
-        
         for (int input = 1; input <= FCB_TEXT_FORMAT_MAX_INPUTS; input++)
         {
             // update for time only
             // update time placeholders continously
-    
+
             if (ParamFCB_CHFormatIn1 == PT_FCBFormatPlaceholder::TimeFunctions && ParamFCB_CHFormatUpdate1 == 0)
             {
                 updatePlaceholder(input);
                 updated = true;
             }
-        }    
-    
+        }
         if (updated)
             updateTextKo(false);
     }
@@ -237,19 +254,8 @@ std::string TextFormatBlock::formatFloat(int input, double value, uint8_t koNr)
 
 std::string TextFormatBlock::formatTime(int input)
 {
-    // Concept for Time-Placeholders:
-    // *  OpenKNX::DateTime placeholders[4]
-    // *  for trigger: 1. set on trigger-event + 2. call update
-    // *  | else: 1. set on minute (current time OR sun-time with last/next) or day change + 2. call update
-    // *
-
-
-    // TODO: mechanism for updating by KO needs store value on update -> processKO
-
     const OpenKNX::DateTime t = _tPlaceholders[input - 1];
-
-
-    const bool isValid = openknx.time.isValid(); // TODO should false, for trigger and empty
+    const bool isValid = _tPlaceholdersValid[input - 1];
     char result[15] = "";
     const PT_FCBFormatterTimeSubtype timeType = ParamFCB_CHFormatTime1;
     switch (timeType)
@@ -267,7 +273,7 @@ std::string TextFormatBlock::formatTime(int input)
                     tCopy.addMinutes(-(t.minute % ParamFCB_CHFormatTimeRes1) + (ParamFCB_CHFormatTimeShown1 ? -1 : 1) * (ParamFCB_CHFormatTimeRes1) );
                 }
                 
-                snprintf(result, sizeof(result), "%02u%c%02u", tCopy.hour, openknx.time.isInaccurate() ? '!' : ':', tCopy.minute);
+                snprintf(result, sizeof(result), "%02u%c%02u", tCopy.hour, _tPlaceholdersInaccurate[input - 1] ? '!' : ':', tCopy.minute);
             }
             else
             {
@@ -277,7 +283,7 @@ std::string TextFormatBlock::formatTime(int input)
         }
         case PT_FCBFormatterTimeSubtype::SunRise:
         case PT_FCBFormatterTimeSubtype::SunSet:
-            snprintf(result, sizeof(result), isValid ?  "%02u%c%02u" : "??:??", t.hour, openknx.time.isInaccurate() ? '!' : ':', t.minute);
+            snprintf(result, sizeof(result), isValid ? "%02u%c%02u" : "??:??", t.hour, _tPlaceholdersInaccurate[input - 1] ? '!' : ':', t.minute);
             break;
         case PT_FCBFormatterTimeSubtype::DDD: // (Wochentagskürzel)
         {
