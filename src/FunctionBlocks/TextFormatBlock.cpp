@@ -288,8 +288,8 @@ std::string TextFormatBlock::formatTime(int input)
         case PT_FCBFormatterTimeSubtype::DDD: // (Wochentagskürzel)
         {
             // 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday
-            static const char* const dofShort[] = {"So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "??"};
-            snprintf(result, sizeof(result), "%s", dofShort[isValid ? MIN(t.dayOfWeek, 6) : 7]);
+            static const char* const dowShort[] = {"So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "??"};
+            snprintf(result, sizeof(result), "%s", dowShort[isValid ? MIN(t.dayOfWeek, 6) : 7]);
             break;
         }
         case PT_FCBFormatterTimeSubtype::DD:
