@@ -303,9 +303,9 @@ std::string TextFormatBlock::formatTime(int input)
             break;
         case PT_FCBFormatterTimeSubtype::MMM: // (Jan,..)
         {
-            static const char* const dofShort[] = {"???", "Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"};
+            static const char* const domShort[] = {"???", "Jan", "Feb", "Mrz", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"};
             //                                  = {"??",  "Jn",  "Fb",  "Mz",  "Ap",  "Ma",  "Jn",  "Jl",  "Ag",  "Sp",  "Ok",  "Nv",  "Dz" };
-            snprintf(result, sizeof(result), "%s", dofShort[isValid ? MIN(t.dayOfWeek, 12) : 0]);
+            snprintf(result, sizeof(result), "%s", domShort[isValid ? MIN(t.month, 12) : 0]);
             break;
         }
         case PT_FCBFormatterTimeSubtype::YYYY:
