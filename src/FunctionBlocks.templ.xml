@@ -6,10 +6,19 @@
     <Manufacturer>
       <ApplicationPrograms>
         <ApplicationProgram>
+          <op:part name="FORMAT_PARAMS" href="Format.Parameter.part.xml" instances="4"><!-- TODO set to 4 -->
+            <op:param name="%FcbFormatKoId%"     value="0" increment="1"  digits="1" />
+            <op:param name="%FcbFormatParamN%"   value="1" increment="1"  digits="1" />
+            <op:param name="%ParamN%"            value="1" increment="1"  digits="1" />
+            <op:param name="%ParamIdBase%"       value="0" increment="10" digits="3" />
+            <op:param name="%ParamOffset%"      value="57" increment="4"  digits="2" />
+          </op:part>
+
           <Static>
             <Parameters>
               <!-- Kanal Name -->
-              <Parameter Id="%AID%_P-%TT%%CC%000" Name="Channel%C%Name" ParameterType="%AID%_PT-Text40Byte" Text="Bezeichnung" Value="" />
+              <Parameter Id="%AID%_P-%TT%%CC%000" Name="Channel%C%Name"     ParameterType="%AID%_PT-Text40Byte"   Text="Bezeichnung"             Value="" />
+              <Parameter Id="%AID%_P-%TT%%CC%999" Name="CH%C%NameDisplay"   ParameterType="%AID%_PT-Text45Byte"   Text="Bezeichnung (Anzeige)"   Value=""   Access="Read" op:configTransfer="never" />
               <!-- Kanal Beschreibung -->
               <Parameter Id="%AID%_P-%TT%%CC%003" Name="CH%C%Comment"   ParameterType="%AID%_PT-Text512Byte" Text="Kommentar"  Value="" />
               
@@ -18,7 +27,7 @@
                 <!-- Channel Type -->
                 <Parameter Id="%AID%_UP-%TT%%CC%001" Name="CH%C%ChannelType" ParameterType="%AID%_PT-FCBChannelType" Offset="0" BitOffset="0" Text="Type" Value="0" />
                 <!-- Channel Disabled -->
-                <Parameter Id="%AID%_UP-%TT%%CC%002" Name="CH%C%ChannelDisabled" ParameterType="%AID%_PT-CheckBox" Offset="1" BitOffset="0" Text="Kanal deaktivieren (zu Testzwecken)" Value="0" />
+                <Parameter Id="%AID%_UP-%TT%%CC%002" Name="CH%C%ChannelDisabled" ParameterType="%AID%_PT-Suspended" Offset="1" BitOffset="0" Text="Suspendiert" Value="0" />
 
                 <!-- 7 Bits free-->
               </Union>
@@ -98,11 +107,11 @@
               <!-- Bayes Sensor -->
               <Union SizeInBit="184"><Memory CodeSegment="%MID%" Offset="10" BitOffset="0" />
                 <!-- Prior Probability -->
-                <Parameter Offset="0"  BitOffset="0" Id="%AID%_UP-%TT%%CC%269" Name="CH%C%BayesianPrior"            ParameterType="%AID%_PT-FCBBayesP"                   Text="Prior-Wahrscheinlichkeit"               Value="50" SuffixText="%" />
+                <Parameter Offset="0"  BitOffset="0" Id="%AID%_UP-%TT%%CC%269" Name="CH%C%BayesianPrior"            ParameterType="%AID%_PT-FCBBayesP"                   Text="Prior-Wahrscheinlichkeit   P( A )"      Value="50" SuffixText="%" />
                 <!-- Threshold -->
-                <Parameter Offset="1"  BitOffset="0" Id="%AID%_UP-%TT%%CC%272" Name="CH%C%BayesianThreshold"        ParameterType="%AID%_PT-FCBBayesPThreshold"          Text="Schwellwert für binären Ausgang"        Value="75" SuffixText="%" />
+                <Parameter Offset="1"  BitOffset="0" Id="%AID%_UP-%TT%%CC%272" Name="CH%C%BayesianThreshold"        ParameterType="%AID%_PT-FCBBayesPThreshold"          Text="Schwellwert (≥) für binären Ausgang"    Value="75" SuffixText="%" />
                 <!-- Enable Probability Output -->
-                <Parameter Offset="2"  BitOffset="0" Id="%AID%_UP-%TT%%CC%290" Name="CH%C%BayesianEnableProbOutput" ParameterType="%AID%_PT-FCBBayesEnableProbOutput"    Text="Wahrscheinlichkeits-Ausgang aktivieren" Value="1" />
+                <Parameter Offset="2"  BitOffset="0" Id="%AID%_UP-%TT%%CC%290" Name="CH%C%BayesianEnableProbOutput" ParameterType="%AID%_PT-FCBBayesEnableProbOutput"    Text="Ein-/Ausgangs-Kombination" Value="1" />
 
                 <!-- TODO empty Offset-Space [3,5[ -->
 
@@ -284,7 +293,7 @@
                 <!-- 1 bits free -->
 
                 <!-- Inputs Value Type -->
-                <Parameter Id="%AID%_UP-%TT%%CC%182" Name="CH%C%AggInputDpt"        ParameterType="%AID%_PT-FCBNumericDpt"     Offset="4"  BitOffset="0" Text="Wertetype / DPT"   Value="90" />
+                <Parameter Id="%AID%_UP-%TT%%CC%182" Name="CH%C%AggInputDpt"        ParameterType="%AID%_PT-FCBNumericDpt"     Offset="4"  BitOffset="0" Text="Wertetyp / DPT"    Value="90" />
                 <!-- Output Value Type (Effective) -->
                 <Parameter Id="%AID%_UP-%TT%%CC%183" Name="CH%C%AggOutputDptEff"    ParameterType="%AID%_PT-FCBNumericDpt"     Offset="5"  BitOffset="0" Text="DPT Ausgang"       Value="90"  Access="None" />
 
@@ -300,7 +309,7 @@
 
               </Union>
               <!-- Output Value Type -->
-              <Parameter Id="%AID%_P-%TT%%CC%186"  Name="CH%C%AggOutputDpt"  ParameterType="%AID%_PT-FCBNumericOutputDpt"  Text="Wertetype / DPT"  Value="255" />
+              <Parameter Id="%AID%_P-%TT%%CC%186"  Name="CH%C%AggOutputDpt"  ParameterType="%AID%_PT-FCBNumericOutputDpt"  Text="Wertetyp / DPT"  Value="255" />
 
       
               <!-- Count Down -->
@@ -421,7 +430,7 @@
               <Union SizeInBit="24" op:nowarn="true" >
                 <Memory CodeSegment="%MID%" Offset="2" BitOffset="0" />
                 <!-- Auswahl KO Type-->
-                <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%263" Name="CH%C%SelectionValueType" ParameterType="%AID%_PT-FCBNumericBitStringDpt" Text="Datentype" Value="90" />
+                <Parameter Offset="0" BitOffset="0" Id="%AID%_UP-%TT%%CC%263" Name="CH%C%SelectionValueType" ParameterType="%AID%_PT-FCBNumericBitStringDpt" Text="Datentyp" Value="90" />
                 <!-- Auswahl Type-->
                 <Parameter Offset="1" BitOffset="0" Id="%AID%_UP-%TT%%CC%248" Name="CH%C%SelectionType" ParameterType="%AID%_PT-FCBSelectionType" Text="Anzahl und Typ der Auswahlen (mit gemeinsamen Auswahl-Eingang)" Value="7" />
                 <!-- Auswahl Umschaltung -->
@@ -480,142 +489,7 @@
                 <!-- Thousand Separator -->
                 <Parameter Offset="56" BitOffset="0" Id="%AID%_UP-%TT%%CC%303" Name="CH%C%FormatThousand" ParameterType="%AID%_PT-FCBFormatThousand" Text="Tausendertrennzeichen" Value="" />
 
-                <!-- Input1 -->
-                <!-- Input Type -->
-                <Parameter Offset="57" BitOffset="0" Id="%AID%_UP-%TT%%CC%310" Name="CH%C%FormatIn1" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
-          
-                <!-- Numeric parameter -->
-                <!-- Rounding float -->
-                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%311" Name="CH%C%FormatRoundFloat1" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Rounding decimal -->
-                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%319" Name="CH%C%FormatRound1" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Round to 5-->
-                <Parameter Offset="58" BitOffset="2" Id="%AID%_UP-%TT%%CC%317" Name="CH%C%FCBFormatRound5_1" ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
-                <!-- 1 bit free -->
-                <!-- Stellen -->
-                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%312" Name="CH%C%FormatDecimalPlaces1" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
-                <!-- Precision -->
-                <Parameter Offset="58" BitOffset="4" Id="%AID%_UP-%TT%%CC%313" Name="CH%C%FormatSignificant1" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
-                <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="59" BitOffset="0" Id="%AID%_UP-%TT%%CC%314" Name="CH%C%FormatFillupPrecomma1" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
-                <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="59" BitOffset="0" Id="%AID%_UP-%TT%%CC%410" Name="CH%C%FormatFillupMode1" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" /> 
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <!-- Fillup After Comma -->
-                <Parameter Offset="59" BitOffset="4" Id="%AID%_UP-%TT%%CC%315" Name="CH%C%FormatFillupAfterComma1" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <Parameter Offset="60" BitOffset="0" Id="%AID%_UP-%TT%%CC%316" Name="CH%C%FCBFormatRoundType1" ParameterType="%AID%_PT-FCBFormatRoundType" Text="Rundungsart" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->      
-                <!-- Fillup Length -->
-                <Parameter Offset="60" BitOffset="4" Id="%AID%_UP-%TT%%CC%411" Name="CH%C%FormatFillupLength1" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
-                <!-- Bit parameter-->
-                <!-- Bit display -->
-                <Parameter Offset="58" BitOffset="0" Id="%AID%_UP-%TT%%CC%318" Name="CH%C%FormatBit1" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" /> 
-
-
-                <!-- Input2 -->
-                <!-- Input Type -->
-                <Parameter Offset="61" BitOffset="0" Id="%AID%_UP-%TT%%CC%320" Name="CH%C%FormatIn2" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
-                <!-- Numeric parameter -->
-                <!-- Rounding float -->
-                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%321" Name="CH%C%FormatRoundFloat2" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Rounding decimal -->
-                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%329" Name="CH%C%FormatRound2" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />   
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Round to 5-->
-                <Parameter Offset="62" BitOffset="2" Id="%AID%_UP-%TT%%CC%327" Name="CH%C%FCBFormatRound5_2" ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
-                <!-- 1 bit free -->
-                <!-- Stellen -->
-                <Parameter Offset="62" BitOffset="4" Id="%AID%_UP-%TT%%CC%322" Name="CH%C%FormatDecimalPlaces2" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
-                <!-- Precision -->
-                <Parameter Offset="62" BitOffset="4" Id="%AID%_UP-%TT%%CC%323" Name="CH%C%FormatSignificant2" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
-                <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="63" BitOffset="0" Id="%AID%_UP-%TT%%CC%324" Name="CH%C%FormatFillupPrecomma2" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
-                <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="63" BitOffset="0" Id="%AID%_UP-%TT%%CC%420" Name="CH%C%FormatFillupMode2" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" /> 
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <!-- Fillup After Comma -->
-                <Parameter Offset="63" BitOffset="4" Id="%AID%_UP-%TT%%CC%325" Name="CH%C%FormatFillupAfterComma2" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <Parameter Offset="64" BitOffset="0" Id="%AID%_UP-%TT%%CC%326" Name="CH%C%FCBFormatRoundType2" ParameterType="%AID%_PT-FCBFormatRoundType" Text="Rundungsart" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->      
-                <!-- Fillup Length -->
-                <Parameter Offset="64" BitOffset="4" Id="%AID%_UP-%TT%%CC%421" Name="CH%C%FormatFillupLength2" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
-                <!-- Bit parameter-->
-                <!-- Bit display -->
-                <Parameter Offset="62" BitOffset="0" Id="%AID%_UP-%TT%%CC%328" Name="CH%C%FormatBit2" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" />
-
-
-                <!-- Input3 -->
-                <!-- Input Type -->
-                <Parameter Offset="65" BitOffset="0" Id="%AID%_UP-%TT%%CC%330" Name="CH%C%FormatIn3" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
-                <!-- Numeric parameter -->
-                <!-- Rounding float -->
-                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%331" Name="CH%C%FormatRoundFloat3" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Rounding decimal -->
-                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%339" Name="CH%C%FormatRound3" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />   
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Round to 5-->
-                <Parameter Offset="66" BitOffset="2" Id="%AID%_UP-%TT%%CC%337" Name="CH%C%FCBFormatRound5_3"  ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
-                <!-- 1 bit free -->
-                <!-- Stellen -->
-                <Parameter Offset="66" BitOffset="4" Id="%AID%_UP-%TT%%CC%332" Name="CH%C%FormatDecimalPlaces3" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
-                <!-- Precision -->
-                <Parameter Offset="66" BitOffset="4" Id="%AID%_UP-%TT%%CC%333" Name="CH%C%FormatSignificant3" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
-                <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="67" BitOffset="0" Id="%AID%_UP-%TT%%CC%334" Name="CH%C%FormatFillupPrecomma3" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
-                <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="67" BitOffset="0" Id="%AID%_UP-%TT%%CC%430" Name="CH%C%FormatFillupMode3" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" /> 
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <!-- Fillup After Comma -->
-                <Parameter Offset="67" BitOffset="4" Id="%AID%_UP-%TT%%CC%335" Name="CH%C%FormatFillupAfterComma3" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <Parameter Offset="68" BitOffset="0" Id="%AID%_UP-%TT%%CC%336" Name="CH%C%FCBFormatRoundType3" ParameterType="%AID%_PT-FCBFormatRoundType" Text="Rundungsart" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->      
-                <!-- Fillup Length -->
-                <Parameter Offset="68" BitOffset="4" Id="%AID%_UP-%TT%%CC%431" Name="CH%C%FormatFillupLength3" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
-                <!-- Bit parameter-->
-                <!-- Bit display -->
-                <Parameter Offset="66" BitOffset="0" Id="%AID%_UP-%TT%%CC%338" Name="CH%C%FormatBit3" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" /> 
-
-
-                <!-- Input4 -->
-                <!-- Input Type -->
-                <Parameter Offset="69" BitOffset="0" Id="%AID%_UP-%TT%%CC%340" Name="CH%C%FormatIn4" ParameterType="%AID%_PT-FCBNumericBitStringWithDisabledDpt" Text="Datentype" Value="0" />
-                <!-- Numeric parameter -->
-                <!-- Rounding float -->
-                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%341" Name="CH%C%FormatRoundFloat4" ParameterType="%AID%_PT-FCBFormatRoundFloat" Text="Runden" Value="0" op:nowarn="true" />
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Rounding decimal -->
-                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%349" Name="CH%C%FormatRound4" ParameterType="%AID%_PT-FCBFormatRoundDecimal" Text="Runden" Value="0" op:nowarn="true" />   
-                <!-- ^^^^ 2 Bits ^^^ -->
-                <!-- Round to 5-->
-                <Parameter Offset="70" BitOffset="2" Id="%AID%_UP-%TT%%CC%347" Name="CH%C%FCBFormatRound5_4"  ParameterType="%AID%_PT-OnOffYesNo" Text="Auf 5 Runden" Value="0" op:nowarn="true" />
-                <!-- 1 bit free -->
-                <!-- Stellen -->
-                <Parameter Offset="70" BitOffset="4" Id="%AID%_UP-%TT%%CC%342" Name="CH%C%FormatDecimalPlaces4" ParameterType="%AID%_PT-FCBFormatDecimalPlaces" Text="Stellen" Value="0" op:nowarn="true" />
-                <!-- Precision -->
-                <Parameter Offset="70" BitOffset="4" Id="%AID%_UP-%TT%%CC%343" Name="CH%C%FormatSignificant4" ParameterType="%AID%_PT-FCBFormatSignificant" Text="Stellenanzahl" Value="3" op:nowarn="true" />
-                <!-- Fillup Precomma --> <!-- float only -->
-                <Parameter Offset="71" BitOffset="0" Id="%AID%_UP-%TT%%CC%344" Name="CH%C%FormatFillupPrecomma4" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen" Value="0" op:nowarn="true" />  
-                <!-- Fillup mode --> <!-- decimal only -->
-                <Parameter Offset="71" BitOffset="0" Id="%AID%_UP-%TT%%CC%440" Name="CH%C%FormatFillupMode4" ParameterType="%AID%_PT-FCBFormatFillupMode" Text="Auffüllen" Value="0" op:nowarn="true" />
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <!-- Fillup After Comma -->
-                <Parameter Offset="71" BitOffset="4" Id="%AID%_UP-%TT%%CC%345" Name="CH%C%FormatFillupAfterComma4" ParameterType="%AID%_PT-FCBFormatFillupFloat" Text="Auffüllen nach Komma" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->
-                <Parameter Offset="72" BitOffset="0" Id="%AID%_UP-%TT%%CC%346" Name="CH%C%FCBFormatRoundType4" ParameterType="%AID%_PT-FCBFormatRoundType" Text="Rundungsart" Value="0" />
-                <!-- ^^^^ 4 Bits ^^^ -->      
-                <!-- Fillup Length -->
-                <Parameter Offset="72" BitOffset="4" Id="%AID%_UP-%TT%%CC%441" Name="CH%C%FormatFillupLength4" ParameterType="%AID%_PT-FCBFormatFillupLength" Text="Stellen" Value="2" /> 
-                <!-- Bit parameter-->
-                <!-- Bit display -->
-                <Parameter Offset="70" BitOffset="0" Id="%AID%_UP-%TT%%CC%348" Name="CH%C%FormatBit4" ParameterType="%AID%_PT-FCBFormatBitFormat" Text="Anzeige als" Value="0" op:nowarn="true" />
-
+                <op:usePart name="FORMAT_PARAMS" xpath="//Parameters/Union/*" />
                 
               </Union>
 
@@ -625,6 +499,7 @@
             <ParameterRefs>
               <!-- Kanal Name -->
               <ParameterRef Id="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" RefId="%AID%_P-%TT%%CC%000" />
+              <ParameterRef Id="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" RefId="%AID%_P-%TT%%CC%999" />
               <!-- Channel Type -->
               <ParameterRef Id="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" RefId="%AID%_UP-%TT%%CC%001"/>
               <!-- Channel Disabled -->
@@ -1006,113 +881,21 @@
               <ParameterRef Id="%AID%_UP-%TT%%CC%302_R-%TT%%CC%30201" RefId="%AID%_UP-%TT%%CC%302" />
               <!-- Thousend Separator-->
               <ParameterRef Id="%AID%_UP-%TT%%CC%303_R-%TT%%CC%30301" RefId="%AID%_UP-%TT%%CC%303" /> 
-              <!-- Input1 -->
-              <!-- Input Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%310_R-%TT%%CC%31001" RefId="%AID%_UP-%TT%%CC%310" />
-              <!-- Numeric parameter -->
-              <!-- Rounding float -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%311_R-%TT%%CC%31101" RefId="%AID%_UP-%TT%%CC%311" />
-              <!-- Stellen -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%312_R-%TT%%CC%31201" RefId="%AID%_UP-%TT%%CC%312" />
-              <!-- Precision -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%313_R-%TT%%CC%31301" RefId="%AID%_UP-%TT%%CC%313" />
-              <!-- Fillup Precomma -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%314_R-%TT%%CC%31401" RefId="%AID%_UP-%TT%%CC%314" />
-              <!-- Fillup After Comman -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%315_R-%TT%%CC%31501" RefId="%AID%_UP-%TT%%CC%315" />
-              <!-- Round Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%316_R-%TT%%CC%31601" RefId="%AID%_UP-%TT%%CC%316" />
-              <!-- Round to 5-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%317_R-%TT%%CC%31701" RefId="%AID%_UP-%TT%%CC%317" />
-              <!-- Bit Format -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%318_R-%TT%%CC%31801" RefId="%AID%_UP-%TT%%CC%318" />
-              <!-- Rounding decimal-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%319_R-%TT%%CC%31901" RefId="%AID%_UP-%TT%%CC%319" />
-              <!-- Fillup mode -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%410_R-%TT%%CC%41001" RefId="%AID%_UP-%TT%%CC%410" />
-              <!-- Fillup length -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%411_R-%TT%%CC%41101" RefId="%AID%_UP-%TT%%CC%411" />
-              <!-- Input2 -->
-              <!-- Input Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%320_R-%TT%%CC%32001" RefId="%AID%_UP-%TT%%CC%320" />
-              <!-- Numeric parameter -->
-              <!-- Rounding float -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%321_R-%TT%%CC%32101" RefId="%AID%_UP-%TT%%CC%321" />
-              <!-- Stellen -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%322_R-%TT%%CC%32201" RefId="%AID%_UP-%TT%%CC%322" />
-              <!-- Precision -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%323_R-%TT%%CC%32301" RefId="%AID%_UP-%TT%%CC%323" />
-              <!-- Fillup Precomma -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%324_R-%TT%%CC%32401" RefId="%AID%_UP-%TT%%CC%324" />
-              <!-- Fillup After Comman -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%325_R-%TT%%CC%32501" RefId="%AID%_UP-%TT%%CC%325" />
-              <!-- Round Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%326_R-%TT%%CC%32601" RefId="%AID%_UP-%TT%%CC%326" />
-              <!-- Round to 5-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%327_R-%TT%%CC%32701" RefId="%AID%_UP-%TT%%CC%327" />
-              <!-- Bit Format -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%328_R-%TT%%CC%32801" RefId="%AID%_UP-%TT%%CC%328" />
-              <!-- Rounding decimal-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%329_R-%TT%%CC%32901" RefId="%AID%_UP-%TT%%CC%329" />
-              <!-- Fillup mode -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%420_R-%TT%%CC%42001" RefId="%AID%_UP-%TT%%CC%420" />
-              <!-- Fillup length -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%421_R-%TT%%CC%42101" RefId="%AID%_UP-%TT%%CC%421" />
-              <!-- Input3 -->
-              <!-- Input Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%330_R-%TT%%CC%33001" RefId="%AID%_UP-%TT%%CC%330" />
-              <!-- Numeric parameter -->
-              <!-- Rounding float -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%331_R-%TT%%CC%33101" RefId="%AID%_UP-%TT%%CC%331" />
-              <!-- Stellen -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%332_R-%TT%%CC%33201" RefId="%AID%_UP-%TT%%CC%332" />
-              <!-- Precision -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%333_R-%TT%%CC%33301" RefId="%AID%_UP-%TT%%CC%333" />
-              <!-- Fillup Precomma -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%334_R-%TT%%CC%33401" RefId="%AID%_UP-%TT%%CC%334" />
-              <!-- Fillup After Comman -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%335_R-%TT%%CC%33501" RefId="%AID%_UP-%TT%%CC%335" />
-              <!-- Round Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%336_R-%TT%%CC%33601" RefId="%AID%_UP-%TT%%CC%336" />
-              <!-- Round to 5-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%337_R-%TT%%CC%33701" RefId="%AID%_UP-%TT%%CC%337" />
-              <!-- Bit Format -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%338_R-%TT%%CC%33801" RefId="%AID%_UP-%TT%%CC%338" />
-              <!-- Rounding decimal-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%339_R-%TT%%CC%33901" RefId="%AID%_UP-%TT%%CC%339" />
-              <!-- Fillup mode -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%430_R-%TT%%CC%43001" RefId="%AID%_UP-%TT%%CC%430" />
-              <!-- Fillup length -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%431_R-%TT%%CC%43101" RefId="%AID%_UP-%TT%%CC%431" />
-              <!-- Input4 -->
-              <!-- Input Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%340_R-%TT%%CC%34001" RefId="%AID%_UP-%TT%%CC%340" />
-              <!-- Numeric parameter -->
-              <!-- Rounding float -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%341_R-%TT%%CC%34101" RefId="%AID%_UP-%TT%%CC%341" />
-              <!-- Stellen -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%342_R-%TT%%CC%34201" RefId="%AID%_UP-%TT%%CC%342" />
-              <!-- Precision -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%343_R-%TT%%CC%34301" RefId="%AID%_UP-%TT%%CC%343" />
-              <!-- Fillup Precomma -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%344_R-%TT%%CC%34401" RefId="%AID%_UP-%TT%%CC%344" />
-              <!-- Fillup After Comman -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%345_R-%TT%%CC%34501" RefId="%AID%_UP-%TT%%CC%345" />
-              <!-- Round Type -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%346_R-%TT%%CC%34601" RefId="%AID%_UP-%TT%%CC%346" />
-              <!-- Round to 5-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%347_R-%TT%%CC%34701" RefId="%AID%_UP-%TT%%CC%347" />
-              <!-- Bit Format -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%348_R-%TT%%CC%34801" RefId="%AID%_UP-%TT%%CC%348" />
-              <!-- Rounding decimal-->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%349_R-%TT%%CC%34901" RefId="%AID%_UP-%TT%%CC%349" />
-              <!-- Fillup mode -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%440_R-%TT%%CC%44001" RefId="%AID%_UP-%TT%%CC%440" />
-              <!-- Fillup length -->
-              <ParameterRef Id="%AID%_UP-%TT%%CC%441_R-%TT%%CC%44101" RefId="%AID%_UP-%TT%%CC%441" />
-         
+
+              <op:usePart name="FORMAT_PARAMS" xpath="//ParameterRefs/*" />
          
             </ParameterRefs>
+            <ParameterCalculations>
+              <ParameterCalculation Id="%AID%_PC-%TT%%CC%001" Language="JavaScript" Name="MarkInactive%CC%" LRTransformationFunc="BASE_MarkInactive" RLTransformationFunc="BASE_Nop">
+                <LParameters>
+                  <ParameterRefRef RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" AliasName="TextInput" />
+                  <ParameterRefRef RefId="%AID%_UP-%TT%%CC%002_R-%TT%%CC%00201" AliasName="CheckboxInactive" />
+                </LParameters>
+                <RParameters>
+                  <ParameterRefRef RefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" AliasName="TextOutput" />
+                </RParameters>
+              </ParameterCalculation>
+            </ParameterCalculations>
             <ComObjectTable>
               <!-- KO 0 --><ComObject Id="%AID%_O-%TT%%CC%000" Number="%K00%" Name="CH%C%KO0" ObjectSize="14 Bytes" Text="" FunctionText="" CommunicationFlag="Enabled" ReadFlag="Disabled" WriteFlag="Disabled" TransmitFlag="Disabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
               <!-- KO 1 --><ComObject Id="%AID%_O-%TT%%CC%001" Number="%K01%" Name="CH%C%KO1" ObjectSize="14 Bytes" Text="" FunctionText="" CommunicationFlag="Enabled" ReadFlag="Disabled" WriteFlag="Disabled" TransmitFlag="Disabled" UpdateFlag="Disabled" ReadOnInitFlag="Disabled" />
@@ -1386,66 +1169,46 @@
               <!-- Bayesian -->
               <ComObjectRef Id="%AID%_O-%TT%%CC%008_R-%TT%%CC%00803" RefId="%AID%_O-%TT%%CC%008" ObjectSize="1 Byte" DatapointType="DPST-5-1"     Text="{{0:Funktion %C%}}: Wahrscheinlichkeit"         FunctionText="Funktion %C%: Ausgang, Wahrscheinlichkeit"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" ReadFlag="Enabled"  TransmitFlag="Enabled" />
 
+              <!-- Text Format: Time Trigger -->
+              <ComObjectRef Id="%AID%_O-%TT%%CC%000_R-%TT%%CC%00003" RefId="%AID%_O-%TT%%CC%000" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 1}}"    FunctionText="Funktion %C%: Eingang 1, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%010_R-%TT%%CC%01001"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%001_R-%TT%%CC%00103" RefId="%AID%_O-%TT%%CC%001" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 2}}"    FunctionText="Funktion %C%: Eingang 2, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%011_R-%TT%%CC%01101"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%002_R-%TT%%CC%00203" RefId="%AID%_O-%TT%%CC%002" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 3}}"    FunctionText="Funktion %C%: Eingang 3, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%012_R-%TT%%CC%01201"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
+              <ComObjectRef Id="%AID%_O-%TT%%CC%003_R-%TT%%CC%00303" RefId="%AID%_O-%TT%%CC%003" ObjectSize="1 Bit"    DatapointType="DPST-1-16"     Text="{{0:Funktion %C%: Eingang 4}}"    FunctionText="Funktion %C%: Eingang 3, Auslöser"      TextParameterRefId="%AID%_P-%TT%%CC%013_R-%TT%%CC%01301"   WriteFlag="Enabled" UpdateFlag="Disabled"  />
 
             </ComObjectRefs>
           </Static>
           <Dynamic>
             <ChannelIndependentBlock>
               <ParameterBlock Id="%AID%_PB-nnn" Name="Settings">
-                <!-- Anzahl der Kanäle -->
-                <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
-                  <when test="&gt;=%C%">
-                    <ParameterSeparator Id="%AID%_PS-nnn" Text="Funktionsblock %C%" />
-                    <!-- Kanal Name -->
-                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
-        
-                    <!-- Kanal Typ -->
-                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
-                  </when>
-                </choose>
-              </ParameterBlock>
+                    <ParameterBlock Id="%AID%_PB-nnn" Inline="true" Layout="Grid">
+                      <Rows>
+                        <Row Id="%AID%_PB-nnn_R-1" />
+                      </Rows>
+                      <Columns>
+                        <Column Id="%AID%_PB-nnn_C-1" Width="10%" />
+                        <Column Id="%AID%_PB-nnn_C-2" Width="35%" />
+                        <Column Id="%AID%_PB-nnn_C-3" Width="55%" />
+                      </Columns>
+                      <ParameterSeparator Id="%AID%_PS-nnn" Cell="1,1" Text="Block %C%" />
 
-              <ParameterBlock Id="%AID%_PB-nnn" Name="More">
-                <!-- Anzahl der Kanäle -->
-                <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
-                  <when test="=%C-1%">
-                     <ParameterSeparator Id="%AID%_PS-nnn" Text="Funktionsblock %C%" />
-                    <!-- Kanal Name -->
-                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" HelpContext="%DOC%" />
-  
-                    <!-- Kanal Typ -->
-                    <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" HelpContext="FCB-Kanalauswahl" />
-                    <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
-                      <when test="0"><!-- ************ Deaktiviert ************ -->
-                        <ParameterSeparator Id="%AID%_PS-nnn" Text="Die Auswahl darf nicht 'Deaktiviert' sein um hinzufügen zu können. Hinzugefügte Kanäle erscheinen nach ca. 1 Sekunde Verzögerung links im Baum." UIHint="Information" />
-                      </when>
-                    </choose>
-                  </when>
-                </choose>
+                      <!-- Kanal Name -->
+                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Cell="1,3" HelpContext="%DOC%" />
+
+                      <!-- Kanal Typ -->
+                      <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101" Cell="1,2" HelpContext="FCB-Kanalauswahl" />
+
+                    </ParameterBlock>
               </ParameterBlock>
 
               <ParameterBlock Id="%AID%_PB-nnn" Name="Channel">
 
-                <!-- Anzahl der Kanäle -->
-                <choose ParamRefId="%AID%_UP-%TT%00000_R-%TT%0000001">
-                  <when test="&gt;=%C%">
                     <!-- Kanal Typ -->
 
                     <choose ParamRefId="%AID%_UP-%TT%%CC%001_R-%TT%%CC%00101">
 
-                      <!-- ************ Deaktiviert ************ -->
-                      <when test="0">
-                        <!-- <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB" Text="%C% Deaktiviert" Icon="help-box-outline" HelpContext="Empty"> -->
-                          
-                          <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Deaktiviert" UIHint="Headline" /> -->
-                          <!-- <ParameterSeparator Id="%AID%_PS-nnn" Text="Dieser Kanal ist deaktiviert. Durch Auswahl eines Types auf der Seite 'Allgemein' wird der Kanal aktiviert." UIHint="Information" /> -->
-
-                        <!-- </ParameterBlock> -->
-                      </when>
-
                       <!-- ************ UND ************ -->
                       <when test="1">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_And" Text="%C% UND: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_And" Text="%C% UND: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="ampersand" ShowInComObjectTree="true" HelpContext="FCB-UND">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="UND" UIHint="Headline" />
 
@@ -1598,7 +1361,7 @@
 
                       <!-- ************ ODER ************ -->
                       <when test="2">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Or" Text="%C% ODER: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Or" Text="%C% ODER: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="greater-than-or-equal" ShowInComObjectTree="true" HelpContext="FCB-ODER">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="ODER" UIHint="Headline" />
 
@@ -1751,7 +1514,7 @@
 
                       <!-- ************ ANZAHL ************ -->
                       <when test="4">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Anzahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="tally-mark-5" ShowInComObjectTree="true" HelpContext="FCB-Anzahl">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Anzahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="tally-mark-5" ShowInComObjectTree="true" HelpContext="FCB-Anzahl">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Anzahl" UIHint="Headline" />
 
@@ -1906,7 +1669,7 @@
 
                       <!-- ************ Priority Schalter ************ -->
                       <when test="3">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Prio" Text="%C% Prioritätsschalter: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Prio" Text="%C% Prioritätsschalter: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="priority-low" ShowInComObjectTree="true" HelpContext="FCB-Prioritaetsschalter">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Prioritätsschalter" UIHint="Headline" />
 
@@ -2225,7 +1988,7 @@
 
                       <!-- ************ Aggregation ************ -->
                       <when test="5">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Aggr" Text="%C% Aggregation: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="set-merge" ShowInComObjectTree="true" HelpContext="FCB-Statistische-Aggregation" >
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Aggr" Text="%C% Aggregation: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="set-merge" ShowInComObjectTree="true" HelpContext="FCB-Statistische-Aggregation" >
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Einfache Statistische Aggregation" UIHint="Headline" />
 
@@ -2534,7 +2297,7 @@
 
                       <!-- ************ Count Down ************ -->
                       <when test="6">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Count-Down Zeitgeber: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="timer-sand" ShowInComObjectTree="true" HelpContext="FCB-Count-Down">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Count" Text="%C% Count-Down Zeitgeber: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="timer-sand" ShowInComObjectTree="true" HelpContext="FCB-Count-Down">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Count-Down Zeitgeber" UIHint="Headline" />
 
@@ -2714,7 +2477,7 @@
 
                       <!-- ************ Wertüberwachung ************ -->
                       <when test="7">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Monitoring" Text="%C% Wertüberwachung: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="alert-remove-outline" ShowInComObjectTree="true" HelpContext="FCB-Monitoring">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Monitoring" Text="%C% Wertüberwachung: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="alert-remove-outline" ShowInComObjectTree="true" HelpContext="FCB-Monitoring">
 
                           <!-- Eingang -->
                           <choose ParamRefId="%AID%_UP-%TT%%CC%209_R-%TT%%CC%20901">
@@ -3001,7 +2764,7 @@
 
                       <!-- ************ Auswahl ************ -->
                       <when test="8">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Selection" Text="%C% Auswahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="multicast" ShowInComObjectTree="true" HelpContext="FCB-Selection">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Selection" Text="%C% Auswahl: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="multicast" ShowInComObjectTree="true" HelpContext="FCB-Selection">
       
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Auswahl (Multiplexer)" UIHint="Headline" />
 
@@ -3257,7 +3020,7 @@
 
                       <!-- ************ Blinker ************ -->
                       <when test="9">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Blinker" Text="%C% Blinker: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="alarm-light-outline" ShowInComObjectTree="true" HelpContext="FCB-Blinker">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_Blinker" Text="%C% Blinker: {{0: ...}}"      TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="alarm-light-outline" ShowInComObjectTree="true" HelpContext="FCB-Blinker">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Blinker" UIHint="Headline" />
 
@@ -3402,7 +3165,7 @@
 
                       <!-- ************ Bayes Sensor ************ -->
                       <when test="10">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_BayesianBinarySensor" Text="%C% Bayes-Sensor: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="brain" ShowInComObjectTree="true" HelpContext="FCB-BayesianBinarySensor">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_BayesianBinarySensor" Text="%C% Bayes-Sensor: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="brain" ShowInComObjectTree="true" HelpContext="FCB-BayesianBinarySensor">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Bayes-Sensor" UIHint="Headline" />
 
@@ -3445,11 +3208,11 @@
                               <Row Id="%AID%_PB-03_R-9"  Name="Input9"  Text="9"     CollapseIfEmpty="true" />
                             </Rows>
                             <Columns>
-                              <Column Id="%AID%_PB-03_C-1" Name="Aktiv"           Text="Aktiv"                      Width="20%" />
+                              <Column Id="%AID%_PB-03_C-1" Name="Aktiv"           Text="E_i Aktiv"                  Width="19%" />
                               <Column Id="%AID%_PB-03_C-2" Name="Name"            Text="Name"                       Width="40%" />
-                              <Column Id="%AID%_PB-03_C-3" Name="Init"            Text="Initialisieren"             Width="40%" />
-                              <Column Id="%AID%_PB-03_C-4" Name="PAEi"            Text="P( A | E_i )"               Width="15%" />
-                              <Column Id="%AID%_PB-03_C-5" Name="PAnEi"           Text="P( A | ~E_i )"              Width="15%" />
+                              <Column Id="%AID%_PB-03_C-3" Name="Init"            Text="Initialisierung"            Width="35%" />
+                              <Column Id="%AID%_PB-03_C-4" Name="PAEi"            Text="P( A | E_i )"               Width="18%" />
+                              <Column Id="%AID%_PB-03_C-5" Name="PAnEi"           Text="P( A | ~E_i )"              Width="18%" />
                             </Columns>
 
                             <!-- Binary KO 0 Deactivatable-->
@@ -3620,9 +3383,10 @@
 
                         </ParameterBlock>
                       </when>
+
                       <!-- ************ Text Format ************ -->
                       <when test="11">
-                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_TextFormatter" Text="%C% Text Format: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%000_R-%TT%%CC%00001" Icon="format-text-variant-outline" ShowInComObjectTree="true" HelpContext="FCB-TextFormatter">
+                        <ParameterBlock Id="%AID%_PB-nnn" Name="f%CC%FCB_TextFormatter" Text="%C% Text Format: {{0: ...}}" TextParameterRefId="%AID%_P-%TT%%CC%999_R-%TT%%CC%99901" Icon="format-text-variant-outline" ShowInComObjectTree="true" HelpContext="FCB-TextFormatter">
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="Text Format" UIHint="Headline" />
 
@@ -3642,7 +3406,7 @@
 
                           <!-- Format String -->
                           <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%300_R-%TT%%CC%30001" HelpContext="%DOC%" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Im Format String werden die Eingeänge über @1-@4 referenziert.&#xD;&#xA;Um ein @ auszugeben, muss @@ geschrieben werden.&#xD;&#xA;Beispiele sind in der Kontext Hilfe angeführt." UIHint="Information" />
+                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Im Format String werden die Eingänge über @1 bis @4 referenziert.&#xD;&#xA;Um ein @ auszugeben, muss @@ geschrieben werden.&#xD;&#xA;Beispiele sind in der Kontexthilfe angeführt." UIHint="Information" />
                        
 
                           <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
@@ -3654,491 +3418,16 @@
                           <!-- Ein Text -->
                           <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%302_R-%TT%%CC%30201" HelpContext="%DOC%" />
                    
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang 1 (Platzhalter @1)" UIHint="Headline" />
-
-                          <!-- Input Type-->
-                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%310_R-%TT%%CC%31001" HelpContext="FCB-FormatDataType" />
-                          <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                          <Enumeration Text="1.*           1-Bit (0/1)" Value="10" Id="%ENID%" />
-                          <Enumeration Text="5.*           8-Bit vorzeichenlos" Value="50" Id="%ENID%" />
-                          <Enumeration Text="5.001       Prozent (0..100%)" Value="51" Id="%ENID%" />
-                          <Enumeration Text="6.*           8-Bit vorzeichenbehaftet" Value="61" Id="%ENID%" />
-                          <Enumeration Text="7.*           2-Byte vorzeichenlos" Value="70" Id="%ENID%" />
-                          <Enumeration Text="8.*           2-Byte vorzeichenbehaftet" Value="80" Id="%ENID%" />
-                          <Enumeration Text="9.*           2-Byte Gleitkommawert" Value="90" Id="%ENID%" />
-                          <Enumeration Text="12.*         4-Byte vorzeichenlos" Value="120" Id="%ENID%" />
-                          <Enumeration Text="13.*         4-Byte vorzeichenbehaftet" Value="130" Id="%ENID%" />
-                          <Enumeration Text="14.*         4-Byte Gleitkommawert" Value="140" Id="%ENID%" />
-                          <Enumeration Text="16.*        14-Byte Zeichenfolge" Value="160" Id="%ENID%" /> -->
-                          <choose ParamRefId="%AID%_UP-%TT%%CC%310_R-%TT%%CC%31001">
-
-                            <!-- Input -->
-                            <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00002" /></when>
-                            <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00004" /></when>
-                            <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00014" /></when>
-                            <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00024" /></when>
-                            <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00034" /></when>
-                            <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00044" /></when>
-                            <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00054" /></when>
-                            <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00064" /></when>
-                            <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00074" /></when>
-                            <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00084" /></when>
-                            <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%000_R-%TT%%CC%00094" /></when>
-                            
-                            <when test="!=0"> <!-- Nicht deaktivert-->
-                              <!-- KO 1 Name -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_P-%TT%%CC%010_R-%TT%%CC%01001" HelpContext="FCB-InputName" />
-                            </when>
-                            <when test="10"> <!-- 1 Bit -->
-                              <!-- Bit Format-->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%318_R-%TT%%CC%31801" HelpContext="%DOC%" />
-                            </when>
-                            <when test="90 140"> <!-- Floating Types -->
-
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Vorkommastellen" />
-              
-                              <!-- Fillup Precomma -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%314_R-%TT%%CC%31401" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%314_R-%TT%%CC%31401">
-                                <when test="!=0">
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%411_R-%TT%%CC%41101" HelpContext="%DOC%" /> 
-                                </when>
-                              </choose>  
-                        
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-                              <!-- Numeric parameter -->
-                              <!-- Rounding float -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%311_R-%TT%%CC%31101" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%311_R-%TT%%CC%31101">
-                                <when test="1"> <!-- Nachkommastellen -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%316_R-%TT%%CC%31601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%317_R-%TT%%CC%31701" HelpContext="%DOC%" />
-                                  <!-- Stellen -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%312_R-%TT%%CC%31201" HelpContext="%DOC%" />
-                                  <choose ParamRefId="%AID%_UP-%TT%%CC%312_R-%TT%%CC%31201">
-                                    <when test="!=0">
-                                      <!-- Fillup After Comman -->
-                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%315_R-%TT%%CC%31501" HelpContext="%DOC%"  />
-                                    </when>
-                                  </choose>
-                                </when>
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%316_R-%TT%%CC%31601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%317_R-%TT%%CC%31701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%313_R-%TT%%CC%31301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                               
-                            </when>
-                     
-                            <when test="50 51 61 70 80 120 130"> <!-- Decimal Types -->
-                              
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Stellen" />
-              
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%410_R-%TT%%CC%41001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%410_R-%TT%%CC%41001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%411_R-%TT%%CC%41101" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-              
-                              <!-- Numeric parameter -->
-                              <!-- Rounding decimal -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%319_R-%TT%%CC%31901" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%319_R-%TT%%CC%31901">
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%316_R-%TT%%CC%31601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%317_R-%TT%%CC%31701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%313_R-%TT%%CC%31301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-
-                            <when test="160"> <!-- String Type -->    
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%410_R-%TT%%CC%41001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%410_R-%TT%%CC%41001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%411_R-%TT%%CC%41101" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>   
-                          </choose> 
-
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang 2 (Platzhalter @2)" UIHint="Headline" />
-
-                          <!-- Input Type-->
-                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%320_R-%TT%%CC%32001" HelpContext="FCB-FormatDataType" />
-                          <choose ParamRefId="%AID%_UP-%TT%%CC%320_R-%TT%%CC%32001">
-                            <!-- Input -->
-                            <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00102" /></when>
-                            <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00104" /></when>
-                            <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00114" /></when>
-                            <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00124" /></when>
-                            <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00134" /></when>
-                            <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00144" /></when>
-                            <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00154" /></when>
-                            <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00164" /></when>
-                            <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00174" /></when>
-                            <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00184" /></when>
-                            <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%001_R-%TT%%CC%00194" /></when>
-                            
-                            <when test="!=0"> <!-- Nicht deaktivert-->
-                              <!-- KO 2 Name -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_P-%TT%%CC%011_R-%TT%%CC%01101" HelpContext="FCB-InputName" />
-                            </when>
-                            <when test="10"> <!-- 1 Bit -->
-                              <!-- Bit Format-->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%328_R-%TT%%CC%32801" HelpContext="%DOC%" />
-                            </when>
-                            <when test="90 140"> <!-- Floating Types -->
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Vorkommastellen" />
-              
-                              <!-- Fillup Precomma -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%324_R-%TT%%CC%32401" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%324_R-%TT%%CC%32401">
-                                <when test="!=0">
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%421_R-%TT%%CC%42101" HelpContext="%DOC%" /> 
-                                </when>
-                              </choose>  
-                        
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-                              <!-- Numeric parameter -->
-                              <!-- Rounding float -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%321_R-%TT%%CC%32101" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%321_R-%TT%%CC%32101">
-                                <when test="1"> <!-- Nachkommastellen -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%326_R-%TT%%CC%32601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%327_R-%TT%%CC%32701" HelpContext="%DOC%" />
-                                  <!-- Stellen -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%322_R-%TT%%CC%32201" HelpContext="%DOC%" />
-                                  <choose ParamRefId="%AID%_UP-%TT%%CC%322_R-%TT%%CC%32201">
-                                    <when test="!=0">
-                                      <!-- Fillup After Comman -->
-                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%325_R-%TT%%CC%32501" HelpContext="%DOC%"  />
-                                    </when>
-                                  </choose> 
-                                </when>
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%326_R-%TT%%CC%32601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%327_R-%TT%%CC%32701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%323_R-%TT%%CC%32301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-                            <when test="50 51 61 70 80 120 130">
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Stellen" />
-              
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%420_R-%TT%%CC%42001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%420_R-%TT%%CC%42001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%421_R-%TT%%CC%42101" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-              
-                              <!-- Numeric parameter -->
-                              <!-- Rounding decimal -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%329_R-%TT%%CC%32901" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%329_R-%TT%%CC%32901">
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%326_R-%TT%%CC%32601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%327_R-%TT%%CC%32701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%323_R-%TT%%CC%32301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-                            <when test="160"> <!-- String Type -->    
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%420_R-%TT%%CC%42001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%420_R-%TT%%CC%42001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%421_R-%TT%%CC%42101" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>   
-                          </choose>
-
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang 3 (Platzhalter @3)" UIHint="Headline" />
-                          <!-- Input Type-->
-                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%330_R-%TT%%CC%33001" HelpContext="FCB-FormatDataType" />
-                          <choose ParamRefId="%AID%_UP-%TT%%CC%330_R-%TT%%CC%33001">
-                            <!-- Input -->
-                            <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00202" /></when>
-                            <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00204" /></when>
-                            <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00214" /></when>
-                            <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00224" /></when>
-                            <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00234" /></when>
-                            <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00244" /></when>
-                            <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00254" /></when>
-                            <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00264" /></when>
-                            <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00274" /></when>
-                            <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00284" /></when>
-                            <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%002_R-%TT%%CC%00294" /></when>
-                          
-                            <when test="!=0"> <!-- Nicht deaktivert-->
-                              <!-- KO 3 Name -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_P-%TT%%CC%012_R-%TT%%CC%01201" HelpContext="FCB-InputName" />
-                            </when>
-                            <when test="10"> <!-- 1 Bit -->
-                              <!-- Bit Format-->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%338_R-%TT%%CC%33801" HelpContext="%DOC%" />
-                            </when>
-                            <when test="90 140"> <!-- Floating Types -->
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Vorkommastellen" />
-
-                              <!-- Fillup Precomma -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%334_R-%TT%%CC%33401" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%334_R-%TT%%CC%33401">
-                                <when test="!=0">
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%431_R-%TT%%CC%43101" HelpContext="%DOC%" /> 
-                                </when>
-                              </choose>
-
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-                              <!-- Numeric parameter -->
-                              <!-- Rounding float -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%331_R-%TT%%CC%33101" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%331_R-%TT%%CC%33101">
-                                <when test="1"> <!-- Nachkommastellen -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%336_R-%TT%%CC%33601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%337_R-%TT%%CC%33701" HelpContext="%DOC%" />
-                                  <!-- Stellen -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%332_R-%TT%%CC%33201" HelpContext="%DOC%" />
-                                  <choose ParamRefId="%AID%_UP-%TT%%CC%332_R-%TT%%CC%33201">
-                                    <when test="!=0">
-                                      <!-- Fillup After Comman -->
-                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%335_R-%TT%%CC%33501" HelpContext="%DOC%"  />
-                                    </when>
-                                  </choose>
-                                </when>
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%336_R-%TT%%CC%33601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%337_R-%TT%%CC%33701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%333_R-%TT%%CC%33301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-                            <when test="50 51 61 70 80 120 130">
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Stellen" /> 
-
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%430_R-%TT%%CC%43001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%430_R-%TT%%CC%43001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%431_R-%TT%%CC%43101" HelpContext="%DOC%" />
-                                </when>
-                              </choose> 
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-                              <!-- Numeric parameter -->
-                              <!-- Rounding decimal -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%339_R-%TT%%CC%33901" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%339_R-%TT%%CC%33901">
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%336_R-%TT%%CC%33601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%337_R-%TT%%CC%33701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%333_R-%TT%%CC%33301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-                            <when test="160"> <!-- String Type -->    
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%430_R-%TT%%CC%43001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%430_R-%TT%%CC%43001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%431_R-%TT%%CC%43101" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>   
-                          </choose>
-
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                          <ParameterSeparator Id="%AID%_PS-nnn" Text="Eingang 4 (Platzhalter @4)" UIHint="Headline" />
-                          <!-- Input Type-->
-                          <ParameterRefRef  IndentLevel="1" RefId="%AID%_UP-%TT%%CC%340_R-%TT%%CC%34001" HelpContext="FCB-FormatDataType" />
-                          <choose ParamRefId="%AID%_UP-%TT%%CC%340_R-%TT%%CC%34001">
-                            <!-- Input -->
-                            <when  test="10"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00302" /></when>
-                            <when  test="50"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00304" /></when>
-                            <when  test="51"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00314" /></when>
-                            <when  test="61"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00324" /></when>
-                            <when  test="70"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00334" /></when>
-                            <when  test="80"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00344" /></when>
-                            <when  test="90"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00354" /></when>
-                            <when test="120"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00364" /></when>
-                            <when test="130"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00374" /></when>
-                            <when test="140"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00384" /></when>
-                            <when test="160"><ComObjectRefRef RefId="%AID%_O-%TT%%CC%003_R-%TT%%CC%00394" /></when> 
-                            <when test="!=0"> <!-- Nicht deaktivert-->
-                              <!-- KO 4 Name -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_P-%TT%%CC%013_R-%TT%%CC%01301" HelpContext="FCB-InputName" />
-                            </when>
-                            <when test="10"> <!-- 1 Bit -->
-                              <!-- Bit Format-->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%348_R-%TT%%CC%34801" HelpContext="%DOC%" />
-                            </when>
-                            <when test="90 140"> <!-- Floating Types -->
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Vorkommastellen" />
-                              <!-- Fillup Precomma -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%344_R-%TT%%CC%34401" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%344_R-%TT%%CC%34401">
-                                <when test="!=0">
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%441_R-%TT%%CC%44101" HelpContext="%DOC%" /> 
-                                </when>
-                              </choose>
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-                              <!-- Numeric parameter -->
-                              <!-- Rounding float -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%341_R-%TT%%CC%34101" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Nachkommastellen" Value="1" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%341_R-%TT%%CC%34101">
-                                <when test="1"> <!-- Nachkommastellen -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%346_R-%TT%%CC%34601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%347_R-%TT%%CC%34701" HelpContext="%DOC%" />
-                                  <!-- Stellen -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%342_R-%TT%%CC%34201" HelpContext="%DOC%" />
-                                  <choose ParamRefId="%AID%_UP-%TT%%CC%342_R-%TT%%CC%34201">
-                                    <when test="!=0">
-                                      <!-- Fillup After Comman -->
-                                      <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%345_R-%TT%%CC%34501" HelpContext="%DOC%"  />
-                                    </when>
-                                  </choose>
-                                </when>
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%346_R-%TT%%CC%34601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%347_R-%TT%%CC%34701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%343_R-%TT%%CC%34301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-                            <when test="50 51 61 70 80 120 130">
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Stellen" />
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%440_R-%TT%%CC%44001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%440_R-%TT%%CC%44001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%441_R-%TT%%CC%44101" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="" UIHint="HorizontalRuler" />
-                              <ParameterSeparator Id="%AID%_PS-nnn" Text="Genauigkeit" />
-                              <!-- Numeric parameter -->
-                              <!-- Rounding decimal -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%349_R-%TT%%CC%34901" HelpContext="%DOC%" />
-                              <!-- <Enumeration Text="Deaktiviert" Value="0" Id="%ENID%" />
-                              <Enumeration Text="Genauigkeit (Stellenanzahl)" Value="2" Id="%ENID%" /> -->
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%349_R-%TT%%CC%34901">
-                                <when test="2"> <!-- Genauigkeit (Stellenanzahl) -->
-                                  <!-- Round Type -->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%346_R-%TT%%CC%34601" HelpContext="%DOC%" />
-                                  <!-- Round to 5-->
-                                  <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%347_R-%TT%%CC%34701" HelpContext="%DOC%" />
-                                  <!-- Precision -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%343_R-%TT%%CC%34301" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-                            <when test="160"> <!-- String Type -->    
-                              <!-- Fillup mode -->
-                              <ParameterRefRef IndentLevel="2" RefId="%AID%_UP-%TT%%CC%440_R-%TT%%CC%44001" HelpContext="%DOC%" />
-                              <choose ParamRefId="%AID%_UP-%TT%%CC%440_R-%TT%%CC%44001">
-                                <when test="!=0"> <!-- Fillup mode = Fixed Length -->
-                                  <!-- Fillup Length -->
-                                  <ParameterRefRef IndentLevel="3" RefId="%AID%_UP-%TT%%CC%441_R-%TT%%CC%44101" HelpContext="%DOC%" />
-                                </when>
-                              </choose>
-                            </when>
-                          </choose>
-                              
+                          <op:usePart name="FORMAT_PARAMS" xpath="//ParameterBlock[@Name='FCB_FORMAT_PARAM']/*" />
 
                           <!-- Output -->
                           <ComObjectRefRef RefId="%AID%_O-%TT%%CC%009_R-%TT%%CC%00906" />
 
                         </ParameterBlock>
-                      </when>  
+                      </when>
+
                     </choose>
-                  </when>
-                </choose>
+
               </ParameterBlock>
             </ChannelIndependentBlock>
           </Dynamic>

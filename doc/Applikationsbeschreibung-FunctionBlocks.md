@@ -14,6 +14,7 @@ Folgende Funktionsblöcke stehen zur Auswahl:
   * [Wertüberwachung](#wertüberwachtung)
   * [Count-Down Zeitgeber](#count-down-zeitgeber)
   * [Blinker](#blinker)
+  * [Bayes Sensor](#bayes-sensor)
   * [Text Format](#text-format)
 
 
@@ -129,6 +130,14 @@ Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten ode
 <!-- DOCEND -->
 [ETS Konfiguration](#blinker-1)
 
+<!-- DOC -->
+## Bayes-Sensor
+
+Mit einem Bayes-Sensor-Funktionsblock kann auf Basis von Wahrscheinlichkeiten ein binärer Ausgangswert aus mehreren binären Eingangswerten ermittelt werden.
+
+<!-- DOCEND -->
+[ETS-Konfiguration](#bayes-sensor-1)
+
 <!-- DOC HelpContext="TextFormatter" -->
 ### Text Format ###
 
@@ -192,6 +201,10 @@ Für jeden Kanal kann für einen Funktionsblock konfiguriert werden:
   Die Anzahl der Blinkintervalle ist konfigurierbar und/oder über ein Gruppenobjekt steuerbar.
   Die jeweilige Ein- bzw. Ausschaltzeit kann in 10/Sekunden, Sekunden, Minuten oder Stunden festgelegt werden.
 
+- **Bayes Sensor**
+  Ermittelt einen binären Zustands-Wert aus bis zu 9 Eingangswerten, auf Basis eines Naiven Bayes-Klassifikators.
+  Der ausgegebene Wert entspricht dem wahrscheinlichsten Zustand bei gleichzeitigem Vorliegen der unabhängigen Eingangswerte.
+
 - **Text Format**
   Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.  
 
@@ -206,10 +219,10 @@ Die Bezeichnung wird innerhalb der ETS für die Benennung des Kanals und für di
 Die Bezeichnung hat keinen Einfluss auf das Verhalten des Funktionsblocks und kann jederzeit auch nachträglich angepasst werden.
 
 <!-- DOC -->
-### Kanal deaktivieren (zu Testzwecken)
+### Suspendiert
 
-Mit dieser Einstellung kann ein Kanal deaktiviert werden, ohne das die Konfigurationswerte und Gruppenadressen an den Kommunikationsobjekten verloren gehen.
-Ein deaktivierter Kanal sendet keine Telegramme auf dem KNX-Bus. 
+Mit dieser Einstellung wird der Kanal wie deaktiviert behandelt, aber die Kommunikationsobjekte und alle Einstellungen bleiben sichtbar.
+Dadurch müssen GA-Verknüpfungen nicht entfernt oder erneut hinzugefügt werden beim späteren Reaktivieren.
 
 
 <!-- DOC -->
@@ -269,18 +282,13 @@ Wird für die Gruppen-Objektfunktion verwendet und dient zur leichtern Zuordnung
 <!-- DOC -->
 ### Initialisierung
 
-Legt den Initialwert für den Eingang fest.
-Zur Auswahl stehen:
+Legt fest, wie der Eingang nach dem Gerätestart belegt wird:
 
-- **AUS**  
-  Der Eingang wird mit AUS vorbelegt
-- **EIN**  
-  Der Eingang wird mit EIN vorbelegt
-- **Vom Bus lesen, dann AUS**  
-  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
+- **AUS** - Der Eingang wird mit AUS vorbelegt
+- **EIN** - Der Eingang wird mit EIN vorbelegt
+- **Vom Bus lesen, dann AUS** - Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
   Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit AUS vorbelegt.
-- **Vom Bus lesen, dann EIN**  
-  Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
+- **Vom Bus lesen, dann EIN** - Es wird versucht den Eingangswert vom Bus über ein Lesetelegramm zu lesen. 
   Wird nach 3 Sekunden keine Antwort empfangen, wird der Eingang mit EIN vorbelegt.
 
 **Wichtig**: Die Vorbelegung erfolgt vor einer möglichen eingestellten Invertierung des Eingangswertes.
@@ -1034,6 +1042,49 @@ Diese Konfiguration ist nur vorhanden, wenn für den Datentype des Ausgangs "5.0
 
 Der Prozentwert der für AUS gesendet wird.
 
+<!-- DOC HelpContext="BayesianBinarySensor" -->
+## Bayes Sensor
+
+Ermittelt auf Basis von (bedingten) Wahrscheinlichkeiten einen binären Ausgangswert aus mehreren binären Eingangswerten.
+
+<!-- TODO Referenz / Quelle ergänzen -->
+Dafür müssen für alle Eingangswerte die Wahrscheinlichkeiten für den EIN-Ausgangswert angegeben werden.
+Eine Forderung nach stochastischer Unabhängigkeit der Eingänge kann in der Praxis abgeschwächt werden;
+solange keine "zu starke" Abhängigkeit besteht, sollen trotzdem nutzbare Ergebnisse geliefert werden.
+
+<!-- DOC -->
+### Prior-Wahrscheinlichkeit   P( A )
+
+Wahrscheinlichkeit, dass der Zustandswert EIN ist, unabhängig von den Eingangswerten.
+Bzw. Zeitanteil.
+
+<!-- DOC -->
+### Schwellwert für binären Ausgang
+
+Minimale Wahrscheinlichkeit, ab der der Ausgangswert auf EIN gesetzt wird. 
+
+<!-- DOC -->
+### Ein-/Ausgangs-Kombination
+
+Zusätzlich zum binären Ausgangswert kann die zugrunde liegende Wahrscheinlichkeit ausgegeben werden.
+Wenn das Wahrscheinlichkeits-KO aktiv ist, dann reduziert die maximale Anzahl der Eingänge auf 8.
+
+<!-- DOC Skip="5" -->
+Optionen:
+
+* 8 Eingänge + Wahrscheinlichkeits-Ausgang
+* 9 Eingänge
+
+<!-- DOC HelpContext="PSensorTRUE-EreignisTRUE" -->
+### P( A | E_i )
+
+Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der Wert EIN anliegt.
+
+<!-- DOC HelpContext="PSensorTRUE-EreignisFALSE" -->
+### P( A | ~E_i )
+
+Wahrscheinlichkeit, dass der Ausgangswert EIN ist, wenn an diesem Eingang der Wert AUS anliegt.
+
 <!--DOCEND -->
 ## Text Format
 
@@ -1043,14 +1094,14 @@ Funktionsblock zur Erzeugung von Texten aus verschiedenen Eingangswerten.
 ### Format 
 
 Formatierung der Ausgabe. 
-Für Parameter werden die Eingänge werden die Platzhalter #1-#9 verwendet. 
-Um ein '#'-Zeichen darzustellen, müssen ## Rauten eingegeben werden.
+Für Parameter werden die Eingänge werden die Platzhalter @1 bis @4 verwendet. 
+Um ein '@'-Zeichen darzustellen, müssen "@@" eingegeben werden.
 
 Beispiele:
 
-- Wind @1km/h........Wind 35km/h
-- @1° - @2°............22° - 24°
-- @1@@Home...........3@Home
+- "Wind @1km/h" → "Wind 35km/h" (mit Eingang1 = 35)  
+- "@1° - @2°" → "22° - 24°" (mit Eingang1 = 22 und Eingang2 = 24)
+- "@1@@Home" → "3@Home" (mit Eingang1 = 3)
 
 <!-- DOC -->
 ### Textbaustein Aus

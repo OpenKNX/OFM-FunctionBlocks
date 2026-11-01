@@ -79,7 +79,7 @@ void CountDownBlock::handleKo(GroupObject &ko)
             break;
         }
         case FCB_KoCHStartWithTime: {
-            uint8_t value = ko.value(DPT_Value_1_Ucount);
+            uint32_t value = ko.value(DPT_Value_1_Ucount);
             // <Enumeration Id="%ENID%" Value="0"  Text="Deaktiviert"  />
             // <Enumeration Id="%ENID%" Value="1"  Text="Sekunden"  />
             // <Enumeration Id="%ENID%" Value="2"  Text="Minuten"   />
