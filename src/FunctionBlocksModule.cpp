@@ -38,7 +38,9 @@ const std::string FunctionBlocksModule::version()
 void FunctionBlocksModule::setup(bool configured)
 {
     Module::setup(configured);
-    FCBChannelOwnerModule::initialize(configured ? ParamFCB_VisibleChannels : 0);
+    // Seit v0.11 gibt es keinen Kanalzaehler mehr; createChannel() filtert
+    // deaktivierte Kanaele selbst, daher alle Kanaele anlegen.
+    FCBChannelOwnerModule::initialize(configured ? FCB_ChannelCount : 0);
     FCBChannelOwnerModule::setup(configured);
     _startTime = millis();
 
